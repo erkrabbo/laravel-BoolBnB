@@ -15,6 +15,7 @@ class CreateHouseImagesTable extends Migration
     {
         Schema::create('house_images', function (Blueprint $table) {
             $table->id();
+            $table->string('path', 255);
             $table->timestamps();
         });
     }
