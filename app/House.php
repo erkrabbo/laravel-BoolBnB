@@ -21,4 +21,14 @@ class House extends Model
     public function house_images() {
         return $this->hasMany('App\HouseImage');
     }
+    
+    public function services()
+    {
+        return $this->belongsToMany(Service::class);
+    }
+
+    public function sponsorizations()
+    {
+        return $this->belongsToMany(Sponsorization::class);
+    }
 }
