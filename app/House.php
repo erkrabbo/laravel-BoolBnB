@@ -10,7 +10,8 @@ class House extends Model
         return $this->hasMany('App\Message');
     }
 
-    public function house_image() {
+    public function house_images() {
         return $this->hasMany('App\HouseImage');
     }
+
 }
