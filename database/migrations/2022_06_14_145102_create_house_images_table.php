@@ -15,8 +15,13 @@ class CreateHouseImagesTable extends Migration
     {
         Schema::create('house_images', function (Blueprint $table) {
             $table->id();
-            $table->string('path', 255);
+            $table->unsignedBigInteger('house_id');
+            $table->string('path');
             $table->timestamps();
+
+            $table->foreign('house_id')
+                ->references('id')
+                ->on('houses');
         });
     }
 
