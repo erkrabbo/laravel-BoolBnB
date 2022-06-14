@@ -15,7 +15,16 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('house_id');
+            $table->string('sender_mail');
+            $table->string('name')->nullable();
+            $table->string('surname')->nullable();
+            $table->text('content');
             $table->timestamps();
+
+            $table->foreign('house_id')
+                ->references('id')
+                ->on('houses');
         });
     }
 
