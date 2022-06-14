@@ -9,4 +9,8 @@ class House extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
+
+    public function views(){
+        return $this->hasMany('App\Views');
+    }
 }
