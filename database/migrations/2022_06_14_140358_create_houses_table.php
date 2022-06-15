@@ -21,7 +21,6 @@ class CreateHousesTable extends Migration
             $table->unsignedTinyInteger('N_of_rooms');
             $table->unsignedTinyInteger('N_of_beds');
             $table->unsignedTinyInteger('N_of_baths');
-            $table->unsignedBigInteger('Views');
             $table->unsignedSmallInteger('Mq');
             $table->date('Available_from');
             $table->date('Available_to');
