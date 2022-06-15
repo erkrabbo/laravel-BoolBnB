@@ -28,7 +28,7 @@ class CreateHousesTable extends Migration
             $table->string('Address');
             $table->float('Lat', 7,4);
             $table->float('Lng', 7,4);
-            $table->boolean('Visible');
+            $table->boolean('Visible')->default(1);
             $table->timestamps();
 
             $table->foreign('user_id')
