@@ -16,8 +16,8 @@ class CreateHousesTable extends Migration
         Schema::create('houses', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('Poster', 255);
-            $table->string('Title', 255);
+            $table->string('Poster');
+            $table->string('Title');
             $table->unsignedTinyInteger('N_of_rooms');
             $table->unsignedTinyInteger('N_of_beds');
             $table->unsignedTinyInteger('N_of_baths');
@@ -25,7 +25,7 @@ class CreateHousesTable extends Migration
             $table->unsignedSmallInteger('Mq');
             $table->date('Available_from');
             $table->date('Available_to');
-            $table->string('Address', 255);
+            $table->string('Address');
             $table->float('Lat', 7,4);
             $table->float('Lng', 7,4);
             $table->boolean('Visible');
