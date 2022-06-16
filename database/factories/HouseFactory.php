@@ -12,7 +12,7 @@ $factory->define(House::class, function (Faker $faker) {
 
     return [
         'user_id' => User::inRandomOrder()->first()->id,
-        'Poster' => $faker->image(),
+        'Poster' => $faker->imageUrl('houses', true),
         'Title' => $faker->word(rand(1, 5), true),
         'N_of_rooms' => $faker->randomDigit(10),
         'N_of_beds' => $faker->randomDigit(10),
