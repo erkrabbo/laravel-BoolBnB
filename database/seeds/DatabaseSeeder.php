@@ -19,5 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(HouseImageSeeder::class);
         $this->call(MessageSeeder::class);
         $this->call(ViewSeeder::class);
+        $this->call(HouseSponsorizationSeeder::class);
+        $this->call(HouseUserSeeder::class);
     }
 }

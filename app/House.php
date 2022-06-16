@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class House extends Model
 {
     public function user(){
-        return $this->belongsTo('App\User');
+        return $this->belongsToMany('App\User');
     }
 
     public function views(){
@@ -21,7 +21,7 @@ class House extends Model
     public function house_images() {
         return $this->hasMany('App\HouseImage');
     }
-    
+
     public function services()
     {
         return $this->belongsToMany(Service::class);
