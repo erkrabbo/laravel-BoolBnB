@@ -29,9 +29,10 @@ class HouseSeeder extends Seeder
             $availability_start = $faker->dateTimeInInterval('-30 year', '+30 year');
             $n_months = rand(1,11);
             $n_of_rooms = $faker->numberBetween(1, 9);
+            $imageid = rand(1, 3000);
             House::create([
                 'user_id' => User::inRandomOrder()->first()->id,
-                'Poster' => $faker->imageUrl('houses', true),
+                'Poster' => "https://loremflickr.com/320/240/hotel+room?lock=$imageid",
                 'Title' => $faker->word(rand(1, 5), true),
                 'Content' => $faker->text(50, 200),
                 'Night_price' => $faker->numberBetween(20000, 500000),

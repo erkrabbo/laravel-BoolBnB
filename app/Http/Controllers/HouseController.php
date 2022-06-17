@@ -7,6 +7,7 @@ use App\House;
 use App\Service;
 use App\HouseImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class HouseController extends Controller
@@ -16,11 +17,19 @@ class HouseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function home()
     {
-        $houses = House::all();
+        // $sponsoredHouses = House::all();
+        $sponsoredHouses = DB::table('house_sponsorization')
+            ->join('houses', 'houses.id', '=', 'house_sponsorization.house_id')
+            ->select('house_sponsorization.*', 'houses.*')
+            ->get();
 
-        return view('houses.index', compact('houses'));
+        $houses = DB::table('houses')
+            ->orderBy('created_at')
+            ->get();
+
+        return view('home', compact('sponsoredHouses', 'houses'));
     }
 
     /**
