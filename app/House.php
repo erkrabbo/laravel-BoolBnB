@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Concerns\Filterable;
 
 class House extends Model
 {
+    use Filterable;
+
     public function user(){
         return $this->belongsToMany('App\User');
     }
