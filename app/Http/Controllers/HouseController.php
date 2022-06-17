@@ -71,7 +71,7 @@ class HouseController extends Controller
             'house'     => $house,
             'services'  => $services,
             'images'    => $images
-        ])
+        ]);
     }
 
     /**
