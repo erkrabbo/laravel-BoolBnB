@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\House;
+use App\Service;
+use App\HouseImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HouseController extends Controller
 {
@@ -57,7 +60,16 @@ class HouseController extends Controller
      */
     public function edit(House $house)
     {
-        //
+        if (Auth::user()->id !== $house->user_id) abort(403);
+
+        $services = Service::all();
+        $images = HouseImage::all();
+
+        return view('admin.houses.edit', [
+            'house'     => $house,
+            'services'  => $services,
+            'images'    => $images
+        ])
     }
 
     /**
@@ -69,7 +81,11 @@ class HouseController extends Controller
      */
     public function update(Request $request, House $house)
     {
-        //
+        if (Auth::user()->id !== $house->user_id) abort(403);
+        $houseData = $request->all();
+        $house->update($houseData);
+
+        return redirect()->route('admin.houses.show', $house->id);
     }
 
     /**
