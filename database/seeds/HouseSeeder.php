@@ -41,8 +41,8 @@ class HouseSeeder extends Seeder
                 'Available_from' => $availability_start,
                 'Available_to' => date('Y-m-d', strtotime($availability_start->format('Y-m-d') . "+ $n_months month")),
                 'Address' => $address,
-                'Lat' => $lat?$lat:0,
-                'Lng' => $lon?$lon:0,
+                'Lat' => $lat?$lat:null,
+                'Lng' => $lon?$lon:null,
             ]);
         }
     }
