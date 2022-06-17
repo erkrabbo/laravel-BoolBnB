@@ -14,6 +14,8 @@
                     @foreach ($house_images as $house_image)
                         <img src="{{ $house_image->path }}" alt="">
                     @endforeach
+                    <h4 class="pt-2">Descrizione:</h4>
+                    <p>{{ $house->Content }}</p>
                     <h4 class="pt-2">Proprietario: {{ $user->name }}</h4>
                     @auth
                         @if(Auth::User()->id == $house->user_id)
