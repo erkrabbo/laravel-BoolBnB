@@ -6,7 +6,7 @@ return[
     'Via di Tor Pignattara, 114, 00176 Roma RM',
     'Via Alessandro Stoppato, 107, 00173 Roma RM',
     'Via Benedetto Torti, 33, 00173 Roma RM',
-    'Viale Magico Bomboniere, Largo Luigi Cennamo, Camigliano, CE',
+    // 'Viale Magico Bomboniere, Largo Luigi Cennamo, Camigliano, CE',
     'Largo Luigi Cennamo, 21, 81050 Camigliano CE',
     'Piazza di Monte Citorio, 00186 Roma RM',
     'Piazza di Spagna, 46, 00187 Roma RM',
@@ -21,4 +21,8 @@ return[
     'Via Santa Maria in Duno, 40010 Bentivoglio BO',
     'Via degli Erizzo, 1, 20148 Milano MI',
     'Via dei Frangipani, 6, 20148 Milano MI',
+    'Viale Federico Caprilli, 19, 20148 Milano MI',
+    'Via Breguzzo, 18, 20148 Milano MI',
+    'Via Cesare Ajraghi, 20156 Milano MI',
+    ''
 ];
