@@ -26,8 +26,8 @@ class CreateHousesTable extends Migration
             $table->date('Available_from');
             $table->date('Available_to');
             $table->string('Address');
-            $table->float('Lat', 7,4);
-            $table->float('Lng', 7,4);
+            $table->float('Lat', 7,4)->nullable();
+            $table->float('Lng', 7,4)->nullable();
             $table->boolean('Visible')->default(1);
             $table->timestamps();
 

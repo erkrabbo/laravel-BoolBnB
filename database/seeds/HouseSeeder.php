@@ -28,15 +28,16 @@ class HouseSeeder extends Seeder
             $lon = count($response -> results) ? $response -> results[0] -> position -> lon : 0 ;
             $availability_start = $faker->dateTimeInInterval('-30 year', '+30 year');
             $n_months = rand(1,11);
+            $n_of_rooms = $faker->numberBetween(1, 9);
             House::create([
                 'user_id' => User::inRandomOrder()->first()->id,
                 'Poster' => $faker->imageUrl('houses', true),
                 'Title' => $faker->word(rand(1, 5), true),
-                'Night_price' => $faker->numberBetween(20, 5000),
-                'N_of_rooms' => $faker->randomDigit(10),
-                'N_of_beds' => $faker->randomDigit(10),
-                'N_of_baths' => $faker->randomDigit(10),
-                'Mq' => $faker->randomDigit(10, 300),
+                'Night_price' => $faker->numberBetween(20000, 500000),
+                'N_of_rooms' => $n_of_rooms,
+                'N_of_beds' => $faker->numberBetween(1, $n_of_rooms),
+                'N_of_baths' => $faker->numberBetween(1, 9),
+                'Mq' => $faker->numberBetween(10, 300),
                 'Available_from' => $availability_start,
                 'Available_to' => date('Y-m-d', strtotime($availability_start->format('Y-m-d') . "+ $n_months month")),
                 'Address' => $address,
