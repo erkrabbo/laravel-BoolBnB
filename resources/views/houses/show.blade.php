@@ -14,9 +14,14 @@
                     @foreach ($house_images as $house_image)
                         <img src="{{ $house_image->path }}" alt="">
                     @endforeach
+                    <h4 class="pt-2">Descrizione:</h4>
+                    <p>{{ $house->Content }}</p>
                     <h4 class="pt-2">Proprietario: {{ $user->name }}</h4>
-                    
-                    {{-- <a class="btn btn-primary mt-4" href="{{ route('houses.edit') }}"><span class="text-white">Modifica l'inserzione</span></a> --}}
+                    @auth
+                        @if(Auth::User()->id === $house->user_id)
+                            <a class="btn btn-primary mt-4" href="{{ route('houses.edit', $house->id) }}"><span class="text-white">Modifica l'inserzione</span></a>
+                        @endif
+                    @endauth
                     {{-- <a class="btn btn-primary mt-4" href="{{ route('houses.destroy') }}"><span class="text-white">Elimina l'inserzione</span></a> --}}
 
                 </div>
