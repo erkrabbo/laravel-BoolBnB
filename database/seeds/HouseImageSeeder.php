@@ -16,11 +16,12 @@ class HouseImageSeeder extends Seeder
         $houses = House::all();
 
         foreach ($houses as $house) {
+            $imageid = rand(1, 3000);
             $max = rand(0, 4);
             for ($_i = 1; $_i <= $max; $_i++ ){
                 HouseImage::create([
                     'house_id' => $house->id,
-                    'path'     => 'https://picsum.photos/200/300?nocache='.microtime()
+                    'path'     => "https://loremflickr.com/320/240/hotel+room?lock=$imageid",
                 ]);
             }
         }

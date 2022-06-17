@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\House;
 use App\Service;
 use App\HouseImage;
@@ -58,9 +59,17 @@ class HouseController extends Controller
      * @param  \App\House  $house
      * @return \Illuminate\Http\Response
      */
-    public function show(House $house)
+    public function show(House $house) 
     {
-        return view('houses.show', compact('house'));
+        $user = User::where('id', "$house->user_id")->first();
+        $house_images = HouseImage::where('house_id', "$house->id")->get();
+                        
+        return view('houses.show', [
+            'pageTitle' => $house->Title,
+            'house' => $house,
+            'user' => $user,
+            'house_images' => $house_images,
+        ]);
     }
 
     /**
@@ -72,7 +81,6 @@ class HouseController extends Controller
     public function edit(House $house)
     {
         if (Auth::user()->id !== $house->user_id) abort(403);
-
         $services = Service::all();
         $images = HouseImage::all();
 

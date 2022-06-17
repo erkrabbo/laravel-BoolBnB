@@ -18,6 +18,7 @@ class CreateHousesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('Poster');
             $table->string('Title');
+            $table->text('Content');
             $table->unsignedMediumInteger('Night_price');
             $table->unsignedTinyInteger('N_of_rooms');
             $table->unsignedTinyInteger('N_of_beds');

@@ -14,10 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/houses', 'HouseController@index');
+Route::resource('/houses', 'HouseController')->only('show');
 
 Auth::routes();
-Route::get('/houses', 'HouseController@index');
-Route::get('/houses/{id}', 'HouseController@show');
+
+// Route::resource('houses', 'HouseController');
+
+
 Route::middleware('auth')->group(function () {
     Route::resource('admin/houses', 'HouseController')->except('index','show');
 });

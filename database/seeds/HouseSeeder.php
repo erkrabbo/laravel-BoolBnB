@@ -33,6 +33,7 @@ class HouseSeeder extends Seeder
                 'user_id' => User::inRandomOrder()->first()->id,
                 'Poster' => $faker->imageUrl('houses', true),
                 'Title' => $faker->word(rand(1, 5), true),
+                'Content' => $faker->text(50, 200),
                 'Night_price' => $faker->numberBetween(20000, 500000),
                 'N_of_rooms' => $n_of_rooms,
                 'N_of_beds' => $faker->numberBetween(1, $n_of_rooms),
