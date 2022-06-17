@@ -48,7 +48,7 @@ class HouseController extends Controller
      */
     public function show(House $house)
     {
-        //
+        return view('houses.show', compact('house'));
     }
 
     /**
@@ -82,6 +82,8 @@ class HouseController extends Controller
      */
     public function destroy(House $house)
     {
-        //
+        $house->delete();
+
+        return redirect()->route('houses.index');
     }
 }
