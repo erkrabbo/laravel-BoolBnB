@@ -74,12 +74,12 @@ class HouseController extends Controller
         if (Auth::user()->id !== $house->user_id) abort(403);
 
         $services = Service::all();
-        $images = HouseImage::all();
+        //$images = HouseImage::all();
 
         return view('houses.edit', [
             'house'     => $house,
             'services'  => $services,
-            'images'    => $images
+            //'images'    => $images
         ]);
     }
 
