@@ -107,6 +107,8 @@ class HouseController extends Controller
      */
     public function destroy(House $house)
     {
+        if (Auth::user()->id !== $house->user_id) abort(403);
+
         $house->delete();
 
         return redirect()->route('houses.index');
