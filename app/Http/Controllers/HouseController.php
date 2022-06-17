@@ -76,7 +76,7 @@ class HouseController extends Controller
         $services = Service::all();
         $images = HouseImage::all();
 
-        return view('admin.houses.edit', [
+        return view('houses.edit', [
             'house'     => $house,
             'services'  => $services,
             'images'    => $images
@@ -96,7 +96,7 @@ class HouseController extends Controller
         $houseData = $request->all();
         $house->update($houseData);
 
-        return redirect()->route('admin.houses.show', $house->id);
+        return redirect()->route('houses.show', $house->id);
     }
 
     /**
