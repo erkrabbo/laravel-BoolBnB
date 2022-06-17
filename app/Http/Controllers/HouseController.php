@@ -42,7 +42,7 @@ class HouseController extends Controller
     {
         $request->validate([
             'user_id' => 'required',
-            'Poster' => 'required',
+            // 'Poster' => 'required',
             'Title' => 'required',
             'Night_price' => 'required',
             'N_of_rooms' => 'required',
@@ -50,6 +50,7 @@ class HouseController extends Controller
 
         House::create($request->all());
         return redirect()->route('houses.index');
+        // dd($request->all());
     }
 
     /**
