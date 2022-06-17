@@ -16,7 +16,7 @@ class HouseImageSeeder extends Seeder
         $houses = House::all();
 
         foreach ($houses as $house) {
-            $imageid = rand(1, 3000);
+            $imageid = rand(5, 3000);
             $max = rand(0, 4);
             for ($_i = 1; $_i <= $max; $_i++ ){
                 HouseImage::create([
