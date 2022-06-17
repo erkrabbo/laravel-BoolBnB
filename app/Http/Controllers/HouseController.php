@@ -40,17 +40,28 @@ class HouseController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $request->validate([
-            'user_id' => 'required',
+            // 'user_id' => 'required',
             // 'Poster' => 'required',
             'Title' => 'required',
             'Night_price' => 'required',
             'N_of_rooms' => 'required',
         ]);
 
-        House::create($request->all());
-        return redirect()->route('houses.index');
-        // dd($request->all());
+        $house = House::create([
+            'Poster' => $request->Poster,
+            'Title' => $request->Title,
+            'Night_price' => $request->Night_price,
+            'N_of_rooms' => $request->N_of_rooms,
+            'N_of_beds' => $request->N_of_beds,
+            'N_of_baths' => $request->N_of_baths,
+            'Mq' => $request->Mq,
+            'Available_from' => $request->Available_from,
+            'Available_to' => $request->Available_to,
+            'Address' => $request->Address,
+            'user_id' => Auth::id()]);
+        return redirect()->route('houses.show', $house->id);
     }
 
     /**

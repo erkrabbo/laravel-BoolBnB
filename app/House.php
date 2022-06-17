@@ -34,4 +34,19 @@ class House extends Model
     {
         return $this->belongsToMany(Sponsorization::class);
     }
+
+    protected $fillable = [
+        'user_id',
+        'Title',
+        'Poster',
+        'Night_price',
+        'N_of_rooms',
+        'N_of_beds',
+        'N_of_baths',
+        'Mq',
+        'Available_from',
+        'Available_to',
+        'Address',
+        'Visible',
+    ];
 }
