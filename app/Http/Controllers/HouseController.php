@@ -24,7 +24,7 @@ class HouseController extends Controller
      */
     public function create()
     {
-        //
+        return view('houses.create');
     }
 
     /**
@@ -35,7 +35,16 @@ class HouseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'user_id' => 'required',
+            'Poster' => 'required',
+            'Title' => 'required',
+            'Night_price' => 'required',
+            'N_of_rooms' => 'required',
+        ]);
+
+        House::create($request->all());
+        return redirect()->route('houses.index');
     }
 
     /**
