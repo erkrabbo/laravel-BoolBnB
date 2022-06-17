@@ -24,5 +24,4 @@ return[
     'Viale Federico Caprilli, 19, 20148 Milano MI',
     'Via Breguzzo, 18, 20148 Milano MI',
     'Via Cesare Ajraghi, 20156 Milano MI',
-    ''
 ];
