@@ -70,6 +70,12 @@ class HouseController extends Controller
      */
     public function show(House $house) 
     {
+        $services = DB::table('house_service')
+            ->join('services','services.id', '=', 'service_id')
+            ->where('house_id', $house->id)
+            ->get();
+        // dd($services);
+
         $user = User::where('id', "$house->user_id")->first();
         $house_images = HouseImage::where('house_id', "$house->id")->get();
                         
@@ -78,6 +84,7 @@ class HouseController extends Controller
             'house' => $house,
             'user' => $user,
             'house_images' => $house_images,
+            'services' => $services,
         ]);
     }
 
