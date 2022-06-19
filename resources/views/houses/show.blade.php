@@ -10,10 +10,8 @@
             <div class="row">
                 <div class="col">
                     <h1 class="bold pt-2 text-uppercase">{{ $house->Title }}</h1>
-                    <h6 class="text-secondary pt-2 text-lowercase">{{ $house->Address }}</h6>
-                    
-                    
-                    <div class="house-img d-flex align-items-stretch w-100 h-75 py-5">
+                    <h6 class="text-secondary pt-2 text-uppercase">{{ $house->Address }}</h6>
+                    <div class="house-img d-flex align-items-stretch w-100 h-50 py-5">
                         <img class="img-rounded w-50 py-1" src="{{ $house->Poster }}" alt="{{ $house->Title }}">
                         <div class="side-imgs d-flex flex-wrap w-50">
                             @foreach ($house_images as $house_image)
@@ -21,19 +19,18 @@
                             @endforeach
                         </div>
                     </div>
-                    
                     <div class="d-flex mt-3">
                         <div class="w-50">
-                            <h4 class="lighter py-3">Proprietario: {{ $user->name }}</h4>
+                            <h4 class="lighter py-3 ps-1">Proprietario: {{ $user->name }}</h4>
                             <div class="py-3 content ">
-                                <h4 class="bold">Descrizione:</h4>
-                                <p>{{ $house->Content }}</p>
+                                <h4 class="bold ps-1">Descrizione:</h4>
+                                <p class="ps-1">{{ $house->Content }}</p>
                             </div>
                             <div class="pt-3">
-                                <h4 class="bold">Servizi inclusi:</h4>
+                                <h4 class="bold ps-1">Servizi inclusi:</h4>
                                 <div class="d-flex flex-wrap services">
                                     @foreach($services as $service)
-                                        <h6>{{ $service->name }}</h6> 
+                                        <h6 class="ps-1">{{ ucfirst($service->name) }}</h6> 
                                         {{$loop->last ? '.' : ','}}
                                     @endforeach
                                 {{-- pensare se aggiungere tutti i servizi e implementare la logica per cui
@@ -41,7 +38,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="book_form w-50 mx-4 py-3">
                             <div class="price d-flex justify-content-center">
                                 <h2>{{round($house->Night_price / 1000)}} € <span class="text-secondary"> / notte</span></h2>
@@ -72,11 +68,10 @@
                     </div>
                     @auth
                         @if(Auth::User()->id === $house->user_id)
-                            <a class="btn btn-primary mt-4" href="{{ route('houses.edit', $house->id) }}"><span class="text-white">Modifica l'inserzione</span></a>
+                            <a class="btn btn-primary mt-4 mb-2" href="{{ route('houses.edit', $house->id) }}"><span class="text-white">Modifica l'inserzione</span></a>
                         @endif
                     @endauth
                     {{-- <a class="btn btn-primary mt-4" href="{{ route('houses.destroy') }}"><span class="text-white">Elimina l'inserzione</span></a> --}}
-
                 </div>
             </div>
             {{-- aggiungere form per messaggio per contattare l'host --}}
