@@ -80,11 +80,11 @@ class HouseController extends Controller
      * @param  \App\House  $house
      * @return \Illuminate\Http\Response
      */
-    public function show(House $house) 
+    public function show(House $house)
     {
         $user = User::where('id', "$house->user_id")->first();
         $house_images = HouseImage::where('house_id', "$house->id")->get();
-                        
+
         return view('houses.show', [
             'pageTitle' => $house->Title,
             'house' => $house,
