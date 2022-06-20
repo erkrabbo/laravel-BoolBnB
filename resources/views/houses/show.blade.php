@@ -8,19 +8,11 @@
     <main>
         <div class="container">
             <div class="row">
-                <div class="col">
-                    <h1 class="pt-2 text-uppercase">{{ $house->Title }}</h1>
-                    <h6 class="pt-2 text-lowercase">{{ $house->Address }}</h6>
-                    <h4 class="pt-2">Proprietario: {{ $user->name }}</h4>
-                    <div class="house-img">
-                        <img class="img-fluid" src="{{ Storage::exists($house->Poster) ? asset('storage/' . $house->Poster) : $house->Poster }}" alt="">
-                        @foreach ($house_images as $house_image)
-                            <img class="pb-2" src="{{ $house_image->path }}" alt="{{ $house->Title }}" class="img-fluid">
-                        @endforeach
+                <div class="col">    
                     <h1 class="bold pt-2 text-uppercase">{{ $house->Title }}</h1>
                     <h6 class="text-secondary pt-2 text-uppercase">{{ $house->Address }}</h6>
                     <div class="house-img d-flex align-items-stretch w-100 h-50 py-5">
-                        <img class="img-rounded w-50 py-1" src="{{ $house->Poster }}" alt="{{ $house->Title }}">
+                        <img class="img-rounded w-50 py-1" src="{{ Storage::exists($house->Poster) ? asset('storage/' . $house->Poster) : $house->Poster }}" alt="{{ $house->Title }}">
                         <div class="side-imgs d-flex flex-wrap w-50">
                             @foreach ($house_images as $house_image)
                                 <img class="img-rounded w-50 h-50 p-1" src="{{ $house_image->path }}" alt="{{ $house->Title }}">
