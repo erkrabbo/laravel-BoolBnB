@@ -12178,3 +12178,56 @@ fieldset:disabled .btn {
   }
 }
 
+.img-rounded,
+.book_date_guest,
+.book_form,
+.book-btn {
+  border-radius: 1.5rem;
+}
+
+.img-rounded {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.bold {
+  font-weight: bolder;
+}
+
+.lighter {
+  font-weight: lighter;
+}
+
+.content {
+  border-top: 2px solid lightgray;
+  border-bottom: 2px solid lightgray;
+}
+
+.book_date_guest {
+  border: 1px solid gray;
+}
+
+.book_form {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.check-in {
+  border-top-left-radius: 1.5rem;
+  border-right: 1px solid gray;
+  border-left: none;
+  border-top: none;
+  border-bottom: none;
+}
+
+.check-out {
+  border-top-right-radius: 1.5rem;
+  border: none;
+}
+
+.guest {
+  border: none;
+  border-top: 1px solid gray;
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+}
+
