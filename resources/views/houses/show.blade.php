@@ -13,7 +13,7 @@
                     <h6 class="pt-2 text-lowercase">{{ $house->Address }}</h6>
                     <h4 class="pt-2">Proprietario: {{ $user->name }}</h4>
                     <div class="house-img">
-                        <img src="{{ $house->Poster }}" alt="{{ $house->Title }}">
+                        <img src="{{ asset('storage/' . $house->Poster) }}" alt="{{ $house->Title }}">
                         @foreach ($house_images as $house_image)
                             <img class="pb-2" src="{{ $house_image->path }}" alt="{{ $house->Title }}">
                         @endforeach

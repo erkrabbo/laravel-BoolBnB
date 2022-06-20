@@ -3,14 +3,14 @@
 @section('content')
 <h1>create</h1>
     <div class="container">
-        <form action="{{route('houses.store')}}" method="POST">
+        <form action="{{route('houses.store')}}" method="POST" enctype="multipart/form-data">
 
         @csrf
 
         <div class="mb-3">
             <label class="form-label" for="Poster">Immagine di copertina</label>
             {{-- <input class="form-control" type="file" name="Poster" value="{{ old('Poster') }}"> --}}
-            <input class="form-control" type="text" name="Poster" value="{{ old('Poster') }}">
+            <input class="form-control" type="text" name="Poster" accept="image/*" value="{{ old('Poster') }}">
 
         </div>
         @error('Poster')
