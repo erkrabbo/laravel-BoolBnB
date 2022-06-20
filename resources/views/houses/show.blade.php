@@ -33,8 +33,6 @@
                                         <h6 class="ps-1">{{ ucfirst($service->name) }}</h6> 
                                         {{$loop->last ? '.' : ','}}
                                     @endforeach
-                                {{-- pensare se aggiungere tutti i servizi e implementare la logica per cui
-                                se i servizi non sono inclusi nella casa sbarrarli --}}
                                 </div>
                             </div>
                         </div>
