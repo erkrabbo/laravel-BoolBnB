@@ -38,7 +38,11 @@
                         </div>
                         <div class="book_form w-50 mx-4 py-3">
                             <div class="price d-flex justify-content-center">
+                                @if($house->Night_price < 1000)
+                                <h2>{{$house->Night_price}} € <span class="text-secondary"> / notte</span></h2>
+                                @else
                                 <h2>{{round($house->Night_price / 1000)}} € <span class="text-secondary"> / notte</span></h2>
+                                @endif
                             </div>
                             <div class="d-flex justify-content-center">
                                 <div class="book_date_guest w-75 h-50">
@@ -69,6 +73,8 @@
                             <a class="btn btn-primary mt-4 mb-2" href="{{ route('houses.edit', $house->id) }}"><span class="text-white">Modifica l'inserzione</span></a>
                         @endif
                     @endauth
+                    <a class="btn btn-primary mt-4 mb-2" href="{{ route('houses.create', $house->id) }}"><span class="text-white">Crea una nuova casa</span></a>
+
                     {{-- <a class="btn btn-primary mt-4" href="{{ route('houses.destroy') }}"><span class="text-white">Elimina l'inserzione</span></a> --}}
                 </div>
             </div>
