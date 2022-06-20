@@ -13,9 +13,9 @@
                     <h6 class="pt-2 text-lowercase">{{ $house->Address }}</h6>
                     <h4 class="pt-2">Proprietario: {{ $user->name }}</h4>
                     <div class="house-img">
-                        <img src="{{ asset('storage/' . $house->Poster) }}" alt="{{ $house->Title }}">
+                        <img class="img-fluid" src="{{ Storage::exists($house->Poster) ? asset('storage/' . $house->Poster) : $house->Poster }}" alt="">
                         @foreach ($house_images as $house_image)
-                            <img class="pb-2" src="{{ $house_image->path }}" alt="{{ $house->Title }}">
+                            <img class="pb-2" src="{{ $house_image->path }}" alt="{{ $house->Title }}" class="img-fluid">
                         @endforeach
                     </div>
                     <h4 class="pt-2">Descrizione:</h4>

@@ -31,20 +31,20 @@ class HouseSeeder extends Seeder
             $n_of_rooms = $faker->numberBetween(1, 9);
             $imageid = rand(1, 3000);
             House::create([
-                'user_id' => User::inRandomOrder()->first()->id,
-                'Poster' => "https://loremflickr.com/320/240/hotel+room?lock=$imageid",
-                'Title' => $faker->word(rand(1, 5), true),
-                'Night_price' => $faker->numberBetween(20000, 500000),
-                'Content' => $faker->realText(300, 2),
-                'N_of_rooms' => $n_of_rooms,
-                'N_of_beds' => $faker->numberBetween(1, $n_of_rooms),
-                'N_of_baths' => $faker->numberBetween(1, 9),
-                'Mq' => $faker->numberBetween(10, 300),
+                'user_id'        => User::inRandomOrder()->first()->id,
+                'Poster'         => "https://loremflickr.com/320/240/hotel+room?lock=$imageid",
+                'Title'          => $faker->word(rand(1, 5), true),
+                'Night_price'    => $faker->numberBetween(20000, 500000),
+                'Content'        => $faker->realText(300, 2),
+                'N_of_rooms'     => $n_of_rooms,
+                'N_of_beds'      => $faker->numberBetween(1, $n_of_rooms),
+                'N_of_baths'     => $faker->numberBetween(1, 9),
+                'Mq'             => $faker->numberBetween(10, 300),
                 'Available_from' => $availability_start,
-                'Available_to' => date('Y-m-d', strtotime($availability_start->format('Y-m-d') . "+ $n_months month")),
-                'Address' => $address,
-                'Lat' => $lat?$lat:null,
-                'Lng' => $lon?$lon:null,
+                'Available_to'   => date('Y-m-d', strtotime($availability_start->format('Y-m-d') . "+ $n_months month")),
+                'Address'        => $address,
+                'Lat'            => $lat?$lat:null,
+                'Lng'            => $lon?$lon:null,
             ]);
         }
     }

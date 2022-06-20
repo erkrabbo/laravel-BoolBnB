@@ -22,10 +22,11 @@
                         <label for="Poster" class="form-label"><h4>{{ __('Poster') }}</h4></label>
                         <input class="form-control" type="file" id="Poster" name="Poster" accept="image/*">
                     </div>
-                    <img src="{{ asset('storage/' . $house->Poster) }}" alt="" class="img-fluid">
+                    <img class="img-fluid" src="{{ Storage::exists($house->Poster) ? asset('storage/' . $house->Poster) : $house->Poster }}" alt="">
                     @error('Poster')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
+
 
                     <div class="mb-3">
                         <label for="N_of_rooms" class="form-label"><h4>{{ __('N_of_rooms') }}</h4></label>
