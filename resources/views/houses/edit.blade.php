@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-8 offset-2">
-                <h1 class="text-center">Add a house</h1>
+                <h1 class="text-center">Edit this house</h1>
                 <form method="POST" action="{{ route('houses.update', $house->id) }}" class="mb-3" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -22,10 +22,11 @@
                         <label for="Poster" class="form-label"><h4>{{ __('Poster') }}</h4></label>
                         <input class="form-control" type="file" id="Poster" name="Poster" accept="image/*">
                     </div>
-                    <img src="{{ $house->Poster }}" alt="" class="img-fluid">
+                    <img class="img-fluid" src="{{ Storage::exists($house->Poster) ? asset('storage/' . $house->Poster) : $house->Poster }}" alt="">
                     @error('Poster')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
+
 
                     <div class="mb-3">
                         <label for="N_of_rooms" class="form-label"><h4>{{ __('N_of_rooms') }}</h4></label>
@@ -101,22 +102,6 @@
                     @error('Address')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
-
-                    {{--<div class="mb-3">
-                        <label for="Lat" class="form-label"><h4>{{ __('Lat') }}</h4></label>
-                        <input type="text" name="Lat" class="form-control" id="Lat" value="{{ old('Lat', $house->Lat) }}">
-                    </div>
-                    @error('Lat')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-
-                    <div class="mb-3">
-                        <label for="Lng" class="form-label"><h4>{{ __('Lng') }}</h4></label>
-                        <input type="text" name="Lng" class="form-control" id="Lng" value="{{ old('Lng', $house->Lng) }}">
-                    </div>
-                    @error('Lng')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror--}}
 
                     <div class="mb-3">
                         <label for="Visible" class="form-label"><h4>{{ __('Visible') }}</h4></label>
