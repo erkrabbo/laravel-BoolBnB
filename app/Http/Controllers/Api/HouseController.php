@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Concerns\Filterable;
 
 class HouseController extends Controller
 {
+    use Filterable;
     public function sponsored()
     {
         // $sponsoredHouses = House::all();
@@ -47,5 +49,13 @@ class HouseController extends Controller
         return response()->json([
             'houses' => $houses,
         ]);
+    }
+    public function search(Request $request) {
+        $houses = $this->filterHouses($request)->get();
+
+        return response()->json([
+            'houses' => $houses,
+        ]);
+
     }
 }

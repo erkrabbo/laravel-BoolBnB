@@ -60,7 +60,7 @@ class HouseController extends Controller
 
     public function index(Request $request)
     {
-        $houses = $this->filterHouses($request)->get();
+        $houses = $this->filterHouses($request);
         return view('houses.index', compact('houses'));
     }
     /**

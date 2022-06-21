@@ -5102,7 +5102,21 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_HouseCard_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/HouseCard.vue */ "./resources/js/components/HouseCard.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_HouseCard_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/HouseCard.vue */ "./resources/js/components/HouseCard.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5125,12 +5139,56 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 // import Axios from 'axios'
-// import Axios from 'axios';
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'App',
   components: {
-    HouseCard: _components_HouseCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    HouseCard: _components_HouseCard_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  methods: {
+    tomSearch: function tomSearch() {
+      var addressInput = this.$refs.address;
+      var address = addressInput.value;
+      var container = this.$refs.container;
+      var latinput = this.$refs.latinput;
+      var lnginput = this.$refs.lnginput;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/search/".concat(address, ".json?key=Oy5FeMobhbOv0274dEpqyZNDta4FXJyA&typeahead=true&limit=5&ofs={ofs}&countrySet=IT")).then(function (response) {
+        // console.log(response)
+        // console.log(response.data.results[0].position.lat)
+        // console.log(response.data.results[0].position.lon)
+        if (response.data.results.length > 0) {
+          var data = response.data.results;
+
+          if (container.querySelector('ul')) {
+            container.querySelector('ul').remove();
+          }
+
+          var list = document.createElement('ul');
+          data.forEach(function (item) {
+            console.log(item);
+            var ele = document.createElement('li');
+            var street = item.address.streetNumber ? item.address.streetName + ' ' + item.address.streetNumber : item.address.streetName;
+
+            if (street) {
+              ele.innerHTML = "".concat(street, " ").concat(item.address.municipality && item.address.municipality, " ").concat(item.address.country && item.address.country);
+            } else {
+              ele.innerHTML = "".concat(item.address.municipality && item.address.municipality, " ").concat(item.address.country && item.address.country);
+            }
+
+            ele.addEventListener('click', function () {
+              console.log(item.position.lat);
+              console.log(item.position.lon);
+              addressInput.value = ele.innerHTML;
+              latinput.value = item.position.lat;
+              lnginput.value = item.position.lon;
+            });
+            list.appendChild(ele);
+          });
+          container.appendChild(list);
+        }
+      });
+    }
   },
   computed: {
     sponsored: function sponsored() {
@@ -28787,6 +28845,44 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("main", { staticClass: "py-4" }, [
+    _c("section", [
+      _c("form", { attrs: { action: "/search" } }, [
+        _c("div", { ref: "container", staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "search" } }, [_vm._v("Search")]),
+          _vm._v(" "),
+          _c("input", {
+            ref: "address",
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              id: "search",
+              name: "search",
+              placeholder: "Search",
+            },
+            on: { keyup: _vm.tomSearch },
+          }),
+          _vm._v(" "),
+          _c("input", {
+            ref: "latinput",
+            attrs: { type: "hidden", name: "Lat" },
+          }),
+          _vm._v(" "),
+          _c("input", {
+            ref: "lnginput",
+            attrs: { type: "hidden", name: "Lng" },
+          }),
+          _vm._v(" "),
+          _c("input", { attrs: { type: "hidden", name: "mpd", value: "20" } }),
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+          [_vm._v("Search")]
+        ),
+      ]),
+    ]),
+    _vm._v(" "),
     _vm.sponsored.length
       ? _c("section", [
           _c("div", { staticClass: "container" }, [
