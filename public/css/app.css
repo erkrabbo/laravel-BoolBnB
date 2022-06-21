@@ -12244,5 +12244,7 @@ fieldset:disabled .btn {
   max-width: 90%;
   background-color: white;
   border-radius: 1rem;
+body {
+  overflow-y: hidden;
 }
 
