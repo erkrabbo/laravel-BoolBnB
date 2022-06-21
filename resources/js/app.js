@@ -66,21 +66,21 @@ const app = new Vue({
 })
 
 
-const confirmationOverlay = document.querySelector('#confirmation-overlay');
-const confirmationForm = confirmationOverlay.querySelector('form');
-if (confirmationOverlay) {
-    document.querySelectorAll('.btn-delete').forEach(button => {
-        button.addEventListener('click', function() {
-            const strAction = confirmationForm.dataset.base.replace('*****', id);
-            const id = this.closest('button').dataset.id;
-            confirmationForm.action = strAction;
-            confirmationOverlay.classList.remove('d-none');
-        })
-    });
+// const confirmationOverlay = document.querySelector('#confirmation-overlay');
+// const confirmationForm = confirmationOverlay.querySelector('form');
+// if (confirmationOverlay) {
+//     document.querySelectorAll('.btn-delete').forEach(button => {
+//         button.addEventListener('click', function() {
+//             const strAction = confirmationForm.dataset.base.replace('*****', id);
+//             const id = this.closest('button').dataset.id;
+//             confirmationForm.action = strAction;
+//             confirmationOverlay.classList.remove('d-none');
+//         })
+//     });
 
-    const btnNo = document.querySelector('#btn-no');
-    btnNo.addEventListener('click', function() {
-        confirmationForm.action = '';
-        confirmationOverlay.classList.add('d-none');
-    });
-}
+//     const btnNo = document.querySelector('#btn-no');
+//     btnNo.addEventListener('click', function() {
+//         confirmationForm.action = '';
+//         confirmationOverlay.classList.add('d-none');
+//     });
+// }

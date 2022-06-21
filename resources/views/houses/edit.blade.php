@@ -30,11 +30,30 @@
                         <label for="Poster" class="form-label"><h4>Immagine di profilo</h4></label>
                         <input class="form-control" type="file" id="Poster" name="Poster" accept="image/*" value="{{ old('Poster', $house->Poster) }}">
                     </div>
-                    <img class="img-fluid" src="{{ Storage::exists($house->Poster) ? asset('storage/' . $house->Poster) : $house->Poster }}" alt="">
+                    <img class="img-fluid mb-3" src="{{ Storage::exists($house->Poster) ? asset('storage/' . $house->Poster) : $house->Poster }}" alt="">
                     @error('Poster')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
 
+                    <div class="mb-3">
+                        <label class="form-label" for="house_images"><h4>Immagini secondarie</h4></label>
+                        <input class="form-control" type="file" id="house_images" name="house_images[]" accept="image/*" multiple>
+                    </div>
+                    @error('house_images')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+
+                    <fieldset>
+                        <legend>Servizi</legend>
+                        @foreach ($services as $service)
+                            <input type="checkbox" name="services[]" id="service-{{ $service->id }}" value="{{ $service->id }}"
+                                @if (in_array($service->id, old('services', $house->services->pluck('id')->all() ))) checked @endif>
+                            <label class="me-4" for="service-{{ $service->id }}">{{ $service->name }}</label>
+                        @endforeach
+                        @error('Service')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </fieldset>
 
                     <div class="mb-3">
                         <label for="N_of_rooms" class="form-label"><h4>Numero di stanze</h4></label>
@@ -76,17 +95,6 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
 
-                    {{-- <label for="service_id" class="form-label"><h4>{{ __('service') }}</h4></label>
-                    <select name="service_id" id="service" class="form-control">
-                        <option value="">Select service</option>
-                        @foreach ($services as $service)
-                        <option value="{{ $service->id }}" @if ($service->id == old('service_id', $house->service->id)) selected @endif>{{ $service->name }}</option>
-                        @endforeach
-                    </select>
-                    @error('service_id')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror --}}
-
                     <div class="mb-3">
                         <label for="Available_from" class="form-label"><h4>Disponibile da</h4></label>
                         <input type="date" name="Available_from" class="form-control" id="Available_from" value="{{ old('Available_from', $house->Available_from) }}">
@@ -103,9 +111,9 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
 
-                    <div class="mb-3">
-                        <label for="Address" class="form-label"><h4>Indirizzo</h4></label>
-                        <input type="text" name="Address" class="form-control" id="Address" value="{{ old('Address', $house->Address) }}">
+                    <div id="js-address-container" class="mb-3">
+                        <label class="form-label" for="Address">Indirizzo</label>
+                        <input class="form-control" type="text" id="js-address" name="Address" value="{{ old('Address', $house->Address) }}">
                     </div>
                     @error('Address')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -119,14 +127,13 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
 
+                    <input  id="js-lat" name="Lat" value="{{ old('Lat', $house->Lat) }}">
+                    <input  id="js-lng" name="Lng" value="{{ old('Lng', $house->Lng) }}">
+
                     <button type="submit" class="btn btn-primary">Modifica</button>
                 </form>
                 <div class="text-center my-4">
                     <a class="btn btn-primary" href="{{ url()->previous()}}"><--</a>
-
-                    {{-- @if (Auth::user()->id === $house->user_id)
-                        {{-- <button class="btn btn-danger btn-delete">Delete</button>
-                    @endif --}}
 
                     {{-- @if (Auth::user()->id === $house->user_id)
                         <form action="{{ route('houses.destroy', $house->id) }}" method="POST">
@@ -141,7 +148,7 @@
                     @endif
 
 
-                    <section id="confirmation-overlay" class="overlay d-none">
+                    {{-- <section id="confirmation-overlay" class="overlay d-none">
                         <div class="popup">
                             <h1>Sei sicuro di voler eliminare?</h1>
                             <div class="d-flex justify-content-center">
@@ -153,7 +160,7 @@
                                 </form>
                             </div>
                         </div>
-                    </section>
+                    </section> --}}
                     
                 </div>
             </div>

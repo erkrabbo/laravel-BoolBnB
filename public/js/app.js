@@ -42611,25 +42611,23 @@ var app = new Vue({
   render: function render(h) {
     return h(_Views_App_vue__WEBPACK_IMPORTED_MODULE_0__["default"]);
   }
-});
-var confirmationOverlay = document.querySelector('#confirmation-overlay');
-var confirmationForm = confirmationOverlay.querySelector('form');
-
-if (confirmationOverlay) {
-  document.querySelectorAll('.btn-delete').forEach(function (button) {
-    button.addEventListener('click', function () {
-      var strAction = confirmationForm.dataset.base.replace('*****', id);
-      var id = this.closest('button').dataset.id;
-      confirmationForm.action = strAction;
-      confirmationOverlay.classList.remove('d-none');
-    });
-  });
-  var btnNo = document.querySelector('#btn-no');
-  btnNo.addEventListener('click', function () {
-    confirmationForm.action = '';
-    confirmationOverlay.classList.add('d-none');
-  });
-}
+}); // const confirmationOverlay = document.querySelector('#confirmation-overlay');
+// const confirmationForm = confirmationOverlay.querySelector('form');
+// if (confirmationOverlay) {
+//     document.querySelectorAll('.btn-delete').forEach(button => {
+//         button.addEventListener('click', function() {
+//             const strAction = confirmationForm.dataset.base.replace('*****', id);
+//             const id = this.closest('button').dataset.id;
+//             confirmationForm.action = strAction;
+//             confirmationOverlay.classList.remove('d-none');
+//         })
+//     });
+//     const btnNo = document.querySelector('#btn-no');
+//     btnNo.addEventListener('click', function() {
+//         confirmationForm.action = '';
+//         confirmationOverlay.classList.add('d-none');
+//     });
+// }
 
 /***/ }),
 
