@@ -49,11 +49,11 @@
                         <h4>Servizi</h4>
                         <div class="d-flex align-items-center flex-wrap">
                             @foreach ($services as $service)
-                            <span>
-                                <input type="checkbox" name="services[]" class="me-2" id="service-{{ $service->id }}" value="{{ $service->id }}"
-                                @if (in_array($service->id, old('services', $house->services->pluck('id')->all() ))) checked @endif>
-                               <label class="me-4" for="service-{{ $service->id }}"><h5>{{ $service->name }}</h5></label>
-                            </span>
+                                <span>
+                                    <input type="checkbox" name="services[]" class="me-2" id="service-{{ $service->id }}" value="{{ $service->id }}"
+                                    @if (in_array($service->id, old('services', $house->services->pluck('id')->all() ))) checked @endif>
+                                <label class="me-4" for="service-{{ $service->id }}"><h5>{{ $service->name }}</h5></label>
+                                </span>
                             @endforeach
                         </div>
                         @error('Service')
@@ -168,22 +168,7 @@
                             </div>
                           </div>
                         </div>
-                      </div>
-
-                    {{-- <section id="confirmation-overlay" class="overlay d-none">
-                        <div class="popup">
-                            <h1>Sei sicuro di voler eliminare?</h1>
-                            <div class="d-flex justify-content-center">
-                                <button id="btn-no" class="btn btn-primary me-3">NO</button>
-                                <form method="delete" data-base="{{ route('houses.destroy', '*****') }}">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger">SI</button>
-                                </form>
-                            </div>
-                        </div>
-                    </section> --}}
-                    
+                      </div>   
                 </div>
             </div>
         </div>
