@@ -10,7 +10,6 @@ class House extends Model
     protected $fillable = [
         'user_id',
         'Title',
-        'Content',
         'Poster',
         'Content',
         'Night_price',
@@ -22,6 +21,8 @@ class House extends Model
         'Available_to',
         'Address',
         'Visible',
+        'Lat',
+        'Lng',
     ];
 
     public function user(){

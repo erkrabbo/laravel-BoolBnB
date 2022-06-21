@@ -29,6 +29,8 @@ class HouseController extends Controller
             'Available_to'   => 'required',
             'Address'        => 'required',
             'Visible'        => 'accepted',
+            'Lat'            => 'required',
+            'Lng'            => 'required',
 
             // 'service_id'   => 'required|exists:App\Service,id',
         ];
@@ -85,6 +87,7 @@ class HouseController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $request->validate($this->getValidators());
 
         // $request->validate([
@@ -92,10 +95,14 @@ class HouseController extends Controller
         //     'Poster'      => 'nullable|image',
         //     'Title'       => 'required',
         //     'Night_price' => 'required',
+        //     'Content'     => 'required',
         //     'N_of_rooms'  => 'required',
-        //     'Available_from'  => 'required',
-        //     'Available_to'  => 'required',
-        //     'Address'  => 'required',
+        //     'N_of_beds'   => 'required',
+        //     'N_of_baths'  => 'required',
+        //     'Mq'          => 'required',
+        //     'Available_from' => 'required',
+        //     'Available_to'   => 'required',
+        //     'Address'        => 'required',
         // ]);
 
         $data = $request->all();
@@ -118,9 +125,28 @@ class HouseController extends Controller
             'Available_to' => $request->Available_to,
             'Address' => $request->Address,
             'Visible' => $request->Visible,
+            'Lat' => $request->Lat,
+            'Lng' => $request->Lng,
         ];
 
         $house = House::create($formData);
+        // dd($request);
+
+        $house->services()->attach($formData['services']);
+       if($request->hasFile('house_images')) {
+        foreach($request->file('house_images') as $image)
+         {
+            $imgs_path = Storage::put('uploads', $image);
+
+            HouseImage::create([
+                'house_id' => $house->id,
+                'path'     => $imgs_path,
+            ]);
+        }
+       }
+
+
+
         return redirect()->route('houses.show', $house->id);
 
         // $house = House::create([
@@ -135,7 +161,7 @@ class HouseController extends Controller
         //     'Available_to' => $request->Available_to,
         //     'Address' => $request->Address,
         //     'user_id' => Auth::id()]);
-        //return redirect()->route('houses.show', $house->id);
+        // return redirect()->route('houses.show', $house->id);
     }
 
     /**

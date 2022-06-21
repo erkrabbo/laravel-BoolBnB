@@ -11,7 +11,7 @@
                 <div class="alert alert-warning">{{ session('deleted') }}</div>
             @endif --}}
             <div class="row">
-                <div class="col">    
+                <div class="col">
                     <h1 class="bold pt-2 text-uppercase">{{ $house->Title }}</h1>
                     <h6 class="text-secondary pt-2 text-uppercase">{{ $house->Address }}</h6>
                     <div class="house-img d-flex align-items-stretch w-100 h-50 py-5">
@@ -33,7 +33,7 @@
                                 <h4 class="bold ps-1">Servizi inclusi:</h4>
                                 <div class="d-flex flex-wrap services">
                                     @foreach($services as $service)
-                                        <h6 class="ps-1">{{ ucfirst($service->name) }}</h6> 
+                                        <h6 class="ps-1">{{ ucfirst($service->name) }}</h6>
                                         {{$loop->last ? '.' : ','}}
                                     @endforeach
                                 </div>
@@ -76,10 +76,10 @@
                             <a class="btn btn-primary mt-4 mb-2" href="{{ route('houses.edit', $house->id) }}"><span class="text-white">Modifica l'inserzione</span></a>
                         @endif
                     @endauth
-                    
+
                     <a class="btn btn-primary mt-4 mb-2" href="{{ route('houses.create', $house->id) }}"><span class="text-white">Crea una nuova casa</span></a>
-                   
-                    
+
+
                     {{-- @if (Auth::user()->id === $house->user_id)
                         <button data-id="{{ $house->id }}"  class="mt-4 mb-2 btn btn-danger btn-delete">Delete</button>
                     @endif --}}

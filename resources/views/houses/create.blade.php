@@ -1,5 +1,8 @@
 @extends('layouts.app')
-
+@section('scripts')
+<script src="{{ asset('js/createValidation.js') }}" defer>
+</script>
+@endsection
 @section('content')
     <main>
 
@@ -33,7 +36,7 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
 
-                
+
                 <fieldset>
                     <legend>Servizi</legend>
                     @foreach ($services as $service)
@@ -111,9 +114,9 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
 
-                <div class="mb-3">
+                <div id="js-address-container" class="mb-3">
                     <label class="form-label" for="Address">Indirizzo</label>
-                    <input class="form-control" type="text" name="Address" value="{{ old('Address') }}">
+                    <input class="form-control" type="text" id="js-address" name="Address" value="{{ old('Address') }}">
                 </div>
                 @error('Address')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -126,6 +129,10 @@
                 @error('Visible')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
+
+
+                <input type="hidden" id="js-lat" name="Lat">
+                <input type="hidden" id="js-lng" name="Lng">
 
                 <button type="submit">Pubblica casa</button>
 
