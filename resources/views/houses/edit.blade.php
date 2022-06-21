@@ -103,17 +103,9 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
 
-                    <div class="mb-3">
-                        <label for="Visible" class="form-label"><h4>{{ __('Visible') }}</h4></label>
-                        <div class="text-center">
-                            Yes
-                            <input type="radio"  @if ($house->visible === 1 ? true : false) @endif name="Visible" class="form-control" id="Visible" value="{{ old('Visible', $house->Visible) }}">
-                        </div>
-                        
-                        <div class="text-center">
-                            No
-                            <input type="radio" @if ($house->visible !== 1 ? true : false) @endif name="Visible" class="form-control" id="Visible" value="{{ old('Visible', $house->Visible) }}">
-                        </div>
+                    <div class="mb-3 form-check">
+                        <label class="form-check-label" for="Visible">Visibile</label>
+                        <input class="form-check-input" type="checkbox" id="Visible" name="Visible" checked value=1>
                     </div>
                     @error('Visible')
                         <div class="alert alert-danger">{{ $message }}</div>

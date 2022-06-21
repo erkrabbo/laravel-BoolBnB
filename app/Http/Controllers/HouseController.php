@@ -19,7 +19,7 @@ class HouseController extends Controller
         return [
             'Title'          => 'required|max:100',
             'Poster'         => 'required|image',
-            'Content'        => 'required',
+            // 'Content'        => 'required',
             'Night_price'    => 'required',
             'N_of_rooms'     => 'required',
             'N_of_beds'      => 'required',
@@ -68,13 +68,13 @@ class HouseController extends Controller
      */
     public function create(House $house)
     {
-   
+
         $services = Service::all();
 
         // $house_images = HouseImage::where('house_id', "$house->id")->get();
 
         return view('houses.create', compact('services'));
-     
+
     }
 
     /**
@@ -101,7 +101,7 @@ class HouseController extends Controller
         $data = $request->all();
 
         $img_path = Storage::put('uploads', $data['Poster']);
-        
+
         $formData = [
             'user_id'   => Auth::user()->id,
             'Poster'    => $img_path,
@@ -119,25 +119,8 @@ class HouseController extends Controller
             'Address' => $request->Address,
             'Visible' => $request->Visible,
         ];
-        
+
         $house = House::create($formData);
-        // dd($request);
-  
-        $house->services()->attach($formData['services']);
-       if($request->hasFile('house_images')) {
-        foreach($request->file('house_images') as $image)
-         {
-            $imgs_path = Storage::put('uploads', $image);
-            
-            HouseImage::create([
-                'house_id' => $house->id,
-                'path'     => $imgs_path,
-            ]);
-        }
-       }
-
-
-
         return redirect()->route('houses.show', $house->id);
 
         // $house = House::create([
@@ -209,7 +192,8 @@ class HouseController extends Controller
      */
     public function update(Request $request, House $house)
     {
-        $request->validate($this->getValidators($house));
+        // dd ($request);
+        $request->validate($this->getValidators());
 
         if (Auth::user()->id !== $house->user_id) abort(403);
 
