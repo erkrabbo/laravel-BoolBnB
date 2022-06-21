@@ -12178,3 +12178,7 @@ fieldset:disabled .btn {
   }
 }
 
+body {
+  overflow-y: hidden;
+}
+

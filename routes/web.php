@@ -13,11 +13,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'HomeController@index')->name('home');
+// Route::get('/', 'HomeController@index')->name('home');
 Route::resource('/houses', 'HouseController')->only('show');
 
 Auth::routes();
 Route::get('/', 'HouseController@home');
+Route::get('/search', 'HouseController@index');
 Route::middleware('auth')->group(function () {
     Route::resource('admin/houses', 'HouseController')->except('index','show');
 });

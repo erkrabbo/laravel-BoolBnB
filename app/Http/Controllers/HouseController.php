@@ -7,11 +7,12 @@ use App\House;
 use App\Service;
 use App\HouseImage;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class HouseController extends Controller
 {
+    use \App\Concerns\Filterable;
+
     /**
      * Display a listing of the resource.
      *
@@ -20,18 +21,25 @@ class HouseController extends Controller
     public function home()
     {
         // $sponsoredHouses = House::all();
-        $sponsoredHouses = DB::table('house_sponsorization')
-            ->join('houses', 'houses.id', '=', 'house_sponsorization.house_id')
-            ->select('house_sponsorization.*', 'houses.*')
-            ->get();
+        // $sponsoredHouses = DB::table('house_sponsorization')
+        //     ->join('houses', 'houses.id', '=', 'house_sponsorization.house_id')
+        //     ->select('house_sponsorization.*', 'houses.*')
+        //     ->get();
 
-        $houses = DB::table('houses')
-            ->orderBy('created_at')
-            ->get();
+        // $houses = DB::table('houses')
+        //     ->orderBy('created_at')
+        //     ->get();
 
-        return view('home', compact('sponsoredHouses', 'houses'));
+        // return view('home', compact('sponsoredHouses', 'houses'));
+        // Auth::user() ? $user = Auth::user() : $user = null;
+        return view('home');
     }
 
+    public function index(Request $request)
+    {
+        $houses = $this->filterHouses($request)->get();
+        return view('houses.index', compact('houses'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -68,11 +76,11 @@ class HouseController extends Controller
      * @param  \App\House  $house
      * @return \Illuminate\Http\Response
      */
-    public function show(House $house) 
+    public function show(House $house)
     {
         $user = User::where('id', "$house->user_id")->first();
         $house_images = HouseImage::where('house_id', "$house->id")->get();
-                        
+
         return view('houses.show', [
             'pageTitle' => $house->Title,
             'house' => $house,
