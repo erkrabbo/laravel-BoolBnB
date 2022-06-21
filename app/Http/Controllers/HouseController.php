@@ -236,7 +236,7 @@ class HouseController extends Controller
         $house->update($houseData);
 
         if (array_key_exists('services', $houseData)) $house->services()->sync($houseData['services']);
-
+        
         return redirect()->route('houses.show', $house->id);
     }
 

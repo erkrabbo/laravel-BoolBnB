@@ -1,11 +1,13 @@
 @extends('layouts.app')
-
+@section('scripts')
+<script src="{{ asset('js/createValidation.js') }}" defer>
+</script>
 @section('content')
 <main>
     <div class="container">
         <div class="row">
             <div class="col-8 offset-2">
-                <h1 class="text-center">Modifica questa casa</h1>
+                <h1 class="text-center mt-3">Modifica questa casa</h1>
                 <form method="POST" action="{{ route('houses.update', $house->id) }}" class="mb-3" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -43,13 +45,17 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
 
-                    <fieldset>
-                        <legend>Servizi</legend>
-                        @foreach ($services as $service)
-                            <input type="checkbox" name="services[]" id="service-{{ $service->id }}" value="{{ $service->id }}"
+                    <fieldset class="mb-3">
+                        <h4>Servizi</h4>
+                        <div class="d-flex align-items-center flex-wrap">
+                            @foreach ($services as $service)
+                            <span>
+                                <input type="checkbox" name="services[]" class="me-2" id="service-{{ $service->id }}" value="{{ $service->id }}"
                                 @if (in_array($service->id, old('services', $house->services->pluck('id')->all() ))) checked @endif>
-                            <label class="me-4" for="service-{{ $service->id }}">{{ $service->name }}</label>
-                        @endforeach
+                               <label class="me-4" for="service-{{ $service->id }}"><h5>{{ $service->name }}</h5></label>
+                            </span>
+                            @endforeach
+                        </div>
                         @error('Service')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -127,26 +133,42 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
 
-                    <input  id="js-lat" name="Lat" value="{{ old('Lat', $house->Lat) }}">
-                    <input  id="js-lng" name="Lng" value="{{ old('Lng', $house->Lng) }}">
+                    <input type="hidden" id="js-lat" name="Lat" value="{{ old('Lat', $house->Lat) }}">
+                    <input type="hidden" id="js-lng" name="Lng" value="{{ old('Lng', $house->Lng) }}">
 
                     <button type="submit" class="btn btn-primary">Modifica</button>
                 </form>
-                <div class="text-center my-4">
-                    <a class="btn btn-primary" href="{{ url()->previous()}}"><--</a>
+                <div class="text-center my-4 d-flex justify-content-center align-items-center buttons">
+                    <a class="btn btn-primary" href="{{ url()->previous()}}">Indietro</a>
 
-                    {{-- @if (Auth::user()->id === $house->user_id)
-                        <form action="{{ route('houses.destroy', $house->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                            <button class="btn btn-danger mt-3" onClick="return confirm('Are you sure to delete this?')">Elimina</button>
-                        </form>
-                    @endif --}}
-
-                    @if (Auth::user()->id === $house->user_id)
-                    <button data-id="{{ $house->id }}"  class="mt-4 mb-2 btn btn-danger btn-delete">Delete</button>
-                    @endif
-
+                    <button type="button" class="btn btn-danger ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Elimina
+                      </button>
+                      
+                      <!-- Modal -->
+                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Elimina casa</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <h3>Sei sicuro di voler eliminare? Questa azione è irreversibile</h3>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+                                @if (Auth::user()->id === $house->user_id)
+                                <form action="{{ route('houses.destroy', $house->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                    <button class="btn btn-danger">Elimina</button>
+                                </form>
+                                @endif
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 
                     {{-- <section id="confirmation-overlay" class="overlay d-none">
                         <div class="popup">
