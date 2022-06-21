@@ -42585,8 +42585,7 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   mutations: {
     retrieveSponsored: function retrieveSponsored(state, page) {
       Axios.get("api/houses/sponsored?page=".concat(page)).then(function (response) {
-        state.sponsored = response.data.sponsoredHouses.data;
-        console.log(state.sponsored);
+        state.sponsored = response.data.sponsoredHouses.data; // console.log(state.sponsored);
       });
     },
     retrieveLasts: function retrieveLasts(state, page) {
@@ -42607,6 +42606,24 @@ var app = new Vue({
     return h(_Views_App_vue__WEBPACK_IMPORTED_MODULE_0__["default"]);
   }
 });
+var confirmationOverlay = document.querySelector('#confirmation-overlay');
+var confirmationForm = confirmationOverlay.querySelector('form');
+
+if (confirmationOverlay) {
+  document.querySelectorAll('.btn-delete').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var strAction = confirmationForm.dataset.base.replace('*****', id);
+      var id = this.closest('button').dataset.id;
+      confirmationForm.action = strAction;
+      confirmationOverlay.classList.remove('d-none');
+    });
+  });
+  var btnNo = document.querySelector('#btn-no');
+  btnNo.addEventListener('click', function () {
+    confirmationForm.action = '';
+    confirmationOverlay.classList.add('d-none');
+  });
+}
 
 /***/ }),
 
@@ -42827,8 +42844,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\luca9\Desktop\BOOLEAN COURSE\laravel-BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\luca9\Desktop\BOOLEAN COURSE\laravel-BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/john/boolean/laravel-BoolBnB/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/john/boolean/laravel-BoolBnB/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

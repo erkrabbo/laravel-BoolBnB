@@ -15,7 +15,7 @@ class CreateHouseUserTable extends Migration
     {
         Schema::create('house_user', function (Blueprint $table) {
             $table->unsignedBigInteger('house_id');
-            $table->foreign('house_id')->references('id')->on('houses');
+            $table->foreign('house_id')->references('id')->on('houses')->onDelete('cascade');
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
