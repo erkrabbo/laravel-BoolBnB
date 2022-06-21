@@ -40124,7 +40124,23 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 
 var app = new Vue({
   el: '#app'
-});
+}); // const confirmationOverlay = document.querySelector('#confirmation-overlay');
+// const confirmationForm = confirmationOverlay.querySelector('form');
+// if (confirmationOverlay) {
+//     document.querySelectorAll('.btn-delete').forEach(button => {
+//         button.addEventListener('click', function() {
+//             const strAction = confirmationForm.dataset.base.replace('*****', id);
+//             const id = this.closest('button').dataset.id;
+//             confirmationForm.action = strAction;
+//             confirmationOverlay.classList.remove('d-none');
+//         })
+//     });
+//     const btnNo = document.querySelector('#btn-no');
+//     btnNo.addEventListener('click', function() {
+//         confirmationForm.action = '';
+//         confirmationOverlay.classList.add('d-none');
+//     });
+// }
 
 /***/ }),
 
@@ -40259,8 +40275,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/john/boolean/laravel-BoolBnB/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/john/boolean/laravel-BoolBnB/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Boolean\Esercizi\php\laravel-BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\php\laravel-BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

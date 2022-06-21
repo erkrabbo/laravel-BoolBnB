@@ -207,6 +207,6 @@ class HouseController extends Controller
 
         $house->delete();
 
-        return redirect()->route('houses.index');
+        return redirect()->route('home');
     }
 }

@@ -25,9 +25,7 @@
             <div class="card-header text-center">{{ $house->Title }}</div>
 
             <div class="card-body text-center">
-
                 <img class="img-fluid" src="{{ Storage::exists($house->Poster) ? asset('storage/' . $house->Poster) : $house->Poster }}" alt="">
-                
                 <a class = "stretched-link" href={{"/houses/$house->id"}}></a>
             </div>
         </div>

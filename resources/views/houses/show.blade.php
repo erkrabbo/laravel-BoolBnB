@@ -7,6 +7,9 @@
 @section('content')
     <main>
         <div class="container">
+            {{-- @if (session('deleted'))
+                <div class="alert alert-warning">{{ session('deleted') }}</div>
+            @endif --}}
             <div class="row">
                 <div class="col">    
                     <h1 class="bold pt-2 text-uppercase">{{ $house->Title }}</h1>
@@ -73,9 +76,27 @@
                             <a class="btn btn-primary mt-4 mb-2" href="{{ route('houses.edit', $house->id) }}"><span class="text-white">Modifica l'inserzione</span></a>
                         @endif
                     @endauth
+                    
                     <a class="btn btn-primary mt-4 mb-2" href="{{ route('houses.create', $house->id) }}"><span class="text-white">Crea una nuova casa</span></a>
+                   
+                    
+                    {{-- @if (Auth::user()->id === $house->user_id)
+                        <button data-id="{{ $house->id }}"  class="mt-4 mb-2 btn btn-danger btn-delete">Delete</button>
+                    @endif --}}
 
-                    {{-- <a class="btn btn-primary mt-4" href="{{ route('houses.destroy') }}"><span class="text-white">Elimina l'inserzione</span></a> --}}
+                    {{-- <section id="confirmation-overlay" class="overlay d-none">
+                        <div class="popup">
+                            <h1>Sei sicuro di voler eliminare?</h1>
+                            <div class="d-flex justify-content-center">
+                                <button id="btn-no" class="btn btn-primary me-3">NO</button>
+                                <form method="POST" data-base="{{ route('houses.destroy', '*****') }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger">SI</button>
+                                </form>
+                            </div>
+                        </div>
+                    </section> --}}
                 </div>
             </div>
             {{-- aggiungere form per messaggio per contattare l'host --}}
