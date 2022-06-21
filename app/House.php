@@ -9,8 +9,8 @@ class House extends Model
 {
 
     protected $fillable = [
+        'user_id',
         'Title',
-        'Content',
         'Poster',
         'Content',
         'Night_price',

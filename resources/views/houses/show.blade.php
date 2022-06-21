@@ -8,7 +8,7 @@
     <main>
         <div class="container">
             <div class="row">
-                <div class="col">    
+                <div class="col">
                     <h1 class="bold pt-2 text-uppercase">{{ $house->Title }}</h1>
                     <h6 class="text-secondary pt-2 text-uppercase">{{ $house->Address }}</h6>
                     <div class="house-img d-flex align-items-stretch w-100 h-50 py-5">
@@ -30,7 +30,7 @@
                                 <h4 class="bold ps-1">Servizi inclusi:</h4>
                                 <div class="d-flex flex-wrap services">
                                     @foreach($services as $service)
-                                        <h6 class="ps-1">{{ ucfirst($service->name) }}</h6> 
+                                        <h6 class="ps-1">{{ ucfirst($service->name) }}</h6>
                                         {{$loop->last ? '.' : ','}}
                                     @endforeach
                                 </div>
@@ -69,6 +69,11 @@
                             <a class="btn btn-primary mt-4 mb-2" href="{{ route('houses.edit', $house->id) }}"><span class="text-white">Modifica l'inserzione</span></a>
                         @endif
                     @endauth
+
+
+                        <a class="btn btn-primary mt-4 mb-2" href="{{ route('houses.create') }}"><span class="text-white">Modifica l'inserzione</span></a>
+
+
                     {{-- <a class="btn btn-primary mt-4" href="{{ route('houses.destroy') }}"><span class="text-white">Elimina l'inserzione</span></a> --}}
                 </div>
             </div>

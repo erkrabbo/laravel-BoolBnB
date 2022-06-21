@@ -51,24 +51,42 @@ class HouseController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'user_id'     => 'required',
-            'Poster'      => 'nullable|image',
-            'Title'       => 'required',
-            'Night_price' => 'required',
-            'N_of_rooms'  => 'required',
-        ]);
+        // dd($request->all());
+        // $request->validate([
+        //     'user_id'     => 'required',
+        //     'Poster'      => 'nullable|image',
+        //     'Title'       => 'required',
+        //     'Night_price' => 'required',
+        //     'Content'     => 'required',
+        //     'N_of_rooms'  => 'required',
+        //     'N_of_beds'   => 'required',
+        //     'N_of_baths'  => 'required',
+        //     'Mq'          => 'required',
+        //     'Available_from' => 'required',
+        //     'Available_to'   => 'required',
+        //     'Address'        => 'required',
+        // ]);
 
         $data = $request->all();
 
         $img_path = Storage::put('uploads', $data['Poster']);
 
         $formData = [
-            'user_id'   => Auth::user()->id,
-            'Poster'    => $img_path
-        ] + $data;
+            // 'user_id'   => Auth::id(),
+            // 'Poster'    => $img_path,
 
-        $house = House::create($formData);
+            // 'Title' => $Title,
+            // 'Night_price' => $Night_price,
+            // 'N_of_rooms' => $N_of_rooms,
+            // 'N_of_beds' => $N_of_beds,
+            // 'N_of_baths' => $N_of_baths,
+            // 'Mq' => $Mq,
+            // 'Available_from' => $Available_from,
+            // 'Available_to' => $Available_to,
+            // 'Address' => $Address,
+        ];
+
+        $house = House::create($request->all());
 
         return redirect()->route('houses.show', $house->id);
 
@@ -84,7 +102,7 @@ class HouseController extends Controller
         //     'Available_to' => $request->Available_to,
         //     'Address' => $request->Address,
         //     'user_id' => Auth::id()]);
-        //return redirect()->route('houses.show', $house->id);
+        // return redirect()->route('houses.show', $house->id);
     }
 
     /**
@@ -146,7 +164,7 @@ class HouseController extends Controller
         //$request->validate($this->getValidators());
 
         $houseData = $request->all();
-    
+
 
         if (array_key_exists('Poster', $houseData)) {
             Storage::delete($house->Poster);
