@@ -42,7 +42,7 @@ const store = new Vuex.Store({
             Axios.get(`api/houses/sponsored?page=${page}`)
         .then(response => {
             state.sponsored = response.data.sponsoredHouses.data;
-            console.log(state.sponsored);
+            // console.log(state.sponsored);
         })
         },
         retrieveLasts(state, page) {

@@ -42827,8 +42827,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/john/boolean/laravel-BoolBnB/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/john/boolean/laravel-BoolBnB/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\luca9\Desktop\BOOLEAN COURSE\laravel-BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\luca9\Desktop\BOOLEAN COURSE\laravel-BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
