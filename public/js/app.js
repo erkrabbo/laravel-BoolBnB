@@ -42546,7 +42546,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Views_App_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Views/App.vue */ "./resources/js/Views/App.vue");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -42575,7 +42575,7 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 
 
 
-var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
+var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
     sponsored: [],
     last: [],

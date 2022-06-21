@@ -21,6 +21,8 @@ class House extends Model
         'Available_to',
         'Address',
         'Visible',
+        'Lat',
+        'Lng',
     ];
 
     public function user(){

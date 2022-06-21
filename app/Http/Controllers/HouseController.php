@@ -29,6 +29,8 @@ class HouseController extends Controller
             'Available_to'   => 'required',
             'Address'        => 'required',
             'Visible'        => 'accepted',
+            'Lat'            => 'required',
+            'Lng'            => 'required',
 
             // 'service_id'   => 'required|exists:App\Service,id',
         ];
@@ -85,6 +87,7 @@ class HouseController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $request->validate($this->getValidators());
 
         // $request->validate([
@@ -122,6 +125,8 @@ class HouseController extends Controller
             'Available_to' => $request->Available_to,
             'Address' => $request->Address,
             'Visible' => $request->Visible,
+            'Lat' => $request->Lat,
+            'Lng' => $request->Lng,
         ];
 
         $house = House::create($formData);
