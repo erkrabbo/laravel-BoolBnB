@@ -13,6 +13,24 @@ use Illuminate\Support\Facades\Storage;
 
 class HouseController extends Controller
 {
+    private function getValidators() {
+        return [
+            'Title'          => 'required|max:100',
+            'Poster'         => 'required|image',
+            'Content'        => 'required',
+            'Night_price'    => 'required',
+            'N_of_rooms'     => 'required',
+            'N_of_beds'      => 'required',
+            'N_of_baths'     => 'required',
+            'Mq'             => 'required',
+            'Available_from' => 'required',
+            'Available_to'   => 'required',
+            'Address'        => 'required',
+            'Visible'        => 'accepted',
+
+            // 'service_id'   => 'required|exists:App\Service,id',
+        ];
+    }
     /**
      * Display a listing of the resource.
      *
@@ -51,7 +69,8 @@ class HouseController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+        $request->validate($this->getValidators(null));
+
         // $request->validate([
         //     'user_id'     => 'required',
         //     'Poster'      => 'nullable|image',
@@ -72,8 +91,20 @@ class HouseController extends Controller
         $img_path = Storage::put('uploads', $data['Poster']);
 
         $formData = [
-            // 'user_id'   => Auth::id(),
-            // 'Poster'    => $img_path,
+            'user_id'   => Auth::user()->id,
+            'Poster'    => $img_path,
+            'Content'    => $request->Content,
+            'Title' => $request->Title,
+            'Night_price' => $request->Night_price,
+            'N_of_rooms' => $request->N_of_rooms,
+            'N_of_beds' => $request->N_of_beds,
+            'N_of_baths' => $request->N_of_baths,
+            'Mq' => $request->Mq,
+            'Available_from' => $request->Available_from,
+            'Available_to' => $request->Available_to,
+            'Address' => $request->Address,
+            'Visible' => $request->Visible,
+        ];
 
             // 'Title' => $Title,
             // 'Night_price' => $Night_price,
@@ -84,7 +115,7 @@ class HouseController extends Controller
             // 'Available_from' => $Available_from,
             // 'Available_to' => $Available_to,
             // 'Address' => $Address,
-        ];
+        // ];
 
         $house = House::create($request->all());
 
@@ -159,9 +190,9 @@ class HouseController extends Controller
      */
     public function update(Request $request, House $house)
     {
-        if (Auth::user()->id !== $house->user_id) abort(403);
+        $request->validate($this->getValidators($house));
 
-        //$request->validate($this->getValidators());
+        if (Auth::user()->id !== $house->user_id) abort(403);
 
         $houseData = $request->all();
 

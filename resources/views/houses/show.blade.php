@@ -38,7 +38,11 @@
                         </div>
                         <div class="book_form w-50 mx-4 py-3">
                             <div class="price d-flex justify-content-center">
+                                @if($house->Night_price < 1000)
+                                <h2>{{$house->Night_price}} € <span class="text-secondary"> / notte</span></h2>
+                                @else
                                 <h2>{{round($house->Night_price / 1000)}} € <span class="text-secondary"> / notte</span></h2>
+                                @endif
                             </div>
                             <div class="d-flex justify-content-center">
                                 <div class="book_date_guest w-75 h-50">
