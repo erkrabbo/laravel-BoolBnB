@@ -59,3 +59,22 @@
     border-bottom-left-radius: 1.5rem;
     border-bottom-right-radius: 1.5rem;
 }
+
+.overlay {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    .popup {
+        margin: auto;
+        padding: 2rem;
+        max-width: 90%;
+        background-color: white;
+        border-radius: 1rem;
+    }
+}
+
+body {
+    overflow-y: hidden;
+}

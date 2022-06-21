@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+{{-- <div class="container">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
-        {{-- @dd($sponsoredHouses) --}}
+        @dd($sponsoredHouses)
         @foreach ($sponsoredHouses as $house)
         <div class="col">
             <div class="card">
@@ -25,14 +25,14 @@
             <div class="card-header text-center">{{ $house->Title }}</div>
 
             <div class="card-body text-center">
-
                 <img class="img-fluid" src="{{ Storage::exists($house->Poster) ? asset('storage/' . $house->Poster) : $house->Poster }}" alt="">
-                
+
                 <a class = "stretched-link" href={{"/houses/$house->id"}}></a>
             </div>
         </div>
     </div>
     @endforeach
-    </div>
+    </div> --}}
 </div>
+    <div id="app"></div>
 @endsection

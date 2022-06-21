@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Storage;
 
 class HouseController extends Controller
 {
+    use \App\Concerns\Filterable;
     private function getValidators() {
         return [
             'Title'          => 'required|max:100',
@@ -31,6 +32,7 @@ class HouseController extends Controller
             // 'service_id'   => 'required|exists:App\Service,id',
         ];
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -39,18 +41,25 @@ class HouseController extends Controller
     public function home()
     {
         // $sponsoredHouses = House::all();
-        $sponsoredHouses = DB::table('house_sponsorization')
-            ->join('houses', 'houses.id', '=', 'house_sponsorization.house_id')
-            ->select('house_sponsorization.*', 'houses.*')
-            ->get();
+        // $sponsoredHouses = DB::table('house_sponsorization')
+        //     ->join('houses', 'houses.id', '=', 'house_sponsorization.house_id')
+        //     ->select('house_sponsorization.*', 'houses.*')
+        //     ->get();
 
-        $houses = DB::table('houses')
-            ->orderBy('created_at')
-            ->get();
+        // $houses = DB::table('houses')
+        //     ->orderBy('created_at')
+        //     ->get();
 
-        return view('home', compact('sponsoredHouses', 'houses'));
+        // return view('home', compact('sponsoredHouses', 'houses'));
+        // Auth::user() ? $user = Auth::user() : $user = null;
+        return view('home');
     }
 
+    public function index(Request $request)
+    {
+        $houses = $this->filterHouses($request)->get();
+        return view('houses.index', compact('houses'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -222,6 +231,6 @@ class HouseController extends Controller
 
         $house->delete();
 
-        return redirect()->route('houses.index');
+        return redirect()->route('home');
     }
 }

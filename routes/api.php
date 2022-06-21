@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Route::get('/user/logged', 'Api\UserController@logged');
+// Route::get('/home', 'Api\HouseController@home');
+Route::get('/houses/sponsored', 'Api\HouseController@sponsored');
+Route::get('/houses/last', 'Api\HouseController@last');
+// Route::get('/user/liked', 'Api\HouseController@liked');

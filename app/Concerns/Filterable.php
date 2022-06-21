@@ -2,8 +2,7 @@
 
 namespace App\Concerns;
 
-use App\Http\Filters\Filter;
-use Illuminate\Database\Eloquent\Builder;
+use App\House;
 
 trait Filterable
 {
@@ -14,8 +13,22 @@ trait Filterable
      * @param  \App\Http\Filters\Filter  $filter
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeFilter(Builder $query, Filter $filter): Builder
+    public static function filterHouses($request)
     {
-        return $filter->apply($query);
+        $filtered = House::whereRaw('1 = 1');
+
+        if ($request->has('max_price')) {
+            $filtered->where('Night_price', '<=',  $request->max_price);
+        }
+
+        if ($request->has('services')) {
+            $services = $request->services;
+            foreach ($services as $service) {
+                $filtered->whereHas('services', function($query) use ($service) {
+                    $query->where('name', $service);
+                });
+            }
+        }
+        return $filtered;
     }
 }
