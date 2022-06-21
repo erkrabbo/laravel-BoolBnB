@@ -61,6 +61,8 @@ const store = new Vuex.Store({
 
 const app = new Vue({
     el: '#app',
+    store,
+    render: h => h(App)
 });
 
 // const confirmationOverlay = document.querySelector('#confirmation-overlay');
@@ -81,6 +83,4 @@ const app = new Vue({
 //         confirmationOverlay.classList.add('d-none');
 //     });
 // }
-    store,
-    render: h => h(App)
-})
+
