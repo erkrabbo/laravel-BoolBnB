@@ -7,6 +7,20 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+//Fontawesome
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+.li_service {
+    list-style-type: none;
+    border: 1px solid gray;
+    padding: 1rem;
+    margin: 5px;
+
+}
+
 .img-rounded,
 .book_date_guest,
 .book_form,
@@ -30,10 +44,6 @@
 .content {
     border-top: 2px solid lightgray;
     border-bottom: 2px solid lightgray;
-}
-
-.book_date_guest {
-    border: 1px solid gray;
 }
 
 .book_form {
@@ -60,20 +70,20 @@
     border-bottom-right-radius: 1.5rem;
 }
 
-.overlay {
-    display: flex;
-    position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+// .overlay {
+//     display: flex;
+//     position: fixed;
+//     inset: 0;
+//     background-color: rgba(0, 0, 0, 0.5);
 
-    .popup {
-        margin: auto;
-        padding: 2rem;
-        max-width: 90%;
-        background-color: white;
-        border-radius: 1rem;
-    }
-}
+//     .popup {
+//         margin: auto;
+//         padding: 2rem;
+//         max-width: 90%;
+//         background-color: white;
+//         border-radius: 1rem;
+//     }
+// }
 
 body {
     overflow-y: hidden;
