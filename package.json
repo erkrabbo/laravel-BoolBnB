@@ -25,6 +25,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@tomtom-international/web-sdk-maps": "^6.19.1",
         "vue-observe-visibility": "^1.0.0",
         "vuex": "^3.6.2"
     }
