@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Artisan;
 Route::resource('/houses', 'HouseController')->only('show');
 
 Auth::routes();
-Route::get('/', 'HouseController@home');
+Route::get('/', 'HouseController@home')->name('home');
 Route::get('/search', 'HouseController@index');
 Route::middleware('auth')->group(function () {
     Route::resource('admin/houses', 'HouseController')->except('index','show');
