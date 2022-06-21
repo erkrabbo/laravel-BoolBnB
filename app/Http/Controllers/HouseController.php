@@ -133,19 +133,17 @@ class HouseController extends Controller
         // dd($request);
 
         $house->services()->attach($formData['services']);
-       if($request->hasFile('house_images')) {
-        foreach($request->file('house_images') as $image)
-         {
-            $imgs_path = Storage::put('uploads', $image);
+        if($request->hasFile('house_images')) {
+            foreach($request->file('house_images') as $image)
+            {
+                $imgs_path = Storage::put('uploads', $image);
 
-            HouseImage::create([
-                'house_id' => $house->id,
-                'path'     => $imgs_path,
-            ]);
-        }
+                HouseImage::create([
+                    'house_id' => $house->id,
+                    'path'     => $imgs_path,
+                ]);
+            }
        }
-
-
 
         return redirect()->route('houses.show', $house->id);
 

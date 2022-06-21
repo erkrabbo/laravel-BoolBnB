@@ -118,6 +118,14 @@
                     @if (Auth::user()->id === $house->user_id)
                         <button class="btn btn-danger btn-delete">Delete</button>
                     @endif
+
+                    @if (Auth::user()->id === $house->user_id)
+                        <form action="{{ route('houses.destroy', $house->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                            <button class="btn btn-danger mt-3" onClick="return confirm('Are you sure to delete this?')">Elimina</button>
+                        </form>
+                    @endif
                 </div>
             </div>
         </div>
