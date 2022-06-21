@@ -1,5 +1,8 @@
 @extends('layouts.app')
-
+@section('scripts')
+<script src="{{ asset('js/createValidation.js') }}" defer>
+</script>
+@endsection
 @section('content')
     <main>
 
@@ -11,9 +14,16 @@
                     <label class="form-label" for="Poster">Immagine di copertina</label>
                     {{-- <input class="form-control" type="file" name="Poster" value="{{ old('Poster') }}"> --}}
                     <input class="form-control" type="file" id="Poster" name="Poster" accept="image/*">
-
                 </div>
                 @error('Poster')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+
+                <div class="mb-3">
+                    <label class="form-label" for="house_images">Immagini secondarie</label>
+                    <input class="form-control" type="file" id="house_images" name="house_images[]" accept="image/*" multiple>
+                </div>
+                @error('house_images')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
 
@@ -25,6 +35,20 @@
                 @error('Title')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
+
+
+                <fieldset>
+                    <legend>Servizi</legend>
+                    @foreach ($services as $service)
+                        <input type="checkbox" name="services[]" id="service-{{ $service->id }}" value="{{ $service->id }}"
+                            @if (in_array($service->id, old('services', []))) checked @endif>
+                        <label class="me-4" for="service-{{ $service->id }}">{{ $service->name }}</label>
+                    @endforeach
+                    @error('Service')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </fieldset>
+
 
                 <div class="mb-3">
                     <label class="form-label" for="Content">Descrizione</label>
@@ -90,9 +114,9 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
 
-                <div class="mb-3">
+                <div id="js-address-container" class="mb-3">
                     <label class="form-label" for="Address">Indirizzo</label>
-                    <input class="form-control" type="text" name="Address" value="{{ old('Address') }}">
+                    <input class="form-control" type="text" id="js-address" name="Address" value="{{ old('Address') }}">
                 </div>
                 @error('Address')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -105,6 +129,10 @@
                 @error('Visible')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
+
+
+                <input type="hidden" id="js-lat" name="Lat">
+                <input type="hidden" id="js-lng" name="Lng">
 
                 <button type="submit">Pubblica casa</button>
 

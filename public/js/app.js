@@ -5238,6 +5238,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     house: {
@@ -5255,9 +5256,14 @@ __webpack_require__.r(__webpack_exports__);
       endVertical: 0
     };
   },
-  methods: {// handleLike(){
+  methods: {
+    // handleLike(){
     //     console.log('like')
     // }
+    setImage: function setImage(string) {
+      var image = string.startsWith('http') ? string : "/storage/".concat(string);
+      return image;
+    }
   },
   mounted: function mounted() {
     var _this = this;
@@ -28901,7 +28907,7 @@ var render = function () {
             ref: "preview",
             staticClass: "card-img",
             attrs: {
-              src: _vm.house.gallery[_vm.imgIndex],
+              src: _vm.setImage(_vm.house.gallery[_vm.imgIndex]),
               alt: _vm.house.Title,
             },
           }),

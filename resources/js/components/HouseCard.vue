@@ -2,7 +2,8 @@
   <div class="col">
     <a :href="'/houses/' + house.id">
         <div class="card h-100 border-0 custom-rounded" ref="card">
-            <img class="card-img" :src="house.gallery[imgIndex]" :alt="house.Title" ref="preview">
+            <!-- startsWith("Welcome to earth.","Welcome"); -->
+            <img class="card-img" :src="setImage(house.gallery[imgIndex])" :alt="house.Title" ref="preview">
 
             <div class="card-img-overlay h-100 d-flex flex-column gradient" ref="overlay">
                 <!-- <span class="align-self-start ms-auto" @click.prevent="handleLike">ciao</span> -->
@@ -49,6 +50,10 @@ export default {
         // handleLike(){
         //     console.log('like')
         // }
+        setImage(string) {
+            const image = string.startsWith('http') ? string : `/storage/${string}`;
+            return image
+        }
     },
     mounted(){
         const tap = ("ontouchstart" in this.$refs.card);
