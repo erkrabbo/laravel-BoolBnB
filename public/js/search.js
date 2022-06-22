@@ -179,14 +179,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
  // import { services } from '@tomtom-international/web-sdk-services';
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      mpd: 200,
-      nearBy: []
+      mpd: 20,
+      nearBy: [],
+      map: null,
+      maxPrice: null
     };
   },
   computed: {
@@ -199,41 +203,66 @@ __webpack_require__.r(__webpack_exports__);
       return urlParams.get('Lng');
     }
   },
-  created: function created() {},
-  mounted: function mounted() {
-    var _this = this;
+  methods: {
+    // setMpd() {
+    //     console.log(this.$refs.mpdRange.value)
+    //     this.mpd = this.$refs.mpdRange.value;
+    //     this.updateMarkers();
+    // },
+    setFilters: function setFilters() {
+      this.mpd = this.$refs.mpdRange.value;
+      this.updateMarkers();
+    },
+    updateMarkers: function updateMarkers() {
+      var _this = this;
 
-    var map = _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.map({
+      var myParams = {
+        centerLng: this.centerLng,
+        centerLat: this.centerLat
+      };
+      if (this.maxPrice) myParams['max_price'] = this.maxPrice * 100;
+      Axios.get("/api/houses/search", {
+        params: myParams
+      }).then(function (res) {
+        var center = {
+          lng: _this.centerLng,
+          lat: _this.centerLat
+        };
+        _this.nearBy = [];
+
+        _this.$refs.map.querySelectorAll('[data-ref]').forEach(function (ele) {
+          ele.remove();
+        });
+
+        res.data.houses.forEach(function (result, index) {
+          var pos = {
+            lng: result.Lng,
+            lat: result.Lat
+          };
+
+          if (_tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.LngLat.convert(pos).distanceTo(_tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.LngLat.convert(center)) / 1000 < _this.mpd) {
+            _this.nearBy.push(result);
+
+            var ele = document.createElement('img');
+            ele.src = "".concat(result.Poster);
+            ele.setAttribute('data-ref', "mark".concat(index));
+            var mark = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Marker(ele).setLngLat(pos).addTo(_this.map);
+          }
+        });
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.map = _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.map({
       key: 'Oy5FeMobhbOv0274dEpqyZNDta4FXJyA',
       container: 'map',
       center: {
         lat: this.centerLat,
         lng: this.centerLng
       },
-      zoom: 15
+      zoom: 12
     });
-    Axios.get("/api/houses/search?centerLng=".concat(this.centerLng, "&centerLat=").concat(this.centerLat, "&mpd=").concat(this.mpd)).then(function (res) {
-      _this.nearBy = res.data.houses;
-      var center = {
-        lng: _this.centerLng,
-        lat: _this.centerLat
-      };
-      var near = _this.nearBy;
-      near.forEach(function (result) {
-        // console.log(result)
-        var pos = {
-          lng: result.Lng,
-          lat: result.Lat
-        };
-        console.log(_tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.LngLat.convert(pos).distanceTo(_tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.LngLat.convert(center)) / 1000);
-
-        if (_tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.LngLat.convert(pos).distanceTo(_tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.LngLat.convert(center)) / 1000 < _this.mpd) {
-          // console.log('ci sono')
-          var mark = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Marker().setLngLat(pos);
-          mark.addTo(map);
-        }
-      });
-    }); // const map = tt.map({
+    this.updateMarkers(); // const map = tt.map({
     // key: 'Oy5FeMobhbOv0274dEpqyZNDta4FXJyA',
     // container: 'map',
     // center: {
@@ -1396,39 +1425,66 @@ var render = function () {
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row row-cols-1 row-cols-lg-2 h-100" }, [
       _c("div", { staticClass: "col col-lg-4 h-100" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "address" } }, [_vm._v("Raggio: ")]),
+          _vm._v(" "),
+          _c("input", {
+            ref: "mpdRange",
+            staticClass: "form-control-range",
+            attrs: {
+              type: "range",
+              min: "20",
+              max: "200",
+              id: "address",
+              placeholder: "Inserisci un indirizzo",
+            },
+            domProps: { value: _vm.mpd },
+            on: {
+              change: function ($event) {
+                return _vm.setFilters()
+              },
+            },
+          }),
+          _vm._v("\n              " + _vm._s(_vm.mpd) + "\n          "),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "max_price" } }, [
+            _vm._v("Prezzo massimo"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.maxPrice,
+                expression: "maxPrice",
+              },
+            ],
+            ref: "max_price",
+            staticClass: "form-control",
+            attrs: {
+              type: "number",
+              id: "max_price",
+              placeholder: "Inserisci un prezzo massimo in €",
+            },
+            domProps: { value: _vm.maxPrice },
+            on: {
+              change: function ($event) {
+                return _vm.setFilters()
+              },
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.maxPrice = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
         _c("form", [
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "address" } }, [_vm._v("Raggio")]),
-            _vm._v(" "),
-            _c("input", {
-              ref: "address",
-              staticClass: "form-control-range",
-              attrs: {
-                type: "range",
-                min: "20",
-                max: "200",
-                id: "address",
-                placeholder: "Inserisci un indirizzo",
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "address" } }, [
-              _vm._v("Prezzo massimo"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              ref: "address",
-              staticClass: "form-control",
-              attrs: {
-                type: "text",
-                id: "address",
-                placeholder: "Inserisci un indirizzo",
-              },
-            }),
-          ]),
-          _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "address" } }, [_vm._v("Servizi")]),
             _vm._v(" "),
@@ -1491,20 +1547,13 @@ var render = function () {
         ]),
       ]),
       _vm._v(" "),
-      _vm._m(0),
+      _c("div", { staticClass: "col col-lg-8" }, [
+        _c("div", { ref: "map", attrs: { id: "map" } }),
+      ]),
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col col-lg-8" }, [
-      _c("div", { attrs: { id: "map" } }),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
