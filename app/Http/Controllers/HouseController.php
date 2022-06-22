@@ -145,8 +145,6 @@ class HouseController extends Controller
         }
        }
 
-
-
         return redirect()->route('houses.show', $house->id);
 
         // $house = House::create([
@@ -252,6 +250,6 @@ class HouseController extends Controller
 
         $house->delete();
 
-        return redirect()->route('home');
+        return redirect()->route('houses.create');
     }
 }

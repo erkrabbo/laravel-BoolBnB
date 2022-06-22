@@ -14,11 +14,13 @@ class CreateHouseUserTable extends Migration
     public function up()
     {
         Schema::create('house_user', function (Blueprint $table) {
+
             $table->unsignedBigInteger('house_id');
             $table->foreign('house_id')->references('id')->on('houses')->onDelete('cascade');
 
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->primary(['house_id', 'user_id']);
         });
     }
