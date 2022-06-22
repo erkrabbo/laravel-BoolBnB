@@ -1,17 +1,19 @@
 @extends('layouts.app')
 @section('scripts')
-<script src="{{ asset('js/createValidation.js') }}" defer>
-</script>
+<script src="{{ asset('js/createValidation.js') }}" defer></script>
+<script src="{{ asset('js/validationForm.js') }}" defer></script>
 @section('content')
 <main>
     <div class="container">
         <div class="row">
             <div class="col-8 offset-2">
                 <h1 class="text-center mt-3">Modifica questa casa</h1>
-                <form method="POST" action="{{ route('houses.update', $house->id) }}" class="mb-3" enctype="multipart/form-data">
+                <form id="form" method="POST" action="{{ route('houses.update', $house->id) }}" class="mb-3" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
+                    <div id="error"></div>
+                    
                     <div class="mb-3">
                         <label for="Title" class="form-label"><h4>Titolo*</h4></label>
                         <input type="text" name="Title" class="form-control" id="Title" value="{{ old('Title', $house->Title) }}">
@@ -40,6 +42,16 @@
                     <div class="mb-3">
                         <label class="form-label" for="house_images"><h4>Immagini secondarie</h4></label>
                         <input class="form-control" type="file" id="house_images" name="house_images[]" accept="image/*" multiple>
+
+                        <div class="w-50 h-25 images d-flex flex-wrap">
+                            @foreach ($house_images as $house_image)
+                                <div>
+                                    <img class="img-rounded w-50 h-50 p-1" src="{{ Storage::exists($house_image->path) ? asset('storage/' . $house_image->path) : $house_image->path }}" alt="{{ $house->Title }}">
+                                    <button data-image="{{ $house_image->id }}" type="button" class="btn btn-danger ms-3" data-bs-toggle="modal" data-bs-target="#imageModal">&cross;</button>
+                                </div>
+                             @endforeach
+                        </div>
+
                     </div>
                     @error('house_images')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -187,8 +199,31 @@
                                 </form>
                             </div>
                         </div>
-                    </section> --}}
-                    
+                    </div>   
+
+                    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="imageModalLabel">Elimina immagine</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <h3>Sei sicuro di voler eliminare? Questa azione è irreversibile</h3>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+                                    <form id="formDelete" action="{{ route('houses-image.destroy', '*****') }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger">Elimina</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>   
+
+
                 </div>
             </div>
         </div>

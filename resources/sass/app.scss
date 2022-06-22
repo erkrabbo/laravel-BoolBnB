@@ -84,13 +84,111 @@ body {
     overflow-y: hidden;
 }
 
-@media  screen and (min-width:0px) and (max-width:767px){
-    .center{
-        text-align: center;
-    }
 
-    .block{
-        flex-direction: column;
-        align-items: baseline !important;
+////bottoni////
+.mod_btn{
+    border-radius: 50px;
+    padding: 0.5rem 0.7rem;
+}
+
+.btn_pink{
+    border: solid 3px #FF385C;
+    background-color: #FF385C;
+    font-weight: bold;
+    color: white;
+    &:hover{
+        color: white;
+        box-shadow: 0px 2px 5px 2px rgb(0,0,0,0.4);
+    }
+    &:active{
+        border: solid 3px #eb3557;
+        background-color: #eb3557;
+        color: white;
+        box-shadow: 0px 2px 5px 2px rgb(0,0,0,0.4);
     }
 }
+
+.btn_pink_border{
+    border: solid 3px #FF385C;
+    color: #FF385C;
+    &:hover{
+        background-color: #FF385C;
+        font-weight: bold;
+        color: white;
+    }
+    &:active{
+        background-color: #eb3557;
+        font-weight: bold;
+        color: white;
+    }
+}
+
+.btn_grey_border{
+    border: solid 3px #747474;
+    color: #747474;
+    &:hover{
+        background-color: #747474;
+        font-weight: bold;
+        color: white;
+    }
+    &:active{
+        background-color: #5c5c5c;
+        font-weight: bold;
+        color: white;
+    }
+}
+///testi///
+.form_title{
+    font-size: 1.2em;
+    font-weight: bold;
+    // color: #FF385C;
+    color: #747474;
+}
+
+.tiny_text{
+    font-size: .8em;
+    color: #747474;
+}
+
+// classe di bootstrap modificata
+.form-control:focus{
+    border-color: none;
+    box-shadow: none;
+}
+
+// classe di bootstrap modificata
+.form-check-input:checked{
+    background-color: #FF385C;
+    border: #FF385C;
+    color: white;
+}
+
+.form_textbox{
+    border-bottom: solid 3px #747474;
+    &:focus{
+        border: solid 1px #747474;
+        border-bottom: solid 3px #FF385C;
+    }
+}
+
+.create{
+    .back{
+        display:inline-block;
+    }
+    ul{
+        list-style-type: none;
+        padding: 0;
+        li{
+            border-bottom: solid 1px#747474;
+            padding: .5rem 1rem;
+            color: #747474;
+            &:hover{
+                cursor: pointer;
+                // font-weight: bold;
+                color:white;
+                background-color: #b9b9b9;
+            }
+        }
+    }
+}
+
