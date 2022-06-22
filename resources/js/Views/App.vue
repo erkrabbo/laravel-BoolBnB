@@ -7,7 +7,6 @@
                 <input type="text" class="form-control" id="search" name="search" placeholder="Search" ref = "address" @keyup = "tomSearch">
                 <input type="hidden" name="Lat" ref = "latinput">
                 <input type="hidden" name="Lng" ref = "lnginput">
-                <input type="hidden" name="mpd" value = "20">
             </div>
             <button type="submit" class="btn btn-primary">Search</button>
         </form>
