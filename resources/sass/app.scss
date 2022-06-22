@@ -74,7 +74,7 @@
     a, button{
         color: white;
     }
-} 
+}
 
 body {
     overflow-y: hidden;
@@ -133,6 +133,22 @@ body {
         color: white;
     }
 }
+
+.btn_red_border{
+    border: solid 3px #e3342f;
+    color: #e3342f;
+    &:hover{
+        background-color: #e3342f;
+        font-weight: bold;
+        color: white;
+    }
+    &:active{
+        background-color: #ca2f29;
+        font-weight: bold;
+        color: white;
+    }
+}
+
 ///testi///
 .form_title{
     font-size: 1.2em;
@@ -167,7 +183,7 @@ body {
     }
 }
 
-.create{
+.create, .edit{
     .back{
         display:inline-block;
     }

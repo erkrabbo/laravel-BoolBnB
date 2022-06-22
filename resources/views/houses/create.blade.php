@@ -6,6 +6,7 @@
 @section('content')
     <main>
         <div class="container create mt-3">
+            <h1 class="text-center mt-3">Crea nuova casa</h1>
             <a class="back text-decoration-none mod_btn btn_grey_border my-3" href="{{ url()->previous()}}">Torna indietro</a>
             <form class="mt-3 mx-5" action="{{ route('houses.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -19,7 +20,7 @@
                 @enderror
 
                 <div class="mb-5">
-                    <label class="form-label form_title" for="Content">Descrizione</label>
+                    <label class="form-label form_title" for="Content">Descrizione *</label>
                     <input class="form-control form_textbox" type="text" name="Content" value="{{ old('Content') }}">
                 </div>
                 @error('Content')
@@ -59,27 +60,19 @@
                 </fieldset>
 
                 <div class="mb-5">
-                    <label class="form-label form_title" for="Night_price">Prezzo / notte *</label>
-                    <input class="form-control form_textbox" type="number" name="Night_price" value="{{ old('Night_price') }}">
-                </div>
-                @error('Night_price')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
-
-                <div class="mb-5">
-                    <label class="form-label form_title" for="N_of_rooms">Numero di stanze *</label>
+                <label class="form-label form_title" for="N_of_rooms">Numero di stanze *</label>
                     <input class="form-control form_textbox" type="number" name="N_of_rooms" value="{{ old('N_of_rooms') }}">
                 </div>
                 @error('N_of_rooms')
                     <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
+                    @enderror
 
-                <div class="mb-5">
+                    <div class="mb-5">
                     <label class="form-label form_title" for="N_of_beds">Numero di letti *</label>
                     <input class="form-control form_textbox" type="number" name="N_of_beds" value="{{ old('N_of_beds') }}">
                 </div>
                 @error('N_of_beds')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
 
                 <div class="mb-5">
@@ -87,14 +80,22 @@
                     <input class="form-control form_textbox" type="number" name="N_of_baths" value="{{ old('N_of_baths') }}">
                 </div>
                 @error('N_of_baths')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
 
                 <div class="mb-5">
-                    <label class="form-label form_title" for="Mq">Mq *</label>
+                    <label class="form-label form_title" for="Mq">Grandezza in Mq *</label>
                     <input class="form-control form_textbox" type="number" name="Mq" value="{{ old('Mq') }}">
                 </div>
                 @error('Mq')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+
+                <div class="mb-5">
+                    <label class="form-label form_title" for="Night_price">Prezzo per notte *</label>
+                    <input class="form-control form_textbox" type="number" name="Night_price" value="{{ old('Night_price') }}">
+                </div>
+                @error('Night_price')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
 
@@ -143,6 +144,7 @@
             <button class="mod_btn btn_pink">bottone di prova</button>
             <button class="mod_btn btn_pink_border">bottone di prova</button>
             <button class="mod_btn btn_grey_border">bottone di prova</button>
+            <button class="mod_btn btn_red_border">bottone di prova</button>
             --}}
 
         </div>
