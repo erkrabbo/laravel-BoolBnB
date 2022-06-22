@@ -2109,9 +2109,7 @@ __webpack_require__.r(__webpack_exports__);
 var container = document.querySelector("#js-address-container");
 var addressInput = document.getElementById('js-address');
 var latinput = document.getElementById('js-lat');
-var lnginput = document.getElementById('js-lng'); // const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-// const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
-
+var lnginput = document.getElementById('js-lng');
 addressInput.addEventListener('keyup', function () {
   var address = addressInput.value;
   axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/search/".concat(address, ".json?key=Oy5FeMobhbOv0274dEpqyZNDta4FXJyA&typeahead=true&limit=5&ofs={ofs}&countrySet=IT")).then(function (response) {

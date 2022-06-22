@@ -157,7 +157,6 @@
                         Elimina
                     </button>
                       
-                      <!-- Modal -->
                       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">
@@ -181,25 +180,6 @@
                           </div>
                         </div>
                       </div>
-
-                      {{-- <div class="modal-body">
-                        <h5>Popover in a modal</h5>
-                        <p>This <a href="#" role="button" class="btn btn-secondary" data-bs-toggle="popover" title="Popover title" data-bs-content="Popover body content is set in this attribute.">button</a> triggers a popover on click.</p>
-                      </div> --}}
-
-                    {{-- <section id="confirmation-overlay" class="overlay d-none">
-                        <div class="popup">
-                            <h1>Sei sicuro di voler eliminare?</h1>
-                            <div class="d-flex justify-content-center">
-                                <button id="btn-no" class="btn btn-primary me-3">NO</button>
-                                <form method="delete" data-base="{{ route('houses.destroy', '*****') }}">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger">SI</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>   
 
                     <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
                         <div class="modal-dialog">

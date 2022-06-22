@@ -76,6 +76,13 @@ class HouseController extends Controller
         $houses = $this->filterHouses($request);
         return view('houses.index', compact('houses'));
     }
+
+    public function indexUser(Request $request)
+    {
+        $houses = House::where('user_id', Auth::user()->id)->get();
+
+        return view('dashboard.myHouses', compact('houses'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -248,6 +255,6 @@ class HouseController extends Controller
 
         $house->delete();
 
-        return redirect()->route('houses.create');
+        return redirect()->route('houses.indexUser');
     }
 }
