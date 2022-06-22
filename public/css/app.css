@@ -22518,8 +22518,12 @@ readers do not read off random characters that represent icons */
 .li_service {
   list-style-type: none;
   border: 1px solid gray;
-  padding: 1rem;
   margin: 5px;
+  border-radius: 15px;
+}
+
+.li_service .fa-solid {
+  font-size: 1.5rem;
 }
 
 .img-rounded,
@@ -22642,10 +22646,32 @@ body {
   color: white;
 }
 
+.btn_red_border {
+  border: solid 3px #e3342f;
+  color: #e3342f;
+}
+
+.btn_red_border:hover {
+  background-color: #e3342f;
+  font-weight: bold;
+  color: white;
+}
+
+.btn_red_border:active {
+  background-color: #ca2f29;
+  font-weight: bold;
+  color: white;
+}
+
 .form_title {
   font-size: 1.2em;
   font-weight: bold;
   color: #747474;
+}
+
+.section_title {
+  font-size: 1.7em;
+  font-weight: bold;
 }
 
 .tiny_text {
@@ -22673,22 +22699,26 @@ body {
   border-bottom: solid 3px #FF385C;
 }
 
-.create .back {
+.create .back,
+.edit .back {
   display: inline-block;
 }
 
-.create ul {
+.create ul,
+.edit ul {
   list-style-type: none;
   padding: 0;
 }
 
-.create ul li {
+.create ul li,
+.edit ul li {
   border-bottom: solid 1px #747474;
   padding: 0.5rem 1rem;
   color: #747474;
 }
 
-.create ul li:hover {
+.create ul li:hover,
+.edit ul li:hover {
   cursor: pointer;
   color: white;
   background-color: #b9b9b9;

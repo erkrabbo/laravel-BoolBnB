@@ -16,9 +16,12 @@
 .li_service {
     list-style-type: none;
     border: 1px solid gray;
-    padding: 1rem;
+    // padding: 1rem;
     margin: 5px;
-
+    border-radius: 15px;
+    .fa-solid{
+        font-size: 1.5rem;
+    }
 }
 
 .img-rounded,
@@ -78,7 +81,7 @@
     a, button{
         color: white;
     }
-} 
+}
 
 body {
     overflow-y: hidden;
@@ -137,12 +140,33 @@ body {
         color: white;
     }
 }
+
+.btn_red_border{
+    border: solid 3px #e3342f;
+    color: #e3342f;
+    &:hover{
+        background-color: #e3342f;
+        font-weight: bold;
+        color: white;
+    }
+    &:active{
+        background-color: #ca2f29;
+        font-weight: bold;
+        color: white;
+    }
+}
+
 ///testi///
 .form_title{
     font-size: 1.2em;
     font-weight: bold;
     // color: #FF385C;
     color: #747474;
+}
+
+.section_title{
+    font-size: 1.7em;
+    font-weight: bold;
 }
 
 .tiny_text{
@@ -171,7 +195,7 @@ body {
     }
 }
 
-.create{
+.create, .edit{
     .back{
         display:inline-block;
     }
