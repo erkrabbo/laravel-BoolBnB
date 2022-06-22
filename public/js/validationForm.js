@@ -93,7 +93,37 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open 'C:\\Boolean\\Esercizi\\php\\laravel-BoolBnB\\resources\\js\\validationForm.js'");
+var title = document.getElementById('Title');
+var n_rooms = document.getElementById('N_of_rooms');
+var form = document.getElementById('form');
+var errorElement = document.getElementById('error');
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  var messages = [];
+
+  if (title.value === '' || title.value == null) {
+    messages.push('Il titolo è obbligatorio');
+  }
+
+  if (n_rooms.value < 0) {
+    messages.push('Il numero non può essere un valore negativo');
+    console.log(messages);
+  }
+
+  if (messages.length > 0) {
+    errorElement.innerText = messages.join(', ');
+  } else {
+    form.submit();
+  }
+});
+var formDelete = document.querySelector('#formDelete');
+var baseAction = window.location.origin + '/admin/houses-image/*****';
+var deleteButtons = document.querySelectorAll('[data-image]').forEach(function (ele) {
+  ele.addEventListener('click', function () {
+    formDelete.action = baseAction;
+    formDelete.action = formDelete.action.replace('*****', ele.dataset.image);
+  });
+});
 
 /***/ }),
 
