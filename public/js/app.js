@@ -5137,7 +5137,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 // import Axios from 'axios'
 
 
@@ -28871,8 +28870,6 @@ var render = function () {
             ref: "lnginput",
             attrs: { type: "hidden", name: "Lng" },
           }),
-          _vm._v(" "),
-          _c("input", { attrs: { type: "hidden", name: "mpd", value: "20" } }),
         ]),
         _vm._v(" "),
         _c(
