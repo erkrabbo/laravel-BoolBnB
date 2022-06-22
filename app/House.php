@@ -50,4 +50,9 @@ class House extends Model
     {
         return $this->belongsToMany(Sponsorization::class);
     }
+
+    public function notHavingImageInDb()
+    {
+        return (empty($this->Poster)) ? true : false;
+    }
 }

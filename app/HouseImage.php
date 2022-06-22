@@ -10,7 +10,7 @@ class HouseImage extends Model
         'house_id',
         'path'
     ];
-
+    
     public function house() {
         return $this->belongsTo('App\House');
     }

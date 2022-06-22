@@ -22,4 +22,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // Route::get('/home', 'Api\HouseController@home');
 Route::get('/houses/sponsored', 'Api\HouseController@sponsored');
 Route::get('/houses/last', 'Api\HouseController@last');
+Route::get('/houses/search', 'Api\HouseController@search');
 // Route::get('/user/liked', 'Api\HouseController@liked');

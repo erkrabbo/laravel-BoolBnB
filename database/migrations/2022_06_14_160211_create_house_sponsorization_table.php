@@ -17,8 +17,9 @@ class CreateHouseSponsorizationTable extends Migration
             $table->unsignedBigInteger('house_id');
             $table->unsignedBigInteger('sponsorization_id');
 
-            $table->foreign('house_id')->references('id')->on('houses');
-            $table->foreign('sponsorization_id')->references('id')->on('sponsorizations');
+            $table->foreign('house_id')->references('id')->on('houses')->onDelete('cascade');
+            
+            $table->foreign('sponsorization_id')->references('id')->on('sponsorizations')->onDelete('cascade');
 
             $table->primary(['house_id', 'sponsorization_id']);
         });

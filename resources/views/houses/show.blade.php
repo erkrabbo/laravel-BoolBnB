@@ -18,7 +18,7 @@
                         <img class="img-rounded w-50 py-1" src="{{ Storage::exists($house->Poster) ? asset('storage/' . $house->Poster) : $house->Poster }}" alt="{{ $house->Title }}">
                         <div class="side-imgs d-flex flex-wrap w-50">
                             @foreach ($house_images as $house_image)
-                                <img class="img-rounded w-50 h-50 p-1" src="{{ Storage::exists($house_image->path) ? asset('storage/' . $house_image->path) : $house_image->path }}" alt="{{ $house->Title }}" alt="{{ $house->Title }}">
+                                <img class="img-rounded w-50 h-50 p-1" src="{{ Storage::exists($house_image->path) ? asset('storage/' . $house_image->path) : $house_image->path }}" alt="{{ $house->Title }}">
                             @endforeach
                         </div>
                     </div>
@@ -29,42 +29,53 @@
                                 <h4 class="bold ps-1">Descrizione:</h4>
                                 <p class="ps-1">{{ $house->Content }}</p>
                             </div>
-                            <div class="pt-3">
+                            <div class="pt-3 pb-2">
                                 <h4 class="bold ps-1">Servizi inclusi:</h4>
-                                <div class="d-flex flex-wrap services">
+                                <div class="services d-flex flex-wrap">
                                     @foreach($services as $service)
-                                        <h6 class="ps-1">{{ ucfirst($service->name) }}</h6>
-                                        {{$loop->last ? '.' : ','}}
+                                        <div class="li_service d-flex flex-wrap justify-content-center align-items-center">
+                                            <div>
+                                                <h6>{{ ucfirst($service->name) }}</h6>
+                                                {{-- {{$loop->last ? '.' : ','}} --}}
+                                                <i class="fa-solid {{ $service->icon }} aling-self-center"></i>
+                                            </div>
+                                        </div>                                     
                                     @endforeach
+                                </div>
+                                <div class="content pt-3">
+                                    <h4 class="bold ps-1">Prezzo:</h4>
+                                    @if($house->Night_price < 1000)
+                                        <h4 class="ps-1">{{$house->Night_price}} € <span class="text-secondary"> / notte</span></h4>
+                                    @else
+                                        <h4 class="ps-1">{{round($house->Night_price / 1000)}} € <span class="text-secondary"> / notte</span></h4>
+                                    @endif
                                 </div>
                             </div>
                         </div>
                         <div class="book_form w-50 mx-4 py-3">
-                            <div class="price d-flex justify-content-center">
-                                @if($house->Night_price < 1000)
-                                <h2>{{$house->Night_price}} € <span class="text-secondary"> / notte</span></h2>
-                                @else
-                                <h2>{{round($house->Night_price / 1000)}} € <span class="text-secondary"> / notte</span></h2>
-                                @endif
-                            </div>
+                            
                             <div class="d-flex justify-content-center">
-                                <div class="book_date_guest w-75 h-50">
-                                    <div class="dates d-flex px-1">
-                                        <div class="w-100 d-flex">
-                                            <input class="w-50 h-100 pb-3 pt-3 check-input check-in" type="text" placeholder="Check-in">
-                                            <input class="w-50 h-100 pb-3 pt-3 check-input check-out" type="text" placeholder="Check-out">
-                                        </div>
+                                <form action="">
+                                    <h2 class="text-center text-uppercase pb-4 pt-3">Contatta l'host</h2>
+                                    <div class="pt-3">
+                                        <label class="form-label w-100 text-center text-uppercase text-bolder" for="">Inserisci il tuo nome</label>
+                                        <input class="form-control w-100" type="text" name="name">
                                     </div>
-                                    <div class="guests">
-                                        <input class="pb-4 pt-1 px-2 w-100 guest" type="number" placeholder="Ospiti">
+                                    <div class="pt-3">
+                                        <label class="form-label w-100 text-center text-uppercase text-bolder" for="">Inserisci la tua email</label>
+                                        <input class="form-control w-100" type="text" name="email">
                                     </div>
-                                </div>
+                                    <div class="pt-3">
+                                        <label class="form-label w-100 text-center text-uppercase text-bolder" for="">Messaggio</label>
+                                        <input class="form-control w-100 h-50" type="text" name="message">
+                                    </div>
+                                </form>
                             </div>
                             <div class="d-flex justify-content-center">
-                                <button class="book-btn w-50 btn btn-danger mt-4" href="#"><span class="text-white text-uppercase">Prenota</span></button>
+                                <button class="book-btn w-50 btn btn-danger mt-4" href="#"><span class="text-white text-uppercase">Invia</span></button>
                             </div>
                             <div class="d-flex justify-content-center">
-                                <h6 class="text-secondary py-3">Non riceverai alcun addebito in questa fase</h6>
+                                <h6 class="text-secondary py-3">Verrai ricontattato al più presto</h6>
                             </div>
                         </div>
                     </div>

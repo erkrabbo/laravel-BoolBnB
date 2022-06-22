@@ -18,10 +18,12 @@ class CreateHouseImagesTable extends Migration
             $table->unsignedBigInteger('house_id');
             $table->string('path');
             $table->timestamps();
-
+            
             $table->foreign('house_id')
                 ->references('id')
-                ->on('houses');
+                ->on('houses')
+                ->onDelete('cascade');
+
         });
     }
 

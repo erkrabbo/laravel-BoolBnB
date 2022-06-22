@@ -78,8 +78,12 @@ class HouseImageController extends Controller
      * @param  \App\HouseImage  $houseImage
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HouseImage $houseImage)
+    public function destroy($houseImage)
     {
-        //
+        $image_house = HouseImage::find($houseImage);
+    
+        $image_house->delete();
+
+        return redirect()->back();
     }
 }

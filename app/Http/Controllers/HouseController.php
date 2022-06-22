@@ -15,11 +15,11 @@ use Illuminate\Support\Facades\Storage;
 class HouseController extends Controller
 {
     use \App\Concerns\Filterable;
-    private function getValidators() {
-        return [
+    private function getValidators($id = null) {
+        $validation = [
             'Title'          => 'required|max:100',
             'Poster'         => 'required|image',
-            // 'Content'        => 'required',
+            'Content'        => 'required',
             'Night_price'    => 'required',
             'N_of_rooms'     => 'required',
             'N_of_beds'      => 'required',
@@ -31,9 +31,22 @@ class HouseController extends Controller
             'Visible'        => 'accepted',
             'Lat'            => 'required',
             'Lng'            => 'required',
-
             // 'service_id'   => 'required|exists:App\Service,id',
         ];
+
+        if($id) {
+            $house = House::find($id);
+            if (!$house->notHavingImageInDb()) {
+                if(array_key_exists('Poster', $validation)) {
+                    unset($validation['Poster']);
+                }
+            }
+        }
+
+        return $validation;
+        // if ($house->notHavingImageInDb()){
+        //     $rules['Poster'] = 'required|image';
+        // }
     }
 
     /**
@@ -60,8 +73,15 @@ class HouseController extends Controller
 
     public function index(Request $request)
     {
-        $houses = $this->filterHouses($request)->get();
+        $houses = $this->filterHouses($request);
         return view('houses.index', compact('houses'));
+    }
+
+    public function indexUser(Request $request)
+    {
+        $houses = House::where('user_id', Auth::user()->id)->get();
+
+        return view('dashboard.myHouses', compact('houses'));
     }
     /**
      * Show the form for creating a new resource.
@@ -87,23 +107,7 @@ class HouseController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
         $request->validate($this->getValidators());
-
-        // $request->validate([
-        //     'user_id'     => 'required',
-        //     'Poster'      => 'nullable|image',
-        //     'Title'       => 'required',
-        //     'Night_price' => 'required',
-        //     'Content'     => 'required',
-        //     'N_of_rooms'  => 'required',
-        //     'N_of_beds'   => 'required',
-        //     'N_of_baths'  => 'required',
-        //     'Mq'          => 'required',
-        //     'Available_from' => 'required',
-        //     'Available_to'   => 'required',
-        //     'Address'        => 'required',
-        // ]);
 
         $data = $request->all();
 
@@ -130,9 +134,9 @@ class HouseController extends Controller
         ];
 
         $house = House::create($formData);
-        // dd($request);
 
         $house->services()->attach($formData['services']);
+
         if($request->hasFile('house_images')) {
             foreach($request->file('house_images') as $image)
             {
@@ -146,20 +150,6 @@ class HouseController extends Controller
        }
 
         return redirect()->route('houses.show', $house->id);
-
-        // $house = House::create([
-        //     'Poster' => $request->Poster,
-        //     'Title' => $request->Title,
-        //     'Night_price' => $request->Night_price,
-        //     'N_of_rooms' => $request->N_of_rooms,
-        //     'N_of_beds' => $request->N_of_beds,
-        //     'N_of_baths' => $request->N_of_baths,
-        //     'Mq' => $request->Mq,
-        //     'Available_from' => $request->Available_from,
-        //     'Available_to' => $request->Available_to,
-        //     'Address' => $request->Address,
-        //     'user_id' => Auth::id()]);
-        // return redirect()->route('houses.show', $house->id);
     }
 
     /**
@@ -196,14 +186,17 @@ class HouseController extends Controller
      */
     public function edit(House $house)
     {
+        
         if (Auth::user()->id !== $house->user_id) abort(403);
+
         $services = Service::all();
-        $images = HouseImage::where('house_id', "$house->id")->get();
+        
+        $house_images = HouseImage::where('house_id', "$house->id")->get();
 
         return view('houses.edit', [
-            'house'     => $house,
-            'services'  => $services,
-            'images'    => $images
+            'house'         => $house,
+            'services'      => $services,
+            'house_images' => $house_images,
         ]);
     }
 
@@ -217,7 +210,7 @@ class HouseController extends Controller
     public function update(Request $request, House $house)
     {
         // dd ($request);
-        $request->validate($this->getValidators());
+        $request->validate($this->getValidators($house->id));
 
         if (Auth::user()->id !== $house->user_id) abort(403);
 
@@ -232,6 +225,20 @@ class HouseController extends Controller
         }
 
         $house->update($houseData);
+
+        $house->services()->sync($houseData['services']);
+
+        if($request->hasFile('house_images')) {
+            foreach($request->file('house_images') as $image)
+            {
+                $imgs_path = Storage::put('uploads', $image);
+
+                HouseImage::create([
+                    'house_id' => $house->id,
+                    'path'     => $imgs_path,
+                ]);
+            }
+       }
 
         return redirect()->route('houses.show', $house->id);
     }
@@ -248,6 +255,6 @@ class HouseController extends Controller
 
         $house->delete();
 
-        return redirect()->route('home');
+        return redirect()->route('houses.indexUser');
     }
 }

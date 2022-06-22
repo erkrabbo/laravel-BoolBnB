@@ -63,19 +63,9 @@ const app = new Vue({
     el: '#app',
     store,
     render: h => h(App)
-});
+})
 
-// const confirmationOverlay = document.querySelector('#confirmation-overlay');
-// const confirmationForm = confirmationOverlay.querySelector('form');
-// if (confirmationOverlay) {
-//     document.querySelectorAll('.btn-delete').forEach(button => {
-//         button.addEventListener('click', function() {
-//             const strAction = confirmationForm.dataset.base.replace('*****', id);
-//             const id = this.closest('button').dataset.id;
-//             confirmationForm.action = strAction;
-//             confirmationOverlay.classList.remove('d-none');
-//         })
-//     });
+
 
 //     const btnNo = document.querySelector('#btn-no');
 //     btnNo.addEventListener('click', function() {
@@ -83,4 +73,3 @@ const app = new Vue({
 //         confirmationOverlay.classList.add('d-none');
 //     });
 // }
-

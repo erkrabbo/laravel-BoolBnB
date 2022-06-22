@@ -17,8 +17,8 @@ class CreateHouseServiceTable extends Migration
             $table->unsignedBigInteger('house_id');
             $table->unsignedBigInteger('service_id');
 
-            $table->foreign('house_id')->references('id')->on('houses');
-            $table->foreign('service_id')->references('id')->on('services');
+            $table->foreign('house_id')->references('id')->on('houses')->onDelete('cascade');
+            $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
 
             $table->primary(['house_id', 'service_id']);
         });
