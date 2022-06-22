@@ -181,6 +181,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
  // import { services } from '@tomtom-international/web-sdk-services';
 
 
@@ -190,7 +196,12 @@ __webpack_require__.r(__webpack_exports__);
       mpd: 20,
       nearBy: [],
       map: null,
-      maxPrice: null
+      maxPrice: null,
+      beds: null,
+      services: [],
+      checkIn: null,
+      meters: null,
+      selServices: []
     };
   },
   computed: {
@@ -209,6 +220,15 @@ __webpack_require__.r(__webpack_exports__);
     //     this.mpd = this.$refs.mpdRange.value;
     //     this.updateMarkers();
     // },
+    handleServices: function handleServices(service) {
+      if (this.services.includes(service)) {
+        this.services.splice(this.services.indexOf(service), 1);
+      } else {
+        this.services.push(service);
+      }
+
+      this.setFilters();
+    },
     setFilters: function setFilters() {
       this.mpd = this.$refs.mpdRange.value;
       this.updateMarkers();
@@ -221,6 +241,10 @@ __webpack_require__.r(__webpack_exports__);
         centerLat: this.centerLat
       };
       if (this.maxPrice) myParams['max_price'] = this.maxPrice * 100;
+      if (this.services.length) myParams['services'] = this.services;
+      if (this.checkIn) myParams['check_in'] = this.checkIn;
+      if (this.beds) myParams['beds'] = this.beds;
+      if (this.meters) myParams['mq'] = this.meters;
       Axios.get("/api/houses/search", {
         params: myParams
       }).then(function (res) {
@@ -234,6 +258,8 @@ __webpack_require__.r(__webpack_exports__);
           ele.remove();
         });
 
+        console.log(res.data.services);
+        _this.selServices = res.data.services;
         res.data.houses.forEach(function (result, index) {
           var pos = {
             lng: result.Lng,
@@ -241,6 +267,8 @@ __webpack_require__.r(__webpack_exports__);
           };
 
           if (_tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.LngLat.convert(pos).distanceTo(_tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.LngLat.convert(center)) / 1000 < _this.mpd) {
+            console.log(result);
+
             _this.nearBy.push(result);
 
             var ele = document.createElement('img');
@@ -1484,67 +1512,130 @@ var render = function () {
           }),
         ]),
         _vm._v(" "),
-        _c("form", [
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "address" } }, [_vm._v("Servizi")]),
-            _vm._v(" "),
-            _c("input", {
-              ref: "address",
-              staticClass: "form-control",
-              attrs: {
-                type: "text",
-                id: "address",
-                placeholder: "Inserisci un indirizzo",
-              },
-            }),
-          ]),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "mq" } }, [_vm._v("Metri quadri")]),
           _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "address" } }, [
-              _vm._v("Metri quadri"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              ref: "address",
-              staticClass: "form-control",
-              attrs: {
-                type: "text",
-                id: "address",
-                placeholder: "Inserisci un indirizzo",
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.meters,
+                expression: "meters",
               },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "address" } }, [
-              _vm._v("Numero di stanze"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              ref: "address",
-              staticClass: "form-control",
-              attrs: {
-                type: "text",
-                id: "address",
-                placeholder: "Inserisci un indirizzo",
+            ],
+            ref: "mq",
+            staticClass: "form-control",
+            attrs: {
+              type: "number",
+              id: "mq",
+              placeholder: "Inserisci un indirizzo",
+            },
+            domProps: { value: _vm.meters },
+            on: {
+              change: function ($event) {
+                return _vm.setFilters()
               },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "address" } }, [_vm._v("Check-in")]),
-            _vm._v(" "),
-            _c("input", {
-              ref: "address",
-              staticClass: "form-control",
-              attrs: {
-                type: "text",
-                id: "address",
-                placeholder: "Inserisci un indirizzo",
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.meters = $event.target.value
               },
-            }),
-          ]),
+            },
+          }),
         ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "beds" } }, [_vm._v("Posti letto")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.beds,
+                expression: "beds",
+              },
+            ],
+            ref: "beds",
+            staticClass: "form-control",
+            attrs: {
+              type: "number",
+              id: "beds",
+              placeholder: "Inserisci un indirizzo",
+            },
+            domProps: { value: _vm.beds },
+            on: {
+              change: function ($event) {
+                return _vm.setFilters()
+              },
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.beds = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "checkIn" } }, [_vm._v("Check-in")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.checkIn,
+                expression: "checkIn",
+              },
+            ],
+            ref: "checkIn",
+            staticClass: "form-control",
+            attrs: {
+              type: "date",
+              id: "checkIn",
+              placeholder: "Inserisci un indirizzo",
+            },
+            domProps: { value: _vm.checkIn },
+            on: {
+              change: function ($event) {
+                return _vm.setFilters()
+              },
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.checkIn = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "form-group" },
+          _vm._l(_vm.selServices, function (service) {
+            return _c("div", { key: service.id }, [
+              _c("label", { attrs: { for: "service" + service.id } }, [
+                _vm._v(_vm._s(service.name)),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-check-input",
+                attrs: { type: "checkbox", id: "sevice" + service.id },
+                on: {
+                  click: function ($event) {
+                    return _vm.handleServices(service.id)
+                  },
+                },
+              }),
+            ])
+          }),
+          0
+        ),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col col-lg-8" }, [
