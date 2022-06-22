@@ -11,7 +11,7 @@
                 @csrf
 
                 <div class="mb-3">
-                    <label class="form-label" for="Poster">Immagine di copertina</label>
+                    <label class="form-label" for="Poster">Immagine di copertina*</label>
                     {{-- <input class="form-control" type="file" name="Poster" value="{{ old('Poster') }}"> --}}
                     <input class="form-control" type="file" id="Poster" name="Poster" accept="image/*">
                 </div>
@@ -28,7 +28,7 @@
                 @enderror
 
                 <div class="mb-3">
-                    <label class="form-label" for="Title">Titolo</label>
+                    <label class="form-label" for="Title">Titolo*</label>
                     <input class="form-control" type="text" name="Title" value="{{ old('Title') }}">
 
                 </div>
@@ -51,7 +51,7 @@
 
 
                 <div class="mb-3">
-                    <label class="form-label" for="Content">Descrizione</label>
+                    <label class="form-label" for="Content">Descrizione*</label>
                     <input class="form-control" type="text" name="Content" value="{{ old('Content') }}">
                 </div>
                 @error('Content')
@@ -59,7 +59,7 @@
                 @enderror
 
                 <div class="mb-3">
-                    <label class="form-label" for="Night_price">Prezzo / notte</label>
+                    <label class="form-label" for="Night_price">Prezzo / notte*</label>
                     <input class="form-control" type="number" name="Night_price" value="{{ old('Night_price') }}">
                 </div>
                 @error('Night_price')
@@ -67,7 +67,7 @@
                 @enderror
 
                 <div class="mb-3">
-                    <label class="form-label" for="N_of_rooms">Numero di stanze</label>
+                    <label class="form-label" for="N_of_rooms">Numero di stanze*</label>
                     <input class="form-control" type="number" name="N_of_rooms" value="{{ old('N_of_rooms') }}">
                 </div>
                 @error('N_of_rooms')
@@ -75,7 +75,7 @@
                 @enderror
 
                 <div class="mb-3">
-                    <label class="form-label" for="N_of_beds">Numero di letti</label>
+                    <label class="form-label" for="N_of_beds">Numero di letti*</label>
                     <input class="form-control" type="number" name="N_of_beds" value="{{ old('N_of_beds') }}">
                 </div>
                 @error('N_of_beds')
@@ -83,7 +83,7 @@
                 @enderror
 
                 <div class="mb-3">
-                    <label class="form-label" for="N_of_baths">Numero di bagni</label>
+                    <label class="form-label" for="N_of_baths">Numero di bagni*</label>
                     <input class="form-control" type="number" name="N_of_baths" value="{{ old('N_of_baths') }}">
                 </div>
                 @error('N_of_baths')
@@ -91,7 +91,7 @@
                 @enderror
 
                 <div class="mb-3">
-                    <label class="form-label" for="Mq">Mq</label>
+                    <label class="form-label" for="Mq">Mq*</label>
                     <input class="form-control" type="number" name="Mq" value="{{ old('Mq') }}">
                 </div>
                 @error('Mq')
@@ -99,7 +99,7 @@
                 @enderror
 
                 <div class="mb-3">
-                    <label class="form-label" for="Available_from">Disponibile dal</label>
+                    <label class="form-label" for="Available_from">Disponibile dal*</label>
                     <input class="form-control" type="date" name="Available_from" value="{{ old('Available_from') }}">
                 </div>
                 @error('Available_from')
@@ -107,7 +107,7 @@
                 @enderror
 
                 <div class="mb-3">
-                    <label class="form-label" for="Available_to">Disponibile al</label>
+                    <label class="form-label" for="Available_to">Disponibile al*</label>
                     <input class="form-control" type="date" name="Available_to" value="{{ old('Available_to') }}">
                 </div>
                 @error('Available_to')
@@ -115,7 +115,7 @@
                 @enderror
 
                 <div id="js-address-container" class="mb-3">
-                    <label class="form-label" for="Address">Indirizzo</label>
+                    <label class="form-label" for="Address">Indirizzo*</label>
                     <input class="form-control" type="text" id="js-address" name="Address" value="{{ old('Address') }}">
                 </div>
                 @error('Address')

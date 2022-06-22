@@ -5138,6 +5138,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 // import Axios from 'axios'
 
 
@@ -28846,40 +28852,51 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("main", { staticClass: "py-4" }, [
     _c("section", [
-      _c("form", { attrs: { action: "/search" } }, [
-        _c("div", { ref: "container", staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "search" } }, [_vm._v("Search")]),
-          _vm._v(" "),
-          _c("input", {
-            ref: "address",
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              id: "search",
-              name: "search",
-              placeholder: "Search",
-            },
-            on: { keyup: _vm.tomSearch },
-          }),
-          _vm._v(" "),
-          _c("input", {
-            ref: "latinput",
-            attrs: { type: "hidden", name: "Lat" },
-          }),
-          _vm._v(" "),
-          _c("input", {
-            ref: "lnginput",
-            attrs: { type: "hidden", name: "Lng" },
-          }),
-          _vm._v(" "),
-          _c("input", { attrs: { type: "hidden", name: "mpd", value: "20" } }),
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-8 offset-2" }, [
+            _c("form", { attrs: { action: "/search" } }, [
+              _c("div", { ref: "container", staticClass: "form-group mb-2" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("input", {
+                  ref: "address",
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "search",
+                    name: "search",
+                    placeholder: "Search",
+                  },
+                  on: { keyup: _vm.tomSearch },
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  ref: "latinput",
+                  attrs: { type: "hidden", name: "Lat" },
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  ref: "lnginput",
+                  attrs: { type: "hidden", name: "Lng" },
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: { type: "hidden", name: "mpd", value: "20" },
+                }),
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary mb-2",
+                  attrs: { type: "submit" },
+                },
+                [_vm._v("Search")]
+              ),
+            ]),
+          ]),
         ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-          [_vm._v("Search")]
-        ),
       ]),
     ]),
     _vm._v(" "),
@@ -28890,7 +28907,10 @@ var render = function () {
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3" },
+              {
+                staticClass:
+                  "row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3 mb-3",
+              },
               _vm._l(_vm.sponsored, function (house) {
                 return _c("house-card", {
                   key: house.id,
@@ -28924,7 +28944,16 @@ var render = function () {
       : _vm._e(),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "search" } }, [
+      _c("h4", [_vm._v("Search")]),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -42707,7 +42736,12 @@ var app = new Vue({
   render: function render(h) {
     return h(_Views_App_vue__WEBPACK_IMPORTED_MODULE_0__["default"]);
   }
-});
+}); //     const btnNo = document.querySelector('#btn-no');
+//     btnNo.addEventListener('click', function() {
+//         confirmationForm.action = '';
+//         confirmationOverlay.classList.add('d-none');
+//     });
+// }
 
 /***/ }),
 

@@ -19,7 +19,7 @@ class HouseController extends Controller
         return [
             'Title'          => 'required|max:100',
             'Poster'         => 'required|image',
-            // 'Content'        => 'required',
+            'Content'        => 'required',
             'Night_price'    => 'required',
             'N_of_rooms'     => 'required',
             'N_of_beds'      => 'required',
@@ -216,7 +216,6 @@ class HouseController extends Controller
      */
     public function update(Request $request, House $house)
     {
-        // dd ($request);
         $request->validate($this->getValidators());
 
         if (Auth::user()->id !== $house->user_id) abort(403);

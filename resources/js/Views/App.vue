@@ -1,21 +1,27 @@
 <template>
 <main class="py-4">
     <section>
-        <form action="/search">
-            <div class="form-group" ref ="container">
-                <label for="search">Search</label>
-                <input type="text" class="form-control" id="search" name="search" placeholder="Search" ref = "address" @keyup = "tomSearch">
-                <input type="hidden" name="Lat" ref = "latinput">
-                <input type="hidden" name="Lng" ref = "lnginput">
-                <input type="hidden" name="mpd" value = "20">
+        <div class="container">
+            <div class="row">
+                <div class="col-8 offset-2">
+                    <form action="/search">
+                        <div class="form-group mb-2" ref ="container">
+                            <label for="search"><h4>Search</h4></label>
+                            <input type="text" class="form-control" id="search" name="search" placeholder="Search" ref = "address" @keyup = "tomSearch">
+                            <input type="hidden" name="Lat" ref = "latinput">
+                            <input type="hidden" name="Lng" ref = "lnginput">
+                            <input type="hidden" name="mpd" value = "20">
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2">Search</button>
+                    </form>
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary">Search</button>
-        </form>
+        </div>
     </section>
     <section v-if="sponsored.length">
         <div class="container">
             <h1>In primo piano</h1>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3 mb-3">
                 <house-card v-for="house in sponsored" :key="house.id" :house="house"></house-card>
             </div>
         </div>
