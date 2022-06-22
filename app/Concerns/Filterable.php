@@ -20,6 +20,19 @@ trait Filterable
         if ($request->has('max_price')) {
             $filtered->where('Night_price', '<=',  $request->max_price);
         }
+        // if ($request->has('mpd')) {
+        //     $allHouses = $filtered->get();
+        //     $houses = [];
+        //     foreach($allHouses as $house) {
+        //         if($house->Lng == null || $house->Lat == null) continue;
+        //         $d = (($house->Lng - $request->centerLng) ** 2) + (($house->Lat - $request->centerLat) ** 2);
+        //         if (sqrt($d) <= $request->mpd) {
+        //             $houses[] = $house;
+        //         }
+        //         // dd($allHouses);
+        //     }
+        //     $filtered = new House($houses);
+        // }
 
         if ($request->has('services')) {
             $services = $request->services;
