@@ -3,6 +3,7 @@
 namespace App\Concerns;
 
 use App\House;
+use Illuminate\Support\Facades\DB;
 
 trait Filterable
 {
@@ -15,33 +16,37 @@ trait Filterable
      */
     public static function filterHouses($request)
     {
+        // $filtered = DB::table('house_service')->join('houses', 'house_service.house_id', 'houses.id')->join('services', 'house_service.service_id', 'services.id');
+        // dd($filtered);
         $filtered = House::whereRaw('1 = 1');
+        // $filtered['services'] = [];
+
 
         if ($request->has('max_price')) {
             $filtered->where('Night_price', '<=',  $request->max_price);
         }
-        // if ($request->has('mpd')) {
-        //     $allHouses = $filtered->get();
-        //     $houses = [];
-        //     foreach($allHouses as $house) {
-        //         if($house->Lng == null || $house->Lat == null) continue;
-        //         $d = (($house->Lng - $request->centerLng) ** 2) + (($house->Lat - $request->centerLat) ** 2);
-        //         if (sqrt($d) <= $request->mpd) {
-        //             $houses[] = $house;
-        //         }
-        //         // dd($allHouses);
-        //     }
-        //     $filtered = new House($houses);
-        // }
 
-        if ($request->has('services')) {
+        if ($request->has('beds')) {
+            $filtered->where('N_of_beds', '>=',  $request->beds);
+        }
+
+        if ($request->has('mq')) {
+            $filtered->where('Mq', '>=', $request->mq);
+        }
+        if ($request->has('check_in')) {
+            $filtered->where('Available_from', '<=', $request->check_in)->where('Available_to', '>=', $request->check_in);
+        }
+
+        if ($request->services) {
             $services = $request->services;
+            // dd($services);
             foreach ($services as $service) {
-                $filtered->whereHas('services', function($query) use ($service) {
-                    $query->where('name', $service);
+                $filtered->whereHas('services', function ($query) use ($service){
+                    $query->where('id', $service);
                 });
             }
         }
+
         return $filtered;
     }
 }

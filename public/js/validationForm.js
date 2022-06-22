@@ -93,29 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var title = document.getElementById('Title');
-var n_rooms = document.getElementById('N_of_rooms');
-var form = document.getElementById('form');
-var errorElement = document.getElementById('error');
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-  var messages = [];
-
-  if (title.value === '' || title.value == null) {
-    messages.push('Il titolo è obbligatorio');
-  }
-
-  if (n_rooms.value < 0) {
-    messages.push('Il numero non può essere un valore negativo');
-    console.log(messages);
-  }
-
-  if (messages.length > 0) {
-    errorElement.innerText = messages.join(', ');
-  } else {
-    form.submit();
-  }
-});
+console.log('ciao');
 var formDelete = document.querySelector('#formDelete');
 var baseAction = window.location.origin + '/admin/houses-image/*****';
 var deleteButtons = document.querySelectorAll('[data-image]').forEach(function (ele) {
@@ -123,6 +101,66 @@ var deleteButtons = document.querySelectorAll('[data-image]').forEach(function (
     formDelete.action = baseAction;
     formDelete.action = formDelete.action.replace('*****', ele.dataset.image);
   });
+});
+var form = document.getElementById('form');
+var errorElement = document.getElementById('error');
+var title = document.getElementById('Title');
+var n_rooms = document.getElementById('N_of_rooms');
+var n_beds = document.getElementById('N_of_beds');
+var n_baths = document.getElementById('N_of_baths');
+var mq = document.getElementById('Mq');
+var n_price = document.getElementById('Night_price');
+var available_from = document.getElementById('Available_from');
+var available_to = document.getElementById('Available_to');
+var today = new Date();
+var y = today.getFullYear();
+var d = String(today.getDay()).padStart(2, '0');
+var m = String(today.getMonth() + 1).padStart(2, '0');
+var todayDate = "".concat(y, "-").concat(m, "-").concat(d); // console.log(todayDate)
+// console.log(available_from.value)
+// console.log(available_to.value)
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  var messages = [];
+
+  if (!title.value) {
+    messages.push('Il titolo è obbligatorio');
+  }
+
+  if (n_rooms.value < 0) {
+    messages.push('Il numero delle stanze non può essere un valore negativo');
+  }
+
+  if (n_beds.value < 0) {
+    messages.push('Il numero dei letti non può essere un valore negativo');
+  }
+
+  if (n_baths.value < 0) {
+    messages.push('Il numero dei bagni non può essere un valore negativo');
+  }
+
+  if (mq.value < 0) {
+    messages.push('Il numero dei metri quadri non può essere un valore negativo');
+  }
+
+  if (n_price.value < 0) {
+    messages.push('Il prezzo non può essere un valore negativo');
+  }
+
+  if (available_from.value < todayDate) {
+    messages.push('La disponibilità non può essere precedente alla data odierna');
+  }
+
+  if (available_to.value < available_from.value) {
+    messages.push('La data di fine disponibilità non può essere precedente alla data di inizio disponibilità');
+  }
+
+  if (messages.length > 0) {
+    errorElement.innerText = messages.join('  /  ');
+  } else {
+    form.submit();
+  }
 });
 
 /***/ }),
