@@ -16,9 +16,12 @@
 .li_service {
     list-style-type: none;
     border: 1px solid gray;
-    padding: 1rem;
+    // padding: 1rem;
     margin: 5px;
-
+    border-radius: 15px;
+    .fa-solid{
+        font-size: 1.5rem;
+    }
 }
 
 .img-rounded,
@@ -155,6 +158,11 @@ body {
     font-weight: bold;
     // color: #FF385C;
     color: #747474;
+}
+
+.section_title{
+    font-size: 1.7em;
+    font-weight: bold;
 }
 
 .tiny_text{

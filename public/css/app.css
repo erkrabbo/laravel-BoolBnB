@@ -22518,8 +22518,12 @@ readers do not read off random characters that represent icons */
 .li_service {
   list-style-type: none;
   border: 1px solid gray;
-  padding: 1rem;
   margin: 5px;
+  border-radius: 15px;
+}
+
+.li_service .fa-solid {
+  font-size: 1.5rem;
 }
 
 .img-rounded,
@@ -22659,6 +22663,11 @@ body {
   font-size: 1.2em;
   font-weight: bold;
   color: #747474;
+}
+
+.section_title {
+  font-size: 1.7em;
+  font-weight: bold;
 }
 
 .tiny_text {
