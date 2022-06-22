@@ -141,34 +141,34 @@
                 <div class="text-center my-4 d-flex justify-content-center align-items-center buttons">
                     <a class="btn btn-primary" href="{{ url()->previous()}}">Indietro</a>
 
-                    <button type="button" class="btn btn-danger ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Elimina
-                      </button>
+                    @if (Auth::user()->id === $house->user_id)
+                        <button type="button" class="btn btn-danger ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Elimina
+                        </button>
+                    @endif
                       
-                      <!-- Modal -->
-                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Elimina casa</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              <h3>Sei sicuro di voler eliminare? Questa azione è irreversibile</h3>
-                            </div>
-                            <div class="modal-footer">
-                                @if (Auth::user()->id === $house->user_id)
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Elimina casa</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <h3>Sei sicuro di voler eliminare? Questa azione è irreversibile</h3>
+                                </div>
+                                <div class="modal-footer">
                                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
-                                @endif
-                                <form action="{{ route('houses.destroy', $house->id) }}" method="POST">
+                                    <form action="{{ route('houses.destroy', $house->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                    <button class="btn btn-danger">Elimina</button>
-                                </form>
+                                        <button class="btn btn-danger">Elimina</button>
+                                    </form>
+                                </div>
                             </div>
-                          </div>
                         </div>
-                      </div>   
+                    </div>   
                 </div>
             </div>
         </div>
