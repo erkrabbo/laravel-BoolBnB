@@ -140,6 +140,11 @@ body {
     color: #747474;
 }
 
+.tiny_text{
+    font-size: .8em;
+    color: #747474;
+}
+
 // classe di bootstrap modificata
 .form-control:focus{
     border-color: none;
@@ -160,3 +165,25 @@ body {
         border-bottom: solid 3px #FF385C;
     }
 }
+
+.create{
+    .back{
+        display:inline-block;
+    }
+    ul{
+        list-style-type: none;
+        padding: 0;
+        li{
+            border-bottom: solid 1px#747474;
+            padding: .5rem 1rem;
+            color: #747474;
+            &:hover{
+                cursor: pointer;
+                // font-weight: bold;
+                color:white;
+                background-color: #b9b9b9;
+            }
+        }
+    }
+}
+

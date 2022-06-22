@@ -12314,6 +12314,11 @@ body {
   color: #747474;
 }
 
+.tiny_text {
+  font-size: 0.8em;
+  color: #747474;
+}
+
 .form-control:focus {
   border-color: none;
   box-shadow: none;
@@ -12332,5 +12337,26 @@ body {
 .form_textbox:focus {
   border: solid 1px #747474;
   border-bottom: solid 3px #FF385C;
+}
+
+.create .back {
+  display: inline-block;
+}
+
+.create ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.create ul li {
+  border-bottom: solid 1px #747474;
+  padding: 0.5rem 1rem;
+  color: #747474;
+}
+
+.create ul li:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #b9b9b9;
 }
 
