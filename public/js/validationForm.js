@@ -93,7 +93,6 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-console.log('ciao');
 var formDelete = document.querySelector('#formDelete');
 var baseAction = window.location.origin + '/admin/houses-image/*****';
 var deleteButtons = document.querySelectorAll('[data-image]').forEach(function (ele) {
@@ -172,7 +171,7 @@ form.addEventListener('submit', function (e) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/john/boolean/laravel-BoolBnB/resources/js/validationForm.js */"./resources/js/validationForm.js");
+module.exports = __webpack_require__(/*! C:\Users\user\Desktop\boolean\progetto-finale\laravel-BoolBnB\resources\js\validationForm.js */"./resources/js/validationForm.js");
 
 
 /***/ })

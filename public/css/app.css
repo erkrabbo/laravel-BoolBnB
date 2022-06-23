@@ -22515,17 +22515,6 @@ readers do not read off random characters that represent icons */
   content: "\F63F";
 }
 
-.li_service {
-  list-style-type: none;
-  border: 1px solid gray;
-  margin: 5px;
-  border-radius: 15px;
-}
-
-.li_service .fa-solid {
-  font-size: 1.5rem;
-}
-
 .img-rounded,
 .book_date_guest,
 .book_form,
@@ -22663,15 +22652,15 @@ body {
   color: white;
 }
 
+.section_title {
+  font-size: 1.7em;
+  font-weight: bold;
+}
+
 .form_title {
   font-size: 1.2em;
   font-weight: bold;
   color: #747474;
-}
-
-.section_title {
-  font-size: 1.7em;
-  font-weight: bold;
 }
 
 .tiny_text {
@@ -22722,5 +22711,33 @@ body {
   cursor: pointer;
   color: white;
   background-color: #b9b9b9;
+}
+
+.show .service_container {
+  list-style-type: none;
+  background-color: #dedede;
+  padding: 0.8rem;
+  border-radius: 15px;
+}
+
+.show .service_container .fa-solid {
+  font-size: 1.5rem;
+}
+
+.show span {
+  display: inline-block;
+}
+
+.show .map {
+  width: 100%;
+  height: 300px;
+  background-color: #b9b9b9;
+}
+
+.show .book_form {
+  position: -webkit-sticky;
+  position: sticky;
+  display: block;
+  top: 3rem;
 }
 

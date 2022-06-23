@@ -7,13 +7,14 @@
     <main>
         <div class="container create mt-3">
             <a class="back text-decoration-none mod_btn btn_grey_border my-3" href="{{ url()->previous()}}">Torna indietro</a>
+            <h1 class="text-center my-4">Aggiungi nuova casa</h1>
             <form class="mt-3 mx-5" id="form" action="{{ route('houses.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div id="error"></div>
 
                 <div class="mb-5">
-                    <label class="form-label form_title" for="Title">Titolo</label>
+                    <label class="form-label form_title" for="Title">Titolo *</label>
                     <input id="Title" class="form-control form_textbox" type="text" name="Title" value="{{ old('Title') }}">
 
                 </div>
@@ -22,7 +23,7 @@
                 @enderror
 
                 <div class="mb-5">
-                    <label class="form-label form_title" for="Content">Descrizione</label>
+                    <label class="form-label form_title" for="Content">Descrizione *</label>
                     <input class="form-control form_textbox" type="text" name="Content" value="{{ old('Content') }}">
                 </div>
                 @error('Content')
@@ -30,7 +31,7 @@
                 @enderror
 
                 <div class="mb-5">
-                    <label class="form-label form_title" for="Poster">Immagine di copertina</label>
+                    <label class="form-label form_title" for="Poster">Immagine di copertina *</label>
                     <input class="form-control form_textbox" type="file" id="Poster" name="Poster" accept="image/*">
                 </div>
                 @error('Poster')
@@ -48,7 +49,7 @@
 
                 <fieldset class="mb-5">
                     <legend class="form_title">Servizi</legend>
-                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
                         @foreach ($services as $service)
                         <span>
                             <input class="col form-check-input" type="checkbox" name="services[]" id="service-{{ $service->id }}" value="{{ $service->id }}"
@@ -63,15 +64,7 @@
                 </fieldset>
 
                 <div class="mb-5">
-                    <label class="form-label form_title" for="Night_price">Prezzo / notte</label>
-                    <input id="Night_price" class="form-control form_textbox" type="number" name="Night_price" value="{{ old('Night_price') }}">
-                </div>
-                @error('Night_price')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
-
-                <div class="mb-5">
-                    <label class="form-label form_title" for="N_of_rooms">Numero di stanze</label>
+                    <label class="form-label form_title" for="N_of_rooms">Numero di stanze *</label>
                     <input id="N_of_rooms" class="form-control form_textbox" type="number" name="N_of_rooms" value="{{ old('N_of_rooms') }}">
                 </div>
                 @error('N_of_rooms')
@@ -79,7 +72,7 @@
                 @enderror
 
                 <div class="mb-5">
-                    <label class="form-label form_title" for="N_of_beds">Numero di letti</label>
+                    <label class="form-label form_title" for="N_of_beds">Numero di letti *</label>
                     <input id="N_of_beds" class="form-control form_textbox" type="number" name="N_of_beds" value="{{ old('N_of_beds') }}">
                 </div>
                 @error('N_of_beds')
@@ -87,7 +80,7 @@
                 @enderror
 
                 <div class="mb-5">
-                    <label class="form-label form_title" for="N_of_baths">Numero di bagni</label>
+                    <label class="form-label form_title" for="N_of_baths">Numero di bagni *</label>
                     <input id="N_of_baths" class="form-control form_textbox" type="number" name="N_of_baths" value="{{ old('N_of_baths') }}">
                 </div>
                 @error('N_of_baths')
@@ -95,7 +88,7 @@
                 @enderror
 
                 <div class="mb-5">
-                    <label class="form-label form_title" for="Mq">Mq</label>
+                    <label class="form-label form_title" for="Mq">Grandezza in Mq *</label>
                     <input id="Mq" class="form-control form_textbox" type="number" name="Mq" value="{{ old('Mq') }}">
                 </div>
                 @error('Mq')
@@ -103,7 +96,15 @@
                 @enderror
 
                 <div class="mb-5">
-                    <label class="form-label form_title" for="Available_from">Disponibile dal</label>
+                    <label class="form-label form_title" for="Night_price">Prezzo per notte *</label>
+                    <input id="Night_price" class="form-control form_textbox" type="number" name="Night_price" value="{{ old('Night_price') }}">
+                </div>
+                @error('Night_price')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+
+                <div class="mb-5">
+                    <label class="form-label form_title" for="Available_from">Disponibile dal *</label>
                     <input id="Available_from" class="form-control form_textbox" type="date" name="Available_from" value="{{ old('Available_from') }}">
                 </div>
                 @error('Available_from')
@@ -111,7 +112,7 @@
                 @enderror
 
                 <div class="mb-5">
-                    <label class="form-label form_title" for="Available_to">Disponibile al</label>
+                    <label class="form-label form_title" for="Available_to">Disponibile al *</label>
                     <input id="Available_to" class="form-control form_textbox" type="date" name="Available_to" value="{{ old('Available_to') }}">
                 </div>
                 @error('Available_to')
@@ -119,7 +120,7 @@
                 @enderror
 
                 <div id="js-address-container" class="mb-5">
-                    <label class="form-label form_title" for="Address">Indirizzo</label>
+                    <label class="form-label form_title" for="Address">Indirizzo *</label>
                     <input class="form-control form_textbox" type="text" id="js-address" name="Address" value="{{ old('Address') }}">
                 </div>
                 @error('Address')
@@ -138,8 +139,9 @@
                 <input type="hidden" id="js-lat" name="Lat">
                 <input type="hidden" id="js-lng" name="Lng">
 
-                <button type="submit">Pubblica casa</button>
+                <button class="mod_btn btn_pink float-end" type="submit">Pubblica casa</button>
             </form>
+            <span class="tiny_text">I campi con * sono obbligatori</span>
         </div>
     </main>
 @endsection
