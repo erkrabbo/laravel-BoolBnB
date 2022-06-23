@@ -1,7 +1,9 @@
 @extends('layouts.app')
+
 @section('scripts')
 <script src="{{ asset('js/createValidation.js') }}" defer></script>
 <script src="{{ asset('js/validationForm.js') }}" defer></script>
+
 @section('content')
 <main>
     <div class="container edit mt-3">
@@ -147,6 +149,7 @@
             <input type="hidden" id="js-lat" name="Lat" value="{{ old('Lat', $house->Lat) }}">
             <input type="hidden" id="js-lng" name="Lng" value="{{ old('Lng', $house->Lng) }}">
 
+            <button type="submit" class="mod_btn btn_pink float-end">Salva modifiche</button>
         </form>
         <span class="tiny_text">I campi con * sono obbligatori</span>
 
@@ -154,11 +157,10 @@
             {{-- <a class="btn btn-primary" href="{{ url()->previous()}}">Indietro</a> --}}
 
             @if (Auth::user()->id === $house->user_id)
-            <button type="button" class="mod_btn btn_red_border float-start" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Elimina casa
-            </button>
+                <button type="button" class="mod_btn btn_red_border float-start" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Elimina casa
+                </button>
             @endif
-            <button type="submit" class="mod_btn btn_pink float-end">Salva modifiche</button>
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

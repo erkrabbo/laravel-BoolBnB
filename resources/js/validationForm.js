@@ -1,5 +1,3 @@
-console.log('ciao')
-
 const formDelete = document.querySelector('#formDelete')
 const baseAction = window.location.origin + '/admin/houses-image/*****'
 
@@ -10,8 +8,6 @@ const deleteButtons = document.querySelectorAll('[data-image]')
         formDelete.action = formDelete.action.replace('*****', ele.dataset.image)
     }) 
 })
-
-
 
 const form = document.getElementById('form')
 const errorElement = document.getElementById('error')

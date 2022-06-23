@@ -88,29 +88,9 @@
                         @endif
                     @endauth
 
-                    <a class="btn btn-primary mt-4 mb-2" href="{{ route('houses.create', $house->id) }}"><span class="text-white">Crea una nuova casa</span></a>
-
-
-                    {{-- @if (Auth::user()->id === $house->user_id)
-                        <button data-id="{{ $house->id }}"  class="mt-4 mb-2 btn btn-danger btn-delete">Delete</button>
-                    @endif --}}
-
-                    {{-- <section id="confirmation-overlay" class="overlay d-none">
-                        <div class="popup">
-                            <h1>Sei sicuro di voler eliminare?</h1>
-                            <div class="d-flex justify-content-center">
-                                <button id="btn-no" class="btn btn-primary me-3">NO</button>
-                                <form method="POST" data-base="{{ route('houses.destroy', '*****') }}">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger">SI</button>
-                                </form>
-                            </div>
-                        </div>
-                    </section> --}}
+                    {{-- <a class="btn btn-primary mt-4 mb-2" href="{{ route('houses.create', $house->id) }}"><span class="text-white">Crea una nuova casa</span></a> --}}
                 </div>
             </div>
-            {{-- aggiungere form per messaggio per contattare l'host --}}
         </div>
 
     </main>

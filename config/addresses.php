@@ -24,4 +24,18 @@ return[
     'Viale Federico Caprilli, 19, 20148 Milano MI',
     'Via Breguzzo, 18, 20148 Milano MI',
     'Via Cesare Ajraghi, 20156 Milano MI',
+    'Via Orvieto, 19, 10149 Torino TO',
+    'Via Vittoria, 19-13, 10147 Torino TO',
+    'Via Pozzalone, 7-1, 00060 Sacrofano RM',
+    'Via di Perazzeta, 3244-3280, 00060 Formello RM',
+    'Via Della Bandita, 62-54, 00060 Formello RM',
+    'Via Della Bandita, 62-54, 00060 Formello RM',
+    'Via Magliano, 71, 00060 Formello RM',
+    'Via del Sorbo, 36, 00060 Formello RM',
+    'Via della Pescia, 26027 Rivolta D\'adda CR',
+    'Via del Maglio, 20, 20060 Truccazzano MI',
+    'Via G.Zanella, 20060 Truccazzano MI',
+    'Via G.Zanella, 20060 Truccazzano MI',
+    'Via G.Zanella, 20060 Truccazzano MI',
+    'Via Arrigo Boito, 8, 20064 Gorgonzola MI'
 ];
