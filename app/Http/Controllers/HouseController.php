@@ -81,11 +81,12 @@ class HouseController extends Controller
     public function indexUser(Request $request)
     {
         $houses = House::where('user_id', Auth::user()->id)->get();
-
+        // dd($request);
         return view('dashboard.myHouses', compact('houses'));
     }
 
     public function sponsorized() {
+        
         $sponsorizations = Sponsorization::all();
 
         return view ('houses.sponsorization', compact('sponsorizations'));

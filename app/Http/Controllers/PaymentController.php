@@ -4,14 +4,17 @@ namespace App\Http\Controllers;
 
 // use Braintree\Transaction;
 
+use App\House;
 use App\Sponsorization;
+use DateTime;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
 {
     public function make(Request $request) {
         $amount =  Sponsorization::where('id', $request->price)->value('price');
-    
+
+
         $service = \Braintree\Transaction::sale([
 
             'amount' => $amount,
@@ -21,8 +24,39 @@ class PaymentController extends Controller
             ]
         ]);
 
-        if ($service->success) {
-            return redirect()->back()->with('success', 'Il pagamento è andato a buon fine');
+        // if ($service->success) {
+
+        //     $house = House::where('id', $request->house);
+        //     if(House::find($request->house)->sponsorizations()) {
+        //         $spons = $request->price;
+              
+        //             $house->whereHas('sponsorizations', function ($query) use ( $spons ) {
+        //                 $created = new DateTime($query->value('created_at'));
+        //                 $duration = $query->value('duration');
+        //                 $expiration = $created->modify("+$duration hour");
+        //                 $expiration->format('Y-m-d H:i:s');
+        
+        //                 if($expiration > date("Y-m-d H:i:s")) {
+        //                     $query->get()->sponsorizations()->attach([$spons => [
+        //                         'created_at' => $expiration
+        //                     ]]);
+                            
+        //                 }
+        //                 else {
+        //                     $query->get()->sponsorizations()->attach([$spons => [
+        //                         'created_at' => date("Y-m-d H:i:s")
+        //                     ]]);
+        //                 }
+        //             });    
+
+        //     }
+          
+                
+                
+
+            return redirect()->route('houses.show', [
+                $request->house
+            ])->with('success', 'Il pagamento è andato a buon fine');
             } else {
             return redirect()->back()->withErrors([
                 'name' => 'Abbiamo riscontrato un problema durante il tentativo di pagamento'
@@ -32,7 +66,8 @@ class PaymentController extends Controller
 
     public function payform(Request $request) {
         $id = $request->id;
+        $house = $request->house;
         // dd($request);
-        return view ('houses.braintree', compact('id'));
+        return view ('houses.braintree', compact('id', 'house'));
     }
 }

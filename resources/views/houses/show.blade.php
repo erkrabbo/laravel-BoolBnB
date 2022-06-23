@@ -7,6 +7,14 @@
 @section('content')
     <main>
         <div class="container">
+
+            @if (\Session::has('success'))
+            <div class="alert alert-success">
+                <ul>
+                    <li>{!! \Session::get('success') !!}</li>
+                </ul>
+            </div>
+        @endif
             <div class="row">
                 <div class="col">
                     <h1 class="bold pt-2">{{ $house->Title }}</h1>

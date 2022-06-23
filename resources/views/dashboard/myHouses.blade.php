@@ -25,7 +25,9 @@
                 {{-- <td class="text-center">{{ $house->Content }}</td> --}}
                 <td class="text-center" >{{ $house->services->pluck('name')->join(', ') }}</td>
                 <td class="text-center" >
-                    <a class="btn btn-primary text-white" href="{{ route('houses.sponsorization', $house->id) }}">Sponsorizza</a>
+                    <a class="btn btn-primary text-white" href="{{ route('houses.sponsorization', [
+                        'id' => $house->id
+                    ]) }}">Sponsorizza</a>
                 </td>
                 <td class="text-center">{{ date('d/m/Y', strtotime($house->Available_from)) }}</td>
                 <td class="text-center">{{ date('d/m/Y', strtotime($house->Available_to)) }}</td>
