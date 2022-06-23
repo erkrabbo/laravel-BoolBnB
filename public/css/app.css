@@ -22635,6 +22635,25 @@ body {
   color: white;
 }
 
+.btn_red {
+  border: solid 3px #e3342f;
+  background-color: #e3342f;
+  color: white;
+}
+
+.btn_red:hover {
+  font-weight: bold;
+  color: white;
+  border: solid 3px #ca2f29;
+  background-color: #ca2f29;
+}
+
+.btn_red:active {
+  border: solid 3px #96231f;
+  background-color: #96231f;
+  color: white;
+}
+
 .btn_red_border {
   border: solid 3px #e3342f;
   color: #e3342f;
@@ -22677,6 +22696,10 @@ body {
   color: #FF385C;
 }
 
+.red_text {
+  color: #e3342f;
+}
+
 .form-check-input:checked {
   background-color: #FF385C;
   border: #FF385C;
@@ -22690,6 +22713,16 @@ body {
 .form_textbox:focus {
   border: solid 1px #747474;
   border-bottom: solid 3px #FF385C;
+}
+
+.login .mod_card,
+.register .mod_card {
+  border-radius: 15px;
+}
+
+.login .mod_card .form-group .form_title,
+.register .mod_card .form-group .form_title {
+  font-size: 1em;
 }
 
 .create .back,

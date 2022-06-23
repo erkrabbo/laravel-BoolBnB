@@ -12,7 +12,19 @@
             @endif --}}
             <div class="row">
                 <div class="col">
-                    <h1 class="bold pt-2">{{ $house->Title }}</h1>
+
+                    <div class="d-flex justify-content-between">
+
+                            <h1 class="bold pt-2">{{ $house->Title }}</h1>
+
+                            @auth
+                                @if(Auth::User()->id === $house->user_id)
+                                    <a class="text-decoration-none mod_btn btn_grey_border mt-4 mb-2" href="{{ route('houses.edit', $house->id) }}">Modifica l'inserzione</a>
+                                @endif
+                            @endauth
+
+                    </div>
+
                     <h6 class="text-secondary pt-2 text-uppercase">{{ $house->Address }}</h6>
                     <div class="house-img d-flex align-items-stretch w-100 h-50 py-3">
                         <img class="img-rounded w-50 py-1" src="{{ Storage::exists($house->Poster) ? asset('storage/' . $house->Poster) : $house->Poster }}" alt="{{ $house->Title }}">
@@ -25,7 +37,7 @@
                     <div class="d-flex mt-3">
                         <div class="w-50  ps-1">
                             <h4 class="lighter py-1">Proprietario: <span class="fw-bold">{{ $user->name }}</span></h4>
-                            <span class="pb-3">Massimo {{$house->N_of_beds }} ospiti | {{ $house->N_of_rooms }} Camere | {{ $house->N_of_baths }} Bagni</span>
+                            <span class="pb-3"><i class="fa-solid fa-users"></i> Massimo {{$house->N_of_beds }} ospiti | {{ $house->N_of_rooms }} Camere | {{ $house->N_of_baths }} Bagni</span>
                             <div class="py-3 content ">
                                 <h4 class="section_title">Descrizione:</h4>
                                 <p class="ps-1">{{ $house->Content }}</p>
@@ -93,14 +105,10 @@
                             <span>mappa?</span>
                         </div>
 
-                        <span class="pt-2">Ti troverai in <span class="fw-bold">{{ $house->Address }}</span></span>
+                        <span class="pt-2"><i class="fa-solid fa-location-dot"></i> Ti troverai in <span class="fw-bold">{{ $house->Address }}</span></span>
 
                     </div>
-                    @auth
-                        @if(Auth::User()->id === $house->user_id)
-                            <a class="btn btn-primary mt-4 mb-2" href="{{ route('houses.edit', $house->id) }}"><span class="text-white">Modifica l'inserzione</span></a>
-                        @endif
-                    @endauth
+
 
                     {{-- <a class="btn btn-primary mt-4 mb-2" href="{{ route('houses.create', $house->id) }}"><span class="text-white">Crea una nuova casa</span></a> --}}
                 </div>
