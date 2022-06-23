@@ -22673,6 +22673,10 @@ body {
   box-shadow: none;
 }
 
+.pink_text {
+  color: #FF385C;
+}
+
 .form-check-input:checked {
   background-color: #FF385C;
   border: #FF385C;
@@ -22715,8 +22719,9 @@ body {
 
 .show .service_container {
   list-style-type: none;
+  height: 100%;
   background-color: #dedede;
-  padding: 0.8rem;
+  padding: 1.3rem 0.3rem 0.3rem 0.3rem;
   border-radius: 15px;
 }
 
@@ -22729,6 +22734,7 @@ body {
 }
 
 .show .map {
+  border-radius: 15px;
   width: 100%;
   height: 300px;
   background-color: #b9b9b9;

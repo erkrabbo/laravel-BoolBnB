@@ -169,6 +169,10 @@ body {
     box-shadow: none;
 }
 
+.pink_text{
+    color: #FF385C;
+}
+
 // classe di bootstrap modificata
 .form-check-input:checked{
     background-color: #FF385C;
@@ -208,38 +212,29 @@ body {
 .show{
     .service_container {
         list-style-type: none;
+        height: 100%;
         // border: 1px solid gray;
-        // border: 5px solid white;
-
         background-color: #dedede;
-        padding: 0.8rem;
-        // margin: 5px;
+        padding: 1.3rem 0.3rem 0.3rem 0.3rem;
         border-radius: 15px;
 
         .fa-solid{
             font-size: 1.5rem;
         }
     }
-    .col_service{
-        // display: block;
-        // height: 100%;
-    }
 
     span{
         display:inline-block;
     }
 
-    .service_container{
-
-    }
-
     .map{
+        border-radius: 15px;
         width: 100%;
         height: 300px;
         background-color: #b9b9b9;
     }
+
     .book_form{
-        // position: -webkit-sticky;
         position: sticky;
         display: block;
         top: 3rem;

@@ -32,7 +32,7 @@
                             </div>
                             <div class="pt-3 pb-2">
                                 <h4 class="section_title">Servizi inclusi:</h4>
-                                <div class="pb-3 services row g-2 row-cols-2 row-cols-md-3 row-cols-lg-4">
+                                <div class="pb-3 d-flex services row g-2 row-cols-2 row-cols-md-3 row-cols-lg-4">
                                     @foreach($services as $service)
                                         <div class="li_service d-flex">
                                             <div class="col col_service">
@@ -57,7 +57,7 @@
                         </div>
 
                         <div class="book_container w-50">
-                            <div class="book_form mx-5 py-3">
+                            <div class="book_form ms-5 py-3">
 
                                 <div class="d-flex justify-content-center">
                                     <form action="">
