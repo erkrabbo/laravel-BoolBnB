@@ -6,13 +6,13 @@
                 <div class="col-8 offset-2">
                     <form action="/search">
                         <div class="form-group mb-2" ref ="container">
-                            <label for="search"><h4>Search</h4></label>
-                            <input type="text" class="form-control" id="search" name="search" placeholder="Search" ref = "address" @keyup = "tomSearch">
+                            <label for="search"><h4>Ricerca</h4></label>
+                            <input type="text" class="form-control" id="search" name="search" placeholder="Cerca" ref = "address" @keyup = "tomSearch">
                             <input type="hidden" name="Lat" ref = "latinput">
                             <input type="hidden" name="Lng" ref = "lnginput">
                             <input type="hidden" name="mpd" value = "20">
                         </div>
-                        <button type="submit" class="btn btn-primary mb-2">Search</button>
+                        <button type="submit" class="btn btn-primary text-white mb-2">Cerca</button>
                     </form>
                 </div>
             </div>
