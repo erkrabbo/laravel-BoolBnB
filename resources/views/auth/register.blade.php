@@ -93,6 +93,9 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
+
+                                <div class="tiny_text mt-1">I campi con * sono obbligatori</div>
+
                                 <button type="submit" class="btn btn-primary text-white mt-2">
                                     Registrati
                                 </button>

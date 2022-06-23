@@ -93,7 +93,6 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-console.log('ciao');
 var formDelete = document.querySelector('#formDelete');
 var baseAction = window.location.origin + '/admin/houses-image/*****';
 var deleteButtons = document.querySelectorAll('[data-image]').forEach(function (ele) {

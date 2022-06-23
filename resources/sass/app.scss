@@ -77,16 +77,9 @@
     color: white;
 }
 
-.buttons{
-    a, button{
-        color: white;
-    }
-}
-
 body {
     overflow-y: hidden;
 }
-
 
 ////bottoni////
 .mod_btn{
@@ -156,6 +149,12 @@ body {
     }
 }
 
+.buttons{
+    a, button{
+        color: white;
+    }
+}
+
 ///testi///
 .form_title{
     font-size: 1.2em;
@@ -214,5 +213,15 @@ body {
             }
         }
     }
+}
+
+/* Boolbnb image and text*/
+
+.img_Boolbnb{
+    width: 40px;
+}
+
+.red{
+   color: rgb(241,91,93);
 }
 

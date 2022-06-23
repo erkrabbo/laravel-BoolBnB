@@ -22579,11 +22579,6 @@ readers do not read off random characters that represent icons */
   color: white;
 }
 
-.buttons a,
-.buttons button {
-  color: white;
-}
-
 body {
   overflow-y: hidden;
 }
@@ -22663,6 +22658,11 @@ body {
   color: white;
 }
 
+.buttons a,
+.buttons button {
+  color: white;
+}
+
 .form_title {
   font-size: 1.2em;
   font-weight: bold;
@@ -22722,5 +22722,15 @@ body {
   cursor: pointer;
   color: white;
   background-color: #b9b9b9;
+}
+
+/* Boolbnb image and text*/
+
+.img_Boolbnb {
+  width: 40px;
+}
+
+.red {
+  color: rgb(241, 91, 93);
 }
 

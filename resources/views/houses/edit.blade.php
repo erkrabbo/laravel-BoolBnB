@@ -7,7 +7,6 @@
 @section('content')
 <main>
     <div class="container edit mt-3">
-        <h1 class="text-center mt-3">Modifica questa casa</h1>
         <a class="back text-decoration-none mod_btn btn_grey_border my-3" href="{{ url()->previous()}}">Torna indietro</a>
         <form id="form"  class="mt-3 mx-5" method="POST" action="{{ route('houses.update', $house->id) }}" enctype="multipart/form-data">
             @csrf
@@ -171,14 +170,15 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <h3>Sei sicuro di voler eliminare? Questa azione è irreversibile</h3>
+                            <h3 class="text-center">Sei sicuro di voler eliminare? <br>
+                                Questa azione è irreversibile</h3>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+                            <button type="button" class="btn btn-primary text-white" data-bs-dismiss="modal">No</button>
                             <form action="{{ route('houses.destroy', $house->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-danger">Elimina</button>
+                                <button class="btn btn-danger text-white">Elimina</button>
                             </form>
                         </div>
                     </div>
@@ -193,14 +193,15 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <h3>Sei sicuro di voler eliminare? Questa azione è irreversibile</h3>
+                            <h3 class="text-center">Sei sicuro di voler eliminare? <br>
+                                Questa azione è irreversibile</h3>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+                            <button type="button" class="btn btn-primary text-white" data-bs-dismiss="modal">No</button>
                             <form id="formDelete" action="{{ route('houses-image.destroy', '*****') }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-danger">Elimina</button>
+                                <button class="btn btn-danger text-white">Elimina</button>
                             </form>
                         </div>
                     </div>

@@ -272,12 +272,16 @@ __webpack_require__.r(__webpack_exports__);
             _this.nearBy.push(result);
 
             var ele = document.createElement('img');
-            ele.src = "".concat(result.Poster);
+            ele.src = _this.setImage(result.Poster);
             ele.setAttribute('data-ref', "mark".concat(index));
             var mark = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Marker(ele).setLngLat(pos).addTo(_this.map);
           }
         });
       });
+    },
+    setImage: function setImage(string) {
+      var image = string.startsWith('http') ? string : "/storage/".concat(string);
+      return image;
     }
   },
   mounted: function mounted() {

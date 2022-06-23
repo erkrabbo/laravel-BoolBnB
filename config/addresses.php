@@ -6,7 +6,7 @@ return[
     'Via di Tor Pignattara, 114, 00176 Roma RM',
     'Via Alessandro Stoppato, 107, 00173 Roma RM',
     'Via Benedetto Torti, 33, 00173 Roma RM',
-    // 'Viale Magico Bomboniere, Largo Luigi Cennamo, Camigliano, CE',
+    'Viale Magico Bomboniere, Largo Luigi Cennamo, Camigliano, CE',
     'Largo Luigi Cennamo, 21, 81050 Camigliano CE',
     'Piazza di Monte Citorio, 00186 Roma RM',
     'Piazza di Spagna, 46, 00187 Roma RM',
@@ -37,5 +37,8 @@ return[
     'Via G.Zanella, 20060 Truccazzano MI',
     'Via G.Zanella, 20060 Truccazzano MI',
     'Via G.Zanella, 20060 Truccazzano MI',
-    'Via Arrigo Boito, 8, 20064 Gorgonzola MI'
+    'Via Arrigo Boito, 8, 20064 Gorgonzola MI',
+    'Via degli Olmi, 5, 58010 Fonteblanda GR',
+    'Via Sicilia, 9-3, 58010 Albinia GR',
+    'Strada Provinciale Talamone, 58051 Orbetello GR',
 ];
