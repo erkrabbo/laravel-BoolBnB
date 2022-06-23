@@ -22515,6 +22515,10 @@ readers do not read off random characters that represent icons */
   content: "\F63F";
 }
 
+a {
+  text-decoration: none;
+}
+
 .li_service {
   list-style-type: none;
   border: 1px solid gray;

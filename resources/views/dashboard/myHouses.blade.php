@@ -9,8 +9,9 @@
     <thead>
         <tr>
         <th class="text-center" scope="col">Titolo</th>
-        <th class="text-center" scope="col">Descrizione</th>
+        {{-- <th class="text-center" scope="col">Descrizione</th> --}}
         <th class="text-center" scope="col">Servizi</th>
+        <th class="text-center" scope="col">Sponsorizza la casa</th>
         <th class="text-center" scope="col">Disponibile da</th>
         <th class="text-center" scope="col">Disponibile fino a</th>
         <th class="text-center" scope="col">Indirizzo</th>
@@ -21,8 +22,11 @@
         @foreach ($houses as $house)
             <tr>
                 <td class="text-center">{{ $house->Title }}</td>
-                <td class="text-center">{{ $house->Content }}</td>
+                {{-- <td class="text-center">{{ $house->Content }}</td> --}}
                 <td class="text-center" >{{ $house->services->pluck('name')->join(', ') }}</td>
+                <td class="text-center" >
+                    <a class="btn btn-primary text-white" href="{{ route('houses.sponsorization', $house->id) }}">Sponsorizza</a>
+                </td>
                 <td class="text-center">{{ date('d/m/Y', strtotime($house->Available_from)) }}</td>
                 <td class="text-center">{{ date('d/m/Y', strtotime($house->Available_to)) }}</td>
                 <td class="text-center">{{ $house->Address }}</td>

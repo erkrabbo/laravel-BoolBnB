@@ -13,6 +13,11 @@
 @import "~@fortawesome/fontawesome-free/scss/solid";
 @import "~@fortawesome/fontawesome-free/scss/brands";
 
+
+a {
+    text-decoration: none;
+}
+
 .li_service {
     list-style-type: none;
     border: 1px solid gray;
