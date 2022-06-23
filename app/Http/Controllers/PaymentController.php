@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 // use Braintree\Transaction;
+
+use App\Sponsorization;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
 {
     public function make(Request $request) {
-        
+        $amount =  Sponsorization::where('id', $request->price)->value('price');
+    
         $service = \Braintree\Transaction::sale([
-            'amount' => '50.00',
+
+            'amount' => $amount,
             'paymentMethodNonce' => $request['nonce'],
             'options' => [
                 'submitForSettlement' => True
@@ -18,11 +22,11 @@ class PaymentController extends Controller
         ]);
 
         if ($service->success) {
-            // dd($diocane);
-            return response()->json('ciao');
-            
+            return redirect()->back()->with('success', 'Il pagamento è andato a buon fine');
             } else {
-            return response()->json('ciaociao');
+            return redirect()->back()->withErrors([
+                'name' => 'Abbiamo riscontrato un problema durante il tentativo di pagamento'
+            ]);
         }
     }
 

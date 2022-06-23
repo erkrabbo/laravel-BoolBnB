@@ -7,9 +7,6 @@
 @section('content')
     <main>
         <div class="container">
-            {{-- @if (session('deleted'))
-                <div class="alert alert-warning">{{ session('deleted') }}</div>
-            @endif --}}
             <div class="row">
                 <div class="col">
                     <h1 class="bold pt-2">{{ $house->Title }}</h1>
