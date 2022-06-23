@@ -6,6 +6,7 @@ use App\User;
 use App\House;
 use App\Service;
 use App\HouseImage;
+use App\Sponsorization;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -82,6 +83,12 @@ class HouseController extends Controller
         $houses = House::where('user_id', Auth::user()->id)->get();
 
         return view('dashboard.myHouses', compact('houses'));
+    }
+
+    public function sponsorized() {
+        $sponsorizations = Sponsorization::all();
+
+        return view ('houses.sponsorization', compact('sponsorizations'));
     }
     /**
      * Show the form for creating a new resource.

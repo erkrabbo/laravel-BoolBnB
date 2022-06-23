@@ -9,6 +9,8 @@ require('./bootstrap');
 window.Vue = require('vue');
 window.Axios = require('axios');
 
+// console.log(dropin)
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -29,6 +31,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  */
 import App from './Views/App.vue';
 import Vuex from 'vuex'
+import Axios from 'axios';
 
 const store = new Vuex.Store({
     state: {
@@ -65,11 +68,26 @@ const app = new Vue({
     render: h => h(App)
 })
 
+const dropin = require('braintree-web-drop-in');
+const button = document.querySelector('#submit-button');
+const hiddenNonceInput = document.querySelector('#prova')
+const form = document.querySelector('#form')
 
 
-//     const btnNo = document.querySelector('#btn-no');
-//     btnNo.addEventListener('click', function() {
-//         confirmationForm.action = '';
-//         confirmationOverlay.classList.add('d-none');
-//     });
-// }
+dropin.create({
+    authorization: 'sandbox_gp967cyr_6gbmtt3qhmmnktb8',
+    container: '#dropin-container'
+    }, function (createErr, instance) {
+
+    button.addEventListener('click', function (e) {
+
+    e.preventDefault()
+
+    instance.requestPaymentMethod(function (requestPaymentMethodErr, payload) {
+
+        hiddenNonceInput.value = payload.nonce;
+        form.submit();
+
+        });
+    });
+});

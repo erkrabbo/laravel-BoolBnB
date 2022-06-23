@@ -14,10 +14,10 @@ class SponsorizationController extends Controller
      */
     public function index()
     {
-        $sponsorizations = Sponsorization::all();
-        // dd($sponsorizations);
+        // $sponsorizations = Sponsorization::all();
+        // // dd($sponsorizations);
 
-        return view('houses.sponsorization', compact('sponsorizations'));
+        // return view('houses.sponsorization', compact('sponsorizations'));
     }
 
     /**

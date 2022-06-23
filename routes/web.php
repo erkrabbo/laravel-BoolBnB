@@ -24,6 +24,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('admin/houses', 'HouseController')->except('index','show');
     Route::resource('admin/houses-image', 'HouseImageController')->only('destroy');
     Route::get('/admin/houses/indexUser', 'HouseController@indexUser')->name('houses.indexUser');
-    Route::get('/admin/houses/sponsorization', 'SponsorizationController@index');
-    // Route::get('/admin/houses/braintree', 'HouseController@index');
+    Route::get('/admin/houses/sponsorization', 'HouseController@sponsorized')->name('houses.sponsorization');
+    Route::get('/admin/houses/braintree', 'PaymentController@payform')->name('houses.braintree');
 });
