@@ -121,7 +121,7 @@ export default {
                         console.log(result)
                         this.nearBy.push(result);
                         const ele = document.createElement('img');
-                        ele.src = `${result.Poster}`;
+                        ele.src = this.setImage(result.Poster);
                         ele.setAttribute('data-ref', `mark${index}`);
                         const mark = new tt.Marker(ele)
                         .setLngLat(pos)
@@ -129,6 +129,10 @@ export default {
                         }
                 })
             });
+        },
+        setImage(string) {
+            const image = string.startsWith('http') ? string : `/storage/${string}`;
+            return image
         }
     },
     mounted() {
