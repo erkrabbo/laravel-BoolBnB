@@ -22521,7 +22521,6 @@ a {
 
 .li_service {
   list-style-type: none;
-  margin: 5px;
   border-radius: 15px;
 }
 
@@ -22644,6 +22643,7 @@ body {
 }
 
 .btn_grey_border:active {
+  border: solid 3px #5c5c5c;
   background-color: #5c5c5c;
   font-weight: bold;
   color: white;
@@ -22799,6 +22799,17 @@ body {
   top: 3rem;
 }
 
+.show .be_sticky {
+  width: 100%;
+  position: fixed;
+  display: block;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: solid 2px #747474;
+  background-color: white;
+}
+
 .braintree .button {
   cursor: pointer;
   font-weight: 500;
@@ -22862,6 +22873,7 @@ main {
   height: 500px;
   margin: 20px;
   border: 5px solid #34568B;
+  background: linear-gradient(45deg, rgb(253, 171, 45) 0%, rgb(253, 238, 45) 100%);
 }
 
 .flip-card-inner {

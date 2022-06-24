@@ -19,9 +19,6 @@ a {
 
 .li_service {
     list-style-type: none;
-    // border: 1px solid black;
-    // padding: 1rem;
-    margin: 5px;
     border-radius: 15px;
     .fa-solid{
         font-size: 1.5rem;
@@ -136,6 +133,7 @@ body {
         color: white;
     }
     &:active{
+        border: solid 3px #5c5c5c;
         background-color: #5c5c5c;
         font-weight: bold;
         color: white;
@@ -290,6 +288,21 @@ body {
         display: block;
         top: 3rem;
     }
+    .be_sticky {
+        width: 100%;
+        position: fixed;
+        display: block;
+        bottom: 0;
+        left:0;
+        right:0;
+        border-top: solid 2px #747474;
+        background-color: white;
+        // height: 2rem;
+    }
+
+    // .maledetto{
+    //     background-color: #64d18a;
+    // }
 }
 
 
@@ -335,6 +348,7 @@ main {
     overflow-y: auto;
     height: 100%;
 }
+
 .sponsor-card {
     border: 2px solid gray;
     border-radius: 50px;
@@ -357,8 +371,9 @@ main {
     height: 500px;
     margin: 20px;
     border: 5px solid  #34568B;
-  }
-  .flip-card-inner {
+    background: linear-gradient(45deg, rgba(253,171,45,1) 0%, rgba(253,238,45,1) 100%);
+}
+.flip-card-inner {
     position: relative;
     width: 100%;
     height: 100%;

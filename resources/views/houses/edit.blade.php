@@ -60,7 +60,7 @@
 
             <fieldset class="mb-5">
                 <legend class="form_title">Servizi</legend>
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
                     @foreach ($services as $service)
                         <span>
                             <input class="col form-check-input" type="checkbox" name="services[]" id="service-{{ $service->id }}" value="{{ $service->id }}"
