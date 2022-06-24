@@ -26,19 +26,14 @@ class PaymentController extends Controller
         ]);
 
         if ($service->success) {
-
             $house = House::where('id', $request->house)->with('sponsorizations')->first();
-      
             if(count($house->sponsorizations) != 0) {
-
                 $trueExpiration = null;
-
                 foreach($house->sponsorizations as $sponsorization) {
                     $created = new DateTime($sponsorization->pivot->created_at);
                     $duration = $sponsorization->duration;
                     $interval = new DateInterval("PT{$duration}H");
                     $expiration = (clone $created)->add($interval);
-
                     if($trueExpiration == null || $expiration > $trueExpiration) {
                         $trueExpiration = $expiration;  
                     }                    
@@ -46,13 +41,11 @@ class PaymentController extends Controller
                 $house->sponsorizations()->attach([
                     $request->price => ['created_at' => $trueExpiration]
                 ]);
-
             }  else {
                 $house->sponsorizations()->attach([
                     $request->price => ['created_at' => date("Y-m-d H:i:s")]
                 ]);
             }
-            
             return redirect()->route('houses.show', [
                 $request->house
                 ])->with('success', 'Il pagamento è andato a buon fine');
@@ -62,7 +55,6 @@ class PaymentController extends Controller
             ]);
         }
     }
-
     public function payform(Request $request) {
         $id = $request->id;
         $house = $request->house;
