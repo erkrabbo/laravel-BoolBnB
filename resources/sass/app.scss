@@ -301,10 +301,13 @@ body {
         }
         .toggle_form{
             height: 0;
-            overflow-Y: auto;
-            padding-bottom: 6.5rem;
+            opacity: 0;
+            // padding-bottom: 6.5rem;
+            overflow-y: hidden;
             &.open{
-                background-color: white;;
+                overflow-Y: auto;
+                opacity: 1;
+                background-color: white;
                 height: calc(100vh - 5rem);
                 position: fixed;
                 bottom: 0;
