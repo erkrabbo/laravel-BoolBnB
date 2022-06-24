@@ -82,6 +82,7 @@ a {
 
 body {
     overflow-y: hidden;
+    height: 80vh;
 }
 
 ////bottoni////
@@ -293,6 +294,11 @@ body {
 
 //carte sponsorizzazioni
 
+
+.spons-main {
+    overflow-y: auto;
+    height: 100%;
+}
 .sponsor-card {
     border: 2px solid gray;
     border-radius: 50px;
