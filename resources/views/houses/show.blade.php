@@ -22,24 +22,27 @@
                 <div class="col">
 
                     <div class="d-flex justify-content-between">
-
-                            <h1 class="bold pt-2">{{ $house->Title }}</h1>
-
-                            @auth
-                                @if(Auth::User()->id === $house->user_id)
-                                    <a class="text-decoration-none mod_btn btn_grey_border mt-4 mb-2" href="{{ route('houses.edit', $house->id) }}">Modifica l'inserzione</a>
-                                @endif
-                            @endauth
-
+                        <h1 class="bold pt-2">{{ $house->Title }}</h1>
+                        @auth
+                            @if(Auth::User()->id === $house->user_id)
+                                <a class="text-decoration-none mod_btn btn_grey_border mt-4 mb-2" href="{{ route('houses.edit', $house->id) }}">Modifica l'inserzione</a>
+                            @endif
+                        @endauth
                     </div>
 
                     <h6 class="text-secondary pt-2 text-uppercase">{{ $house->Address }}</h6>
-                    <div class="house-img d-flex align-items-stretch w-100 h-50 py-3">
-                        <img class="img-rounded w-50 py-1" src="{{ Storage::exists($house->Poster) ? asset('storage/' . $house->Poster) : $house->Poster }}" alt="{{ $house->Title }}">
-                        <div class="side-imgs d-flex flex-wrap w-50">
-                            @foreach ($house_images as $house_image)
-                                <img class="img-rounded w-50 h-50 p-1" src="{{ Storage::exists($house_image->path) ? asset('storage/' . $house_image->path) : $house_image->path }}" alt="{{ $house->Title }}">
-                            @endforeach
+
+                    <div class="house-img d-flex align-items-stretch py-3 row row-cols-1 row-cols-md-2">
+                        <img class="img-fluid img-rounded col py-1" src="{{ Storage::exists($house->Poster) ? asset('storage/' . $house->Poster) : $house->Poster }}" alt="{{ $house->Title }}">
+
+                        <div class="side-imgs d-flex flex-wrap w-50 col d-none d-sm-block">
+
+                                <div class="row row-cols-1 row-cols-md-2">
+                                    @foreach ($house_images as $house_image)
+                                        <img class="img-rounded col p-1" src="{{ Storage::exists($house_image->path) ? asset('storage/' . $house_image->path) : $house_image->path }}" alt="{{ $house->Title }}">
+                                    @endforeach
+                                </div>
+
                         </div>
                     </div>
 
@@ -138,8 +141,8 @@
             {{-- visibile solo su telefono
                 d-block d-sm-none
                 --}}
-            <div class="contact_phone be_sticky maledetto row d-block d-sm-none">
-                <div class="d-flex justify-content-center phone_button_container col-sm-12">
+            <div class="contact_phone be_sticky row d-block d-sm-none">
+                <div class="d-flex justify-content-center col-sm-12">
                     <button class="mod_btn btn_pink_border my-4" href="{{ route('houses.messages') }}"><span class="text-uppercase">contatta l'host</span></button>
                     {{-- <span class="text-secondary text-center py-3 fw-bold inline-block">Verrai ricontattato al più presto</span> --}}
                 </div>

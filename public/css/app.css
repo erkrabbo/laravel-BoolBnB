@@ -22806,10 +22806,8 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-}
-
-.show .maledetto {
-  background-color: #64d18a;
+  border-top: solid 2px #747474;
+  background-color: white;
 }
 
 .braintree .button {
