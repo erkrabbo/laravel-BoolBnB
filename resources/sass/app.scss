@@ -35,7 +35,6 @@ a {
     border-radius: 1.5rem;
 }
 
-
 .img-rounded {
     object-fit: cover;
 }
@@ -81,16 +80,9 @@ a {
     color: white;
 }
 
-.buttons{
-    a, button{
-        color: white;
-    }
-}
-
 body {
     overflow-y: hidden;
 }
-
 
 ////bottoni////
 .mod_btn{
@@ -145,6 +137,23 @@ body {
     }
 }
 
+.btn_red{
+    border: solid 3px #e3342f;
+    background-color: #e3342f;
+    color: white;
+    &:hover{
+        font-weight: bold;
+        color: white;
+        border: solid 3px #ca2f29;
+        background-color: #ca2f29;
+    }
+    &:active{
+        border: solid 3px #96231f;
+        background-color: #96231f;
+        color: white;;
+    }
+}
+
 .btn_red_border{
     border: solid 3px #e3342f;
     color: #e3342f;
@@ -160,17 +169,24 @@ body {
     }
 }
 
+.buttons{
+    a, button{
+        color: white;
+    }
+}
+
 ///testi///
+
+.section_title{
+    font-size: 1.7em;
+    font-weight: bold;
+}
+
 .form_title{
     font-size: 1.2em;
     font-weight: bold;
     // color: #FF385C;
     color: #747474;
-}
-
-.section_title{
-    font-size: 1.7em;
-    font-weight: bold;
 }
 
 .tiny_text{
@@ -182,6 +198,14 @@ body {
 .form-control:focus{
     border-color: none;
     box-shadow: none;
+}
+
+.pink_text{
+    color: #FF385C;
+}
+
+.red_text{
+    color: #e3342f;
 }
 
 // classe di bootstrap modificata
@@ -196,6 +220,17 @@ body {
     &:focus{
         border: solid 1px #747474;
         border-bottom: solid 3px #FF385C;
+    }
+}
+
+.login, .register{
+    .mod_card{
+        .form-group{
+            .form_title{
+                font-size: 1em;
+            }
+        }
+        border-radius: 15px;
     }
 }
 

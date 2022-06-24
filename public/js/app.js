@@ -64192,7 +64192,7 @@ var render = function () {
                     type: "text",
                     id: "search",
                     name: "search",
-                    placeholder: "Search",
+                    placeholder: "Cerca",
                   },
                   on: { keyup: _vm.tomSearch },
                 }),
@@ -64215,10 +64215,10 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary mb-2",
+                  staticClass: "btn btn-primary text-white mb-2",
                   attrs: { type: "submit" },
                 },
-                [_vm._v("Search")]
+                [_vm._v("Cerca")]
               ),
             ]),
           ]),
@@ -64276,7 +64276,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "search" } }, [
-      _c("h4", [_vm._v("Search")]),
+      _c("h4", [_vm._v("Ricerca")]),
     ])
   },
 ]
@@ -78306,8 +78306,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Boolean\Esercizi\php\laravel-BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\php\laravel-BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\user\Desktop\boolean\progetto-finale\laravel-BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\user\Desktop\boolean\progetto-finale\laravel-BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
