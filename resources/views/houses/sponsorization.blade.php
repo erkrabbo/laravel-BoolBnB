@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-   <main>
+   <main class="h-100 spons-main">
     <div class="container">
         <div class="row">
             <div class="col">

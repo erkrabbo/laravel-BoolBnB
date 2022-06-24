@@ -27,7 +27,7 @@ class PaymentController extends Controller
         if ($service->success) {
 
             // $house = House::where('id', $request->house)->with('sponsorizations')->get();
-            // // dd($house);
+            // dd($house);
             // if($house->sponsorizations()) {
 
             //     foreach($house->sponsorization() as $sponsorization) {
@@ -35,27 +35,27 @@ class PaymentController extends Controller
             //     }
 
 
-                // dd($request->house);
-                // $spons = $request->price;
+            //     dd($request->house);
+            //     $spons = $request->price;
               
-                //     $house->has('sponsorizations', function ($query) use ( $spons ) {
-                //         $created = new DateTime($query->value('created_at'));
-                //         $duration = $query->value('duration');
-                //         $expiration = $created->modify("+$duration hour");
-                //         $expiration->format('Y-m-d H:i:s');
+            //         $house->has('sponsorizations', function ($query) use ( $spons ) {
+            //             $created = new DateTime($query->value('created_at'));
+            //             $duration = $query->value('duration');
+            //             $expiration = $created->modify("+$duration hour");
+            //             $expiration->format('Y-m-d H:i:s');
         
-                //         if($expiration > date("Y-m-d H:i:s")) {
-                //             $query->get()->sponsorizations()->synch([$spons => [
-                //                 'created_at' => $expiration
-                //             ]]);
+            //             if($expiration > date("Y-m-d H:i:s")) {
+            //                 $query->get()->sponsorizations()->synch([$spons => [
+            //                     'created_at' => $expiration
+            //                 ]]);
                             
-                //         }
-                //         else {
-                //             $query->get()->sponsorizations()->attach([$spons => [
-                //                 'created_at' => date("Y-m-d H:i:s")
-                //             ]]);
-                //         }
-                //     });    
+            //             }
+            //             else {
+            //                 $query->get()->sponsorizations()->attach([$spons => [
+            //                     'created_at' => date("Y-m-d H:i:s")
+            //                 ]]);
+            //             }
+            //         });    
 
             // }
           

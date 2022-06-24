@@ -78097,6 +78097,7 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 // import VueRouter from 'vue-router';
 
 
+
  // Vue.use(VueRouter);
 // const router = new VueRouter({
 //     mode: 'history',
@@ -78107,7 +78108,6 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 //         },
 //     ],
 // });
-
 
 var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
@@ -78379,8 +78379,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\user\Desktop\boolean\progetto-finale\laravel-BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\user\Desktop\boolean\progetto-finale\laravel-BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Boolean\Esercizi\php\laravel-BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\php\laravel-BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
