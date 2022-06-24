@@ -31,6 +31,7 @@
         "braintree-web-drop-in": "^1.33.2",
         "datejs": "^1.0.0-rc3",
         "vue-observe-visibility": "^1.0.0",
+        "vue-router": "^3.5.4",
         "vuex": "^3.6.2"
     }
 }

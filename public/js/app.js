@@ -34905,7 +34905,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card-img-overlay.gradient[data-v-9647af16] {\n  background: linear-gradient(to bottom, transparent 0%, black 100%);\n}\n.custom-rounded[data-v-9647af16] {\n  border-radius: 1em;\n  overflow: hidden;\n}\n.card[data-v-9647af16] {\n  transition: transform 0.3s ease;\n}\n.card[data-v-9647af16]:hover {\n  transform: scale(1.05);\n}\n.pallina[data-v-9647af16] {\n  width: 10px;\n  height: 10px;\n  border-radius: 50%;\n  background: #fff;\n  margin: 0 5px;\n}\n.pallina.active[data-v-9647af16] {\n  background: grey;\n}", ""]);
+exports.push([module.i, ".card-img-overlay.gradient[data-v-9647af16] {\n  background: linear-gradient(to bottom, transparent 0%, black 100%);\n}\n.custom-rounded[data-v-9647af16] {\n  border-radius: 1em;\n  overflow: hidden;\n}\n.card[data-v-9647af16] {\n  transition: transform 0.3s ease;\n}\n.card[data-v-9647af16]:hover {\n  transform: scale(1.05);\n}\n.pallina[data-v-9647af16] {\n  width: 10px;\n  height: 10px;\n  border-radius: 50%;\n  background: #fff;\n  margin: 0 5px;\n}\n.pallina.active[data-v-9647af16] {\n  background: grey;\n}\n.arrows[data-v-9647af16] {\n  -webkit-box-pack: center;\n  -webkit-box-align: center;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  display: inline-flex;\n  border-radius: 50%;\n  border: 1px solid rgba(0, 0, 0, 0.08);\n  outline: none;\n  color: rgb(34, 34, 34);\n  background-color: rgba(255, 255, 255, 0.9);\n  touch-action: manipulation;\n  align-items: center;\n  justify-content: center;\n  background-clip: padding-box;\n  box-shadow: transparent 0px 0px 0px 1px, transparent 0px 0px 0px 4px, rgba(0, 0, 0, 0.18) 0px 2px 4px;\n  transition: transform 0.25s ease 0s;\n  width: 32px;\n  height: 32px;\n}", ""]);
 
 // exports
 
@@ -64399,9 +64399,71 @@ var render = function () {
                     "w-100 d-flex my-auto justify-content-between d-none",
                 },
                 [
-                  _c("button", { ref: "prevImage" }, [_vm._v("←")]),
+                  _c("button", { ref: "prevImage", staticClass: "arrows" }, [
+                    _c(
+                      "svg",
+                      {
+                        staticStyle: {
+                          display: "block",
+                          fill: "none",
+                          height: "12px",
+                          width: "12px",
+                          stroke: "currentcolor",
+                          "stroke-width": "4",
+                          overflow: "visible",
+                        },
+                        attrs: {
+                          viewBox: "0 0 32 32",
+                          xmlns: "http://www.w3.org/2000/svg",
+                          "aria-hidden": "true",
+                          role: "presentation",
+                          focusable: "false",
+                        },
+                      },
+                      [
+                        _c("g", { attrs: { fill: "none" } }, [
+                          _c("path", {
+                            attrs: {
+                              d: "m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932",
+                            },
+                          }),
+                        ]),
+                      ]
+                    ),
+                  ]),
                   _vm._v(" "),
-                  _c("button", { ref: "nextImage" }, [_vm._v("→")]),
+                  _c("button", { ref: "nextImage", staticClass: "arrows" }, [
+                    _c(
+                      "svg",
+                      {
+                        staticStyle: {
+                          display: "block",
+                          fill: "none",
+                          height: "12px",
+                          width: "12px",
+                          stroke: "currentcolor",
+                          "stroke-width": "4",
+                          overflow: "visible",
+                        },
+                        attrs: {
+                          viewBox: "0 0 32 32",
+                          xmlns: "http://www.w3.org/2000/svg",
+                          "aria-hidden": "true",
+                          role: "presentation",
+                          focusable: "false",
+                        },
+                      },
+                      [
+                        _c("g", { attrs: { fill: "none" } }, [
+                          _c("path", {
+                            attrs: {
+                              d: "m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932",
+                            },
+                          }),
+                        ]),
+                      ]
+                    ),
+                  ]),
                 ]
               ),
               _vm._v(" "),
@@ -78032,8 +78094,19 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+// import VueRouter from 'vue-router';
 
 
+ // Vue.use(VueRouter);
+// const router = new VueRouter({
+//     mode: 'history',
+//     routes: [
+//         {   path: '/contact',
+//             name: 'ContactPage',
+//             component: ContactPage,
+//         },
+//     ],
+// });
 
 
 var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
