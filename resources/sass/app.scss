@@ -302,9 +302,9 @@ body {
         .toggle_form{
             height: 0;
             opacity: 0;
-            // padding-bottom: 6.5rem;
             overflow-y: hidden;
             &.open{
+                padding-bottom: 6.5rem;
                 overflow-Y: auto;
                 opacity: 1;
                 background-color: white;
