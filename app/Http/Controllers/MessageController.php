@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\House;
 use App\Message;
 use App\Mail\SendNewMessage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class MessageController extends Controller
@@ -14,9 +16,13 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $house = $request->house;
+
+        $messages = Message::where('house_id', $house)->orderBy('created_at', 'desc')->get();
         
+        return view('dashboard.messages', compact('messages'));
     }
 
     public function send(Request $request)

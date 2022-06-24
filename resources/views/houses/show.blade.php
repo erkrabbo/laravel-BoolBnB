@@ -99,7 +99,7 @@
                                         </div>
                                         <div class="pt-3">
                                             <label class="form-label w-100 text-center text-uppercase text-bolder" for="">Inserisci la tua email</label>
-                                            <input class="form-control form_textbox w-100" type="email" name="sender_mail" required autocomplete="sender_mail">
+                                            <input class="form-control form_textbox w-100" type="email" name="sender_mail" id="sender_mail" required autocomplete="sender_mail" value="{{ $userMail }}">
                                         </div>
                                         <div class="pt-3">
                                             <label class="form-label w-100 text-center text-uppercase text-bolder" for="">Messaggio</label>

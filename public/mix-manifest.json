@@ -2,7 +2,6 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/js/createValidation.js": "/js/createValidation.js",
-    "/js/messages.js": "/js/messages.js",
     "/js/search.js": "/js/search.js",
     "/js/validationForm.js": "/js/validationForm.js"
 }

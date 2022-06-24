@@ -7,7 +7,7 @@
     <title>Message</title>
 </head>
 <body>
-    <h3>Hai ricevuto un email da: {{ $lead->name }} {{ $lead->surname }}.</h3>
+    <h3>Hai ricevuto un email da: {{ $lead->name }} {{ $lead->surname }}</h3>
     <h3>Email: {{ $lead->sender_mail }}</h3>
     <h3>Messaggio:</h3>
     <p>{{ $lead->content }}</p>

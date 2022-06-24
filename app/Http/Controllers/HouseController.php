@@ -174,6 +174,12 @@ class HouseController extends Controller
             ->get();
         // dd($services);
 
+        $userMail = '';
+
+        if (Auth::check()){
+            $userMail = Auth::user()->email;
+        }
+
         $user = User::where('id', "$house->user_id")->first();
         $house_images = HouseImage::where('house_id', "$house->id")->get();
 
@@ -183,6 +189,7 @@ class HouseController extends Controller
             'user'         => $user,
             'house_images' => $house_images,
             'services'     => $services,
+            'userMail'     => $userMail
         ]);
     }
 

@@ -9,8 +9,9 @@
     <thead>
         <tr>
         <th class="text-center" scope="col">Titolo</th>
-        <th class="text-center" scope="col">Sponsorizza la casa</th>
         <th class="text-center" scope="col">Indirizzo</th>
+        <th class="text-center" scope="col">Sponsorizza la casa</th>
+        <th class="text-center" scope="col">Messaggi ricevuti</th>
         <th class="text-center" scope="col" colspan="4">Azioni</th>
         </tr>
     </thead>
@@ -18,16 +19,19 @@
         @foreach ($houses as $house)
             <tr>
                 <td class="text-center">{{ $house->Title }}</td>
+                <td class="text-center">{{ $house->Address }}</td>
                 <td class="text-center" >
                     <a class="btn btn-primary text-white" href="{{ route('houses.sponsorization', [
                         'id' => $house->id
                     ]) }}">Sponsorizza</a>
                 </td>
-                <td class="text-center">{{ $house->Address }}</td>
-                <td>
-                    <a class="btn btn-primary text-white" href="{{ route('houses.show', $house->id) }}">Guarda</a>
+                <td class="text-center">
+                    <a class="btn btn-primary text-white" href="{{ route('houses.messages', ['house' => $house]) }}">Messaggi</a>
                 </td>
-                <td>
+                <td class="text-center">
+                    <a class="btn btn-primary text-white" href="{{ route('houses.show', $house->id) }}">Visualizza</a>
+                </td>
+                <td class="text-center">
                     @if(Auth::User()->id === $house->user_id)
                         <a class="btn btn-secondary text-white" href="{{ route('houses.edit', $house->id) }}">Modifica l'inserzione</a>
                     @endif
