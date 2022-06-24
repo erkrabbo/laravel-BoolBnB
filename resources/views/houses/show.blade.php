@@ -5,7 +5,16 @@
 {{-- @section('pageTitle', $house->Title) --}}
 
 @section('content')
-    <main>    
+    <main>
+        <div class="container">
+
+            @if (\Session::has('success'))
+                <div class="alert alert-success">
+                    <ul>
+                        <li>{!! \Session::get('success') !!}</li>
+                    </ul>
+                </div>
+            @endif
         <div class="container show">
             @if (\Session::has('success'))
                 <div class="alert alert-success">

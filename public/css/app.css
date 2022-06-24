@@ -22521,7 +22521,6 @@ a {
 
 .li_service {
   list-style-type: none;
-  border: 1px solid black;
   margin: 5px;
   border-radius: 15px;
 }
