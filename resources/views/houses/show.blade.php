@@ -5,7 +5,7 @@
 {{-- @section('pageTitle', $house->Title) --}}
 
 @section('content')
-    <main>
+    <main class="sticky-main">
         <div class="container show">
             @if (\Session::has('success'))
                 <div class="alert alert-success">
@@ -153,7 +153,33 @@
             {{-- visibile solo su telefono
                 d-block d-sm-none
                 --}}
-            <div class="contact_phone be_sticky row d-block d-sm-none">
+            <div class="toggle_form">
+                <form action="{{route('send')}}" method="post">
+                    @csrf
+                    <h2 class="text-center text-uppercase pb-4 pt-3 section_title">Contatta l'host</h2>
+                    <div class="pt-3">
+                        <label class="form-label w-100 text-center text-uppercase text-bolder" for="">Inserisci il tuo nome</label>
+                        <input class="form-control form_textbox w-100" type="text" name="name" required autocomplete="name">
+                    </div>
+                    <div class="pt-3">
+                        <label class="form-label w-100 text-center text-uppercase text-bolder" for="">Inserisci il tuo cognome</label>
+                        <input class="form-control form_textbox w-100" type="text" name="surname">
+                    </div>
+                    <div class="pt-3">
+                        <label class="form-label w-100 text-center text-uppercase text-bolder" for="">Inserisci la tua email</label>
+                        <input class="form-control form_textbox w-100" type="email" name="sender_mail" id="sender_mail" required autocomplete="sender_mail" value="{{ $userMail }}">
+                    </div>
+                    <div class="pt-3">
+                        <label class="form-label w-100 text-center text-uppercase text-bolder" for="">Messaggio</label>
+                        <input class="form-control form_textbox w-100 h-50" type="text" name="content" required autocomplete="content">
+                    </div>
+                    <input type="hidden" name="house_id" value="{{ $house->id }}">
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="mod_btn btn_pink w-50 mt-4" href="#"><span class="text-white text-uppercase">Invia</span></button>
+                    </div>
+                </form>
+            </div>
+            <div id="btn_toggle" class="contact_phone be_sticky row d-block d-sm-none">
                 <div class="d-flex justify-content-center col-sm-12">
                     <button class="mod_btn btn_pink_border my-4" href="{{ route('houses.messages') }}"><span class="text-uppercase">contatta l'host</span></button>
                     {{-- <span class="text-secondary text-center py-3 fw-bold inline-block">Verrai ricontattato al più presto</span> --}}
