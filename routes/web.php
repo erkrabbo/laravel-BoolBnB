@@ -1,6 +1,8 @@
 <?php
 
+use App\Mail\SendNewMessage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 
@@ -20,6 +22,7 @@ Route::resource('/houses', 'HouseController')->only('show');
 Auth::routes();
 Route::get('/', 'HouseController@home')->name('home');
 Route::get('/search', 'HouseController@index');
+Route::get('/admin/houses/messages', 'MessageController@index')->name('houses.messages');
 Route::middleware('auth')->group(function () {
     Route::resource('admin/houses', 'HouseController')->except('index','show');
     Route::resource('admin/houses-image', 'HouseImageController')->only('destroy');

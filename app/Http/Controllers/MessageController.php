@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Message;
+use App\Mail\SendNewMessage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class MessageController extends Controller
 {
@@ -36,7 +38,13 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $lead = Message::create($request->all());
+    
+            Mail::to('John@boolpress.com')->send(new SendNewMessage($lead));
+            
+            return response()->json([
+                'validity'  => 'Mail inviata',
+            ]);
     }
 
     /**

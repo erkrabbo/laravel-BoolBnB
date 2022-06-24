@@ -22734,3 +22734,16 @@ body {
   color: rgb(241, 91, 93);
 }
 
+/* Background search */
+
+.bkg-search {
+  background-image: url("/images/CasaSulMare.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+.back {
+  padding: 7rem;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+

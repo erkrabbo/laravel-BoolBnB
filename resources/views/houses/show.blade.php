@@ -82,6 +82,7 @@
                     <div class="mt-5 py-3">
                         <h2 class="section_title">Dove ti troverai</h2>
                     </div>
+                    <a class="btn btn-primary text-white" href="{{ route('houses.messages') }}">Invia un messaggio</a>
                     @auth
                         @if(Auth::User()->id === $house->user_id)
                             <a class="btn btn-primary mt-4 mb-2" href="{{ route('houses.edit', $house->id) }}"><span class="text-white">Modifica l'inserzione</span></a>

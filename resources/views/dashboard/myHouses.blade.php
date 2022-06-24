@@ -14,7 +14,7 @@
         <th class="text-center" scope="col">Disponibile da</th>
         <th class="text-center" scope="col">Disponibile fino a</th>
         <th class="text-center" scope="col">Indirizzo</th>
-        <th class="text-center" scope="col" colspan="3">Azioni</th>
+        <th class="text-center" scope="col" colspan="4">Azioni</th>
         </tr>
     </thead>
     <tbody>

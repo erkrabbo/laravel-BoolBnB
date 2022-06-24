@@ -27,8 +27,22 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
+// import VueRouter from 'vue-router';
 import App from './Views/App.vue';
 import Vuex from 'vuex'
+
+// Vue.use(VueRouter);
+
+// const router = new VueRouter({
+//     mode: 'history',
+//     routes: [
+//         {   path: '/contact',
+//             name: 'ContactPage',
+//             component: ContactPage,
+//         },
+//     ],
+// });
 
 const store = new Vuex.Store({
     state: {
