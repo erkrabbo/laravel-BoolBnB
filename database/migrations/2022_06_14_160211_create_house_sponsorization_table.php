@@ -14,6 +14,7 @@ class CreateHouseSponsorizationTable extends Migration
     public function up()
     {
         Schema::create('house_sponsorization', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('house_id');
             $table->unsignedBigInteger('sponsorization_id');
             $table->dateTime('created_at');
@@ -21,7 +22,7 @@ class CreateHouseSponsorizationTable extends Migration
             
             $table->foreign('sponsorization_id')->references('id')->on('sponsorizations')->onDelete('cascade');
 
-            $table->primary(['house_id', 'sponsorization_id']);
+            // $table->primary(['house_id', 'sponsorization_id']);
         });
     }
 
