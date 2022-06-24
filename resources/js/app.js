@@ -92,3 +92,11 @@ dropin.create({
         });
     });
 });
+
+
+const hiding = document.querySelector(".toggle_form")
+const toggleFormButton = document.querySelector("#btn_toggle")
+
+toggleFormButton.addEventListener('click', ()=>{
+    hiding.classList.toggle("open")
+})
