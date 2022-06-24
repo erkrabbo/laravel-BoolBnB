@@ -8,6 +8,7 @@
 <main>
     <div class="container edit mt-3">
         <a class="back text-decoration-none mod_btn btn_grey_border my-3" href="{{ url()->previous()}}">Torna indietro</a>
+        <h1 class="text-center my-4">Modifica questa casa</h1>
         <form id="form"  class="mt-3 mx-5" method="POST" action="{{ route('houses.update', $house->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -32,7 +33,7 @@
 
             <div class="mb-5">
                 <label for="Poster" class="form-label form_title">Immagine di copertina *</label>
-                <input class="form-control" type="file" id="Poster" name="Poster" accept="image/*">
+                <input class="form-control form_textbox" type="file" id="Poster" name="Poster" accept="image/*">
                 <img class="img-rounded img-fluid mt-3" src="{{ Storage::exists($house->Poster) ? asset('storage/' . $house->Poster) : $house->Poster }}" alt="">
             </div>
             @error('Poster')
@@ -41,7 +42,7 @@
 
             <div class="">
                 <label class="form-label form_title" for="house_images">Immagini secondarie</label>
-                <input class="form-control" type="file" id="house_images" name="house_images[]" accept="image/*" multiple>
+                <input class="form-control form_textbox" type="file" id="house_images" name="house_images[]" accept="image/*" multiple>
 
                 <div class="w-50 h-25 images d-flex flex-wrap">
                     @foreach ($house_images as $house_image)
@@ -130,7 +131,7 @@
             @enderror
 
             <div id="js-address-container" class="mb-5">
-                <label class="form-label form_title" for="Address">Indirizzo</label>
+                <label class="form-label form_title" for="Address">Indirizzo *</label>
                 <input class="form-control form_textbox" type="text" id="js-address" name="Address" value="{{ old('Address', $house->Address) }}">
             </div>
             @error('Address')
@@ -170,15 +171,14 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <h3 class="text-center">Sei sicuro di voler eliminare? <br>
-                                Questa azione è irreversibile</h3>
+                            <h3>Sei sicuro di voler eliminare?<br>Questa azione è irreversibile</h3>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary text-white" data-bs-dismiss="modal">No</button>
+                            <button type="button" class="mod_btn btn_grey_border" data-bs-dismiss="modal">Annulla</button>
                             <form action="{{ route('houses.destroy', $house->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-danger text-white">Elimina</button>
+                                <button class="mod_btn btn_red">Elimina</button>
                             </form>
                         </div>
                     </div>
