@@ -54,7 +54,7 @@ class MessageController extends Controller
     {
         $lead = Message::create($request->all());
     
-            Mail::to('johnca@outlook.it')->send(new SendNewMessage($lead));
+            Mail::to('pier@prova.it')->send(new SendNewMessage($lead));
             
             return response()->json([
                 'validity'  => 'Mail inviata',
