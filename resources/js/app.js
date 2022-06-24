@@ -33,6 +33,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 import App from './Views/App.vue';
 import Vuex from 'vuex'
 import Axios from 'axios';
+import { client } from 'braintree-web';
 
 const store = new Vuex.Store({
     state: {
@@ -99,4 +100,11 @@ const toggleFormButton = document.querySelector("#btn_toggle")
 
 toggleFormButton.addEventListener('click', ()=>{
     hiding.classList.toggle("open")
+})
+
+window.addEventListener('resize', () => {
+    // console.log(window.innerWidth)
+    if(window.innerWidth > 576) {
+        hiding.classList = 'toggle_form';
+    }
 })
