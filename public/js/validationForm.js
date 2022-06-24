@@ -171,7 +171,7 @@ form.addEventListener('submit', function (e) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\php\laravel-BoolBnB\resources\js\validationForm.js */"./resources/js/validationForm.js");
+module.exports = __webpack_require__(/*! /Users/john/boolean/laravel-BoolBnB/resources/js/validationForm.js */"./resources/js/validationForm.js");
 
 
 /***/ })

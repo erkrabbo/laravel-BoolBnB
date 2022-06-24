@@ -22,7 +22,8 @@ Route::resource('/houses', 'HouseController')->only('show');
 Auth::routes();
 Route::get('/', 'HouseController@home')->name('home');
 Route::get('/search', 'HouseController@index');
-Route::get('/admin/houses/messages', 'MessageController@index')->name('houses.messages');
+Route::get('/dashboard/messages', 'MessageController@index')->name('houses.messages');
+Route::post('/dashboard/messages', 'MessageController@send')->name('send');
 Route::middleware('auth')->group(function () {
     Route::resource('admin/houses', 'HouseController')->except('index','show');
     Route::resource('admin/houses-image', 'HouseImageController')->only('destroy');

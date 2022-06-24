@@ -17,7 +17,15 @@ class MessageController extends Controller
     public function index()
     {
         
-        return view('dashboard.messages');
+    }
+
+    public function send(Request $request)
+    {
+        $lead = Message::create($request->all());
+    
+        Mail::to('johnca@outlook.it')->send(new SendNewMessage($lead));
+
+        return redirect()->back()->with('Mail', 'Il messaggio è stato inviato');
     }
 
     /**
@@ -40,7 +48,7 @@ class MessageController extends Controller
     {
         $lead = Message::create($request->all());
     
-            Mail::to('John@boolpress.com')->send(new SendNewMessage($lead));
+            Mail::to('johnca@outlook.it')->send(new SendNewMessage($lead));
             
             return response()->json([
                 'validity'  => 'Mail inviata',

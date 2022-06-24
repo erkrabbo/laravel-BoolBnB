@@ -5,17 +5,22 @@
 {{-- @section('pageTitle', $house->Title) --}}
 
 @section('content')
-    <main>
-        <div class="container">
-
-            @if (\Session::has('success'))
-            <div class="alert alert-success">
-                <ul>
-                    <li>{!! \Session::get('success') !!}</li>
-                </ul>
-            </div>
-        @endif
+    <main>    
         <div class="container show">
+            @if (\Session::has('success'))
+                <div class="alert alert-success">
+                    <ul>
+                        <li>{!! \Session::get('success') !!}</li>
+                    </ul>
+                </div>
+            @endif
+            @if (\Session::has('Mail'))
+                <div class="alert alert-success">
+                    <ul>
+                        <li class="mt-3">{!! \Session::get('Mail') !!}</li>
+                    </ul>
+                </div>
+            @endif
             {{-- @if (session('deleted'))
                 <div class="alert alert-warning">{{ session('deleted') }}</div>
             @endif --}}
@@ -81,24 +86,30 @@
                             <div class="book_form ms-5 py-3">
 
                                 <div class="d-flex justify-content-center">
-                                    <form action="">
+                                    <form action="{{route('send')}}" method="post">
+                                        @csrf
                                         <h2 class="text-center text-uppercase pb-4 pt-3 section_title">Contatta l'host</h2>
                                         <div class="pt-3">
                                             <label class="form-label w-100 text-center text-uppercase text-bolder" for="">Inserisci il tuo nome</label>
-                                            <input class="form-control form_textbox w-100" type="text" name="name">
+                                            <input class="form-control form_textbox w-100" type="text" name="name" required autocomplete="name">
+                                        </div>
+                                        <div class="pt-3">
+                                            <label class="form-label w-100 text-center text-uppercase text-bolder" for="">Inserisci il tuo cognome</label>
+                                            <input class="form-control form_textbox w-100" type="text" name="surname">
                                         </div>
                                         <div class="pt-3">
                                             <label class="form-label w-100 text-center text-uppercase text-bolder" for="">Inserisci la tua email</label>
-                                            <input class="form-control form_textbox w-100" type="text" name="email">
+                                            <input class="form-control form_textbox w-100" type="email" name="sender_mail" required autocomplete="sender_mail">
                                         </div>
                                         <div class="pt-3">
                                             <label class="form-label w-100 text-center text-uppercase text-bolder" for="">Messaggio</label>
-                                            <input class="form-control form_textbox w-100 h-50" type="text" name="message">
+                                            <input class="form-control form_textbox w-100 h-50" type="text" name="content" required autocomplete="content">
+                                        </div>
+                                        <input type="hidden" name="house_id" value="{{ $house->id }}">
+                                        <div class="d-flex justify-content-center">
+                                            <button type="submit" class="mod_btn btn_pink w-50 mt-4" href="#"><span class="text-white text-uppercase">Invia</span></button>
                                         </div>
                                     </form>
-                                </div>
-                                <div class="d-flex justify-content-center">
-                                    <button class="mod_btn btn_pink w-50 mt-4" href="#"><span class="text-white text-uppercase">Invia</span></button>
                                 </div>
                                 <div class="d-flex justify-content-center">
                                     <h6 class="text-secondary py-3 fw-bold">Verrai ricontattato al più presto</h6>
@@ -117,10 +128,10 @@
                         <span class="pt-2"><i class="fa-solid fa-location-dot"></i> Ti troverai in <span class="fw-bold">{{ $house->Address }}</span></span>
 
                     </div>
-                    <a class="btn btn-primary text-white" href="{{ route('houses.messages') }}">Invia un messaggio</a>
+                    {{-- <a class="btn btn-primary text-white" href="{{ route('houses.messages') }}">Invia un messaggio</a> --}}
                     @auth
                         @if(Auth::User()->id === $house->user_id)
-                            <a class="btn btn-primary mt-4 mb-2" href="{{ route('houses.edit', $house->id) }}"><span class="text-white">Modifica l'inserzione</span></a>
+                            <a class="btn btn-primary" href="{{ route('houses.edit', $house->id) }}"><span class="text-white">Modifica l'inserzione</span></a>
                         @endif
                     @endauth
 
@@ -128,6 +139,5 @@
                 </div>
             </div>
         </div>
-
     </main>
 @endsection

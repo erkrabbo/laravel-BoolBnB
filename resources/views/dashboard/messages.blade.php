@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('scripts')
 <script src="{{ asset('js/messages.js') }}" defer></script>
@@ -10,8 +10,9 @@
                 <h1>Invia un messaggio</h1>
                 {{-- <div v-if="validity" class="alert alert-success" role="alert">
                     {{ validity }}
-                </div> --}}
-                <form @submit.prevent="SendMessage" action="api/messages" method="post">
+                </div>
+                <form action="{{route('send')}}" method="post">
+                    @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">Nome</label>
                         <input type="text" class="form-control" id="name" name="name" v-model="name" required autocomplete="name">
@@ -33,27 +34,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-        import axios from "axios";
-        
-        const ApiUrl = "/api/messages";
-        const name = "";
-        const surname = "";
-        const sender_mail = "";
-        const content = "";
-        const validity =  "";
-        
-        
-        SendMessage() {
-            axios.post(ApiUrl, {
-                name: name,
-                surname: surname,
-                sender_mail: sender_mail,
-                content: content
-            })
-            .then(element => validity = element.data.validity)
-        }
-        
-    </script>
-@endsection
+@endsection --}}
