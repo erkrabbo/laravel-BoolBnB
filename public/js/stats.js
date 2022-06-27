@@ -13560,7 +13560,7 @@ var myChart = new chart_js_auto__WEBPACK_IMPORTED_MODULE_0__["default"](ctx, {
   data: {
     labels: labels,
     datasets: [{
-      label: '# of Votes',
+      label: '# of Views',
       data: views,
       borderWidth: 1
     }]
@@ -13573,7 +13573,6 @@ var myChart = new chart_js_auto__WEBPACK_IMPORTED_MODULE_0__["default"](ctx, {
     }
   }
 });
-console.log(window.sessionStorage);
 
 /***/ }),
 
@@ -13584,7 +13583,7 @@ console.log(window.sessionStorage);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\php\laravel-BoolBnB\resources\js\stats.js */"./resources/js/stats.js");
+module.exports = __webpack_require__(/*! /Users/john/boolean/laravel-BoolBnB/resources/js/stats.js */"./resources/js/stats.js");
 
 
 /***/ })

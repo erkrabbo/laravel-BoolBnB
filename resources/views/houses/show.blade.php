@@ -128,7 +128,6 @@
                         </div>
                     </div>
 
-
                     <div class="mt-5 py-3">
                         <h2 class="section_title">Dove ti troverai</h2>
 
@@ -137,16 +136,7 @@
                         </div>
 
                         <span class="pt-2"><i class="fa-solid fa-location-dot"></i> Ti troverai in <span class="fw-bold">{{ $house->Address }}</span></span>
-
                     </div>
-                    {{-- <a class="btn btn-primary text-white" href="{{ route('houses.messages') }}">Invia un messaggio</a> --}}
-                    @auth
-                        @if(Auth::User()->id === $house->user_id)
-                            <a class="btn btn-primary" href="{{ route('houses.edit', $house->id) }}"><span class="text-white">Modifica l'inserzione</span></a>
-                        @endif
-                    @endauth
-
-                    {{-- <a class="btn btn-primary mt-4 mb-2" href="{{ route('houses.create', $house->id) }}"><span class="text-white">Crea una nuova casa</span></a> --}}
                 </div>
             </div>
 
