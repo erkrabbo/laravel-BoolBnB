@@ -7,8 +7,11 @@ const myChart = new Chart(ctx, {
     data: {
         labels: labels,
         datasets: [{
-            label: '# of Views',
+            label: '#Numero visualizzazioni',
             data: views,
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.2)',
+            ],
             borderWidth: 1
         }]
     },

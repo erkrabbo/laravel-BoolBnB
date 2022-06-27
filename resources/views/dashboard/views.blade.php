@@ -12,8 +12,10 @@
                         <form class="mt-3" action="">
                             <select  name="interval" id="interval">
                                 <option value="1" >Ultima settimana</option>
-                                <option value="2" @if ($select_id == 2) selected @endif>Ultime due settimane</option>
-                                <option value="3" @if ($select_id == 3) selected @endif>Ultime tre settimane</option>
+                                <option value="2" @if ($select_id == 2) selected @endif>Ultimo mese</option>
+                                <option value="3" @if ($select_id == 3) selected @endif>Ultimi tre mesi</option>
+                                <option value="4" @if ($select_id == 4) selected @endif>Ultimi sei mesi</option>
+                                <option value="5" @if ($select_id == 5) selected @endif>Ultimo anno</option>
                             </select>
                             <input type="hidden" name="house_id" value="{{$house_id}}">
                             <button type="submit">Invia</button>

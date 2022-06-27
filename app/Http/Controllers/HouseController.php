@@ -65,15 +65,21 @@ class HouseController extends Controller
     ;
         switch($request->interval) {
             case 2:
-                $interval = new DateInterval("P14D");
+                $interval = new DateInterval("P1M");
                 break;
-                case 3:
-                    $interval = new DateInterval("P21D");
-                    break;
-                    default:
-                    $interval = new DateInterval("P7D");
-                    break;
-                }
+            case 3:
+                $interval = new DateInterval("P3M");
+                break;
+            case 4:
+                $interval = new DateInterval("P6M");
+                break;
+            case 5:
+                $interval = new DateInterval("P1Y");
+                break;
+            default:
+                $interval = new DateInterval("P7D");
+                break;
+            }
 
 
         $start = (clone $today)->sub($interval);
