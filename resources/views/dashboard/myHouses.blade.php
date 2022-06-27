@@ -21,10 +21,7 @@
                     <div class="d-flex flex-column">
                         <div class="text-center">
                             <a class="btn btn-danger text-white bkg_red mb-2" href="{{ route('houses.messages', ['house' => $house]) }}">Messaggi</a>
-                            <a class="btn btn-dark mb-2" href="{{ route('houses.views', ['house_id' => $house->id]) }}">Visualizza statistiche</a>
-                        </div>
-                        <div class="text-center">
-                            <a class="btn btn-danger text-white bkg_red mb-2" href="{{ route('houses.views', ['house_id' => $house->id]) }}">Statistiche</a>
+                            <a class="btn btn-dark text-white bkg_red mb-2" href="{{ route('houses.views', ['house_id' => $house->id]) }}">Statistiche</a>
                         </div>
 
                         <div class="text-center">
