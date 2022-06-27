@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\View;
 use App\House;
 use App\Service;
 use App\HouseImage;
 use App\Sponsorization;
-use Illuminate\Contracts\Cache\Store;
+use Carbon\CarbonPeriod;
+use DateInterval;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Contracts\Cache\Store;
 use Illuminate\Support\Facades\Storage;
 
 class HouseController extends Controller
@@ -55,6 +59,55 @@ class HouseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function houseStats(Request $request)
+    {
+        $today = new DateTime(date('Y-m-d'));
+    ;
+        switch($request->interval) {
+            case 2:
+                $interval = new DateInterval("P14D");
+                break;
+                case 3:
+                    $interval = new DateInterval("P21D");
+                    break;
+                    default: 
+                    $interval = new DateInterval("P7D");
+                    break;
+                }
+
+
+        $start = (clone $today)->sub($interval);
+        $period = CarbonPeriod::create($start, $today);
+        $dateLabels = [];
+      
+        foreach ($period as $date) {
+            $dateLabels[] = $date->format('Y-m-d');
+        }
+    
+        $views = [];
+        $houseViewsDates = View::where('house_id', $request->house_id);
+    
+        foreach($dateLabels as $date) {
+            $houseViews = (clone $houseViewsDates)->where('created_at', 'like', "$date%")->get();
+            $views[] = $houseViews->count();
+            // echo $date;
+        }
+
+       
+        // return response()->json([
+        //     'dateLabels' => $dateLabels,
+        //     'views'      => $views,
+        // ]);
+
+        return view ('dashboard.views', [
+            'dateLabels' => $dateLabels,
+            'views' => $views,
+            'house_id' => $request->house_id,
+            'select_id' => $request->interval,
+        ]);
+ 
+    }
+
     public function home()
     {
         // $sponsoredHouses = House::all();
@@ -166,13 +219,12 @@ class HouseController extends Controller
      * @param  \App\House  $house
      * @return \Illuminate\Http\Response
      */
-    public function show(House $house)
+    public function show(House $house, Request $request)
     {
         $services = DB::table('house_service')
             ->join('services','services.id', '=', 'service_id')
             ->where('house_id', $house->id)
             ->get();
-        // dd($services);
 
         $userMail = '';
 
@@ -183,6 +235,31 @@ class HouseController extends Controller
         $user = User::where('id', "$house->user_id")->first();
         $house_images = HouseImage::where('house_id', "$house->id")->get();
 
+        $ip_address = $request->ip();
+
+        $views = View::where('IP_address', $ip_address)->orderBy('created_at', 'desc')->first();
+
+        $dateNow = new DateTime($views->created_at);
+        $dateInterval = new DateInterval("PT30M");
+        $saveAdd = (clone $dateNow)->add($dateInterval);
+        $now = new DateTime(date('Y-m-d H:i:s'));
+        
+        if($views) {
+            if($now > $saveAdd) {
+                View::create([
+                    'house_id' => $house->id,
+                    'IP_address' => $ip_address,
+                    'created_at' => $now,
+                ]);
+            }      
+        } else {
+            View::create( [
+                'house_id' => $house->id,
+                'IP_address' => $ip_address,
+                'created_at' => $now,
+            ]);
+        }
+
         return view('houses.show', [
             'pageTitle'    => $house->Title,
             'house'        => $house,
@@ -191,6 +268,7 @@ class HouseController extends Controller
             'services'     => $services,
             'userMail'     => $userMail
         ]);
+
     }
 
     /**
@@ -211,7 +289,7 @@ class HouseController extends Controller
         return view('houses.edit', [
             'house'         => $house,
             'services'      => $services,
-            'house_images' => $house_images,
+            'house_images'  => $house_images,
         ]);
     }
 

@@ -29,6 +29,7 @@
         "braintree": "^3.11.0",
         "braintree-web": "^3.85.3",
         "braintree-web-drop-in": "^1.33.2",
+        "chart.js": "^3.7.1",
         "datejs": "^1.0.0-rc3",
         "vue-observe-visibility": "^1.0.0",
         "vue-router": "^3.5.4",

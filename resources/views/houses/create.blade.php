@@ -4,19 +4,19 @@
 <script src="{{ asset('js/validationForm.js') }}" defer></script>
 @endsection
 @section('content')
-    <main>
+    <main class="validationMain">
         <div class="container create mt-3">
             <a class="back text-decoration-none mod_btn btn_grey_border my-3" href="{{ url()->previous()}}">Torna indietro</a>
             <h1 class="text-center my-4">Aggiungi nuova casa</h1>
             <form class="mt-3 mx-5" id="form" action="{{ route('houses.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
-                <div id="error"></div>
+                {{-- <div id="error"></div> --}}
 
                 <div class="mb-5">
                     <label class="form-label form_title" for="Title">Titolo *</label>
                     <input id="Title" class="form-control form_textbox" type="text" name="Title" value="{{ old('Title') }}">
-
+                    <h2 class="errorText" id="errorTitle"></h2>
                 </div>
                 @error('Title')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -66,6 +66,7 @@
                 <div class="mb-5">
                     <label class="form-label form_title" for="N_of_rooms">Numero di stanze *</label>
                     <input id="N_of_rooms" class="form-control form_textbox" type="number" name="N_of_rooms" value="{{ old('N_of_rooms') }}">
+                    <h2 class="errorText" id="errorNofRooms"></h2>
                 </div>
                 @error('N_of_rooms')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -74,6 +75,7 @@
                 <div class="mb-5">
                     <label class="form-label form_title" for="N_of_beds">Numero di letti *</label>
                     <input id="N_of_beds" class="form-control form_textbox" type="number" name="N_of_beds" value="{{ old('N_of_beds') }}">
+                    <h2 class="errorText" id="errorNofBeds"></h2>
                 </div>
                 @error('N_of_beds')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -82,6 +84,7 @@
                 <div class="mb-5">
                     <label class="form-label form_title" for="N_of_baths">Numero di bagni *</label>
                     <input id="N_of_baths" class="form-control form_textbox" type="number" name="N_of_baths" value="{{ old('N_of_baths') }}">
+                    <h2 class="errorText" id="errorNofBaths"></h2>
                 </div>
                 @error('N_of_baths')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -90,6 +93,7 @@
                 <div class="mb-5">
                     <label class="form-label form_title" for="Mq">Grandezza in Mq *</label>
                     <input id="Mq" class="form-control form_textbox" type="number" name="Mq" value="{{ old('Mq') }}">
+                    <h2 class="errorText" id="errorMq"></h2>  
                 </div>
                 @error('Mq')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -98,6 +102,7 @@
                 <div class="mb-5">
                     <label class="form-label form_title" for="Night_price">Prezzo per notte *</label>
                     <input id="Night_price" class="form-control form_textbox" type="number" name="Night_price" value="{{ old('Night_price') }}">
+                    <h2 class="errorText" id="errorNightPrice"></h2>    
                 </div>
                 @error('Night_price')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -106,6 +111,7 @@
                 <div class="mb-5">
                     <label class="form-label form_title" for="Available_from">Disponibile dal *</label>
                     <input id="Available_from" class="form-control form_textbox" type="date" name="Available_from" value="{{ old('Available_from') }}">
+                    <h2 class="errorText" id="errorAvailableFrom"></h2>    
                 </div>
                 @error('Available_from')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -114,6 +120,7 @@
                 <div class="mb-5">
                     <label class="form-label form_title" for="Available_to">Disponibile al *</label>
                     <input id="Available_to" class="form-control form_textbox" type="date" name="Available_to" value="{{ old('Available_to') }}">
+                    <h2 class="errorText" id="errorAvailableTo"></h2>    
                 </div>
                 @error('Available_to')
                     <div class="alert alert-danger">{{ $message }}</div>

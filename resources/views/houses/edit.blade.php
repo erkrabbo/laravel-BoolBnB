@@ -5,7 +5,7 @@
 <script src="{{ asset('js/validationForm.js') }}" defer></script>
 
 @section('content')
-<main>
+<main class="validationMain">
     <div class="container edit mt-3">
         <a class="back text-decoration-none mod_btn btn_grey_border my-3" href="{{ url()->previous()}}">Torna indietro</a>
         <h1 class="text-center my-4">Modifica questa casa</h1>
@@ -13,11 +13,12 @@
             @csrf
             @method('PUT')
 
-            <div id="error"></div>
+            {{-- <div id="error"></div> --}}
 
             <div class="mb-5">
                 <label for="Title" class="form-label form_title">Titolo *</label>
                 <input type="text" name="Title" class="form-control form_textbox" id="Title" value="{{ old('Title', $house->Title) }}">
+                <h2 class="errorText" id="errorTitle"></h2>
             </div>
             @error('Title')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -77,6 +78,7 @@
             <div class="mb-5">
                 <label for="N_of_rooms" class="form-label form_title">Numero di stanze *</label>
                 <input required class="form-control form_textbox" type="number" id="N_of_rooms" name="N_of_rooms" value="{{ old('N_of_rooms', $house->N_of_rooms) }}">
+                <h2 class="errorText" id="errorNofRooms"></h2>
             </div>
             @error('N_of_rooms')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -85,6 +87,7 @@
             <div class="mb-5">
                 <label for="N_of_beds" class="form-label form_title">Numero di letti *</label>
                 <input class="form-control form_textbox" type="number" id="N_of_beds" name="N_of_beds" value="{{ old('N_of_beds', $house->N_of_beds) }}">
+                <h2 class="errorText" id="errorNofBeds"></h2>
             </div>
             @error('N_of_beds')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -93,6 +96,7 @@
             <div class="mb-5">
                 <label for="N_of_baths" class="form-label form_title">Numero di bagni *</label>
                 <input class="form-control form_textbox" type="number" id="N_of_baths" name="N_of_baths" value="{{ old('N_of_baths', $house->N_of_baths) }}">
+                <h2 class="errorText" id="errorNofBaths"></h2>             
             </div>
             @error('N_of_baths')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -101,6 +105,7 @@
             <div class="mb-5">
                 <label for="Mq" class="form-label form_title">Grandezza in {{ __('Mq') }} *</label>
                 <input class="form-control form_textbox" type="number" id="Mq" name="Mq" value="{{ old('N_of_rooms', $house->N_of_rooms) }}">
+                <h2 class="errorText" id="errorMq"></h2>                
             </div>
             @error('Mq')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -109,6 +114,7 @@
             <div class="mb-5">
                 <label for="Night_price" class="form-label form_title">Prezzo per notte *</label>
                 <input type="number" name="Night_price" class="form-control form_textbox" id="Night_price" value="{{ old('Night_price', $house->id) }}">
+                <h2 class="errorText" id="errorNightPrice"></h2>                  
             </div>
             @error('Night_price')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -117,6 +123,7 @@
             <div class="mb-5">
                 <label for="Available_from" class="form-label form_title">Disponibile dal *</label>
                 <input type="date" name="Available_from" class="form-control form_textbox" id="Available_from" value="{{ old('Available_from', $house->Available_from) }}">
+                <h2 class="errorText" id="errorAvailableFrom"></h2>                  
             </div>
             @error('Available_from')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -125,6 +132,7 @@
             <div class="mb-5">
                 <label for="Available_to" class="form-label form_title">Disponibile al *</label>
                 <input type="date" name="Available_to" class="form-control form_textbox" id="Available_to" value="{{ old('Available_to', $house->Available_to) }}">
+                <h2 class="errorText" id="errorAvailableTo"></h2>                 
             </div>
             @error('Available_to')
                 <div class="alert alert-danger">{{ $message }}</div>
