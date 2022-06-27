@@ -423,3 +423,30 @@ main {
     transform: rotateY(180deg);
     overflow-y: auto;
   }
+
+  //errori validazioni lato Client per create ed edit
+
+.balloon {
+	position: relative;
+	max-width: 30em;
+	background-color: #fff;
+	padding: 0.8rem;
+	font-size: 0.9rem;
+    text-transform: uppercase;
+	border-radius: 1rem;
+    color: red;
+    box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2);
+}
+
+.balloon::before {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	bottom: 100%;
+	left: 1.5em; // offset should move with padding of parent
+	border: .75rem solid transparent;
+	border-top: none;
+	border-bottom-color: #fff;
+	filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, .1));
+}

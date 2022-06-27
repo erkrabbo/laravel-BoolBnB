@@ -27,6 +27,8 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
+            @include('partials.login-form')
+            @include('partials.register-form')
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                 <img src="/images/boolbnb.webp" alt="Boolbnb" class="img_Boolbnb">
                 <span class="red">{{ config('app.name', 'Boolbnb') }}</span>
@@ -46,11 +48,11 @@
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Accedi</a>
+                            <a class="nav-link" style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#loginModal">Accedi</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">Registrati</a>
+                                <a class="nav-link" style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#loginModals">Registrati</a>
                             </li>
                         @endif
                     @else

@@ -101,8 +101,16 @@ var deleteButtons = document.querySelectorAll('[data-image]').forEach(function (
     formDelete.action = formDelete.action.replace('*****', ele.dataset.image);
   });
 });
+var main = document.querySelector('.validationMain');
 var form = document.getElementById('form');
-var errorElement = document.getElementById('error');
+var errorTitle = document.getElementById('errorTitle');
+var errorNofRooms = document.getElementById('errorNofRooms');
+var errorNofBeds = document.getElementById('errorNofBeds');
+var errorNofBaths = document.getElementById('errorNofBaths');
+var errorMq = document.getElementById('errorMq');
+var errorNightPrice = document.getElementById('errorNightPrice');
+var errorAvailableFrom = document.getElementById('errorAvailableFrom');
+var errorAvailableTo = document.getElementById('errorAvailableTo');
 var title = document.getElementById('Title');
 var n_rooms = document.getElementById('N_of_rooms');
 var n_beds = document.getElementById('N_of_beds');
@@ -121,45 +129,56 @@ var todayDate = "".concat(y, "-").concat(m, "-").concat(d); // console.log(today
 
 form.addEventListener('submit', function (e) {
   e.preventDefault();
-  var messages = [];
+  var errorScroll = null;
 
   if (!title.value) {
-    messages.push('Il titolo è obbligatorio');
+    errorTitle.innerHTML = 'Il titolo è obbligatorio';
+    errorTitle.classList.add('balloon');
+    errorScroll = errorTitle.offsetTop - 140;
+  } else if (n_rooms.value < 0 | !n_rooms.value) {
+    errorNofRooms.innerHTML = 'Il numero delle stanze è obbligatorio e non può essere un valore negativo';
+    errorNofRooms.classList.add('balloon');
+    errorScroll = errorNofRooms.offsetTop - 140;
+  } else if (n_beds.value < 0 | !n_beds.value) {
+    errorNofBeds.innerHTML = 'Il numero dei letti è obbligatorio e non può essere un valore negativo';
+    errorNofBeds.classList.add('balloon');
+    errorScroll = errorNofBeds.offsetTop - 140;
+  } else if (n_baths.value < 0 | !n_baths.value) {
+    errorNofBaths.innerHTML = 'Il numero dei bagni è obbligatorio e non può essere un valore negativo';
+    errorNofBaths.classList.add('balloon');
+    errorScroll = errorNofBaths.offsetTop - 140;
+  } else if (mq.value < 0 | !mq.value) {
+    errorMq.innerHTML = 'Il numero dei metri quadri è obbligatorio e non può essere un valore negativo';
+    errorMq.classList.add('balloon');
+    errorScroll = errorMq.offsetTop - 140;
+  } else if (n_price.value < 0 | !n_price.value) {
+    errorNightPrice.innerHTML = 'Il prezzo è obbligatorio e non può essere un valore negativo';
+    errorNightPrice.classList.add('balloon');
+    errorScroll = errorNightPrice.offsetTop - 140;
+  } else if (available_from.value < todayDate) {
+    errorAvailableFrom.innerHTML = 'La disponibilità non può essere precedente alla data odierna';
+    errorAvailableFrom.classList.add('balloon');
+    errorScroll = errorAvailableFrom.offsetTop - 140;
+  } else if (available_to.value < available_from.value) {
+    errorAvailableTo.innerHTML = 'La data di fine disponibilità non può essere precedente alla data di inizio disponibilità';
+    errorAvailableTo.classList.add('balloon');
+    errorScroll = errorAvailableTo.offsetTop - 140;
   }
 
-  if (n_rooms.value < 0) {
-    messages.push('Il numero delle stanze non può essere un valore negativo');
-  }
-
-  if (n_beds.value < 0) {
-    messages.push('Il numero dei letti non può essere un valore negativo');
-  }
-
-  if (n_baths.value < 0) {
-    messages.push('Il numero dei bagni non può essere un valore negativo');
-  }
-
-  if (mq.value < 0) {
-    messages.push('Il numero dei metri quadri non può essere un valore negativo');
-  }
-
-  if (n_price.value < 0) {
-    messages.push('Il prezzo non può essere un valore negativo');
-  }
-
-  if (available_from.value < todayDate) {
-    messages.push('La disponibilità non può essere precedente alla data odierna');
-  }
-
-  if (available_to.value < available_from.value) {
-    messages.push('La data di fine disponibilità non può essere precedente alla data di inizio disponibilità');
-  }
-
-  if (messages.length > 0) {
-    errorElement.innerText = messages.join('  /  ');
+  if (errorScroll !== null) {
+    main.scroll({
+      top: errorScroll,
+      left: 0,
+      behavior: 'smooth'
+    });
   } else {
     form.submit();
-  }
+  } // if (messages.length > 0) {
+  //   errorElement.innerText = messages.join('  /  ')
+  // } else {
+  //   form.submit()
+  // }
+
 });
 
 /***/ }),
