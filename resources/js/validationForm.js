@@ -12,6 +12,7 @@ const deleteButtons = document.querySelectorAll('[data-image]')
 const main = document.querySelector('.validationMain')
 const form = document.getElementById('form')
 const errorTitle = document.getElementById('errorTitle')
+const errorContent = document.getElementById('errorContent')
 const errorNofRooms = document.getElementById('errorNofRooms')
 const errorNofBeds = document.getElementById('errorNofBeds')
 const errorNofBaths = document.getElementById('errorNofBaths')
@@ -20,6 +21,7 @@ const errorNightPrice = document.getElementById('errorNightPrice')
 const errorAvailableFrom = document.getElementById('errorAvailableFrom')
 const errorAvailableTo = document.getElementById('errorAvailableTo')
 const title = document.getElementById('Title')
+const content = document.getElementById('Content')
 const n_rooms = document.getElementById('N_of_rooms')
 const n_beds = document.getElementById('N_of_beds')
 const n_baths = document.getElementById('N_of_baths')
@@ -46,11 +48,14 @@ form.addEventListener('submit', (e) => {
     errorTitle.innerHTML = 'Il titolo è obbligatorio'
     errorTitle.classList.add('balloon')
     errorScroll = errorTitle.offsetTop - 140
+  } else if (!content.value) {
+    errorContent.innerHTML = 'La descrizione è obbligatoria'
+    errorContent.classList.add('balloon')
+    errorScroll = errorContent.offsetTop - 140
   } else if (n_rooms.value < 0| !n_rooms.value) {
     errorNofRooms.innerHTML = 'Il numero delle stanze è obbligatorio e non può essere un valore negativo'
     errorNofRooms.classList.add('balloon')
     errorScroll = errorNofRooms.offsetTop - 140
-
   } else if (n_beds.value < 0| !n_beds.value) {
     errorNofBeds.innerHTML = 'Il numero dei letti è obbligatorio e non può essere un valore negativo'
     errorNofBeds.classList.add('balloon')
