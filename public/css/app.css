@@ -23020,3 +23020,7 @@ main {
   overflow-y: auto;
 }
 
+.none {
+  display: none;
+}
+
