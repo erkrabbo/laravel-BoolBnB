@@ -104,6 +104,7 @@ var deleteButtons = document.querySelectorAll('[data-image]').forEach(function (
 var main = document.querySelector('.validationMain');
 var form = document.getElementById('form');
 var errorTitle = document.getElementById('errorTitle');
+var errorContent = document.getElementById('errorContent');
 var errorNofRooms = document.getElementById('errorNofRooms');
 var errorNofBeds = document.getElementById('errorNofBeds');
 var errorNofBaths = document.getElementById('errorNofBaths');
@@ -112,6 +113,7 @@ var errorNightPrice = document.getElementById('errorNightPrice');
 var errorAvailableFrom = document.getElementById('errorAvailableFrom');
 var errorAvailableTo = document.getElementById('errorAvailableTo');
 var title = document.getElementById('Title');
+var content = document.getElementById('Content');
 var n_rooms = document.getElementById('N_of_rooms');
 var n_beds = document.getElementById('N_of_beds');
 var n_baths = document.getElementById('N_of_baths');
@@ -135,6 +137,10 @@ form.addEventListener('submit', function (e) {
     errorTitle.innerHTML = 'Il titolo è obbligatorio';
     errorTitle.classList.add('balloon');
     errorScroll = errorTitle.offsetTop - 140;
+  } else if (!content.value) {
+    errorContent.innerHTML = 'La descrizione è obbligatoria';
+    errorContent.classList.add('balloon');
+    errorScroll = errorContent.offsetTop - 140;
   } else if (n_rooms.value < 0 | !n_rooms.value) {
     errorNofRooms.innerHTML = 'Il numero delle stanze è obbligatorio e non può essere un valore negativo';
     errorNofRooms.classList.add('balloon');

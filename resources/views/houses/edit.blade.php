@@ -26,7 +26,8 @@
 
             <div class="mb-5">
                 <label for="Content" class="form-label form_title">Descrizione *</label>
-                <input type="text" name="Content" class="form-control form_textbox" id="Content" value="{{ old('Content', $house->Content) }}">
+                <input id="Content" type="text" name="Content" class="form-control form_textbox" id="Content" value="{{ old('Content', $house->Content) }}">
+                <h2 class="errorText" id="errorContent"></h2>
             </div>
             @error('Content')
                 <div class="alert alert-danger">{{ $message }}</div>
