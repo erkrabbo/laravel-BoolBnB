@@ -22,7 +22,10 @@
                         <div class="text-center">
                             <a class="btn btn-danger text-white bkg_red mb-2" href="{{ route('houses.messages', ['house' => $house]) }}">Messaggi</a>
                         </div>
-                       
+                        <div class="text-center">
+                            <a class="btn btn-danger text-white bkg_red mb-2" href="{{ route('houses.views', ['house_id' => $house->id]) }}">Statistiche</a>
+                        </div>
+
                         <div class="text-center">
                             <a class="btn btn-primary text-white mb-2" href="{{ route('houses.show', $house->id) }}">Visualizza</a>
 
@@ -60,7 +63,7 @@
                     </div>
                 </div>
             </div>
-                    
+
             @endforeach
         </div>
     </div>
@@ -151,7 +154,7 @@
                     'id' => $house->id
                 ]) }}">Sponsorizza</a>
             </div>
-            
+
             <div class="">
                 <h4 class="text-center">Altre azioni</h4>
                 <div class="d-flex">

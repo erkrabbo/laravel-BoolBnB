@@ -237,7 +237,7 @@ class HouseController extends Controller
 
         $ip_address = $request->ip();
 
-        $views = View::where('IP_address', $ip_address)->orderBy('created_at', 'desc')->first();
+        $views = View::where('IP_address', $ip_address)->where('house_id', "$house->id")->orderBy('created_at', 'desc')->first();
 
 
         if($views) {
