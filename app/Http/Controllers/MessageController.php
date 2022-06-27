@@ -16,9 +16,12 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, House $house)
     {
         $house = $request->house;
+    
+        $hou = House::find($house);
+        if (Auth::user()->id !== $hou->user_id) abort(403);
 
         $messages = Message::where('house_id', $house)->orderBy('created_at', 'desc')->get();
         
@@ -52,13 +55,13 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        $lead = Message::create($request->all());
+        // $lead = Message::create($request->all());
     
-            Mail::to('johnca@outlook.it')->send(new SendNewMessage($lead));
+        //     Mail::to('johnca@outlook.it')->send(new SendNewMessage($lead));
             
-            return response()->json([
-                'validity'  => 'Mail inviata',
-            ]);
+        //     return response()->json([
+        //         'validity'  => 'Mail inviata',
+        //     ]);
     }
 
     /**
@@ -101,8 +104,11 @@ class MessageController extends Controller
      * @param  \App\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Message $message)
+    public function destroy(Request $request, Message $message)
     {
-        //
+
+        $message->delete();
+
+        return redirect()->back();
     }
 }

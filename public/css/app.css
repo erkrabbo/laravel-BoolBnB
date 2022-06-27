@@ -22908,3 +22908,29 @@ main {
   overflow-y: auto;
 }
 
+/* Boolbnb and buttons color */
+
+.red {
+  color: rgb(241, 91, 94);
+}
+
+.bkg_red {
+  background-color: rgb(241, 91, 94);
+  border: none;
+}
+
+.bkg-yellow {
+  background: linear-gradient(45deg, rgb(253, 171, 45) 0%, rgb(253, 238, 45) 100%);
+}
+
+/* messages */
+
+.messages {
+  padding: 1rem;
+}
+
+.my_houses {
+  height: calc(100vh - 66.23px);
+  overflow-y: auto;
+}
+

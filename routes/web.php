@@ -22,9 +22,10 @@ Route::resource('/houses', 'HouseController')->only('show');
 Auth::routes();
 Route::get('/', 'HouseController@home')->name('home');
 Route::get('/search', 'HouseController@index');
-Route::get('/dashboard/messages', 'MessageController@index')->name('houses.messages');
 Route::post('/dashboard/messages', 'MessageController@send')->name('send');
 Route::middleware('auth')->group(function () {
+    Route::get('/dashboard/messages', 'MessageController@index')->name('houses.messages');
+    Route::resource('/dashboard/messages', 'MessageController')->only('destroy');
     Route::resource('admin/houses', 'HouseController')->except('index','show');
     Route::resource('admin/houses-image', 'HouseImageController')->only('destroy');
     Route::get('/admin/houses/indexUser', 'HouseController@indexUser')->name('houses.indexUser');
