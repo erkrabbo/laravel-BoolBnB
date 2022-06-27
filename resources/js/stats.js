@@ -9,6 +9,9 @@ const myChart = new Chart(ctx, {
         datasets: [{
             label: '# of Views',
             data: views,
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.2)',
+            ],
             borderWidth: 1
         }]
     },

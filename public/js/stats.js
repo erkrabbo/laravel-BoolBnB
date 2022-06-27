@@ -13562,6 +13562,7 @@ var myChart = new chart_js_auto__WEBPACK_IMPORTED_MODULE_0__["default"](ctx, {
     datasets: [{
       label: '# of Views',
       data: views,
+      backgroundColor: ['rgba(54, 162, 235, 0.2)'],
       borderWidth: 1
     }]
   },
