@@ -1,11 +1,14 @@
 @extends('layouts.app')
 
+@section('scripts')
+<script src="{{ asset('js/braintree.js') }}" defer></script>
+@endsection
 @section ('content')
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 braintree">
                 <form id="form" action="/payment/make">
-                    <input id="prova" name="nonce" type="hidden">  
+                    <input id="prova" name="nonce" type="hidden">
                     <input name="price" type="hidden" value="{{ $id }}">
                     <input type="hidden" name="house" value="{{ $house }}">
                     <div id="dropin-container"></div>

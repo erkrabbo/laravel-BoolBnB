@@ -2,6 +2,10 @@
 {{-- aggiungere link alle views? --}}
 @extends('layouts.app')
 
+@section('scripts')
+<script src="{{ asset('js/hidingForm.js') }}" defer></script>
+@endsection
+
 {{-- @section('pageTitle', $house->Title) --}}
 
 @section('content')
