@@ -4,15 +4,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-8 offset-2">
-                    <form action="/search">
-                        <div class="form-group mb-2" ref ="container">
-                            <label for="search"><h4>Ricerca</h4></label>
-                            <input type="text" class="form-control" id="search" name="search" placeholder="Cerca" ref = "address" @keyup = "tomSearch">
-                            <input type="hidden" name="Lat" ref = "latinput">
-                            <input type="hidden" name="Lng" ref = "lnginput">
-                            <input type="hidden" name="mpd" value = "20">
-                        </div>
-                        <button type="submit" class="btn btn-primary text-white mb-2">Cerca</button>
+                    <form class="row" action="/search">
+                            <label class="col-12" for="search"><h4>Ricerca</h4></label>
+                            <div class="row">
+                                <div class="col form-group mb-2 w-100" ref ="container">
+                                    <input type="text" class="form-control form_textbox" id="search" name="search" placeholder="Cerca" ref = "address" @keyup = "tomSearch">
+                                    <input type="hidden" name="Lat" ref = "latinput">
+                                    <input type="hidden" name="Lng" ref = "lnginput">
+                                    <input type="hidden" name="mpd" value = "20">
+                                </div>
+                                <button type="submit" class="col-2 mod_btn btn_pink mb-2">Cerca</button>
+                            </div>
                     </form>
                 </div>
             </div>
