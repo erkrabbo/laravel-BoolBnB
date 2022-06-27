@@ -15,6 +15,8 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/search.js', 'public/js')
     .js('resources/js/createValidation.js', 'public/js')
     .js('resources/js/validationForm.js', 'public/js')
+    .js('resources/js/validationHouse.js', 'public/js')
+    .js('resources/js/validationMessage.js', 'public/js')
     .js('resources/js/stats.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .copy(

@@ -4,5 +4,7 @@
     "/js/createValidation.js": "/js/createValidation.js",
     "/js/search.js": "/js/search.js",
     "/js/stats.js": "/js/stats.js",
-    "/js/validationForm.js": "/js/validationForm.js"
+    "/js/validationForm.js": "/js/validationForm.js",
+    "/js/validationHouse.js": "/js/validationHouse.js",
+    "/js/validationMessage.js": "/js/validationMessage.js"
 }
