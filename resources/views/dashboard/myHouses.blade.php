@@ -11,6 +11,7 @@
         <th class="text-center" scope="col">Titolo</th>
         <th class="text-center" scope="col">Indirizzo</th>
         <th class="text-center" scope="col">Sponsorizza la casa</th>
+        <th class="text-center" scope="col">Statistiche</th>
         <th class="text-center" scope="col">Messaggi ricevuti</th>
         <th class="text-center" scope="col" colspan="4">Azioni</th>
         </tr>
@@ -24,6 +25,9 @@
                     <a class="btn btn-primary text-white" href="{{ route('houses.sponsorization', [
                         'id' => $house->id
                     ]) }}">Sponsorizza</a>
+                </td>
+                <td class="text-center">
+                    <a class="btn btn-primary text-white" href="{{ route('houses.views', ['house_id' => $house->id]) }}">Statistiche</a>
                 </td>
                 <td class="text-center">
                     <a class="btn btn-primary text-white" href="{{ route('houses.messages', ['house' => $house]) }}">Messaggi</a>

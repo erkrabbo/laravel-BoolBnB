@@ -31,4 +31,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/houses/sponsorization', 'HouseController@sponsorized')->name('houses.sponsorization');
     Route::get('/admin/houses/braintree', 'PaymentController@payform')->name('houses.braintree');
     Route::get('/payment/make', 'PaymentController@make');
+    Route::get('/admin/houses/stats', 'HouseController@houseStats')->name('houses.views');
 });

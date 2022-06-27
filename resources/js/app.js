@@ -108,3 +108,5 @@ window.addEventListener('resize', () => {
         hiding.classList = 'toggle_form';
     }
 })
+
+
