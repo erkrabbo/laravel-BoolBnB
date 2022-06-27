@@ -70,7 +70,7 @@ class HouseController extends Controller
                 case 3:
                     $interval = new DateInterval("P21D");
                     break;
-                    default: 
+                    default:
                     $interval = new DateInterval("P7D");
                     break;
                 }
@@ -79,21 +79,21 @@ class HouseController extends Controller
         $start = (clone $today)->sub($interval);
         $period = CarbonPeriod::create($start, $today);
         $dateLabels = [];
-      
+
         foreach ($period as $date) {
             $dateLabels[] = $date->format('Y-m-d');
         }
-    
+
         $views = [];
         $houseViewsDates = View::where('house_id', $request->house_id);
-    
+
         foreach($dateLabels as $date) {
             $houseViews = (clone $houseViewsDates)->where('created_at', 'like', "$date%")->get();
             $views[] = $houseViews->count();
             // echo $date;
         }
 
-       
+
         // return response()->json([
         //     'dateLabels' => $dateLabels,
         //     'views'      => $views,
@@ -105,7 +105,7 @@ class HouseController extends Controller
             'house_id' => $request->house_id,
             'select_id' => $request->interval,
         ]);
- 
+
     }
 
     public function home()
@@ -139,7 +139,7 @@ class HouseController extends Controller
     }
 
     public function sponsorized() {
-        
+
         $sponsorizations = Sponsorization::all();
 
         return view ('houses.sponsorization', compact('sponsorizations'));
@@ -239,20 +239,21 @@ class HouseController extends Controller
 
         $views = View::where('IP_address', $ip_address)->orderBy('created_at', 'desc')->first();
 
-        $dateNow = new DateTime($views->created_at);
-        $dateInterval = new DateInterval("PT30M");
-        $saveAdd = (clone $dateNow)->add($dateInterval);
-        $now = new DateTime(date('Y-m-d H:i:s'));
-        
+
         if($views) {
+            $dateNow = new DateTime($views->created_at);
+            $dateInterval = new DateInterval("PT30M");
+            $saveAdd = (clone $dateNow)->add($dateInterval);
+            $now = new DateTime(date('Y-m-d H:i:s'));
             if($now > $saveAdd) {
                 View::create([
                     'house_id' => $house->id,
                     'IP_address' => $ip_address,
                     'created_at' => $now,
                 ]);
-            }      
+            }
         } else {
+            $now = new DateTime(date('Y-m-d H:i:s'));
             View::create( [
                 'house_id' => $house->id,
                 'IP_address' => $ip_address,
@@ -279,11 +280,11 @@ class HouseController extends Controller
      */
     public function edit(House $house)
     {
-        
+
         if (Auth::user()->id !== $house->user_id) abort(403);
 
         $services = Service::all();
-        
+
         $house_images = HouseImage::where('house_id', "$house->id")->get();
 
         return view('houses.edit', [
