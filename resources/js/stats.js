@@ -7,7 +7,7 @@ const myChart = new Chart(ctx, {
     data: {
         labels: labels,
         datasets: [{
-            label: '# of Votes',
+            label: '# of Views',
             data: views,
             borderWidth: 1
         }]
@@ -20,5 +20,3 @@ const myChart = new Chart(ctx, {
         }
     }
 });
-
-console.log(window.sessionStorage)
