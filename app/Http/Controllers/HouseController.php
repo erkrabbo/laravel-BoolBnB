@@ -62,7 +62,19 @@ class HouseController extends Controller
     public function houseStats(Request $request)
     {
         $today = new DateTime(date('Y-m-d'));
-        $interval = new DateInterval("P7D");
+    ;
+        switch($request->interval) {
+            case 2:
+                $interval = new DateInterval("P14D");
+                break;
+                case 3:
+                    $interval = new DateInterval("P21D");
+                    break;
+                    default: 
+                    $interval = new DateInterval("P7D");
+                    break;
+                }
+
 
         $start = (clone $today)->sub($interval);
         $period = CarbonPeriod::create($start, $today);
@@ -74,11 +86,13 @@ class HouseController extends Controller
     
         $views = [];
         $houseViewsDates = View::where('house_id', $request->house_id);
-
+    
         foreach($dateLabels as $date) {
             $houseViews = (clone $houseViewsDates)->where('created_at', 'like', "$date%")->get();
             $views[] = $houseViews->count();
+            // echo $date;
         }
+
        
         // return response()->json([
         //     'dateLabels' => $dateLabels,
@@ -88,6 +102,8 @@ class HouseController extends Controller
         return view ('dashboard.views', [
             'dateLabels' => $dateLabels,
             'views' => $views,
+            'house_id' => $request->house_id,
+            'select_id' => $request->interval,
         ]);
  
     }
