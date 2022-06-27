@@ -455,3 +455,29 @@ main {
 	border-bottom-color: #fff;
 	filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, .1));
 }
+
+/* Boolbnb and buttons color */
+
+.red{
+    color: rgb(241, 91, 94);
+}
+
+.bkg_red{
+    background-color: rgb(241, 91, 94);
+    border: none;
+}
+
+.bkg-yellow{
+    background: linear-gradient(45deg, rgba(253,171,45,1) 0%, rgba(253,238,45,1) 100%);
+}
+
+/* messages */
+
+.messages{
+    padding: 1rem;
+}
+
+.my_houses{
+    height: calc(100vh - 66.23px);
+    overflow-y: auto;
+}
