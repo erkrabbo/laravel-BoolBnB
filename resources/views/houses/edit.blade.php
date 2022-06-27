@@ -7,7 +7,7 @@
 @section('content')
 <main class="validationMain">
     <div class="container edit mt-3">
-        <a class="back text-decoration-none mod_btn btn_grey_border my-3" href="{{ url()->previous()}}">Torna indietro</a>
+        <a class="back text-decoration-none mod_btn btn_grey_border my-3" href="{{ url()->previous()}}"><i class="fa-solid fa-arrow-left"></i> Torna indietro</a>
         <h1 class="text-center my-4">Modifica questa casa</h1>
         <form id="form"  class="mt-3 mx-5" method="POST" action="{{ route('houses.update', $house->id) }}" enctype="multipart/form-data">
             @csrf
@@ -45,11 +45,13 @@
                 <label class="form-label form_title" for="house_images">Immagini secondarie</label>
                 <input class="form-control form_textbox" type="file" id="house_images" name="house_images[]" accept="image/*" multiple>
 
-                <div class="w-50 h-25 images d-flex flex-wrap">
+                {{-- immagini secondarie --}}
+                <div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 images d-flex flex-wrap">
                     @foreach ($house_images as $house_image)
-                        <div class="mt-3">
-                            <img class="img-rounded w-50 h-50" src="{{ Storage::exists($house_image->path) ? asset('storage/' . $house_image->path) : $house_image->path }}" alt="{{ $house->Title }}">
-                            <button data-image="{{ $house_image->id }}" type="button" class="mod_btn btn_red_border" data-bs-toggle="modal" data-bs-target="#imageModal">&cross;</button>
+                        <div class="sec_img_container col mt-3 mb-5 d-flex">
+                            <img class="img-fluid img-rounded" src="{{ Storage::exists($house_image->path) ? asset('storage/' . $house_image->path) : $house_image->path }}" alt="{{ $house->Title }}">
+
+                            <button data-image="{{ $house_image->id }}" type="button" class="btn_delete_img" data-bs-toggle="modal" data-bs-target="#imageModal"><i class="fa-solid fa-circle-xmark"></i></button>
                         </div>
                     @endforeach
                 </div>
@@ -96,7 +98,7 @@
             <div class="mb-5">
                 <label for="N_of_baths" class="form-label form_title">Numero di bagni *</label>
                 <input class="form-control form_textbox" type="number" id="N_of_baths" name="N_of_baths" value="{{ old('N_of_baths', $house->N_of_baths) }}">
-                <h2 class="errorText" id="errorNofBaths"></h2>             
+                <h2 class="errorText" id="errorNofBaths"></h2>
             </div>
             @error('N_of_baths')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -105,7 +107,7 @@
             <div class="mb-5">
                 <label for="Mq" class="form-label form_title">Grandezza in {{ __('Mq') }} *</label>
                 <input class="form-control form_textbox" type="number" id="Mq" name="Mq" value="{{ old('N_of_rooms', $house->N_of_rooms) }}">
-                <h2 class="errorText" id="errorMq"></h2>                
+                <h2 class="errorText" id="errorMq"></h2>
             </div>
             @error('Mq')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -114,7 +116,7 @@
             <div class="mb-5">
                 <label for="Night_price" class="form-label form_title">Prezzo per notte *</label>
                 <input type="number" name="Night_price" class="form-control form_textbox" id="Night_price" value="{{ old('Night_price', $house->id) }}">
-                <h2 class="errorText" id="errorNightPrice"></h2>                  
+                <h2 class="errorText" id="errorNightPrice"></h2>
             </div>
             @error('Night_price')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -123,7 +125,7 @@
             <div class="mb-5">
                 <label for="Available_from" class="form-label form_title">Disponibile dal *</label>
                 <input type="date" name="Available_from" class="form-control form_textbox" id="Available_from" value="{{ old('Available_from', $house->Available_from) }}">
-                <h2 class="errorText" id="errorAvailableFrom"></h2>                  
+                <h2 class="errorText" id="errorAvailableFrom"></h2>
             </div>
             @error('Available_from')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -132,7 +134,7 @@
             <div class="mb-5">
                 <label for="Available_to" class="form-label form_title">Disponibile al *</label>
                 <input type="date" name="Available_to" class="form-control form_textbox" id="Available_to" value="{{ old('Available_to', $house->Available_to) }}">
-                <h2 class="errorText" id="errorAvailableTo"></h2>                 
+                <h2 class="errorText" id="errorAvailableTo"></h2>
             </div>
             @error('Available_to')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -157,16 +159,18 @@
             <input type="hidden" id="js-lat" name="Lat" value="{{ old('Lat', $house->Lat) }}">
             <input type="hidden" id="js-lng" name="Lng" value="{{ old('Lng', $house->Lng) }}">
 
-            <button type="submit" class="mod_btn btn_pink float-end">Salva modifiche</button>
-        </form>
-        <span class="tiny_text">I campi con * sono obbligatori</span>
+            <div class="mb-2 span_container">
+                <span class="tiny_text">I campi con * sono obbligatori</span>
+            </div>
 
+            <button type="submit" class="mod_btn btn_pink float-end"><i class="fa-solid fa-check"></i> Salva modifiche</button>
+        </form>
         <div class="buttons_container my-3">
             {{-- <a class="btn btn-primary" href="{{ url()->previous()}}">Indietro</a> --}}
 
             @if (Auth::user()->id === $house->user_id)
                 <button type="button" class="mod_btn btn_red_border float-start" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Elimina casa
+                    <i class="fa-solid fa-trash"></i> Elimina casa
                 </button>
             @endif
 
@@ -181,7 +185,7 @@
                         <div class="modal-body">
                             <h3>Sei sicuro di voler eliminare?<br>Questa azione è irreversibile</h3>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer d-flex justify-content-between">
                             <button type="button" class="mod_btn btn_grey_border" data-bs-dismiss="modal">Annulla</button>
                             <form action="{{ route('houses.destroy', $house->id) }}" method="POST">
                                 @csrf
@@ -201,15 +205,15 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <h3 class="text-center">Sei sicuro di voler eliminare? <br>
+                            <h3>Sei sicuro di voler eliminare questa immagine? <br>
                                 Questa azione è irreversibile</h3>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary text-white" data-bs-dismiss="modal">No</button>
+                        <div class="modal-footer d-flex justify-content-between">
+                            <button type="button" class="mod_btn btn_grey_border" data-bs-dismiss="modal">Annulla</button>
                             <form id="formDelete" action="{{ route('houses-image.destroy', '*****') }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-danger text-white">Elimina</button>
+                                <button class="mod_btn btn_red">Elimina</button>
                             </form>
                         </div>
                     </div>

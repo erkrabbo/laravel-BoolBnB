@@ -5144,6 +5144,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 // import Axios from 'axios'
 
 
@@ -87410,45 +87412,54 @@ var render = function () {
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-8 offset-2" }, [
-            _c("form", { attrs: { action: "/search" } }, [
-              _c("div", { ref: "container", staticClass: "form-group mb-2" }, [
-                _vm._m(0),
-                _vm._v(" "),
-                _c("input", {
-                  ref: "address",
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "text",
-                    id: "search",
-                    name: "search",
-                    placeholder: "Cerca",
-                  },
-                  on: { keyup: _vm.tomSearch },
-                }),
-                _vm._v(" "),
-                _c("input", {
-                  ref: "latinput",
-                  attrs: { type: "hidden", name: "Lat" },
-                }),
-                _vm._v(" "),
-                _c("input", {
-                  ref: "lnginput",
-                  attrs: { type: "hidden", name: "Lng" },
-                }),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: { type: "hidden", name: "mpd", value: "20" },
-                }),
-              ]),
+            _c("form", { staticClass: "row", attrs: { action: "/search" } }, [
+              _vm._m(0),
               _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary text-white mb-2",
-                  attrs: { type: "submit" },
-                },
-                [_vm._v("Cerca")]
-              ),
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  {
+                    ref: "container",
+                    staticClass: "col form-group mb-2 w-100",
+                  },
+                  [
+                    _c("input", {
+                      ref: "address",
+                      staticClass: "form-control form_textbox",
+                      attrs: {
+                        type: "text",
+                        id: "search",
+                        name: "search",
+                        placeholder: "Cerca",
+                      },
+                      on: { keyup: _vm.tomSearch },
+                    }),
+                    _vm._v(" "),
+                    _c("input", {
+                      ref: "latinput",
+                      attrs: { type: "hidden", name: "Lat" },
+                    }),
+                    _vm._v(" "),
+                    _c("input", {
+                      ref: "lnginput",
+                      attrs: { type: "hidden", name: "Lng" },
+                    }),
+                    _vm._v(" "),
+                    _c("input", {
+                      attrs: { type: "hidden", name: "mpd", value: "20" },
+                    }),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "col-2 mod_btn btn_pink mb-2",
+                    attrs: { type: "submit" },
+                  },
+                  [_vm._v("Cerca")]
+                ),
+              ]),
             ]),
           ]),
         ]),
@@ -87504,7 +87515,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "search" } }, [
+    return _c("label", { staticClass: "col-12", attrs: { for: "search" } }, [
       _c("h4", [_vm._v("Ricerca")]),
     ])
   },
@@ -101611,8 +101622,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Boolean\Esercizi\php\laravel-BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\php\laravel-BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\user\Desktop\boolean\progetto-finale\laravel-BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\user\Desktop\boolean\progetto-finale\laravel-BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
