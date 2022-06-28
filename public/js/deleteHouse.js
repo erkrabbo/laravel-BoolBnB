@@ -81,30 +81,37 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/validationMessage.js":
-/*!*******************************************!*\
-  !*** ./resources/js/validationMessage.js ***!
-  \*******************************************/
+/***/ "./resources/js/deleteHouse.js":
+/*!*************************************!*\
+  !*** ./resources/js/deleteHouse.js ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/Users/john/boolean/laravel-BoolBnB/resources/js/validationMessage.js'");
+var formDelete = document.querySelector('#formDelete');
+var baseAction = window.location.origin + '/admin/houses/*****';
+var deleteButtons = document.querySelectorAll('[data-image]').forEach(function (ele) {
+  ele.addEventListener('click', function () {
+    formDelete.action = baseAction;
+    formDelete.action = formDelete.action.replace('*****', ele.dataset.image);
+  });
+});
 
 /***/ }),
 
-/***/ 8:
-/*!*************************************************!*\
-  !*** multi ./resources/js/validationMessage.js ***!
-  \*************************************************/
+/***/ 7:
+/*!*******************************************!*\
+  !*** multi ./resources/js/deleteHouse.js ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/john/boolean/laravel-BoolBnB/resources/js/validationMessage.js */"./resources/js/validationMessage.js");
+module.exports = __webpack_require__(/*! /Users/john/boolean/laravel-BoolBnB/resources/js/deleteHouse.js */"./resources/js/deleteHouse.js");
 
 
 /***/ })

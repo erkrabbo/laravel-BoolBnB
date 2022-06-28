@@ -1,5 +1,3 @@
-{{-- aggiungere sponsorizzazione --}}
-{{-- aggiungere link alle views? --}}
 @extends('layouts.app')
 
 @section('scripts')
@@ -176,7 +174,6 @@
             <div id="btn_toggle" class="contact_phone be_sticky row d-block d-sm-none">
                 <div class="d-flex justify-content-center col-sm-12">
                     <button class="mod_btn btn_pink_border my-4" href="{{ route('houses.messages') }}"><span class="text-uppercase">contatta l'host</span></button>
-                    {{-- <span class="text-secondary text-center py-3 fw-bold inline-block">Verrai ricontattato al più presto</span> --}}
                 </div>
             </div>
         </div>
