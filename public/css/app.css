@@ -22595,7 +22595,6 @@ a {
 
 body {
   overflow-y: hidden;
-  height: 80vh;
 }
 
 .mod_btn {
@@ -22991,9 +22990,34 @@ body {
   color: white;
 }
 
-main {
-  overflow-y: auto;
+html {
+  height: 100vh;
+}
+
+body {
   height: 100%;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: 80px;
+  z-index: 1200;
+}
+
+main {
+  margin-top: 80px;
+  padding-bottom: 1rem;
+  overflow-y: auto;
+  height: calc(100% - 80px);
+}
+
+.navbar-expand-md .navbar-nav .dropdown-menu {
+  position: absolute;
+  right: 0;
+  left: auto;
 }
 
 .sponsor-card {
@@ -23097,11 +23121,6 @@ main {
   background-color: lightgrey;
   border-radius: 20px;
   box-shadow: 5px 5px 5px black;
-}
-
-.my_houses {
-  height: calc(100vh - 66.23px);
-  overflow-y: auto;
 }
 
 .overflow {

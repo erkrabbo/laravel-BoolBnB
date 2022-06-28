@@ -21,7 +21,7 @@ class HouseImageSeeder extends Seeder
             for ($_i = 1; $_i <= $max; $_i++ ){
                 HouseImage::create([
                     'house_id' => $house->id,
-                    'path'     => "https://loremflickr.com/320/240/hotel+room?lock=$imageid",
+                    'path'     => "https://loremflickr.com/320/240/houses?lock=$imageid",
                 ]);
             }
         }

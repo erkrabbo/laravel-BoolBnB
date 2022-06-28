@@ -32,7 +32,7 @@ class HouseSeeder extends Seeder
             $imageid = rand(1, 3000);
             House::create([
                 'user_id' => User::inRandomOrder()->first()->id,
-                'Poster' => "https://loremflickr.com/320/240/hotel+room?lock=$imageid",
+                'Poster' => "https://loremflickr.com/320/240/houses?lock=$imageid",
                 'Title' => $faker->city(),
                 'Night_price' => $faker->numberBetween(2000, 50000),
                 'Content' => $faker->realText(300, 2),

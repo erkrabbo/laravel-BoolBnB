@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -97,14 +97,14 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 /***/ }),
 
-/***/ 8:
+/***/ 9:
 /*!*************************************************!*\
   !*** multi ./resources/js/validationMessage.js ***!
   \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\user\Desktop\boolean\progetto-finale\laravel-BoolBnB\resources\js\validationMessage.js */"./resources/js/validationMessage.js");
+module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\php\laravel-BoolBnB\resources\js\validationMessage.js */"./resources/js/validationMessage.js");
 
 
 /***/ })

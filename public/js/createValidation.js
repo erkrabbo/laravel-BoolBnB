@@ -2159,7 +2159,7 @@ addressInput.addEventListener('keyup', function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\user\Desktop\boolean\progetto-finale\laravel-BoolBnB\resources\js\createValidation.js */"./resources/js/createValidation.js");
+module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\php\laravel-BoolBnB\resources\js\createValidation.js */"./resources/js/createValidation.js");
 
 
 /***/ })

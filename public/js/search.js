@@ -2218,7 +2218,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".container[data-v-39d318f2] {\n  height: 100vh;\n}\n#map[data-v-39d318f2] {\n  height: 100%;\n  min-height: 30rem;\n}", ""]);
+exports.push([module.i, ".container[data-v-39d318f2] {\n  height: 100vh;\n}\n#map[data-v-39d318f2] {\n  height: 100%;\n  max-height: 900px;\n  min-height: 30rem;\n}", ""]);
 
 // exports
 
@@ -3353,7 +3353,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("main", [
+  return _c("main", { staticClass: "py-1" }, [
     _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row row-cols-1 row-cols-lg-2 h-100" }, [
         _c("div", { staticClass: "col h-100" }, [
@@ -3407,14 +3407,7 @@ var render = function () {
                   ]
                 ),
                 _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "col-2 mod_btn btn_pink mb-2",
-                    attrs: { type: "submit" },
-                  },
-                  [_vm._v("Cerca")]
-                ),
+                _vm._m(1),
               ]),
             ]
           ),
@@ -3621,6 +3614,16 @@ var staticRenderFns = [
     return _c("label", { staticClass: "col-12", attrs: { for: "search" } }, [
       _c("h4", [_vm._v("Ricerca")]),
     ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      { staticClass: "col-2 mod_btn btn_pink mb-2", attrs: { type: "submit" } },
+      [_c("i", { staticClass: "fa-solid fa-magnifying-glass" })]
+    )
   },
 ]
 render._withStripped = true
@@ -15924,7 +15927,7 @@ var search = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\user\Desktop\boolean\progetto-finale\laravel-BoolBnB\resources\js\search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\php\laravel-BoolBnB\resources\js\search.js */"./resources/js/search.js");
 
 
 /***/ })

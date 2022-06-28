@@ -81,15 +81,15 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/validationForm.js":
-/*!****************************************!*\
-  !*** ./resources/js/validationForm.js ***!
-  \****************************************/
+/***/ "./resources/js/validationFormEdit.js":
+/*!********************************************!*\
+  !*** ./resources/js/validationFormEdit.js ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -161,10 +161,6 @@ form.addEventListener('submit', function (e) {
     errorNightPrice.innerHTML = 'Il prezzo è obbligatorio e non può essere un valore negativo';
     errorNightPrice.classList.add('balloon');
     errorScroll = errorNightPrice.offsetTop - 140;
-  } else if (available_from.value < todayDate) {
-    errorAvailableFrom.innerHTML = 'La disponibilità non può essere precedente alla data odierna';
-    errorAvailableFrom.classList.add('balloon');
-    errorScroll = errorAvailableFrom.offsetTop - 140;
   } else if (available_to.value < available_from.value) {
     errorAvailableTo.innerHTML = 'La data di fine disponibilità non può essere precedente alla data di inizio disponibilità';
     errorAvailableTo.classList.add('balloon');
@@ -189,14 +185,14 @@ form.addEventListener('submit', function (e) {
 
 /***/ }),
 
-/***/ 6:
-/*!**********************************************!*\
-  !*** multi ./resources/js/validationForm.js ***!
-  \**********************************************/
+/***/ 7:
+/*!**************************************************!*\
+  !*** multi ./resources/js/validationFormEdit.js ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\php\laravel-BoolBnB\resources\js\validationForm.js */"./resources/js/validationForm.js");
+module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\php\laravel-BoolBnB\resources\js\validationFormEdit.js */"./resources/js/validationFormEdit.js");
 
 
 /***/ })
