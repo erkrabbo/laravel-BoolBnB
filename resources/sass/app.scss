@@ -237,7 +237,7 @@ body {
     }
 }
 
-.create, .edit{
+.create, .edit, .research{
     .back{
         display:inline-block;
     }
@@ -293,6 +293,23 @@ body {
     }
     .span_container{
         width: 100%;
+    }
+}
+
+.research{
+    background-color: white;
+    border-bottom: 2px solid lightgray;
+    #btn_research{
+        align-self:flex-start;
+    }
+    .none{
+        border: 2px solid lightgray;
+        background-color: darkgrey;
+        // cursor: not-allowed;
+        // display: none;
+    }
+    .block{
+        display: block;
     }
 }
 
