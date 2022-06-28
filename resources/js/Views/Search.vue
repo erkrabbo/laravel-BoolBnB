@@ -208,9 +208,13 @@ export default {
                         console.log(result)
                         this.nearBy.push(result);
                         const ele = document.createElement('img');
+                        ele.width="70";
+                        const link = document.createElement('a');
+                        link.href="/houses/" + result.id;
                         ele.src = this.setImage(result.Poster);
                         ele.setAttribute('data-ref', `mark${index}`);
-                        const mark = new tt.Marker(ele)
+                        link.appendChild(ele);
+                        const mark = new tt.Marker(link)
                         .setLngLat(pos)
                         .addTo(this.map);
                         }

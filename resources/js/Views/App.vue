@@ -77,6 +77,7 @@ export default {
                             ele.innerHTML = `${item.address.municipality && item.address.municipality} ${item.address.country && item.address.country}`;
                         }
                         ele.addEventListener('click', () => {
+                            btnResearch.classList.toggle('none')
                             console.log(item.position.lat)
                             console.log(item.position.lon)
                             addressInput.value = ele.innerHTML;
