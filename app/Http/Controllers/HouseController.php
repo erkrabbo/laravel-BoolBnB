@@ -37,7 +37,6 @@ class HouseController extends Controller
             'Visible'        => 'accepted',
             'Lat'            => 'required',
             'Lng'            => 'required',
-            // 'service_id'   => 'required|exists:App\Service,id',
         ];
 
         if($id) {
@@ -50,9 +49,6 @@ class HouseController extends Controller
         }
 
         return $validation;
-        // if ($house->notHavingImageInDb()){
-        //     $rules['Poster'] = 'required|image';
-        // }
     }
 
     /**
@@ -103,14 +99,7 @@ class HouseController extends Controller
         foreach($dateLabels as $date) {
             $houseViews = (clone $houseViewsDates)->where('created_at', 'like', "$date%")->get();
             $views[] = $houseViews->count();
-            // echo $date;
         }
-
-
-        // return response()->json([
-        //     'dateLabels' => $dateLabels,
-        //     'views'      => $views,
-        // ]);
 
         return view ('dashboard.views', [
             'dateLabels' => $dateLabels,
@@ -123,18 +112,6 @@ class HouseController extends Controller
 
     public function home()
     {
-        // $sponsoredHouses = House::all();
-        // $sponsoredHouses = DB::table('house_sponsorization')
-        //     ->join('houses', 'houses.id', '=', 'house_sponsorization.house_id')
-        //     ->select('house_sponsorization.*', 'houses.*')
-        //     ->get();
-
-        // $houses = DB::table('houses')
-        //     ->orderBy('created_at')
-        //     ->get();
-
-        // return view('home', compact('sponsoredHouses', 'houses'));
-        // Auth::user() ? $user = Auth::user() : $user = null;
         return view('home');
     }
 
@@ -147,7 +124,7 @@ class HouseController extends Controller
     public function indexUser(Request $request)
     {
         $houses = House::where('user_id', Auth::user()->id)->get();
-        // dd($request);
+
         return view('dashboard.myHouses', compact('houses'));
     }
 
@@ -164,13 +141,9 @@ class HouseController extends Controller
      */
     public function create(House $house)
     {
-
         $services = Service::all();
 
-        // $house_images = HouseImage::where('house_id', "$house->id")->get();
-
         return view('houses.create', compact('services'));
-
     }
 
     /**
@@ -293,7 +266,6 @@ class HouseController extends Controller
      */
     public function edit(House $house)
     {
-
         if (Auth::user()->id !== $house->user_id) abort(403);
 
         $services = Service::all();
@@ -316,7 +288,6 @@ class HouseController extends Controller
      */
     public function update(Request $request, House $house)
     {
-        // dd ($request);
         $request->validate($this->getValidators($house->id));
 
         if (Auth::user()->id !== $house->user_id) abort(403);

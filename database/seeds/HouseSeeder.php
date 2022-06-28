@@ -17,7 +17,6 @@ class HouseSeeder extends Seeder
     public function run(faker $faker)
     {
         $client = new Client();
-        // factory('App\House', 100)->create();
 
         $addresses = config('addresses');
         foreach ($addresses as $address){

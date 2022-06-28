@@ -2113,9 +2113,6 @@ var lnginput = document.getElementById('js-lng');
 addressInput.addEventListener('keyup', function () {
   var address = addressInput.value;
   axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/search/".concat(address, ".json?key=Oy5FeMobhbOv0274dEpqyZNDta4FXJyA&typeahead=true&limit=5&ofs={ofs}&countrySet=IT")).then(function (response) {
-    // console.log(response)
-    // console.log(response.data.results[0].position.lat)
-    // console.log(response.data.results[0].position.lon)
     if (response.data.results.length > 0) {
       var data = response.data.results;
 
@@ -2159,7 +2156,7 @@ addressInput.addEventListener('keyup', function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\user\Desktop\boolean\progetto-finale\laravel-BoolBnB\resources\js\createValidation.js */"./resources/js/createValidation.js");
+module.exports = __webpack_require__(/*! /Users/john/boolean/laravel-BoolBnB/resources/js/createValidation.js */"./resources/js/createValidation.js");
 
 
 /***/ })

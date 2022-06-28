@@ -1,14 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="my_houses">
+<main>
     <div class="mt-4 ms-4 btn_back">
         <a class="mod_btn btn_grey_border" href="{{ url()->previous()}}"><i class="fa-solid fa-arrow-left"></i> Torna indietro</a>
     </div>
-
-        <h1 class="text-center mb-5">Messaggi ricevuti</h1>
-
-    
+    <h1 class="text-center mb-5">Messaggi ricevuti</h1>
     <div class="container">
         <div class="row">
             <div class="col-6 offset-3">
@@ -22,5 +19,5 @@
             </div>
         </div>
     </div>
-</div>
+</main>
 @endsection

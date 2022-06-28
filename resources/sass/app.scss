@@ -91,7 +91,6 @@ a {
 
 body {
     overflow-y: hidden;
-    // height: 80vh;
 }
 
 
@@ -197,7 +196,6 @@ body {
 .form_title{
     font-size: 1.2em;
     font-weight: bold;
-    // color: #FF385C;
     color: #747474;
 }
 
@@ -271,7 +269,6 @@ body {
             border-radius: 15px;
             &:hover{
                 cursor: pointer;
-                // font-weight: bold;
                 color:white;
                 background-color: #b9b9b9;
             }
@@ -311,9 +308,6 @@ body {
             background-color: #ffffff;
             color: #ca2f29;
         }
-        // img{
-        //     border-radius: 15px;
-        // }
     }
     .buttons_container{
         display: inline;
@@ -343,16 +337,6 @@ body {
     .block{
         display: block;
     }
-
-    // .relative_ul{
-    //     position: relative;
-    // }
-
-    // ul{
-    //     z-index: 100;
-    //     width: 100%;
-    //     position: absolute;
-    // }
 }
 
 .sponsored, .recent{
@@ -368,7 +352,6 @@ body {
         .service_container {
             list-style-type: none;
             height: 100%;
-            // border: 1px solid gray;
             background-color: #dedede;
             padding: 1.3rem 0.3rem 0.3rem 0.3rem;
             border-radius: 15px;
@@ -434,20 +417,6 @@ body {
         &:hover{
             background-color: #dedede;
         }
-        // .option{
-        //     border-bottom: solid 1px#747474;
-        //     padding: .5rem 1rem;
-        //     color: #747474;
-        //     &:hover{
-        //         cursor: pointer;
-        //         font-weight: bold;
-        //         color:white;
-        //         background-color: #b9b9b9;
-        //     }
-        //     &:active{
-        //         background-color: #747474;
-        //     }
-        // }
     }
 }
 
@@ -492,6 +461,7 @@ body {
         color: white;
     }
 }
+
 
 //carte sponsorizzazioni
 html {
@@ -622,13 +592,6 @@ main {
     background-color: lightgrey;
     border-radius: 20px;
     box-shadow: 5px 5px 5px black;
-}
-
-
-// body overflow
-.my_houses{
-    height: calc(100vh - 66.23px);
-    overflow-y: auto;
 }
 
 

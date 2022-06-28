@@ -8,9 +8,6 @@ const lnginput = document.getElementById('js-lng');
 addressInput.addEventListener('keyup',() => {
     const address = addressInput.value;
     axios.get (`https://api.tomtom.com/search/2/search/${address}.json?key=Oy5FeMobhbOv0274dEpqyZNDta4FXJyA&typeahead=true&limit=5&ofs={ofs}&countrySet=IT`).then(response => {
-        // console.log(response)
-        // console.log(response.data.results[0].position.lat)
-        // console.log(response.data.results[0].position.lon)
 
         if(response.data.results.length > 0) {
             const data = response.data.results;

@@ -99,7 +99,6 @@ toggleFormButton.addEventListener('click', function () {
   hiding.classList.toggle("open");
 });
 window.addEventListener('resize', function () {
-  // console.log(window.innerWidth)
   if (window.innerWidth > 576) {
     hiding.classList = 'toggle_form';
   }
@@ -114,7 +113,7 @@ window.addEventListener('resize', function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\user\Desktop\boolean\progetto-finale\laravel-BoolBnB\resources\js\hidingForm.js */"./resources/js/hidingForm.js");
+module.exports = __webpack_require__(/*! /Users/john/boolean/laravel-BoolBnB/resources/js/hidingForm.js */"./resources/js/hidingForm.js");
 
 
 /***/ })

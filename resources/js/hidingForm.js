@@ -6,7 +6,6 @@ toggleFormButton.addEventListener('click', ()=>{
 })
 
 window.addEventListener('resize', () => {
-    // console.log(window.innerWidth)
     if(window.innerWidth > 576) {
         hiding.classList = 'toggle_form';
     }
