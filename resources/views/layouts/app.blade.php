@@ -65,14 +65,16 @@
                             <div class="dropdown-menu dropdown-menu-right p-1" aria-labelledby="navbarDropdown">
 
                                 <a class="dropdown-item" href="{{ route('houses.create') }}">
-                                    <i class="fa-solid fa-plus"></i> Crea una nuova casa
+                                    <span class="mx-2"><i class="fa-solid fa-plus"></i></span>
+                                    Crea una nuova casa
                                 </a>
 
                                 <a class="dropdown-item" href="{{ route('houses.indexUser') }}">
-                                    <i class="fa-solid fa-house"></i> Vai alle mie case
+                                    <span class="mx-2"><i class="fa-solid fa-house"></i></span>
+                                    Vai alle mie case
                                 </a>
 
-                                <a class="btn btn-danger w-100 text-white" href="{{ route('logout') }}"
+                                <a class="mod_btn text-white btn_logout mt-1" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                                     {{-- <i class="fa-solid fa-circle-xmark red_text"></i>  --}}

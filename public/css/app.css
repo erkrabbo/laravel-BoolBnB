@@ -22692,6 +22692,11 @@ body {
   color: white;
 }
 
+.close {
+  border-radius: 50px;
+  padding: 0.5rem 0.8rem;
+}
+
 .buttons a,
 .buttons button {
   color: white;
@@ -22740,6 +22745,41 @@ body {
 .form_textbox:focus {
   border: solid 1px #747474;
   border-bottom: solid 3px #FF385C;
+}
+
+.boder-25 {
+  border-radius: 25px;
+}
+
+#navbarSupportedContent .dropdown-menu {
+  border-radius: 30px;
+}
+
+#navbarSupportedContent .dropdown-item {
+  padding: 1rem 0.5rem;
+  border-radius: 15px;
+}
+
+#navbarSupportedContent .btn_logout {
+  text-align: center;
+  display: block;
+  width: 100%;
+  border: solid 3px #e3342f;
+  background-color: #e3342f;
+  color: white;
+}
+
+#navbarSupportedContent .btn_logout:hover {
+  font-weight: bold;
+  color: white;
+  border: solid 3px #ca2f29;
+  background-color: #ca2f29;
+}
+
+#navbarSupportedContent .btn_logout:active {
+  border: solid 3px #96231f;
+  background-color: #96231f;
+  color: white;
 }
 
 .login .mod_card,

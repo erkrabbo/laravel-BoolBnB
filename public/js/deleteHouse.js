@@ -111,7 +111,7 @@ var deleteButtons = document.querySelectorAll('[data-image]').forEach(function (
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/john/boolean/laravel-BoolBnB/resources/js/deleteHouse.js */"./resources/js/deleteHouse.js");
+module.exports = __webpack_require__(/*! C:\Users\user\Desktop\boolean\progetto-finale\laravel-BoolBnB\resources\js\deleteHouse.js */"./resources/js/deleteHouse.js");
 
 
 /***/ })
