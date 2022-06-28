@@ -53,8 +53,6 @@
                             </div>
                         </div>
 
-
-
                         <div class="form-group row pb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-right form_title">Indirizzo email *</label>
 

@@ -94,7 +94,8 @@ body {
     // height: 80vh;
 }
 
-////bottoni////
+
+// bottoni
 .mod_btn{
     border-radius: 50px;
     padding: 0.5rem 0.7rem;
@@ -186,8 +187,8 @@ body {
     }
 }
 
-///testi///
 
+// testi 
 .section_title{
     font-size: 1.7em;
     font-weight: bold;
@@ -205,6 +206,7 @@ body {
     color: #747474;
 }
 
+
 // classe di bootstrap modificata
 .form-control:focus{
     border-color: none;
@@ -219,7 +221,6 @@ body {
     color: #e3342f;
 }
 
-// classe di bootstrap modificata
 .form-check-input:checked{
     background-color: #FF385C;
     border: #FF385C;
@@ -456,7 +457,6 @@ body {
     }
 }
 
-
 .braintree {
     .button {
         cursor: pointer;
@@ -576,8 +576,8 @@ main {
     overflow-y: auto;
   }
 
-  //errori validazioni lato Client per create ed edit
 
+// errori validazioni lato Client per create ed edit
 .balloon {
 	position: relative;
 	max-width: 30em;
@@ -603,8 +603,8 @@ main {
 	filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, .1));
 }
 
-// colori Boolbnb, bottoni e cards
 
+// colori Boolbnb, bottoni e cards
 .red{
     color: rgb(241, 91, 94);
 }
@@ -631,8 +631,24 @@ main {
     overflow-y: auto;
 }
 
-// mail piccola
 
+// overflow messaggi e media query
 .overflow{
     overflow-wrap: break-word;
+}
+
+
+@media  screen and (max-width:767px){
+    .overflow{
+        h4, h5{
+            font-size: 15px;
+        }
+    }
+}
+
+@media  screen and (max-width:575px){
+    .btn_back{
+        text-align: center;
+        margin: 1.5rem  !important;
+    }
 }

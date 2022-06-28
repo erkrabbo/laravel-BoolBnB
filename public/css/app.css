@@ -23108,3 +23108,19 @@ main {
   overflow-wrap: break-word;
 }
 
+@media screen and (max-width: 767px) {
+  .overflow h4,
+  .overflow .h4,
+  .overflow h5,
+  .overflow .h5 {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .btn_back {
+    text-align: center;
+    margin: 1.5rem !important;
+  }
+}
+

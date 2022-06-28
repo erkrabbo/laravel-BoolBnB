@@ -55,13 +55,7 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        // $lead = Message::create($request->all());
-    
-        //     Mail::to('johnca@outlook.it')->send(new SendNewMessage($lead));
-            
-        //     return response()->json([
-        //         'validity'  => 'Mail inviata',
-        //     ]);
+        //
     }
 
     /**

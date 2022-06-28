@@ -12,8 +12,6 @@
             @csrf
             @method('PUT')
 
-            {{-- <div id="error"></div> --}}
-
             <div class="mb-5">
                 <label for="Title" class="form-label form_title">Titolo *</label>
                 <input type="text" name="Title" class="form-control form_textbox" id="Title" value="{{ old('Title', $house->Title) }}">
@@ -41,7 +39,7 @@
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
 
-            <div class="">
+            <div>
                 <label class="form-label form_title" for="house_images">Immagini secondarie</label>
                 <input class="form-control form_textbox" type="file" id="house_images" name="house_images[]" accept="image/*" multiple>
 
@@ -55,7 +53,6 @@
                         </div>
                     @endforeach
                 </div>
-
             </div>
             @error('house_images')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -166,7 +163,6 @@
             <button type="submit" class="mod_btn btn_pink float-end"><i class="fa-solid fa-check"></i> Salva modifiche</button>
         </form>
         <div class="buttons_container my-3">
-            {{-- <a class="btn btn-primary" href="{{ url()->previous()}}">Indietro</a> --}}
 
             @if (Auth::user()->id === $house->user_id)
                 <button type="button" class="mod_btn btn_red_border float-start" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -183,7 +179,8 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <h3>Sei sicuro di voler eliminare?<br>Questa azione è irreversibile</h3>
+                            <h3 class="text-center">Sei sicuro di voler eliminare? <br>
+                                Questa azione è irreversibile</h3>
                         </div>
                         <div class="modal-footer d-flex justify-content-between">
                             <button type="button" class="mod_btn btn_grey_border" data-bs-dismiss="modal">Annulla</button>
@@ -205,7 +202,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <h3>Sei sicuro di voler eliminare questa immagine? <br>
+                            <h3 class="text-center">Sei sicuro di voler eliminare questa immagine? <br>
                                 Questa azione è irreversibile</h3>
                         </div>
                         <div class="modal-footer d-flex justify-content-between">
