@@ -1,10 +1,10 @@
 <template>
-<main class="py-4">
-    <section>
+<main class="">
+    <section class="research">
         <div class="container">
             <div class="row">
                 <div class="col-8 offset-2">
-                    <form class="row" action="/search">
+                    <form class="input_search row py-3" action="/search">
                             <label class="col-12" for="search"><h4>Ricerca</h4></label>
                             <div class="row">
                                 <div class="col form-group mb-2 w-100" ref ="container">
@@ -13,7 +13,7 @@
                                     <input type="hidden" name="Lng" ref = "lnginput">
                                     <input type="hidden" name="mpd" value = "20">
                                 </div>
-                                <button type="submit" class="col-2 mod_btn btn_pink mb-2">Cerca</button>
+                                <button disabled id="btn_research" type="submit" class="none col-2 mod_btn btn_pink mb-2">Cerca</button>
                             </div>
                     </form>
                 </div>
@@ -55,6 +55,7 @@ export default {
             const container = this.$refs.container;
             const latinput = this.$refs.latinput;
             const lnginput = this.$refs.lnginput;
+            const btnResearch = document.getElementById('btn_research');
             axios.get (`https://api.tomtom.com/search/2/search/${address}.json?key=Oy5FeMobhbOv0274dEpqyZNDta4FXJyA&typeahead=true&limit=5&ofs={ofs}&countrySet=IT`).then(response => {
                 // console.log(response)
                 // console.log(response.data.results[0].position.lat)
@@ -81,6 +82,10 @@ export default {
                             addressInput.value = ele.innerHTML;
                             latinput.value = item.position.lat;
                             lnginput.value = item.position.lon;
+                            // btnResearch.style='display: block';
+                            btnResearch.classList.remove('none');
+                            btnResearch.disabled = false;
+                            container.removeChild(list);
                         })
                         list.appendChild(ele);
                     })
@@ -125,6 +130,7 @@ export default {
         // )
     }
 }
+
 </script>
 
 <style>
