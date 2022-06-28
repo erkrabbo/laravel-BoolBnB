@@ -4,7 +4,7 @@
         <div class="card h-100 border-0 custom-rounded" ref="card">
             <!-- startsWith("Welcome to earth.","Welcome"); -->
 
-            <img class="card-img" :src="setImage(house.gallery[imgIndex])" :alt="house.Title" ref="preview">
+            <img class="card-img " :src="setImage(house.gallery[imgIndex])" :alt="house.Title" ref="preview">
 
             <div class="card-img-overlay h-100 d-flex flex-column gradient" ref="overlay">
 
@@ -151,6 +151,10 @@ export default {
 <style scoped lang="scss">
 .card-img-overlay.gradient{
     background: linear-gradient(to bottom, transparent 0%, black 100%);
+}
+.card-img {
+    height: 15rem;
+    object-fit: cover;
 }
 .custom-rounded {
     border-radius: 1em;
