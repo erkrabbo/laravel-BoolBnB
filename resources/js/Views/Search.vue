@@ -2,56 +2,76 @@
 <main class="py-1">
 
     <div class="container">
-      <div class="row row-cols-1 row-cols-lg-2 h-100">
-          <div class="col h-100">
-              <form class="row" @submit.prevent="setmap()">
-                            <label class="col-12" for="search"><h4>Ricerca</h4></label>
-                            <div class="row">
-                                <div class="col form-group mb-2 w-100" ref ="container">
-                                    <input type="text" class="form-control form_textbox" id="search" name="search" placeholder="Cerca" ref = "address" @keyup = "tomSearch">
-                                    <input type="hidden" name="Lat" ref = "latinput">
-                                    <input type="hidden" name="Lng" ref = "lnginput">
-                                    <input type="hidden" name="mpd" value = "20">
-                                </div>
-                                <button type="submit" class="col-2 mod_btn btn_pink mb-2">Cerca</button>
-                            </div>
-                    </form>
-              <div class="form-group">
-                  <label for="address">Raggio: </label>
-                  <input type="range" min="20" max="200" :value = "mpd" class="form-control-range" id="address" placeholder="Inserisci un indirizzo" @change ="setFilters()" ref="mpdRange">
-                  {{ mpd }}
-              </div>
-              <div class="form-group">
-                  <label for="max_price">Prezzo massimo</label>
-                  <input type="number" class="form-control" id="max_price" ref="max_price" placeholder="Inserisci un prezzo massimo in €" v-model="maxPrice" @change="setFilters()">
-              </div>
-              <!-- <div class="form-group">
-                  <label for="address">Servizi</label>
-                  <input type="text" class="form-control" id="address" ref="address" placeholder="Inserisci un indirizzo" v-model="services" @change="setFilters()">
-              </div> -->
-              <div class="form-group">
-                  <label for="mq">Metri quadri</label>
-                  <input type="number" class="form-control" id="mq" ref="mq" placeholder="Inserisci un indirizzo" v-model = "meters" @change="setFilters()">
-              </div>
-              <div class="form-group">
-                  <label for="beds">Posti letto</label>
-                  <input type="number" class="form-control" id="beds" ref="beds" placeholder="Inserisci un indirizzo" v-model="beds" @change="setFilters()">
-              </div>
-              <div class="form-group">
-                  <label for="checkIn">Check-in</label>
-                  <input type="date" class="form-control" id="checkIn" ref="checkIn" placeholder="Inserisci un indirizzo" v-model="checkIn" @change="setFilters()">
-              </div>
-              <div class="form-group">
-                  <!-- <button v-for="service"></button> -->
-                  <div v-for="service in selServices" :key="service.id">
+      <div class="row row-cols-1">
+          <div class="col research">
+            <div class="col-12 col-md-8 offset-md-2">
+                <form @submit.prevent = "setmap()" class="input_search row py-3" action="/search">
+                    <div class="row">
+                        <div class="relative_ul col form-group mb-2 w-100" ref ="container">
+                            <input type="text" class="form-control form_textbox px-4" autocomplete="off" id="search" name="search" placeholder="Ricerca una località" ref = "address" @keyup = "tomSearch">
+                            <input type="hidden" name="Lat" ref = "latinput">
+                            <input type="hidden" name="Lng" ref = "lnginput">
+                            <input type="hidden" name="mpd" value = "20">
+                        </div>
+                        <button disabled id="btn_research" type="submit" class="none col-2 mod_btn btn_pink mb-2">Cerca</button>
+                    </div>
+                </form>
+            </div>
+              <a class="btn btn-primary mb-3" data-bs-toggle="collapse" href="#filtersCollapse" role="button" aria-expanded="false" aria-controls="filtersCollapse">Mostra filtri</a>
 
-                      <label :for="'service' + service.id">{{ service.name }}</label>
-                      <input type="checkbox" class="form-check-input" :id="'sevice' + service.id" @click="handleServices(service.id)">
+              <div class="collapse multi-collapse" id="filtersCollapse">
+                <form @submit.prevent="setFilters()" ref="filterform">
+                  <div class="form-group">
+                      <label for="address">Raggio: </label>
+                      <input type="range" min="20" max="200" v-model = "mpd" class="form-control-range" id="address" placeholder="Inserisci un indirizzo" ref="mpdRange">
+                      {{ mpd }}
                   </div>
+                  <div class="form-group">
+                      <label for="max_price">Prezzo massimo</label>
+                      <input type="number" class="form-control" id="max_price" ref="max_price" placeholder="Inserisci un prezzo massimo in €" v-model="maxPrice">
+                  </div>
+                  <!-- <div class="form-group">
+                      <label for="address">Servizi</label>
+                      <input type="text" class="form-control" id="address" ref="address" placeholder="Inserisci un indirizzo" v-model="services">
+                  </div> -->
+                  <div class="form-group">
+                      <label for="mq">Metri quadri</label>
+                      <input type="number" class="form-control" id="mq" ref="mq" placeholder="Inserisci un indirizzo" v-model = "meters">
+                  </div>
+                  <div class="form-group">
+                      <label for="beds">Posti letto</label>
+                      <input type="number" class="form-control" id="beds" ref="beds" placeholder="Inserisci un indirizzo" v-model="beds">
+                  </div>
+                  <div class="form-group">
+                      <label for="checkIn">Check-in</label>
+                      <input type="date" class="form-control" id="checkIn" ref="checkIn" placeholder="Inserisci un indirizzo" v-model="checkIn">
+                  </div>
+                  <div class="form-group ">
+                      <!-- <button v-for="service"></button> -->
+                    <a class="btn btn-primary mb-3 me-3" data-bs-toggle="collapse" href="#servicesCollapse" role="button" aria-expanded="false" aria-controls="servicesCollapse">Mostra servizi</a>
+                    <a class="btn btn-success mb-3" @click.prevent="setFilters()">Filtra</a>
+                    <div class="collapse multi-collapse" id="servicesCollapse">
+                        <div class="row">
+                            <div v-for="service in selServices" :key="service.id" class="col-auto p-3">
+                            <div class="h-100">
+
+                                <label :for="'service' + service.id">{{ service.name }}</label>
+                                <input type="checkbox" class="form-check-input" :id="'sevice' + service.id" @click="handleServices(service.id)">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </form>
               </div>
               <!-- <button @click="incrementMpd()">mpd</button> -->
           </div>
-          <div class="col">
+          <div class="col order-2">
+              <ul class="w-100 text-center list-unstyled results-list">
+                  <li v-for="result in nearBy" :key="result.id" class="mb-3"><a :href="`/houses/${result.id}`">{{result.Address}}</a></li>
+              </ul>
+          </div>
+          <div class="col order-0">
               <div id="map" ref="map"></div>
           </div>
       </div>
@@ -132,6 +152,7 @@ export default {
             const container = this.$refs.container;
             const latinput = this.$refs.latinput;
             const lnginput = this.$refs.lnginput;
+            const btnResearch = document.getElementById('btn_research');
             axios.get (`https://api.tomtom.com/search/2/search/${address}.json?key=Oy5FeMobhbOv0274dEpqyZNDta4FXJyA&typeahead=true&limit=5&ofs={ofs}&countrySet=IT`).then(response => {
                 // console.log(response)
                 // console.log(response.data.results[0].position.lat)
@@ -153,11 +174,16 @@ export default {
                             ele.innerHTML = `${item.address.municipality && item.address.municipality} ${item.address.country && item.address.country}`;
                         }
                         ele.addEventListener('click', () => {
+                            btnResearch.classList.toggle('none')
                             console.log(item.position.lat)
                             console.log(item.position.lon)
                             addressInput.value = ele.innerHTML;
                             latinput.value = item.position.lat;
                             lnginput.value = item.position.lon;
+                            // btnResearch.style='display: block';
+                            btnResearch.classList.remove('none');
+                            btnResearch.disabled = false;
+                            container.removeChild(list);
                         })
                         list.appendChild(ele);
                     })
@@ -249,5 +275,26 @@ export default {
     height: 100%;
     max-height: 900px;
     min-height: 30rem;
+ }
+ .form-group {
+    margin-bottom: 1rem;
+ }
+ .results-list {
+    padding: .5rem 0;
+    // background-color: rgb(159, 42, 42);
+    li {
+        padding: .5rem 0;
+        background-color: #FF385C;
+        border-radius: 3rem;
+        cursor: pointer;
+        &:hover {
+            background-color: rgb(159, 42, 42);
+        }
+        a {
+            color: white;
+        }
+
+    }
+    // background-color: ;
  }
 </style>
