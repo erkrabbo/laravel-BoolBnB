@@ -37,11 +37,11 @@
                     <div class="house-img d-flex align-items-stretch py-3 row row-cols-1 row-cols-md-2">
                         <img class="img-fluid img-rounded col py-1" src="{{ Storage::exists($house->Poster) ? asset('storage/' . $house->Poster) : $house->Poster }}" alt="{{ $house->Title }}">
                         <div class="side-imgs d-flex flex-wrap w-50 col d-none d-sm-block">
-                                <div class="row row-cols-1 row-cols-md-2">
-                                    @foreach ($house_images as $house_image)
-                                        <img class="img-rounded col p-1" src="{{ Storage::exists($house_image->path) ? asset('storage/' . $house_image->path) : $house_image->path }}" alt="{{ $house->Title }}">
-                                    @endforeach
-                                </div>
+                            <div class="row row-cols-1 row-cols-md-2">
+                                @foreach ($house_images as $house_image)
+                                    <img class="img-rounded col p-1" src="{{ Storage::exists($house_image->path) ? asset('storage/' . $house_image->path) : $house_image->path }}" alt="{{ $house->Title }}">
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                     {{-- container di info e contatta --}}
@@ -102,7 +102,7 @@
                                         </div>
                                         <div class="pt-3">
                                             <label class="form-label w-100 text-center text-uppercase text-bolder" for="">Messaggio *</label>
-                                            <input class="form-control form_textbox w-100 h-50" type="text" name="content" required autocomplete="content">
+                                            <input class="form-control form_textbox w-100" type="text" name="content" required autocomplete="content">
                                         </div>
                                         <input type="hidden" name="house_id" value="{{ $house->id }}">
 

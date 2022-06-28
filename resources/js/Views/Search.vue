@@ -13,11 +13,11 @@
                             <input type="hidden" name="Lng" ref = "lnginput">
                             <input type="hidden" name="mpd" value = "20">
                         </div>
-                        <button disabled id="btn_research" type="submit" class="none col-2 mod_btn btn_pink mb-2">Cerca</button>
+                        <button disabled id="btn_research" type="submit" class="none col-2 mod_btn btn_pink mb-2"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                 </form>
             </div>
-              <a class="btn btn-primary mb-3" data-bs-toggle="collapse" href="#filtersCollapse" role="button" aria-expanded="false" aria-controls="filtersCollapse">Mostra filtri</a>
+              <a class="btn btn-primary text-white mb-3" data-bs-toggle="collapse" href="#filtersCollapse" role="button" aria-expanded="false" aria-controls="filtersCollapse">Mostra filtri</a>
 
               <div class="collapse multi-collapse" id="filtersCollapse">
                 <form @submit.prevent="setFilters()" ref="filterform">
@@ -48,8 +48,8 @@
                   </div>
                   <div class="form-group ">
                       <!-- <button v-for="service"></button> -->
-                    <a class="btn btn-primary mb-3 me-3" data-bs-toggle="collapse" href="#servicesCollapse" role="button" aria-expanded="false" aria-controls="servicesCollapse">Mostra servizi</a>
-                    <a class="btn btn-success mb-3" @click.prevent="setFilters()">Filtra</a>
+                    <a class="btn btn-primary text-white mb-3 me-3" data-bs-toggle="collapse" href="#servicesCollapse" role="button" aria-expanded="false" aria-controls="servicesCollapse">Mostra servizi</a>
+                    <a class="btn btn-success text-white mb-3" @click.prevent="setFilters()">Filtra</a>
                     <div class="collapse multi-collapse" id="servicesCollapse">
                         <div class="row">
                             <div v-for="service in selServices" :key="service.id" class="col-auto p-3">
@@ -64,7 +64,6 @@
                   </div>
                 </form>
               </div>
-              <!-- <button @click="incrementMpd()">mpd</button> -->
           </div>
           <div class="col order-2">
               <ul class="w-100 text-center list-unstyled results-list">
@@ -82,7 +81,6 @@
 <script>
 import axios from 'axios';
 import tt from '@tomtom-international/web-sdk-maps';
-// import { services } from '@tomtom-international/web-sdk-services';
 import '@tomtom-international/web-sdk-maps/dist/maps.css';
 export default {
     data() {
@@ -100,22 +98,7 @@ export default {
             centerLng: null
         }
     },
-    // computed: {
-    //     centerLat() {
-    //         const urlParams = new URLSearchParams(window.location.search);
-    //         return urlParams.get('Lat');
-    //     },
-    //     centerLng() {
-    //         const urlParams = new URLSearchParams(window.location.search);
-    //         return urlParams.get('Lng');
-    //     }
-    // },
     methods: {
-        // setMpd() {
-        //     console.log(this.$refs.mpdRange.value)
-        //     this.mpd = this.$refs.mpdRange.value;
-        //     this.updateMarkers();
-        // },
         initializeSearch() {
             const urlParams = new URLSearchParams(window.location.search);
             this.centerLat = urlParams.get('Lat');
@@ -154,9 +137,6 @@ export default {
             const lnginput = this.$refs.lnginput;
             const btnResearch = document.getElementById('btn_research');
             axios.get (`https://api.tomtom.com/search/2/search/${address}.json?key=Oy5FeMobhbOv0274dEpqyZNDta4FXJyA&typeahead=true&limit=5&ofs={ofs}&countrySet=IT`).then(response => {
-                // console.log(response)
-                // console.log(response.data.results[0].position.lat)
-                // console.log(response.data.results[0].position.lon)
 
                 if(response.data.results.length > 0) {
                     const data = response.data.results;
@@ -180,7 +160,6 @@ export default {
                             addressInput.value = ele.innerHTML;
                             latinput.value = item.position.lat;
                             lnginput.value = item.position.lon;
-                            // btnResearch.style='display: block';
                             btnResearch.classList.remove('none');
                             btnResearch.disabled = false;
                             container.removeChild(list);
@@ -254,15 +233,6 @@ export default {
     },
     mounted() {
         this.initializeSearch();
-
-        // const map = tt.map({
-        // key: 'Oy5FeMobhbOv0274dEpqyZNDta4FXJyA',
-        // container: 'map',
-        // center: {
-        //     lat: this.centerLat,
-        //     lng: this.centerLng},
-        // zoom: 15,
-        // });
     },
 }
 </script>
@@ -281,7 +251,6 @@ export default {
  }
  .results-list {
     padding: .5rem 0;
-    // background-color: rgb(159, 42, 42);
     li {
         padding: .5rem 0;
         background-color: #FF385C;
@@ -293,8 +262,6 @@ export default {
         a {
             color: white;
         }
-
     }
-    // background-color: ;
  }
 </style>
