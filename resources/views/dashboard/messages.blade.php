@@ -26,7 +26,8 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <h3>Sei sicuro di voler eliminare? Questa azione è irreversibile</h3>
+                                        <h3 class="text-center">Sei sicuro di voler eliminare? <br>
+                                            Questa azione è irreversibile</h3>
                                     </div>
                                     <div class="modal-footer d-flex justify-content-between">
                                         <button type="button" class="mod_btn btn_grey_border" data-bs-dismiss="modal">Annulla</button>
