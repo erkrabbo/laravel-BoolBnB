@@ -82,10 +82,10 @@
                                 </div>
                                 <div class="content py-3">
                                     <h4 class="section_title">Prezzo:</h4>
-                                    @if($house->Night_price < 1000)
+                                    @if($house->Night_price < 100)
                                         <h4 class="ps-1">{{$house->Night_price}} € <span class="text-secondary"> / notte</span></h4>
                                     @else
-                                        <h4 class="ps-1">{{round($house->Night_price / 1000)}} € <span class="text-secondary"> / notte</span></h4>
+                                        <h4 class="ps-1">{{round($house->Night_price / 100)}} € <span class="text-secondary"> / notte</span></h4>
                                     @endif
                                 </div>
                             </div>

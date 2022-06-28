@@ -102,7 +102,7 @@
                 @enderror
 
                 <div class="mb-5">
-                    <label class="form-label form_title" for="Night_price">Prezzo per notte *</label>
+                    <label class="form-label form_title" for="Night_price">Prezzo per notte(€) *</label>
                     <input id="Night_price" class="form-control form_textbox" type="number" name="Night_price" value="{{ old('Night_price') }}">
                     <h2 class="errorText" id="errorNightPrice"></h2>
                 </div>
