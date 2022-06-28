@@ -2017,8 +2017,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
- // import { services } from '@tomtom-international/web-sdk-services';
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2037,22 +2055,7 @@ __webpack_require__.r(__webpack_exports__);
       centerLng: null
     };
   },
-  // computed: {
-  //     centerLat() {
-  //         const urlParams = new URLSearchParams(window.location.search);
-  //         return urlParams.get('Lat');
-  //     },
-  //     centerLng() {
-  //         const urlParams = new URLSearchParams(window.location.search);
-  //         return urlParams.get('Lng');
-  //     }
-  // },
   methods: {
-    // setMpd() {
-    //     console.log(this.$refs.mpdRange.value)
-    //     this.mpd = this.$refs.mpdRange.value;
-    //     this.updateMarkers();
-    // },
     initializeSearch: function initializeSearch() {
       var urlParams = new URLSearchParams(window.location.search);
       this.centerLat = urlParams.get('Lat');
@@ -2088,10 +2091,8 @@ __webpack_require__.r(__webpack_exports__);
       var container = this.$refs.container;
       var latinput = this.$refs.latinput;
       var lnginput = this.$refs.lnginput;
+      var btnResearch = document.getElementById('btn_research');
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/search/".concat(address, ".json?key=Oy5FeMobhbOv0274dEpqyZNDta4FXJyA&typeahead=true&limit=5&ofs={ofs}&countrySet=IT")).then(function (response) {
-        // console.log(response)
-        // console.log(response.data.results[0].position.lat)
-        // console.log(response.data.results[0].position.lon)
         if (response.data.results.length > 0) {
           var data = response.data.results;
 
@@ -2112,11 +2113,15 @@ __webpack_require__.r(__webpack_exports__);
             }
 
             ele.addEventListener('click', function () {
+              btnResearch.classList.toggle('none');
               console.log(item.position.lat);
               console.log(item.position.lon);
               addressInput.value = ele.innerHTML;
               latinput.value = item.position.lat;
               lnginput.value = item.position.lon;
+              btnResearch.classList.remove('none');
+              btnResearch.disabled = false;
+              container.removeChild(list);
             });
             list.appendChild(ele);
           });
@@ -2193,14 +2198,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    this.initializeSearch(); // const map = tt.map({
-    // key: 'Oy5FeMobhbOv0274dEpqyZNDta4FXJyA',
-    // container: 'map',
-    // center: {
-    //     lat: this.centerLat,
-    //     lng: this.centerLng},
-    // zoom: 15,
-    // });
+    this.initializeSearch();
   }
 });
 
@@ -2218,7 +2216,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".container[data-v-39d318f2] {\n  height: 100vh;\n}\n#map[data-v-39d318f2] {\n  height: 100%;\n  max-height: 900px;\n  min-height: 30rem;\n}", ""]);
+exports.push([module.i, ".container[data-v-39d318f2] {\n  height: 100vh;\n}\n#map[data-v-39d318f2] {\n  height: 100%;\n  max-height: 900px;\n  min-height: 30rem;\n}\n.form-group[data-v-39d318f2] {\n  margin-bottom: 1rem;\n}\n.results-list[data-v-39d318f2] {\n  padding: 0.5rem 0;\n}\n.results-list li[data-v-39d318f2] {\n  padding: 0.5rem 0;\n  background-color: #FF385C;\n  border-radius: 3rem;\n  cursor: pointer;\n}\n.results-list li[data-v-39d318f2]:hover {\n  background-color: rgb(159, 42, 42);\n}\n.results-list li a[data-v-39d318f2] {\n  color: white;\n}\n.inline_block[data-v-39d318f2] {\n  display: inline-block;\n}", ""]);
 
 // exports
 
@@ -3355,251 +3353,364 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("main", { staticClass: "py-1" }, [
     _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row row-cols-1 row-cols-lg-2 h-100" }, [
-        _c("div", { staticClass: "col h-100" }, [
-          _c(
-            "form",
-            {
-              staticClass: "row",
-              on: {
-                submit: function ($event) {
-                  $event.preventDefault()
-                  return _vm.setmap()
-                },
-              },
-            },
-            [
-              _vm._m(0),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c(
-                  "div",
-                  {
-                    ref: "container",
-                    staticClass: "col form-group mb-2 w-100",
+      _c("div", { staticClass: "row row-cols-1" }, [
+        _c("div", { staticClass: "col research" }, [
+          _c("div", { staticClass: "col-12 col-md-8 offset-md-2" }, [
+            _c(
+              "form",
+              {
+                staticClass: "input_search row py-3",
+                attrs: { action: "/search" },
+                on: {
+                  submit: function ($event) {
+                    $event.preventDefault()
+                    return _vm.setmap()
                   },
-                  [
-                    _c("input", {
-                      ref: "address",
-                      staticClass: "form-control form_textbox",
-                      attrs: {
-                        type: "text",
-                        id: "search",
-                        name: "search",
-                        placeholder: "Cerca",
-                      },
-                      on: { keyup: _vm.tomSearch },
-                    }),
-                    _vm._v(" "),
-                    _c("input", {
-                      ref: "latinput",
-                      attrs: { type: "hidden", name: "Lat" },
-                    }),
-                    _vm._v(" "),
-                    _c("input", {
-                      ref: "lnginput",
-                      attrs: { type: "hidden", name: "Lng" },
-                    }),
-                    _vm._v(" "),
-                    _c("input", {
-                      attrs: { type: "hidden", name: "mpd", value: "20" },
-                    }),
-                  ]
-                ),
-                _vm._v(" "),
-                _vm._m(1),
-              ]),
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "address" } }, [_vm._v("Raggio: ")]),
-            _vm._v(" "),
-            _c("input", {
-              ref: "mpdRange",
-              staticClass: "form-control-range",
-              attrs: {
-                type: "range",
-                min: "20",
-                max: "200",
-                id: "address",
-                placeholder: "Inserisci un indirizzo",
-              },
-              domProps: { value: _vm.mpd },
-              on: {
-                change: function ($event) {
-                  return _vm.setFilters()
                 },
               },
-            }),
-            _vm._v(
-              "\r\n                  " + _vm._s(_vm.mpd) + "\r\n              "
+              [
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    {
+                      ref: "container",
+                      staticClass: "relative_ul col form-group mb-2 w-100",
+                    },
+                    [
+                      _c("input", {
+                        ref: "address",
+                        staticClass: "form-control form_textbox px-4",
+                        attrs: {
+                          type: "text",
+                          autocomplete: "off",
+                          id: "search",
+                          name: "search",
+                          placeholder: "Ricerca una località",
+                        },
+                        on: { keyup: _vm.tomSearch },
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        ref: "latinput",
+                        attrs: { type: "hidden", name: "Lat" },
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        ref: "lnginput",
+                        attrs: { type: "hidden", name: "Lng" },
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: { type: "hidden", name: "mpd", value: "20" },
+                      }),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm._m(0),
+                ]),
+              ]
             ),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "max_price" } }, [
-              _vm._v("Prezzo massimo"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.maxPrice,
-                  expression: "maxPrice",
-                },
-              ],
-              ref: "max_price",
-              staticClass: "form-control",
+          _c(
+            "a",
+            {
+              staticClass: "mod_btn btn_pink_border mb-3 inline_block",
               attrs: {
-                type: "number",
-                id: "max_price",
-                placeholder: "Inserisci un prezzo massimo in €",
+                "data-bs-toggle": "collapse",
+                href: "#filtersCollapse",
+                role: "button",
+                "aria-expanded": "false",
+                "aria-controls": "filtersCollapse",
               },
-              domProps: { value: _vm.maxPrice },
-              on: {
-                change: function ($event) {
-                  return _vm.setFilters()
-                },
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.maxPrice = $event.target.value
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "mq" } }, [_vm._v("Metri quadri")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.meters,
-                  expression: "meters",
-                },
-              ],
-              ref: "mq",
-              staticClass: "form-control",
-              attrs: {
-                type: "number",
-                id: "mq",
-                placeholder: "Inserisci un indirizzo",
-              },
-              domProps: { value: _vm.meters },
-              on: {
-                change: function ($event) {
-                  return _vm.setFilters()
-                },
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.meters = $event.target.value
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "beds" } }, [_vm._v("Posti letto")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.beds,
-                  expression: "beds",
-                },
-              ],
-              ref: "beds",
-              staticClass: "form-control",
-              attrs: {
-                type: "number",
-                id: "beds",
-                placeholder: "Inserisci un indirizzo",
-              },
-              domProps: { value: _vm.beds },
-              on: {
-                change: function ($event) {
-                  return _vm.setFilters()
-                },
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.beds = $event.target.value
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "checkIn" } }, [_vm._v("Check-in")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.checkIn,
-                  expression: "checkIn",
-                },
-              ],
-              ref: "checkIn",
-              staticClass: "form-control",
-              attrs: {
-                type: "date",
-                id: "checkIn",
-                placeholder: "Inserisci un indirizzo",
-              },
-              domProps: { value: _vm.checkIn },
-              on: {
-                change: function ($event) {
-                  return _vm.setFilters()
-                },
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.checkIn = $event.target.value
-                },
-              },
-            }),
-          ]),
+            },
+            [_vm._v("Mostra filtri")]
+          ),
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "form-group" },
-            _vm._l(_vm.selServices, function (service) {
-              return _c("div", { key: service.id }, [
-                _c("label", { attrs: { for: "service" + service.id } }, [
-                  _vm._v(_vm._s(service.name)),
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass: "form-check-input",
-                  attrs: { type: "checkbox", id: "sevice" + service.id },
+            {
+              staticClass: "collapse multi-collapse my-5",
+              attrs: { id: "filtersCollapse" },
+            },
+            [
+              _c(
+                "form",
+                {
+                  ref: "filterform",
                   on: {
-                    click: function ($event) {
-                      return _vm.handleServices(service.id)
+                    submit: function ($event) {
+                      $event.preventDefault()
+                      return _vm.setFilters()
                     },
                   },
-                }),
+                },
+                [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "address" } }, [
+                      _vm._v("Raggio: "),
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.mpd,
+                          expression: "mpd",
+                        },
+                      ],
+                      ref: "mpdRange",
+                      staticClass: "form-control-range",
+                      attrs: {
+                        type: "range",
+                        min: "20",
+                        max: "200",
+                        id: "address",
+                        placeholder: "Inserisci un indirizzo",
+                      },
+                      domProps: { value: _vm.mpd },
+                      on: {
+                        __r: function ($event) {
+                          _vm.mpd = $event.target.value
+                        },
+                      },
+                    }),
+                    _vm._v(
+                      "\n                      " +
+                        _vm._s(_vm.mpd) +
+                        "\n                  "
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "max_price" } }, [
+                      _vm._v("Prezzo massimo"),
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.maxPrice,
+                          expression: "maxPrice",
+                        },
+                      ],
+                      ref: "max_price",
+                      staticClass: "form-control form_textbox",
+                      attrs: {
+                        type: "number",
+                        id: "max_price",
+                        placeholder: "Inserisci un prezzo massimo in €",
+                      },
+                      domProps: { value: _vm.maxPrice },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.maxPrice = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "mq" } }, [
+                      _vm._v("Metri quadri"),
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.meters,
+                          expression: "meters",
+                        },
+                      ],
+                      ref: "mq",
+                      staticClass: "form-control form_textbox",
+                      attrs: {
+                        type: "number",
+                        id: "mq",
+                        placeholder: "Inserisci un indirizzo",
+                      },
+                      domProps: { value: _vm.meters },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.meters = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "beds" } }, [
+                      _vm._v("Posti letto"),
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.beds,
+                          expression: "beds",
+                        },
+                      ],
+                      ref: "beds",
+                      staticClass: "form-control form_textbox",
+                      attrs: {
+                        type: "number",
+                        id: "beds",
+                        placeholder: "Inserisci un indirizzo",
+                      },
+                      domProps: { value: _vm.beds },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.beds = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "checkIn" } }, [
+                      _vm._v("Check-in"),
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.checkIn,
+                          expression: "checkIn",
+                        },
+                      ],
+                      ref: "checkIn",
+                      staticClass: "form-control form_textbox",
+                      attrs: {
+                        type: "date",
+                        id: "checkIn",
+                        placeholder: "Inserisci un indirizzo",
+                      },
+                      domProps: { value: _vm.checkIn },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.checkIn = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group " }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass:
+                          "mod_btn btn_grey_border inline_block mb-3 me-3",
+                        attrs: {
+                          "data-bs-toggle": "collapse",
+                          href: "#servicesCollapse",
+                          role: "button",
+                          "aria-expanded": "false",
+                          "aria-controls": "servicesCollapse",
+                        },
+                      },
+                      [_vm._v("Mostra servizi")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "mod_btn btn_pink inline_block mb-3",
+                        on: {
+                          click: function ($event) {
+                            $event.preventDefault()
+                            return _vm.setFilters()
+                          },
+                        },
+                      },
+                      [_vm._v("Filtra")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "collapse multi-collapse",
+                        attrs: { id: "servicesCollapse" },
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "row" },
+                          _vm._l(_vm.selServices, function (service) {
+                            return _c(
+                              "div",
+                              { key: service.id, staticClass: "col-auto p-3" },
+                              [
+                                _c("div", { staticClass: "h-100" }, [
+                                  _c(
+                                    "label",
+                                    { attrs: { for: "service" + service.id } },
+                                    [_vm._v(_vm._s(service.name))]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    staticClass: "form-check-input",
+                                    attrs: {
+                                      type: "checkbox",
+                                      id: "sevice" + service.id,
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.handleServices(service.id)
+                                      },
+                                    },
+                                  }),
+                                ]),
+                              ]
+                            )
+                          }),
+                          0
+                        ),
+                      ]
+                    ),
+                  ]),
+                ]
+              ),
+            ]
+          ),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col order-2" }, [
+          _c(
+            "ul",
+            { staticClass: "w-100 text-center list-unstyled results-list" },
+            _vm._l(_vm.nearBy, function (result) {
+              return _c("li", { key: result.id, staticClass: "mb-3" }, [
+                _c("a", { attrs: { href: "/houses/" + result.id } }, [
+                  _vm._v(_vm._s(result.Address)),
+                ]),
               ])
             }),
             0
           ),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col" }, [
+        _c("div", { staticClass: "col order-0" }, [
           _c("div", { ref: "map", attrs: { id: "map" } }),
         ]),
       ]),
@@ -3611,17 +3722,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", { staticClass: "col-12", attrs: { for: "search" } }, [
-      _c("h4", [_vm._v("Ricerca")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c(
       "button",
-      { staticClass: "col-2 mod_btn btn_pink mb-2", attrs: { type: "submit" } },
+      {
+        staticClass: "none col-2 mod_btn btn_pink mb-2",
+        attrs: { disabled: "", id: "btn_research", type: "submit" },
+      },
       [_c("i", { staticClass: "fa-solid fa-magnifying-glass" })]
     )
   },
@@ -15927,7 +16033,7 @@ var search = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\php\laravel-BoolBnB\resources\js\search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! C:\Users\user\Desktop\boolean\progetto-finale\laravel-BoolBnB\resources\js\search.js */"./resources/js/search.js");
 
 
 /***/ })

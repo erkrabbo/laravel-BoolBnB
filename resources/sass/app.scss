@@ -93,11 +93,13 @@ body {
     overflow-y: hidden;
 }
 
-
 // bottoni
 .mod_btn{
     border-radius: 50px;
     padding: 0.5rem 0.7rem;
+    &:hover{
+        cursor: pointer;
+    }
 }
 
 .btn_pink{

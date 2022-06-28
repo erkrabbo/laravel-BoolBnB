@@ -204,6 +204,9 @@ h1{
     &:hover {
         filter: brightness(70%);
     }
+    &:active {
+        filter: brightness(50%);
+    }
 }
 
 </style>

@@ -22602,6 +22602,10 @@ body {
   padding: 0.5rem 0.7rem;
 }
 
+.mod_btn:hover {
+  cursor: pointer;
+}
+
 .btn_pink {
   border: solid 3px #FF385C;
   background-color: #FF385C;
@@ -22928,6 +22932,12 @@ body {
 
 .sticky-main .show .service_container .fa-solid {
   font-size: 1.5rem;
+}
+
+.sticky-main .show #map {
+  height: 100%;
+  max-height: 900px;
+  min-height: 30rem;
 }
 
 .sticky-main .show span {
