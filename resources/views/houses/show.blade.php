@@ -115,7 +115,7 @@
                                         </div>
                                         <div class="pt-3">
                                             <label class="form-label w-100 text-center text-uppercase text-bolder" for="">Messaggio</label>
-                                            <input class="form-control form_textbox w-100 h-50" type="text" name="content" required autocomplete="content">
+                                            <input class="form-control form_textbox w-100" type="text" name="content" required autocomplete="content">
                                         </div>
                                         <input type="hidden" name="house_id" value="{{ $house->id }}">
                                         <div class="d-flex justify-content-center">
@@ -130,11 +130,12 @@
                         </div>
                     </div>
 
-                    <div class="mt-5 py-3">
+                    <div class="my-5 py-3">
                         <h2 class="section_title">Dove ti troverai</h2>
 
-                        <div class="map">
-                            <span>mappa?</span>
+                        <div class="map rounded overflow-hidden">
+                            <div id="map" class="rounded"></div>
+                            {{-- <span>mappa?</span> --}}
                         </div>
 
                         <span class="pt-2"><i class="fa-solid fa-location-dot"></i> Ti troverai in <span class="fw-bold">{{ $house->Address }}</span></span>
@@ -179,3 +180,7 @@
         </div>
     </main>
 @endsection
+<script>
+    const lat = {!! json_encode($house->Lat) !!};
+    const lng = {!! json_encode($house->Lng) !!};
+</script>

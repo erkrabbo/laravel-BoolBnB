@@ -377,6 +377,11 @@ body {
                 font-size: 1.5rem;
             }
         }
+        #map {
+            height: 100%;
+            max-height: 900px;
+            min-height: 30rem;
+         }
 
         span{
             display:inline-block;
