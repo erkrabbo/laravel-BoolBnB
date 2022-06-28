@@ -3,25 +3,25 @@
     <section class="research">
         <div class="container">
             <div class="row">
-                <div class="col-8 offset-2">
+                <!-- <div class="col-8 offset-2"> -->
+                <div class="col-12 col-md-8 offset-md-2">
                     <form class="input_search row py-3" action="/search">
-                            <label class="col-12" for="search"><h4>Ricerca</h4></label>
-                            <div class="row">
-                                <div class="col form-group mb-2 w-100" ref ="container">
-                                    <input type="text" class="form-control form_textbox" id="search" name="search" placeholder="Cerca" ref = "address" @keyup = "tomSearch">
-                                    <input type="hidden" name="Lat" ref = "latinput">
-                                    <input type="hidden" name="Lng" ref = "lnginput">
-                                    <input type="hidden" name="mpd" value = "20">
-                                </div>
-                                <button disabled id="btn_research" type="submit" class="none col-2 mod_btn btn_pink mb-2">Cerca</button>
+                        <div class="row">
+                            <div class="relative_ul col form-group mb-2 w-100" ref ="container">
+                                <input type="text" class="form-control form_textbox px-4" autocomplete="off" id="search" name="search" placeholder="Ricerca una località" ref = "address" @keyup = "tomSearch">
+                                <input type="hidden" name="Lat" ref = "latinput">
+                                <input type="hidden" name="Lng" ref = "lnginput">
+                                <input type="hidden" name="mpd" value = "20">
                             </div>
+                            <button disabled id="btn_research" type="submit" class="none col-2 mod_btn btn_pink mb-2">Cerca</button>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
-    <section v-if="sponsored.length">
-        <div class="container">
+    <section class="sponsored" v-if="sponsored.length">
+        <div class="container pt-3">
             <h1>In primo piano</h1>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3 mb-3">
                 <house-card v-for="house in sponsored" :key="house.id" :house="house"></house-card>
@@ -30,8 +30,8 @@
             </div>
         </div>
     </section>
-    <section v-if="last.length">
-        <div class="container">
+    <section class="recent" v-if="last.length">
+        <div class="container pt-3">
             <h1>Recenti</h1>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
                 <house-card v-for="house in last" :key="house.id" :house="house"></house-card>

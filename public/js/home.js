@@ -1953,8 +1953,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 // import Axios from 'axios'
 
 
@@ -3040,7 +3038,7 @@ function addStyle (obj, options) {
 	// If a transform function was defined, run it on the css
 	if (options.transform && obj.css) {
 	    result = typeof options.transform === 'function'
-		 ? options.transform(obj.css) 
+		 ? options.transform(obj.css)
 		 : options.transform.default(obj.css);
 
 	    if (result) {
@@ -3381,7 +3379,7 @@ var render = function () {
     _c("section", { staticClass: "research" }, [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-8 offset-2" }, [
+          _c("div", { staticClass: "col-12 col-md-8 offset-md-2" }, [
             _c(
               "form",
               {
@@ -3396,7 +3394,7 @@ var render = function () {
                     "div",
                     {
                       ref: "container",
-                      staticClass: "col form-group mb-2 w-100",
+                      staticClass: "relative_ul col form-group mb-2 w-100",
                     },
                     [
                       _c("input", {
@@ -3404,6 +3402,7 @@ var render = function () {
                         staticClass: "form-control form_textbox",
                         attrs: {
                           type: "text",
+                          autocomplete: "off",
                           id: "search",
                           name: "search",
                           placeholder: "Cerca",
@@ -3448,8 +3447,8 @@ var render = function () {
     ]),
     _vm._v(" "),
     _vm.sponsored.length
-      ? _c("section", [
-          _c("div", { staticClass: "container" }, [
+      ? _c("section", { staticClass: "sponsored" }, [
+          _c("div", { staticClass: "container pt-3" }, [
             _c("h1", [_vm._v("In primo piano")]),
             _vm._v(" "),
             _c(
@@ -3486,8 +3485,8 @@ var render = function () {
       : _vm._e(),
     _vm._v(" "),
     _vm.last.length
-      ? _c("section", [
-          _c("div", { staticClass: "container" }, [
+      ? _c("section", { staticClass: "recent" }, [
+          _c("div", { staticClass: "container pt-3" }, [
             _c("h1", [_vm._v("Recenti")]),
             _vm._v(" "),
             _c(
@@ -3526,9 +3525,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", { staticClass: "col-12", attrs: { for: "search" } }, [
-      _c("h4", [_vm._v("Ricerca")]),
-    ])
+    return _c(
+      "label",
+      { staticClass: "col-12 d-none d-sm-block", attrs: { for: "search" } },
+      [_c("h4", [_vm._v("Ricerca")])]
+    )
   },
 ]
 render._withStripped = true
@@ -17491,7 +17492,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   null,
   null,
   null
-  
+
 )
 
 /* hot reload */
@@ -17511,7 +17512,7 @@ component.options.__file = "resources/js/Views/App.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./App.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Views/App.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 /***/ }),
 
@@ -17562,7 +17563,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   null,
   "9647af16",
   null
-  
+
 )
 
 /* hot reload */
@@ -17582,7 +17583,7 @@ component.options.__file = "resources/js/components/HouseCard.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HouseCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./HouseCard.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/HouseCard.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HouseCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HouseCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 /***/ }),
 
@@ -17708,7 +17709,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\php\laravel-BoolBnB\resources\js\home.js */"./resources/js/home.js");
+module.exports = __webpack_require__(/*! C:\Users\user\Desktop\boolean\progetto-finale\laravel-BoolBnB\resources\js\home.js */"./resources/js/home.js");
 
 
 /***/ })
