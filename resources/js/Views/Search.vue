@@ -2,48 +2,22 @@
 <main class="py-1">
 
     <div class="container">
-      <div class="row row-cols-1 row-cols-lg-2 h-100">
-          <div class="col h-100">
-              <form class="row" @submit.prevent="setmap()">
-                            <label class="col-12" for="search"><h4>Ricerca</h4></label>
-                            <div class="row">
-                                <div class="col form-group mb-2 w-100" ref ="container">
-                                    <input type="text" class="form-control form_textbox" id="search" name="search" placeholder="Cerca" ref = "address" @keyup = "tomSearch">
-                                    <input type="hidden" name="Lat" ref = "latinput">
-                                    <input type="hidden" name="Lng" ref = "lnginput">
-                                    <input type="hidden" name="mpd" value = "20">
-                                </div>
-                                <button type="submit" class="col-2 mod_btn btn_pink mb-2"><i class="fa-solid fa-magnifying-glass"></i></button>
-                            </div>
-                    </form>
-              <div class="form-group">
-                  <label for="address">Raggio: </label>
-                  <input type="range" min="20" max="200" :value = "mpd" class="form-control-range" id="address" placeholder="Inserisci un indirizzo" @change ="setFilters()" ref="mpdRange">
-                  {{ mpd }}
-              </div>
-              <div class="form-group">
-                  <label for="max_price">Prezzo massimo</label>
-                  <input type="number" class="form-control" id="max_price" ref="max_price" placeholder="Inserisci un prezzo massimo in €" v-model="maxPrice" @change="setFilters()">
-              </div>
-              <!-- <div class="form-group">
-                  <label for="address">Servizi</label>
-                  <input type="text" class="form-control" id="address" ref="address" placeholder="Inserisci un indirizzo" v-model="services" @change="setFilters()">
-              </div> -->
-              <div class="form-group">
-                  <label for="mq">Metri quadri</label>
-                  <input type="number" class="form-control" id="mq" ref="mq" placeholder="Inserisci un indirizzo" v-model = "meters" @change="setFilters()">
-              </div>
-              <div class="form-group">
-                  <label for="beds">Posti letto</label>
-                  <input type="number" class="form-control" id="beds" ref="beds" placeholder="Inserisci un indirizzo" v-model="beds" @change="setFilters()">
-              </div>
-              <div class="form-group">
-                  <label for="checkIn">Check-in</label>
-                  <input type="date" class="form-control" id="checkIn" ref="checkIn" placeholder="Inserisci un indirizzo" v-model="checkIn" @change="setFilters()">
-              </div>
-              <div class="form-group">
-                  <!-- <button v-for="service"></button> -->
-                  <div v-for="service in selServices" :key="service.id">
+      <div class="row row-cols-1">
+          <div class="col research">
+            <div class="col-12 col-md-8 offset-md-2">
+                <form @submit.prevent = "setmap()" class="input_search row py-3" action="/search">
+                    <div class="row">
+                        <div class="relative_ul col form-group mb-2 w-100" ref ="container">
+                            <input type="text" class="form-control form_textbox px-4" autocomplete="off" id="search" name="search" placeholder="Ricerca una località" ref = "address" @keyup = "tomSearch">
+                            <input type="hidden" name="Lat" ref = "latinput">
+                            <input type="hidden" name="Lng" ref = "lnginput">
+                            <input type="hidden" name="mpd" value = "20">
+                        </div>
+                        <button disabled id="btn_research" type="submit" class="none col-2 mod_btn btn_pink mb-2">Cerca</button>
+                    </div>
+                </form>
+            </div>
+              <a class="btn btn-primary mb-3" data-bs-toggle="collapse" href="#filtersCollapse" role="button" aria-expanded="false" aria-controls="filtersCollapse">Mostra filtri</a>
 
               <div class="collapse multi-collapse" id="filtersCollapse">
                 <form @submit.prevent="setFilters()" ref="filterform">
