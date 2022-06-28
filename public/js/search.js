@@ -3407,14 +3407,7 @@ var render = function () {
                   ]
                 ),
                 _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "col-2 mod_btn btn_pink mb-2",
-                    attrs: { type: "submit" },
-                  },
-                  [_vm._v("Cerca")]
-                ),
+                _vm._m(1),
               ]),
             ]
           ),
@@ -3621,6 +3614,16 @@ var staticRenderFns = [
     return _c("label", { staticClass: "col-12", attrs: { for: "search" } }, [
       _c("h4", [_vm._v("Ricerca")]),
     ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      { staticClass: "col-2 mod_btn btn_pink mb-2", attrs: { type: "submit" } },
+      [_c("i", { staticClass: "fa-solid fa-magnifying-glass" })]
+    )
   },
 ]
 render._withStripped = true

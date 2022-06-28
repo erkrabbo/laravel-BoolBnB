@@ -3426,18 +3426,7 @@ var render = function () {
                     ]
                   ),
                   _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "none col-2 mod_btn btn_pink mb-2",
-                      attrs: {
-                        disabled: "",
-                        id: "btn_research",
-                        type: "submit",
-                      },
-                    },
-                    [_vm._v("Cerca")]
-                  ),
+                  _vm._m(0),
                 ]),
               ]
             ),
@@ -3520,7 +3509,21 @@ var render = function () {
       : _vm._e(),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "none col-2 mod_btn btn_pink mb-2",
+        attrs: { disabled: "", id: "btn_research", type: "submit" },
+      },
+      [_c("i", { staticClass: "fa-solid fa-magnifying-glass" })]
+    )
+  },
+]
 render._withStripped = true
 
 
@@ -3584,7 +3587,9 @@ var render = function () {
                   _vm._v(" "),
                   _c("div", { staticClass: "text-start" }, [
                     _c("h5", [
-                      _vm._v(_vm._s(_vm.house.Night_price / 100) + " €/notte"),
+                      _vm._v(
+                        _vm._s(Math.round(_vm.house.Night_price)) + " €/notte"
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("small", [_vm._v(_vm._s(_vm.house.Address))]),

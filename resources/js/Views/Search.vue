@@ -13,7 +13,7 @@
                                     <input type="hidden" name="Lng" ref = "lnginput">
                                     <input type="hidden" name="mpd" value = "20">
                                 </div>
-                                <button type="submit" class="col-2 mod_btn btn_pink mb-2">Cerca</button>
+                                <button type="submit" class="col-2 mod_btn btn_pink mb-2"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </div>
                     </form>
               <div class="form-group">
