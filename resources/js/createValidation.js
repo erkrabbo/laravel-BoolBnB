@@ -33,6 +33,7 @@ addressInput.addEventListener('keyup',() => {
                     addressInput.value = ele.innerHTML;
                     latinput.value = item.position.lat;
                     lnginput.value = item.position.lon;
+                    container.removeChild(list);
                 })
                 list.appendChild(ele);
             })

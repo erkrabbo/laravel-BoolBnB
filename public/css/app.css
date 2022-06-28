@@ -22515,6 +22515,14 @@ readers do not read off random characters that represent icons */
   content: "\F63F";
 }
 
+.navbar-light .navbar-toggler {
+  border-color: rgba(0, 0, 0, 0);
+}
+
+.navbar-light .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.15rem #FF385F;
+}
+
 a {
   text-decoration: none;
 }
@@ -22726,6 +22734,7 @@ body {
 }
 
 .form_textbox {
+  border-radius: 50px;
   border-bottom: solid 3px #747474;
 }
 
@@ -22750,11 +22759,23 @@ body {
   display: inline-block;
 }
 
+.create .relative_ul,
+.edit .relative_ul,
+.research .relative_ul {
+  position: relative;
+}
+
 .create ul,
 .edit ul,
 .research ul {
+  z-index: 100;
+  width: 100%;
+  position: absolute;
+  background-color: white;
   list-style-type: none;
   padding: 0;
+  box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
 }
 
 .create ul li,
@@ -22763,6 +22784,7 @@ body {
   border-bottom: solid 1px #747474;
   padding: 0.5rem 1rem;
   color: #747474;
+  border-radius: 15px;
 }
 
 .create ul li:hover,
@@ -22771,6 +22793,18 @@ body {
   cursor: pointer;
   color: white;
   background-color: #b9b9b9;
+}
+
+.create ul li:active,
+.edit ul li:active,
+.research ul li:active {
+  background-color: #747474;
+}
+
+.create span,
+.edit span,
+.research span {
+  display: block;
 }
 
 .edit .sec_img_container {
@@ -22813,16 +22847,32 @@ body {
 }
 
 .research #btn_research {
+  z-index: 101;
   align-self: flex-start;
+  position: relative;
+  padding: 0.4rem 0.7rem;
 }
 
 .research .none {
-  border: 2px solid lightgray;
+  border: 2px solid darkgrey;
   background-color: darkgrey;
+  cursor: not-allowed;
+}
+
+.research .none:hover {
+  box-shadow: none;
 }
 
 .research .block {
   display: block;
+}
+
+.sponsored h1,
+.sponsored .h1,
+.recent h1,
+.recent .h1 {
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .sticky-main {
@@ -22885,6 +22935,20 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.chart form {
+  float: right;
+}
+
+.chart #interval {
+  padding: 1rem;
+  padding: 0.8rem 0.5rem;
+  border-radius: 50px;
+}
+
+.chart #interval:hover {
+  background-color: #dedede;
 }
 
 @media screen and (min-width: 576px) {
