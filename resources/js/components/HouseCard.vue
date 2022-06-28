@@ -12,7 +12,7 @@
                 <div class="info text-center mt-auto text-white" ref="infos">
                     <h1 class="text-start mt-2">{{house.Title}}</h1>
                     <div class="text-start">
-                        <h5>{{ Math.round(house.Night_price / 100)}} €/notte</h5>
+                        <h5>{{ Math.round(house.Night_price)}} €/notte</h5>
                         <small>{{house.Address}}</small>
                     </div>
                 </div>
