@@ -1,11 +1,8 @@
 @extends('layouts.app')
-
 @section('scripts')
 <script src="{{ asset('js/hidingForm.js') }}" defer></script>
 @endsection
-
 {{-- @section('pageTitle', $house->Title) --}}
-
 @section('content')
     <main class="sticky-main">
         <div class="container show">
@@ -28,7 +25,6 @@
             @endif --}}
             <div class="row">
                 <div class="col">
-
                     <div class="d-flex justify-content-between">
                         <h1 class="bold pt-2">{{ $house->Title }}</h1>
                         @auth
@@ -37,26 +33,19 @@
                             @endif
                         @endauth
                     </div>
-
                     <h6 class="text-secondary pt-2 text-uppercase">{{ $house->Address }}</h6>
-
                     <div class="house-img d-flex align-items-stretch py-3 row row-cols-1 row-cols-md-2">
                         <img class="img-fluid img-rounded col py-1" src="{{ Storage::exists($house->Poster) ? asset('storage/' . $house->Poster) : $house->Poster }}" alt="{{ $house->Title }}">
-
                         <div class="side-imgs d-flex flex-wrap w-50 col d-none d-sm-block">
-
                                 <div class="row row-cols-1 row-cols-md-2">
                                     @foreach ($house_images as $house_image)
                                         <img class="img-rounded col p-1" src="{{ Storage::exists($house_image->path) ? asset('storage/' . $house_image->path) : $house_image->path }}" alt="{{ $house->Title }}">
                                     @endforeach
                                 </div>
-
                         </div>
                     </div>
-
                     {{-- container di info e contatta --}}
                     <div class="d-flex mt-3 row row-cols-1 row-cols-md-2">
-
                         {{-- sezione info --}}
                         <div class="infos col ps-1">
                             <h4 class="lighter py-1">Proprietario: <span class="fw-bold">{{ $user->name }}</span></h4>
@@ -90,13 +79,11 @@
                                 </div>
                             </div>
                         </div>
-
                         {{-- sezione contatta nascosto in phone
                             d-none d-sm-block
                             --}}
                         <div class="book_container col">
                             <div class="book_form ms-5 py-3 d-none d-sm-block">
-
                                 <div class="d-flex justify-content-center">
                                     <form action="{{route('send')}}" method="post">
                                         @csrf
@@ -129,20 +116,15 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="my-5 py-3">
                         <h2 class="section_title">Dove ti troverai</h2>
-
                         <div class="map rounded overflow-hidden">
                             <div id="map" class="rounded"></div>
-                            {{-- <span>mappa?</span> --}}
                         </div>
-
                         <span class="pt-2"><i class="fa-solid fa-location-dot"></i> Ti troverai in <span class="fw-bold">{{ $house->Address }}</span></span>
                     </div>
                 </div>
             </div>
-
             {{-- visibile solo su telefono
                 d-block d-sm-none
                 --}}
