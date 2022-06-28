@@ -1952,6 +1952,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 // import Axios from 'axios'
 
 
@@ -3397,7 +3398,7 @@ var render = function () {
     _c("section", { staticClass: "research" }, [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-8 offset-2" }, [
+          _c("div", { staticClass: "col-12 col-md-8 offset-md-2" }, [
             _c(
               "form",
               {
@@ -3412,7 +3413,7 @@ var render = function () {
                     "div",
                     {
                       ref: "container",
-                      staticClass: "col form-group mb-2 w-100",
+                      staticClass: "relative_ul col form-group mb-2 w-100",
                     },
                     [
                       _c("input", {
@@ -3465,7 +3466,7 @@ var render = function () {
     _vm._v(" "),
     _vm.sponsored.length
       ? _c("section", [
-          _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "container pt-3" }, [
             _c("h1", [_vm._v("In primo piano")]),
             _vm._v(" "),
             _c(
@@ -3488,7 +3489,7 @@ var render = function () {
     _vm._v(" "),
     _vm.last.length
       ? _c("section", [
-          _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "container pt-3" }, [
             _c("h1", [_vm._v("Recenti")]),
             _vm._v(" "),
             _c(
@@ -3512,9 +3513,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", { staticClass: "col-12", attrs: { for: "search" } }, [
-      _c("h4", [_vm._v("Ricerca")]),
-    ])
+    return _c(
+      "label",
+      { staticClass: "col-12 d-none d-sm-block", attrs: { for: "search" } },
+      [_c("h4", [_vm._v("Ricerca")])]
+    )
   },
 ]
 render._withStripped = true

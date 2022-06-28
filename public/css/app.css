@@ -22515,6 +22515,14 @@ readers do not read off random characters that represent icons */
   content: "\F63F";
 }
 
+.navbar-light .navbar-toggler {
+  border-color: rgba(0, 0, 0, 0);
+}
+
+.navbar-light .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.15rem #FF385F;
+}
+
 a {
   text-decoration: none;
 }
@@ -22750,11 +22758,28 @@ body {
   display: inline-block;
 }
 
+.create .relative_ul,
+.edit .relative_ul,
+.research .relative_ul {
+  position: relative;
+}
+
 .create ul,
 .edit ul,
 .research ul {
+  z-index: 100;
+  width: 100%;
+  position: absolute;
+}
+
+.create ul,
+.edit ul,
+.research ul {
+  background-color: white;
   list-style-type: none;
   padding: 0;
+  box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
 }
 
 .create ul li,
@@ -22771,6 +22796,18 @@ body {
   cursor: pointer;
   color: white;
   background-color: #b9b9b9;
+}
+
+.create ul li:active,
+.edit ul li:active,
+.research ul li:active {
+  background-color: #747474;
+}
+
+.create span,
+.edit span,
+.research span {
+  display: block;
 }
 
 .edit .sec_img_container {
@@ -22813,12 +22850,19 @@ body {
 }
 
 .research #btn_research {
+  z-index: 101;
   align-self: flex-start;
+  position: relative;
 }
 
 .research .none {
-  border: 2px solid lightgray;
+  border: 2px solid darkgrey;
   background-color: darkgrey;
+  cursor: not-allowed;
+}
+
+.research .none:hover {
+  box-shadow: none;
 }
 
 .research .block {
