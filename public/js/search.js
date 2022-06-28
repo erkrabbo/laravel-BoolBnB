@@ -2218,7 +2218,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".container[data-v-39d318f2] {\n  height: 100vh;\n}\n#map[data-v-39d318f2] {\n  height: 100%;\n  min-height: 30rem;\n}", ""]);
+exports.push([module.i, ".container[data-v-39d318f2] {\n  height: 100vh;\n}\n#map[data-v-39d318f2] {\n  height: 100%;\n  max-height: 900px;\n  min-height: 30rem;\n}", ""]);
 
 // exports
 
@@ -3353,7 +3353,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("main", [
+  return _c("main", { staticClass: "py-1" }, [
     _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row row-cols-1 row-cols-lg-2 h-100" }, [
         _c("div", { staticClass: "col h-100" }, [

@@ -1,10 +1,10 @@
 <div class="modal fade" id="loginModals" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content boder-25">
             <div class="modal-header">
                 <h5 class="modal-title" id="loginModal">{{ __('Registrati') }}</h5>
-                <button type="button" class="close btn_pink" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
+                <button type="button" class="close btn_red" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fa-solid fa-xmark"></i></span>
                 </button>
             </div>
             <div class="modal-body">
