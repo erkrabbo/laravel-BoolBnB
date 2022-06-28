@@ -2176,9 +2176,13 @@ __webpack_require__.r(__webpack_exports__);
             _this.nearBy.push(result);
 
             var ele = document.createElement('img');
+            ele.width = "70";
+            var link = document.createElement('a');
+            link.href = "/houses/" + result.id;
             ele.src = _this.setImage(result.Poster);
             ele.setAttribute('data-ref', "mark".concat(index));
-            var mark = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_1___default.a.Marker(ele).setLngLat(pos).addTo(_this.map);
+            link.appendChild(ele);
+            var mark = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_1___default.a.Marker(link).setLngLat(pos).addTo(_this.map);
           }
         });
       });
