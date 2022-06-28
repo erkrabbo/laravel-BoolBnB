@@ -10,7 +10,7 @@
 
                 <i v-if="house.sponsored" class="fa-solid fa-gem text-white bg-success rounded p-1 align-self-start"></i>
                 <div class="info text-center mt-auto text-white" ref="infos">
-                    <h1 class="text-start">{{house.Title}}</h1>
+                    <h1 class="text-start mt-2">{{house.Title}}</h1>
                     <div class="text-start">
                         <h5>{{house.Night_price / 100}} €/notte</h5>
                         <small>{{house.Address}}</small>
@@ -162,14 +162,20 @@ export default {
         transform: scale(1.05);
     }
 }
+
+h1{
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
 .pallina {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: #fff;
     margin: 0 5px;
+    background: grey;
     &.active {
-        background: grey;
+        background: #fff;
     }
 }
 
@@ -191,6 +197,9 @@ export default {
     transition: -ms-transform 0.25s ease 0s, -webkit-transform 0.25s ease 0s, transform 0.25s ease 0s;
     width: 32px;
     height: 32px;
+    &:hover {
+        filter: brightness(70%);
+    }
 }
 
 </style>
