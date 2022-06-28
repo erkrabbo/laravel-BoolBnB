@@ -38581,8 +38581,8 @@ try {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Boolean\Esercizi\php\laravel-BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\php\laravel-BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/john/boolean/laravel-BoolBnB/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/john/boolean/laravel-BoolBnB/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

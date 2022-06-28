@@ -495,7 +495,7 @@ main {
 	filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, .1));
 }
 
-/* Boolbnb and buttons color */
+// colori Boolbnb, bottoni e cards
 
 .red{
     color: rgb(241, 91, 94);
@@ -510,17 +510,21 @@ main {
     background: linear-gradient(45deg, rgba(253,171,45,1) 0%, rgba(253,238,45,1) 100%);
 }
 
-/* messages */
-
-.messages{
-    padding: 1rem;
+.card_grey{
+    background-color: lightgrey;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px black;
 }
 
+
+// body overflow
 .my_houses{
     height: calc(100vh - 66.23px);
     overflow-y: auto;
 }
 
-.none {
-    display: none;
+// mail piccola
+
+.overflow{
+    overflow-wrap: break-word;
 }

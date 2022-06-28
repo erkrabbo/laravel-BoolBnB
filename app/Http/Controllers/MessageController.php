@@ -106,7 +106,6 @@ class MessageController extends Controller
      */
     public function destroy(Request $request, Message $message)
     {
-
         $message->delete();
 
         return redirect()->back();
