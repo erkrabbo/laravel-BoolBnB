@@ -26,7 +26,7 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm navbar-absolute">
         <div class="container">
             @include('partials.login-form')
             @include('partials.register-form')
@@ -40,12 +40,12 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav ms-auto">
 
                 </ul>
 
                 <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav mr-auto">
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
@@ -62,7 +62,7 @@
                                 {{ Auth::user()->name }}
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-right p-1" aria-labelledby="navbarDropdown">
 
                                 <a class="dropdown-item" href="{{ route('houses.create') }}">
                                     <i class="fa-solid fa-plus"></i> Crea una nuova casa
@@ -72,10 +72,11 @@
                                     <i class="fa-solid fa-house"></i> Vai alle mie case
                                 </a>
 
-                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                <a class="btn btn-danger w-100 text-white" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
-                                                    <i class="fa-solid fa-circle-xmark red_text"></i> Esci
+                                                    {{-- <i class="fa-solid fa-circle-xmark red_text"></i>  --}}
+                                                    Esci
 
                                 </a>
 

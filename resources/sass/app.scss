@@ -83,7 +83,7 @@ a {
 
 body {
     overflow-y: hidden;
-    height: 80vh;
+    // height: 80vh;
 }
 
 ////bottoni////
@@ -423,10 +423,29 @@ body {
 }
 
 //carte sponsorizzazioni
-
-main {
-    overflow-y: auto;
+html {
+    height: 100vh;
+}
+body {
     height: 100%;
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 80px;
+}
+main {
+    margin-top: 80px;
+    padding-bottom: 1rem;
+    overflow-y: auto;
+    height: calc(100% - 80px);
+}
+.navbar-expand-md .navbar-nav .dropdown-menu {
+    position: absolute;
+    right: 0;
+    left: auto;
 }
 
 .sponsor-card {

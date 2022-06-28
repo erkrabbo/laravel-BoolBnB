@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\View;
+use DateTime;
 use App\House;
+use Throwable;
 use App\Service;
+use DateInterval;
 use App\HouseImage;
 use App\Sponsorization;
 use Carbon\CarbonPeriod;
-use DateInterval;
-use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -61,6 +62,12 @@ class HouseController extends Controller
      */
     public function houseStats(Request $request)
     {
+        $house = House::find($request->house_id);
+        if(!$house) {
+            abort(404);
+        }
+        if(Auth::id() !== $house->user_id) abort(403);
+
         $today = new DateTime(date('Y-m-d'));
     ;
         switch($request->interval) {
