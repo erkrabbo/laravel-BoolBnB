@@ -1,5 +1,5 @@
 <template>
-<main>
+<main class="py-1">
 
     <div class="container">
       <div class="row row-cols-1 row-cols-lg-2 h-100">
@@ -247,6 +247,7 @@ export default {
 }
  #map {
     height: 100%;
+    max-height: 900px;
     min-height: 30rem;
  }
 </style>

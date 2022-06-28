@@ -163,10 +163,3 @@ export default {
 }
 
 </script>
-
-<style>
- main {
-    height: 90vh;
-    overflow-y: auto;
- }
-</style>
