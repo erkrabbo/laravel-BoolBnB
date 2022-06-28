@@ -6,10 +6,9 @@
                 <!-- <div class="col-8 offset-2"> -->
                 <div class="col-12 col-md-8 offset-md-2">
                     <form class="input_search row py-3" action="/search">
-                        <label class="col-12 d-none d-sm-block" for="search"><h4>Ricerca</h4></label>
                         <div class="row">
                             <div class="relative_ul col form-group mb-2 w-100" ref ="container">
-                                <input type="text" class="form-control form_textbox" autocomplete="off" id="search" name="search" placeholder="Cerca" ref = "address" @keyup = "tomSearch">
+                                <input type="text" class="form-control form_textbox px-4" autocomplete="off" id="search" name="search" placeholder="Ricerca una località" ref = "address" @keyup = "tomSearch">
                                 <input type="hidden" name="Lat" ref = "latinput">
                                 <input type="hidden" name="Lng" ref = "lnginput">
                                 <input type="hidden" name="mpd" value = "20">
