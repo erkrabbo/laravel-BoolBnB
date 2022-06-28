@@ -112,7 +112,7 @@
 
             <div class="mb-5">
                 <label for="Night_price" class="form-label form_title">Prezzo per notte *</label>
-                <input type="number" name="Night_price" class="form-control form_textbox" id="Night_price" value="{{ old('Night_price', $house->id) }}">
+                <input type="number" name="Night_price" class="form-control form_textbox" id="Night_price" value="{{ old('Night_price', $house->Night_price) }}">
                 <h2 class="errorText" id="errorNightPrice"></h2>
             </div>
             @error('Night_price')
@@ -170,7 +170,7 @@
                 </button>
             @endif
 
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade pt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -193,7 +193,7 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+            <div class="modal fade pt-5" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">

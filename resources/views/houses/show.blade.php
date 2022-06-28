@@ -71,11 +71,7 @@
                                 </div>
                                 <div class="content py-3">
                                     <h4 class="section_title">Prezzo:</h4>
-                                    @if($house->Night_price < 100)
-                                        <h4 class="ps-1">{{$house->Night_price}} € <span class="text-secondary"> / notte</span></h4>
-                                    @else
-                                        <h4 class="ps-1">{{round($house->Night_price / 100)}} € <span class="text-secondary"> / notte</span></h4>
-                                    @endif
+                                    <h4 class="ps-1">{{$house->Night_price}} € <span class="text-secondary"> / notte</span></h4>
                                 </div>
                             </div>
                         </div>
@@ -149,7 +145,7 @@
                     </div>
                     <div class="pt-3">
                         <label class="form-label w-100 text-center text-uppercase text-bolder" for="">Messaggio</label>
-                        <input class="form-control form_textbox w-100 h-50" type="text" name="content" required autocomplete="content">
+                        <input class="form-control form_textbox w-100" type="text" name="content" required autocomplete="content">
                     </div>
                     <input type="hidden" name="house_id" value="{{ $house->id }}">
                     <div class="d-flex justify-content-center">

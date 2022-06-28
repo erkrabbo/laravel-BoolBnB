@@ -3588,8 +3588,7 @@ var render = function () {
                   _c("div", { staticClass: "text-start" }, [
                     _c("h5", [
                       _vm._v(
-                        _vm._s(Math.round(_vm.house.Night_price / 100)) +
-                          " €/notte"
+                        _vm._s(Math.round(_vm.house.Night_price)) + " €/notte"
                       ),
                     ]),
                     _vm._v(" "),

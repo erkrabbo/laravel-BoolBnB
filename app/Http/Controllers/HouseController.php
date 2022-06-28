@@ -165,7 +165,7 @@ class HouseController extends Controller
             'Poster'    => $img_path,
             'Content'    => $request->Content,
             'Title' => $request->Title,
-            'Night_price' => $request->Night_price * 100,
+            'Night_price' => $request->Night_price,
             'N_of_rooms' => $request->N_of_rooms,
             'N_of_beds' => $request->N_of_beds,
             'N_of_baths' => $request->N_of_baths,
