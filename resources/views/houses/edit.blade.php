@@ -2,7 +2,7 @@
 
 @section('scripts')
 <script src="{{ asset('js/createValidation.js') }}" defer></script>
-<script src="{{ asset('js/validationForm.js') }}" defer></script>
+<script src="{{ asset('js/validationFormEdit.js') }}" defer></script>
 @section('content')
 <main class="validationMain">
     <div class="container edit mt-3">

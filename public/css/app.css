@@ -23123,11 +23123,6 @@ main {
   box-shadow: 5px 5px 5px black;
 }
 
-.my_houses {
-  height: calc(100vh - 66.23px);
-  overflow-y: auto;
-}
-
 .overflow {
   overflow-wrap: break-word;
 }
