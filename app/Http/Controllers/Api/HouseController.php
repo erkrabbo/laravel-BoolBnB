@@ -14,7 +14,6 @@ class HouseController extends Controller
     use Filterable;
     public function sponsored()
     {
-        // $sponsoredHouses = House::all();
         $sponsoredHouses = DB::table('house_sponsorization')
             ->join('houses', 'houses.id', '=', 'house_sponsorization.house_id')
             ->where('house_sponsorization.created_at' , '<=', date('Y-m-d H:i:s'))
@@ -39,7 +38,6 @@ class HouseController extends Controller
     }
     public function last()
     {
-        // $sponsoredHouses = House::all();
         $houses = DB::table('houses')
         ->orderBy('created_at', 'desc')
         ->paginate(10);
@@ -60,8 +58,6 @@ class HouseController extends Controller
     public function search(Request $request) {
         $houses = $this->filterHouses($request)->get();
         $services = Service::all();
-
-
 
         return response()->json([
             'houses' => $houses,

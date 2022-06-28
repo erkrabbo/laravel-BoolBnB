@@ -11,8 +11,6 @@
             <form class="mt-3 mx-5" id="form" action="{{ route('houses.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
-                {{-- <div id="error"></div> --}}
-
                 <div class="mb-5">
                     <label class="form-label form_title" for="Title">Titolo *</label>
                     <input id="Title" class="form-control form_textbox" type="text" name="Title" value="{{ old('Title') }}">
@@ -47,7 +45,6 @@
                 @error('house_images')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
-
 
                 <fieldset class="mb-5">
                     <legend class="form_title">Servizi</legend>

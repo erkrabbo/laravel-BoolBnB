@@ -40,5 +40,5 @@ return[
     'Via Deffenu, 27, 08020 Orune NU',
     'Via Ugo Toscanini, 4, 07034 Perfugas SS',
     'Via Aurelia Antica, 42, 58100 Grosseto GR',
-    'Via Talamonese, 44, 58015 Orbetello GR',
+    'Via Talamonese, 44, 58015 Orbetello GR'
 ];

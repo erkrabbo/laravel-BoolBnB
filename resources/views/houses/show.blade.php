@@ -6,6 +6,7 @@
 @section('content')
     <main class="sticky-main">
         <div class="container show">
+
             @if (\Session::has('success'))
                 <div class="alert alert-success">
                     <ul>
@@ -13,6 +14,7 @@
                     </ul>
                 </div>
             @endif
+
             @if (\Session::has('Mail'))
                 <div class="alert alert-success">
                     <ul>
@@ -20,9 +22,7 @@
                     </ul>
                 </div>
             @endif
-            {{-- @if (session('deleted'))
-                <div class="alert alert-warning">{{ session('deleted') }}</div>
-            @endif --}}
+
             <div class="row">
                 <div class="col">
                     <div class="d-flex justify-content-between">
@@ -89,7 +89,7 @@
                                         @csrf
                                         <h2 class="text-center text-uppercase pb-4 pt-3 section_title">Contatta l'host</h2>
                                         <div class="pt-3">
-                                            <label class="form-label w-100 text-center text-uppercase text-bolder" for="">Inserisci il tuo nome</label>
+                                            <label class="form-label w-100 text-center text-uppercase text-bolder" for="">Inserisci il tuo nome *</label>
                                             <input class="form-control form_textbox w-100" type="text" name="name" required autocomplete="name">
                                         </div>
                                         <div class="pt-3">
@@ -97,14 +97,17 @@
                                             <input class="form-control form_textbox w-100" type="text" name="surname">
                                         </div>
                                         <div class="pt-3">
-                                            <label class="form-label w-100 text-center text-uppercase text-bolder" for="">Inserisci la tua email</label>
+                                            <label class="form-label w-100 text-center text-uppercase text-bolder" for="">Inserisci la tua email *</label>
                                             <input class="form-control form_textbox w-100" type="email" name="sender_mail" id="sender_mail" required autocomplete="sender_mail" value="{{ $userMail }}">
                                         </div>
                                         <div class="pt-3">
-                                            <label class="form-label w-100 text-center text-uppercase text-bolder" for="">Messaggio</label>
-                                            <input class="form-control form_textbox w-100" type="text" name="content" required autocomplete="content">
+                                            <label class="form-label w-100 text-center text-uppercase text-bolder" for="">Messaggio *</label>
+                                            <input class="form-control form_textbox w-100 h-50" type="text" name="content" required autocomplete="content">
                                         </div>
                                         <input type="hidden" name="house_id" value="{{ $house->id }}">
+
+                                        <span class="tiny_text text-center mt-3">I campi con * sono obbligatori</span>
+
                                         <div class="d-flex justify-content-center">
                                             <button type="submit" class="mod_btn btn_pink w-50 mt-4" href="#"><span class="text-white text-uppercase">Invia</span></button>
                                         </div>

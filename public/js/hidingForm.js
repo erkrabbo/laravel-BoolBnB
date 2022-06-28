@@ -99,7 +99,6 @@ toggleFormButton.addEventListener('click', function () {
   hiding.classList.toggle("open");
 });
 window.addEventListener('resize', function () {
-  // console.log(window.innerWidth)
   if (window.innerWidth > 576) {
     hiding.classList = 'toggle_form';
   }

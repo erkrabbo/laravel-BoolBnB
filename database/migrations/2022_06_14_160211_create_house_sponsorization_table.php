@@ -22,8 +22,6 @@ class CreateHouseSponsorizationTable extends Migration
             $table->foreign('house_id')->references('id')->on('houses')->onDelete('cascade');
             
             $table->foreign('sponsorization_id')->references('id')->on('sponsorizations')->onDelete('cascade');
-
-            // $table->primary(['house_id', 'sponsorization_id']);
         });
     }
 

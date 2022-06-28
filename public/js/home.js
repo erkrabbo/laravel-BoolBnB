@@ -3553,7 +3553,7 @@ var render = function () {
         [
           _c("img", {
             ref: "preview",
-            staticClass: "card-img",
+            staticClass: "card-img ",
             attrs: {
               src: _vm.setImage(_vm.house.gallery[_vm.imgIndex]),
               alt: _vm.house.Title,

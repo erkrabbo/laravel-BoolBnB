@@ -88,14 +88,5 @@ class ServiceSeeder extends Seeder
             'name' => 'palestra',
             'icon' => 'fa-dumbbell',
         ]);
-
-        // $services = config('houseServices');
-
-        // foreach ($services as $service) {
-        //     Service::create([
-        //         'name' => $service,
-        //         'icon' => $service,
-        //     ]);
-        // }
     }
 }
