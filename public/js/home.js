@@ -3421,6 +3421,7 @@ var render = function () {
                         staticClass: "form-control form_textbox",
                         attrs: {
                           type: "text",
+                          autocomplete: "off",
                           id: "search",
                           name: "search",
                           placeholder: "Cerca",
@@ -3465,7 +3466,7 @@ var render = function () {
     ]),
     _vm._v(" "),
     _vm.sponsored.length
-      ? _c("section", [
+      ? _c("section", { staticClass: "sponsored" }, [
           _c("div", { staticClass: "container pt-3" }, [
             _c("h1", [_vm._v("In primo piano")]),
             _vm._v(" "),
@@ -3488,7 +3489,7 @@ var render = function () {
       : _vm._e(),
     _vm._v(" "),
     _vm.last.length
-      ? _c("section", [
+      ? _c("section", { staticClass: "recent" }, [
           _c("div", { staticClass: "container pt-3" }, [
             _c("h1", [_vm._v("Recenti")]),
             _vm._v(" "),

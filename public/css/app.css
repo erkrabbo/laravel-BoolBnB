@@ -22734,6 +22734,7 @@ body {
 }
 
 .form_textbox {
+  border-radius: 50px;
   border-bottom: solid 3px #747474;
 }
 
@@ -22770,11 +22771,6 @@ body {
   z-index: 100;
   width: 100%;
   position: absolute;
-}
-
-.create ul,
-.edit ul,
-.research ul {
   background-color: white;
   list-style-type: none;
   padding: 0;
@@ -22788,6 +22784,7 @@ body {
   border-bottom: solid 1px #747474;
   padding: 0.5rem 1rem;
   color: #747474;
+  border-radius: 15px;
 }
 
 .create ul li:hover,
@@ -22853,6 +22850,7 @@ body {
   z-index: 101;
   align-self: flex-start;
   position: relative;
+  padding: 0.4rem 0.7rem;
 }
 
 .research .none {
@@ -22867,6 +22865,14 @@ body {
 
 .research .block {
   display: block;
+}
+
+.sponsored h1,
+.sponsored .h1,
+.recent h1,
+.recent .h1 {
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .sticky-main {
@@ -22929,6 +22935,20 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.chart form {
+  float: right;
+}
+
+.chart #interval {
+  padding: 1rem;
+  padding: 0.8rem 0.5rem;
+  border-radius: 50px;
+}
+
+.chart #interval:hover {
+  background-color: #dedede;
 }
 
 @media screen and (min-width: 576px) {

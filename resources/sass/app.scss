@@ -227,6 +227,7 @@ body {
 }
 
 .form_textbox{
+    border-radius: 50px;
     border-bottom: solid 3px #747474;
     &:focus{
         border: solid 1px #747474;
@@ -257,9 +258,6 @@ body {
         z-index: 100;
         width: 100%;
         position: absolute;
-    }
-
-    ul{
         background-color: white;
         list-style-type: none;
         padding: 0;
@@ -269,6 +267,7 @@ body {
             border-bottom: solid 1px#747474;
             padding: .5rem 1rem;
             color: #747474;
+            border-radius: 15px;
             &:hover{
                 cursor: pointer;
                 // font-weight: bold;
@@ -330,6 +329,7 @@ body {
         z-index: 101;
         align-self:flex-start;
         position: relative;
+        padding: 0.4rem 0.7rem;
     }
     .none{
         border: 2px solid darkgrey;
@@ -352,6 +352,13 @@ body {
     //     width: 100%;
     //     position: absolute;
     // }
+}
+
+.sponsored, .recent{
+    h1{
+        font-size: 1.5em;
+        font-weight: bold;
+    }
 }
 
 .sticky-main {
@@ -412,12 +419,35 @@ body {
                 right: 0;
             }
         }
+    }
+}
 
-        // .maledetto{
-        //     background-color: #64d18a;
+.chart{
+    form{
+        float: right;
+    }
+    #interval{
+        padding: 1rem;
+        padding: 0.8rem 0.5rem;
+        border-radius: 50px;
+        &:hover{
+            background-color: #dedede;
+        }
+        // .option{
+        //     border-bottom: solid 1px#747474;
+        //     padding: .5rem 1rem;
+        //     color: #747474;
+        //     &:hover{
+        //         cursor: pointer;
+        //         font-weight: bold;
+        //         color:white;
+        //         background-color: #b9b9b9;
+        //     }
+        //     &:active{
+        //         background-color: #747474;
+        //     }
         // }
     }
-
 }
 
 @media screen and (min-width: 576px) {
