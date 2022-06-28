@@ -25,6 +25,8 @@
             <h1>In primo piano</h1>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3 mb-3">
                 <house-card v-for="house in sponsored" :key="house.id" :house="house"></house-card>
+                <div v-if="sponsored.length" v-observe-visibility="sponsoredHousesLoad"></div>
+
             </div>
         </div>
     </section>
@@ -33,6 +35,7 @@
             <h1>Recenti</h1>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
                 <house-card v-for="house in last" :key="house.id" :house="house"></house-card>
+                <div v-if="last.length" v-observe-visibility="lastHousesLoad"></div>
             </div>
         </div>
     </section>
@@ -43,12 +46,33 @@
 // import Axios from 'axios'
 import axios from 'axios';
 import HouseCard from '../components/HouseCard.vue'
+
 export default {
     name: 'App',
     components: {
         HouseCard
     },
     methods: {
+        sponsoredHousesLoad(isVisible) {
+            if (!isVisible) {
+                return;
+            }
+            // console.log('ciao')
+            // console.log(this.sponsored)
+            if (this.sponsoredPage <= this.sponsoredFinalPage) {
+                this.$store.commit('incrementSponsoredPage');
+            }
+        },
+        lastHousesLoad(isVisible) {
+            if (!isVisible) {
+                return;
+            }
+            // console.log('ciao')
+            // console.log(this.sponsored)
+            if (this.lastsPage <= this.lastsFinalPage) {
+                this.$store.commit('incrementLastsPage');
+            }
+        },
         tomSearch() {
             const addressInput = this.$refs.address;
             const address = addressInput.value;
@@ -107,6 +131,12 @@ export default {
         },
         sponsoredPage() {
             return this.$store.state.sponsoredPage;
+        },
+        sponsoredFinalPage() {
+            return this.$store.state.sponsoredFinalPage;
+        },
+        lastsFinalPage() {
+            return this.$store.state.lastsFinalPage;
         }
     },
     created(){

@@ -17,8 +17,12 @@ class HouseController extends Controller
         // $sponsoredHouses = House::all();
         $sponsoredHouses = DB::table('house_sponsorization')
             ->join('houses', 'houses.id', '=', 'house_sponsorization.house_id')
+            ->where('house_sponsorization.created_at' , '<=', date('Y-m-d H:i:s'))
+            ->where('house_sponsorization.expiration_date' , '>', date('Y-m-d H:i:s'))
+            ->orderBy('house_sponsorization.created_at', 'desc')
             ->select('house_sponsorization.*', 'houses.*')
             ->paginate(10);
+
         foreach ($sponsoredHouses as $house) {
             $gallery = DB::table('house_images')
                 ->join('houses', 'houses.id', '=', 'house_images.house_id')
@@ -26,6 +30,7 @@ class HouseController extends Controller
                 ->pluck('path');
 
             $house->gallery = [$house->Poster, ...$gallery];
+            $house->sponsored = true;
         }
 
         return response()->json([
@@ -36,7 +41,7 @@ class HouseController extends Controller
     {
         // $sponsoredHouses = House::all();
         $houses = DB::table('houses')
-        ->orderBy('created_at')
+        ->orderBy('created_at', 'desc')
         ->paginate(10);
 
         foreach ($houses as $house) {
@@ -45,6 +50,7 @@ class HouseController extends Controller
                 ->where('house_images.house_id', $house->id)
                 ->pluck('path');
             $house->gallery = [$house->Poster, ...$gallery];
+            $house->sponsored = false;
         }
 
         return response()->json([
@@ -55,21 +61,7 @@ class HouseController extends Controller
         $houses = $this->filterHouses($request)->get();
         $services = Service::all();
 
-        // if ($request->has('services')) {
-        //     $services = DB::table('house_services')->join('houses', 'house_id', 'id')->join('services', 'service_id', 'id');
-        //     dd($services);
-        //     foreach($houses as $house) {
-        //         foreach($request->services as $service) {
-        //             if($services->where($house->id, 'house_id')->where($service, 'services.name')) {
-        //                 $house['services'] += $service->name;
-        //             }
-        //         }
-        //     }
-        // }
-        // foreach($houses as $house) {
-        //     $service = DB::table('house_service')->join('houses', 'house_service.house_id', 'houses.id')->where($house->id, 'house_id')->select('house_service.name', 'house_service.icon')->get();
-        //     $house['services'] += $service;
-        // }
+
 
         return response()->json([
             'houses' => $houses,

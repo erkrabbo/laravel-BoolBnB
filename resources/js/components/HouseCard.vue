@@ -3,10 +3,12 @@
     <a :href="'/houses/' + house.id">
         <div class="card h-100 border-0 custom-rounded" ref="card">
             <!-- startsWith("Welcome to earth.","Welcome"); -->
+
             <img class="card-img" :src="setImage(house.gallery[imgIndex])" :alt="house.Title" ref="preview">
 
             <div class="card-img-overlay h-100 d-flex flex-column gradient" ref="overlay">
-                <!-- <span class="align-self-start ms-auto" @click.prevent="handleLike">ciao</span> -->
+
+                <i v-if="house.sponsored" class="fa-solid fa-gem text-white bg-success rounded p-1 align-self-start"></i>
                 <div class="info text-center mt-auto text-white" ref="infos">
                     <h1 class="text-start">{{house.Title}}</h1>
                     <div class="text-start">
