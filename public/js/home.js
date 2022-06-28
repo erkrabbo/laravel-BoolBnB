@@ -1997,7 +1997,11 @@ __webpack_require__.r(__webpack_exports__);
               console.log(item.position.lon);
               addressInput.value = ele.innerHTML;
               latinput.value = item.position.lat;
-              lnginput.value = item.position.lon;
+              lnginput.value = item.position.lon; // btnResearch.style='display: block';
+
+              btnResearch.classList.remove('none');
+              btnResearch.disabled = false;
+              container.removeChild(list);
             });
             list.appendChild(ele);
           });
@@ -3389,60 +3393,71 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("main", { staticClass: "py-4" }, [
-    _c("section", [
+  return _c("main", {}, [
+    _c("section", { staticClass: "research" }, [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-8 offset-2" }, [
-            _c("form", { staticClass: "row", attrs: { action: "/search" } }, [
-              _vm._m(0),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c(
-                  "div",
-                  {
-                    ref: "container",
-                    staticClass: "col form-group mb-2 w-100",
-                  },
-                  [
-                    _c("input", {
-                      ref: "address",
-                      staticClass: "form-control form_textbox",
-                      attrs: {
-                        type: "text",
-                        id: "search",
-                        name: "search",
-                        placeholder: "Cerca",
-                      },
-                      on: { keyup: _vm.tomSearch },
-                    }),
-                    _vm._v(" "),
-                    _c("input", {
-                      ref: "latinput",
-                      attrs: { type: "hidden", name: "Lat" },
-                    }),
-                    _vm._v(" "),
-                    _c("input", {
-                      ref: "lnginput",
-                      attrs: { type: "hidden", name: "Lng" },
-                    }),
-                    _vm._v(" "),
-                    _c("input", {
-                      attrs: { type: "hidden", name: "mpd", value: "20" },
-                    }),
-                  ]
-                ),
+            _c(
+              "form",
+              {
+                staticClass: "input_search row py-3",
+                attrs: { action: "/search" },
+              },
+              [
+                _vm._m(0),
                 _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "none col-2 mod_btn btn_pink mb-2",
-                    attrs: { id: "btn_research", type: "submit" },
-                  },
-                  [_vm._v("Cerca")]
-                ),
-              ]),
-            ]),
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    {
+                      ref: "container",
+                      staticClass: "col form-group mb-2 w-100",
+                    },
+                    [
+                      _c("input", {
+                        ref: "address",
+                        staticClass: "form-control form_textbox",
+                        attrs: {
+                          type: "text",
+                          id: "search",
+                          name: "search",
+                          placeholder: "Cerca",
+                        },
+                        on: { keyup: _vm.tomSearch },
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        ref: "latinput",
+                        attrs: { type: "hidden", name: "Lat" },
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        ref: "lnginput",
+                        attrs: { type: "hidden", name: "Lng" },
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: { type: "hidden", name: "mpd", value: "20" },
+                      }),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "none col-2 mod_btn btn_pink mb-2",
+                      attrs: {
+                        disabled: "",
+                        id: "btn_research",
+                        type: "submit",
+                      },
+                    },
+                    [_vm._v("Cerca")]
+                  ),
+                ]),
+              ]
+            ),
           ]),
         ]),
       ]),
@@ -17343,7 +17358,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\php\laravel-BoolBnB\resources\js\home.js */"./resources/js/home.js");
+module.exports = __webpack_require__(/*! C:\Users\user\Desktop\boolean\progetto-finale\laravel-BoolBnB\resources\js\home.js */"./resources/js/home.js");
 
 
 /***/ })

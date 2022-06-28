@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -104,14 +104,14 @@ var deleteButtons = document.querySelectorAll('[data-image]').forEach(function (
 
 /***/ }),
 
-/***/ 4:
+/***/ 7:
 /*!***********************************************!*\
   !*** multi ./resources/js/validationHouse.js ***!
   \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/john/boolean/laravel-BoolBnB/resources/js/validationHouse.js */"./resources/js/validationHouse.js");
+module.exports = __webpack_require__(/*! C:\Users\user\Desktop\boolean\progetto-finale\laravel-BoolBnB\resources\js\validationHouse.js */"./resources/js/validationHouse.js");
 
 
 /***/ })

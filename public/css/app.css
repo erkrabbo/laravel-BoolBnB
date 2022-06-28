@@ -22745,25 +22745,29 @@ body {
 }
 
 .create .back,
-.edit .back {
+.edit .back,
+.research .back {
   display: inline-block;
 }
 
 .create ul,
-.edit ul {
+.edit ul,
+.research ul {
   list-style-type: none;
   padding: 0;
 }
 
 .create ul li,
-.edit ul li {
+.edit ul li,
+.research ul li {
   border-bottom: solid 1px #747474;
   padding: 0.5rem 1rem;
   color: #747474;
 }
 
 .create ul li:hover,
-.edit ul li:hover {
+.edit ul li:hover,
+.research ul li:hover {
   cursor: pointer;
   color: white;
   background-color: #b9b9b9;
@@ -22801,6 +22805,24 @@ body {
 
 .edit .span_container {
   width: 100%;
+}
+
+.research {
+  background-color: white;
+  border-bottom: 2px solid lightgray;
+}
+
+.research #btn_research {
+  align-self: flex-start;
+}
+
+.research .none {
+  border: 2px solid lightgray;
+  background-color: darkgrey;
+}
+
+.research .block {
+  display: block;
 }
 
 .sticky-main {
