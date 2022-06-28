@@ -48,7 +48,7 @@ class House extends Model
 
     public function sponsorizations()
     {
-        return $this->belongsToMany(Sponsorization::class)->withPivot('created_at');
+        return $this->belongsToMany(Sponsorization::class)->withPivot('created_at', 'expiration_date');
     }
 
     public function notHavingImageInDb()

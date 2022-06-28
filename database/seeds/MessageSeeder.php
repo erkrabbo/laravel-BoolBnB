@@ -32,7 +32,7 @@ class MessageSeeder extends Seeder
                 Message::create([
                     'house_id'     => $house->id,
                     'sender_mail'  => $user->email,
-                    'content'      => $faker->text(),
+                    'content'      => $faker->realText(300, 2),
                     'name'         => $user->name,
                     'surname'      => $user->surname
                 ]);

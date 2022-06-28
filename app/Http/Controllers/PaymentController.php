@@ -14,11 +14,11 @@ use Illuminate\Http\Request;
 class PaymentController extends Controller
 {
     public function make(Request $request) {
-        $amount =  Sponsorization::where('id', $request->price)->value('price');
+        $amount =  Sponsorization::where('id', $request->price)->first();
 
         $service = \Braintree\Transaction::sale([
 
-            'amount' => $amount,
+            'amount' => $amount->price / 100,
             'paymentMethodNonce' => $request['nonce'],
             'options' => [
                 'submitForSettlement' => True
@@ -29,6 +29,7 @@ class PaymentController extends Controller
             $house = House::where('id', $request->house)->with('sponsorizations')->first();
             if(count($house->sponsorizations) != 0) {
                 $trueExpiration = null;
+                
                 foreach($house->sponsorizations as $sponsorization) {
                     $created = new DateTime($sponsorization->pivot->created_at);
                     $duration = $sponsorization->duration;
@@ -36,14 +37,17 @@ class PaymentController extends Controller
                     $expiration = (clone $created)->add($interval);
                     if($trueExpiration == null || $expiration > $trueExpiration) {
                         $trueExpiration = $expiration;  
+                        $expirationDate = (clone $trueExpiration)->add(new DateInterval("PT{$amount->duration}H"));                       
                     }                    
                 }
                 $house->sponsorizations()->attach([
-                    $request->price => ['created_at' => $trueExpiration]
+                    $request->price => ['created_at' => $trueExpiration, 'expiration_date' => $expirationDate ]
                 ]);
             }  else {
-                $house->sponsorizations()->attach([
-                    $request->price => ['created_at' => date("Y-m-d H:i:s")]
+                    $trueExpiration = new DateTime(date('Y-m-d H:i:s'));  
+                    $expirationDate = (clone $trueExpiration)->add(new DateInterval("PT{$amount->duration}H"));  
+                    $house->sponsorizations()->attach([
+                    $request->price => ['created_at' => $trueExpiration, 'expiration_date' => $expirationDate]
                 ]);
             }
             return redirect()->route('houses.show', [

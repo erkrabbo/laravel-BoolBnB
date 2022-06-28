@@ -18,6 +18,7 @@ class CreateHouseSponsorizationTable extends Migration
             $table->unsignedBigInteger('house_id');
             $table->unsignedBigInteger('sponsorization_id');
             $table->dateTime('created_at');
+            $table->dateTime('expiration_date');
             $table->foreign('house_id')->references('id')->on('houses')->onDelete('cascade');
             
             $table->foreign('sponsorization_id')->references('id')->on('sponsorizations')->onDelete('cascade');
