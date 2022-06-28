@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('scripts')
+<script src="{{ asset('js/home.js') }}" defer></script>
+@endsection
 @section('content')
 {{-- <div class="container">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">

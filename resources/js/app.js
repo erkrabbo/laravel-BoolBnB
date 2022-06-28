@@ -6,8 +6,6 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
-window.Axios = require('axios');
 
 // console.log(dropin)
 
@@ -22,91 +20,14 @@ window.Axios = require('axios');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
-import App from './Views/App.vue';
-import Vuex from 'vuex'
-import Axios from 'axios';
-import { client } from 'braintree-web';
-
-const store = new Vuex.Store({
-    state: {
-        sponsored: [],
-        last: [],
-        lastsPage: 1,
-        sponsoredPage: 1,
-    },
-    mutations: {
-        retrieveSponsored(state, page) {
-            Axios.get(`api/houses/sponsored?page=${page}`)
-        .then(response => {
-            state.sponsored = response.data.sponsoredHouses.data;
-            // console.log(state.sponsored);
-        })
-        },
-        retrieveLasts(state, page) {
-            Axios.get(`api/houses/last?page=${page}`)
-        .then(response => {
-            state.last = response.data.houses.data;
-            // console.log(response)
-        })
-        },
-        incrementLastsPage(state) {
-            state.lastsPage++;
-            this.commit('retrieveLasts', state.lastsPage);
-        }
-    }
-});
-
-const app = new Vue({
-    el: '#app',
-    store,
-    render: h => h(App)
-})
-
-const dropin = require('braintree-web-drop-in');
-const button = document.querySelector('#submit-button');
-const hiddenNonceInput = document.querySelector('#prova')
-const form = document.querySelector('#form')
-
-
-dropin.create({
-    authorization: 'sandbox_gp967cyr_6gbmtt3qhmmnktb8',
-    container: '#dropin-container'
-    }, function (createErr, instance) {
-
-    button.addEventListener('click', function (e) {
-
-    e.preventDefault()
-
-    instance.requestPaymentMethod(function (requestPaymentMethodErr, payload) {
-
-        hiddenNonceInput.value = payload.nonce;
-        form.submit();
-
-        });
-    });
-});
-
-
-const hiding = document.querySelector(".toggle_form")
-const toggleFormButton = document.querySelector("#btn_toggle")
-
-toggleFormButton.addEventListener('click', ()=>{
-    hiding.classList.toggle("open")
-})
-
-window.addEventListener('resize', () => {
-    // console.log(window.innerWidth)
-    if(window.innerWidth > 576) {
-        hiding.classList = 'toggle_form';
-    }
-})
+window.Axios = require('axios');
+// window.Vue = require('vue');
 
 
