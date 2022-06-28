@@ -2261,7 +2261,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card-img-overlay.gradient[data-v-9647af16] {\n  background: linear-gradient(to bottom, transparent 0%, black 100%);\n}\n.card-img[data-v-9647af16] {\n  height: 15rem;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.custom-rounded[data-v-9647af16] {\n  border-radius: 1em;\n  overflow: hidden;\n}\n.card[data-v-9647af16] {\n  transition: transform 0.3s ease;\n}\n.card[data-v-9647af16]:hover {\n  transform: scale(1.05);\n}\n.pallina[data-v-9647af16] {\n  width: 10px;\n  height: 10px;\n  border-radius: 50%;\n  background: #fff;\n  margin: 0 5px;\n}\n.pallina.active[data-v-9647af16] {\n  background: grey;\n}\n.arrows[data-v-9647af16] {\n  -webkit-box-pack: center;\n  -webkit-box-align: center;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  display: inline-flex;\n  border-radius: 50%;\n  border: 1px solid rgba(0, 0, 0, 0.08);\n  outline: none;\n  color: rgb(34, 34, 34);\n  background-color: rgba(255, 255, 255, 0.9);\n  touch-action: manipulation;\n  align-items: center;\n  justify-content: center;\n  background-clip: padding-box;\n  box-shadow: transparent 0px 0px 0px 1px, transparent 0px 0px 0px 4px, rgba(0, 0, 0, 0.18) 0px 2px 4px;\n  transition: transform 0.25s ease 0s;\n  width: 32px;\n  height: 32px;\n}", ""]);
+exports.push([module.i, ".card-img-overlay.gradient[data-v-9647af16] {\n  background: linear-gradient(to bottom, transparent 0%, black 100%);\n}\n.card-img[data-v-9647af16] {\n  height: 15rem;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.custom-rounded[data-v-9647af16] {\n  border-radius: 1em;\n  overflow: hidden;\n}\n.card[data-v-9647af16] {\n  transition: transform 0.3s ease;\n}\n.card[data-v-9647af16]:hover {\n  transform: scale(1.05);\n}\nh1[data-v-9647af16] {\n  font-size: 1.3em;\n  font-weight: bold;\n}\n.pallina[data-v-9647af16] {\n  width: 10px;\n  height: 10px;\n  border-radius: 50%;\n  margin: 0 5px;\n  background: grey;\n}\n.pallina.active[data-v-9647af16] {\n  background: #fff;\n}\n.arrows[data-v-9647af16] {\n  -webkit-box-pack: center;\n  -webkit-box-align: center;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  display: inline-flex;\n  border-radius: 50%;\n  border: 1px solid rgba(0, 0, 0, 0.08);\n  outline: none;\n  color: rgb(34, 34, 34);\n  background-color: rgba(255, 255, 255, 0.9);\n  touch-action: manipulation;\n  align-items: center;\n  justify-content: center;\n  background-clip: padding-box;\n  box-shadow: transparent 0px 0px 0px 1px, transparent 0px 0px 0px 4px, rgba(0, 0, 0, 0.18) 0px 2px 4px;\n  transition: transform 0.25s ease 0s;\n  width: 32px;\n  height: 32px;\n}\n.arrows[data-v-9647af16]:hover {\n  filter: brightness(70%);\n}", ""]);
 
 // exports
 
@@ -3040,7 +3040,7 @@ function addStyle (obj, options) {
 	// If a transform function was defined, run it on the css
 	if (options.transform && obj.css) {
 	    result = typeof options.transform === 'function'
-		 ? options.transform(obj.css)
+		 ? options.transform(obj.css) 
 		 : options.transform.default(obj.css);
 
 	    if (result) {
@@ -17486,7 +17486,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   null,
   null,
   null
-
+  
 )
 
 /* hot reload */
@@ -17506,7 +17506,7 @@ component.options.__file = "resources/js/Views/App.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./App.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Views/App.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -17557,7 +17557,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   null,
   "9647af16",
   null
-
+  
 )
 
 /* hot reload */
@@ -17577,7 +17577,7 @@ component.options.__file = "resources/js/components/HouseCard.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HouseCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./HouseCard.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/HouseCard.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HouseCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HouseCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
