@@ -20,7 +20,6 @@ class HouseSponsorizationSeeder extends Seeder
           $sponsorization = Sponsorization::find($rand);
           $expiration = (clone $now)->add(new DateInterval("PT{$sponsorization->duration}H"));
           $house -> sponsorizations() -> attach([$rand => ['created_at' => $now, 'expiration_date' => $expiration]]);
-
         }
     }
 }

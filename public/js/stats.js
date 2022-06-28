@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -13585,7 +13585,7 @@ var myChart = new chart_js_auto__WEBPACK_IMPORTED_MODULE_0__["default"](ctx, {
 
 /***/ }),
 
-/***/ 7:
+/***/ 9:
 /*!*************************************!*\
   !*** multi ./resources/js/stats.js ***!
   \*************************************/
