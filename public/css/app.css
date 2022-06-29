@@ -22602,6 +22602,10 @@ body {
   padding: 0.5rem 0.7rem;
 }
 
+.mod_btn:hover {
+  cursor: pointer;
+}
+
 .btn_pink {
   border: solid 3px #FF385C;
   background-color: #FF385C;
@@ -22971,6 +22975,7 @@ body {
 }
 
 .sticky-main .show .toggle_form.open {
+  transition: 0.2s ease-in-out;
   padding-bottom: 6.5rem;
   overflow-Y: auto;
   opacity: 1;

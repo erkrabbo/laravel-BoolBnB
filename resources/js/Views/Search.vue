@@ -17,9 +17,9 @@
                     </div>
                 </form>
             </div>
-              <a class="btn btn-primary text-white mb-3" data-bs-toggle="collapse" href="#filtersCollapse" role="button" aria-expanded="false" aria-controls="filtersCollapse">Mostra filtri</a>
+              <a class="mod_btn btn_pink_border mb-3 inline_block" data-bs-toggle="collapse" href="#filtersCollapse" role="button" aria-expanded="false" aria-controls="filtersCollapse">Mostra filtri</a>
 
-              <div class="collapse multi-collapse" id="filtersCollapse">
+              <div class="collapse multi-collapse my-5" id="filtersCollapse">
                 <form @submit.prevent="setFilters()" ref="filterform">
                   <div class="form-group">
                       <label for="address">Raggio: </label>
@@ -28,28 +28,28 @@
                   </div>
                   <div class="form-group">
                       <label for="max_price">Prezzo massimo</label>
-                      <input type="number" class="form-control" id="max_price" ref="max_price" placeholder="Inserisci un prezzo massimo in €" v-model="maxPrice">
+                      <input type="number" class="form-control form_textbox" id="max_price" ref="max_price" placeholder="Inserisci un prezzo massimo in €" v-model="maxPrice">
                   </div>
                   <!-- <div class="form-group">
                       <label for="address">Servizi</label>
-                      <input type="text" class="form-control" id="address" ref="address" placeholder="Inserisci un indirizzo" v-model="services">
+                      <input type="text" class="form-control form_textbox" id="address" ref="address" placeholder="Inserisci un indirizzo" v-model="services">
                   </div> -->
                   <div class="form-group">
                       <label for="mq">Metri quadri</label>
-                      <input type="number" class="form-control" id="mq" ref="mq" placeholder="Inserisci un indirizzo" v-model = "meters">
+                      <input type="number" class="form-control form_textbox" id="mq" ref="mq" placeholder="Inserisci un indirizzo" v-model = "meters">
                   </div>
                   <div class="form-group">
                       <label for="beds">Posti letto</label>
-                      <input type="number" class="form-control" id="beds" ref="beds" placeholder="Inserisci un indirizzo" v-model="beds">
+                      <input type="number" class="form-control form_textbox" id="beds" ref="beds" placeholder="Inserisci un indirizzo" v-model="beds">
                   </div>
                   <div class="form-group">
                       <label for="checkIn">Check-in</label>
-                      <input type="date" class="form-control" id="checkIn" ref="checkIn" placeholder="Inserisci un indirizzo" v-model="checkIn">
+                      <input type="date" class="form-control form_textbox" id="checkIn" ref="checkIn" placeholder="Inserisci un indirizzo" v-model="checkIn">
                   </div>
                   <div class="form-group ">
                       <!-- <button v-for="service"></button> -->
-                    <a class="btn btn-primary text-white mb-3 me-3" data-bs-toggle="collapse" href="#servicesCollapse" role="button" aria-expanded="false" aria-controls="servicesCollapse">Mostra servizi</a>
-                    <a class="btn btn-success text-white mb-3" @click.prevent="setFilters()">Filtra</a>
+                    <a class="mod_btn btn_grey_border inline_block mb-3 me-3" data-bs-toggle="collapse" href="#servicesCollapse" role="button" aria-expanded="false" aria-controls="servicesCollapse">Mostra servizi</a>
+                    <a class="mod_btn btn_pink inline_block mb-3" @click.prevent="setFilters()">Filtra</a>
                     <div class="collapse multi-collapse" id="servicesCollapse">
                         <div class="row">
                             <div v-for="service in selServices" :key="service.id" class="col-auto p-3">
@@ -263,5 +263,9 @@ export default {
             color: white;
         }
     }
+ }
+
+ .inline_block {
+    display: inline-block;
  }
 </style>

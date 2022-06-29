@@ -3014,7 +3014,7 @@ function addStyle (obj, options) {
 	// If a transform function was defined, run it on the css
 	if (options.transform && obj.css) {
 	    result = typeof options.transform === 'function'
-		 ? options.transform(obj.css) 
+		 ? options.transform(obj.css)
 		 : options.transform.default(obj.css);
 
 	    if (result) {
@@ -3415,7 +3415,7 @@ var render = function () {
           _c(
             "a",
             {
-              staticClass: "btn btn-primary text-white mb-3",
+              staticClass: "mod_btn btn_pink_border mb-3 inline_block",
               attrs: {
                 "data-bs-toggle": "collapse",
                 href: "#filtersCollapse",
@@ -3430,11 +3430,11 @@ var render = function () {
           _c(
             "div",
             {
+<<<<<<< HEAD
               staticClass: "collapse multi-collapse",
-              attrs: { id: "filtersCollapse" },
-            },
+=======
+              staticClass: "collapse multi-collapse my-5",
             [
-              _c(
                 "form",
                 {
                   ref: "filterform",
@@ -3498,7 +3498,11 @@ var render = function () {
                         },
                       ],
                       ref: "max_price",
+<<<<<<< HEAD
                       staticClass: "form-control",
+=======
+                      staticClass: "form-control form_textbox",
+>>>>>>> style
                       attrs: {
                         type: "number",
                         id: "max_price",
@@ -3531,7 +3535,11 @@ var render = function () {
                         },
                       ],
                       ref: "mq",
+<<<<<<< HEAD
                       staticClass: "form-control",
+=======
+                      staticClass: "form-control form_textbox",
+>>>>>>> style
                       attrs: {
                         type: "number",
                         id: "mq",
@@ -3564,7 +3572,11 @@ var render = function () {
                         },
                       ],
                       ref: "beds",
+<<<<<<< HEAD
                       staticClass: "form-control",
+=======
+                      staticClass: "form-control form_textbox",
+>>>>>>> style
                       attrs: {
                         type: "number",
                         id: "beds",
@@ -3597,7 +3609,11 @@ var render = function () {
                         },
                       ],
                       ref: "checkIn",
+<<<<<<< HEAD
                       staticClass: "form-control",
+=======
+                      staticClass: "form-control form_textbox",
+>>>>>>> style
                       attrs: {
                         type: "date",
                         id: "checkIn",
@@ -3619,7 +3635,12 @@ var render = function () {
                     _c(
                       "a",
                       {
+<<<<<<< HEAD
                         staticClass: "btn btn-primary text-white mb-3 me-3",
+=======
+                        staticClass:
+                          "mod_btn btn_grey_border inline_block mb-3 me-3",
+>>>>>>> style
                         attrs: {
                           "data-bs-toggle": "collapse",
                           href: "#servicesCollapse",
@@ -3634,7 +3655,11 @@ var render = function () {
                     _c(
                       "a",
                       {
+<<<<<<< HEAD
                         staticClass: "btn btn-success text-white mb-3",
+=======
+                        staticClass: "mod_btn btn_pink inline_block mb-3",
+>>>>>>> style
                         on: {
                           click: function ($event) {
                             $event.preventDefault()
@@ -15944,7 +15969,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   null,
   "39d318f2",
   null
-  
+
 )
 
 /* hot reload */
@@ -15964,7 +15989,7 @@ component.options.__file = "resources/js/Views/search.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_search_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./search.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Views/search.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_search_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_search_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 /***/ }),
 
@@ -16032,7 +16057,7 @@ var search = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\php\laravel-BoolBnB\resources\js\search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! C:\Users\user\Desktop\boolean\progetto-finale\laravel-BoolBnB\resources\js\search.js */"./resources/js/search.js");
 
 
 /***/ })

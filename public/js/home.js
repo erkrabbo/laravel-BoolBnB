@@ -2261,7 +2261,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card-img-overlay.gradient[data-v-9647af16] {\n  background: linear-gradient(to bottom, transparent 0%, black 100%);\n}\n.card-img[data-v-9647af16] {\n  height: 15rem;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.custom-rounded[data-v-9647af16] {\n  border-radius: 1em;\n  overflow: hidden;\n}\n.card[data-v-9647af16] {\n  transition: transform 0.3s ease;\n}\n.card[data-v-9647af16]:hover {\n  transform: scale(1.05);\n}\n.pallina[data-v-9647af16] {\n  width: 10px;\n  height: 10px;\n  border-radius: 50%;\n  background: #fff;\n  margin: 0 5px;\n}\n.pallina.active[data-v-9647af16] {\n  background: grey;\n}\n.arrows[data-v-9647af16] {\n  -webkit-box-pack: center;\n  -webkit-box-align: center;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  display: inline-flex;\n  border-radius: 50%;\n  border: 1px solid rgba(0, 0, 0, 0.08);\n  outline: none;\n  color: rgb(34, 34, 34);\n  background-color: rgba(255, 255, 255, 0.9);\n  touch-action: manipulation;\n  align-items: center;\n  justify-content: center;\n  background-clip: padding-box;\n  box-shadow: transparent 0px 0px 0px 1px, transparent 0px 0px 0px 4px, rgba(0, 0, 0, 0.18) 0px 2px 4px;\n  transition: transform 0.25s ease 0s;\n  width: 32px;\n  height: 32px;\n}", ""]);
+exports.push([module.i, ".card-img-overlay.gradient[data-v-9647af16] {\n  background: linear-gradient(to bottom, transparent 0%, black 100%);\n}\n.card-img[data-v-9647af16] {\n  height: 15rem;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.custom-rounded[data-v-9647af16] {\n  border-radius: 1em;\n  overflow: hidden;\n}\n.card[data-v-9647af16] {\n  transition: transform 0.3s ease;\n}\n.card[data-v-9647af16]:hover {\n  transform: scale(1.05);\n}\nh1[data-v-9647af16] {\n  font-size: 1.3em;\n  font-weight: bold;\n}\n.pallina[data-v-9647af16] {\n  width: 10px;\n  height: 10px;\n  border-radius: 50%;\n  margin: 0 5px;\n  background: grey;\n}\n.pallina.active[data-v-9647af16] {\n  background: #fff;\n}\n.arrows[data-v-9647af16] {\n  -webkit-box-pack: center;\n  -webkit-box-align: center;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  display: inline-flex;\n  border-radius: 50%;\n  border: 1px solid rgba(0, 0, 0, 0.08);\n  outline: none;\n  color: rgb(34, 34, 34);\n  background-color: rgba(255, 255, 255, 0.9);\n  touch-action: manipulation;\n  align-items: center;\n  justify-content: center;\n  background-clip: padding-box;\n  box-shadow: transparent 0px 0px 0px 1px, transparent 0px 0px 0px 4px, rgba(0, 0, 0, 0.18) 0px 2px 4px;\n  transition: transform 0.25s ease 0s;\n  width: 32px;\n  height: 32px;\n}\n.arrows[data-v-9647af16]:hover {\n  filter: brightness(70%);\n}\n.arrows[data-v-9647af16]:active {\n  filter: brightness(50%);\n}", ""]);
 
 // exports
 
@@ -3588,7 +3588,8 @@ var render = function () {
                   _c("div", { staticClass: "text-start" }, [
                     _c("h5", [
                       _vm._v(
-                        _vm._s(Math.round(_vm.house.Night_price)) + " €/notte"
+                        _vm._s(Math.round(_vm.house.Night_price / 100)) +
+                          " €/notte"
                       ),
                     ]),
                     _vm._v(" "),
@@ -17703,7 +17704,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\php\laravel-BoolBnB\resources\js\home.js */"./resources/js/home.js");
+module.exports = __webpack_require__(/*! C:\Users\user\Desktop\boolean\progetto-finale\laravel-BoolBnB\resources\js\home.js */"./resources/js/home.js");
 
 
 /***/ })
