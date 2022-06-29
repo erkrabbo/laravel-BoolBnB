@@ -16,7 +16,6 @@ return[
     'Via Francesconi, 13, 30175 Venezia VE',
     'Via Ugo Foscolo, 10040 San Gillio TO',
     'Via Meucci, 1-10, 10040 San Gillio TO',
-    'Via Calcarata, 40010 San Giorgio di piano BO',
     'Via Santa Maria in Duno, 40010 Bentivoglio BO',
     'Via degli Erizzo, 1, 20148 Milano MI',
     'Via dei Frangipani, 6, 20148 Milano MI',

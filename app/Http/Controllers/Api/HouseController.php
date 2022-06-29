@@ -56,7 +56,7 @@ class HouseController extends Controller
         ]);
     }
     public function search(Request $request) {
-        $houses = $this->filterHouses($request)->get();
+        $houses = $this->filterHouses($request)->orderBy('created_at', 'desc')->get();
         $services = Service::all();
 
         return response()->json([

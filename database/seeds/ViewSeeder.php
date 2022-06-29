@@ -24,7 +24,7 @@ class ViewSeeder extends Seeder
                 View::create([
                     'IP_address' => strval(mt_rand(0, 255) . "." . mt_rand(0, 255) . "." . mt_rand(0, 255) . "." . mt_rand(0, 255)),
                     'house_id'   => $house->id,
-                    'created_at' => $faker->dateTimeBetween('-1 week', 'now')
+                    'created_at' => $faker->dateTimeBetween('-1 year', 'now')
                 ]);
             }
 
