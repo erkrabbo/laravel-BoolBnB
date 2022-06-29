@@ -3477,9 +3477,9 @@ var render = function () {
                       },
                     }),
                     _vm._v(
-                      "\n                      " +
+                      "\r\n                      " +
                         _vm._s(_vm.mpd) +
-                        "\n                  "
+                        "\r\n                  "
                     ),
                   ]),
                   _vm._v(" "),

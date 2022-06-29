@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -104,7 +104,7 @@ var deleteButtons = document.querySelectorAll('[data-image]').forEach(function (
 
 /***/ }),
 
-/***/ 7:
+/***/ 8:
 /*!*******************************************!*\
   !*** multi ./resources/js/deleteHouse.js ***!
   \*******************************************/

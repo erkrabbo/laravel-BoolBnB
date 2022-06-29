@@ -22975,6 +22975,7 @@ body {
 }
 
 .sticky-main .show .toggle_form.open {
+  transition: 0.2s ease-in-out;
   padding-bottom: 6.5rem;
   overflow-Y: auto;
   opacity: 1;

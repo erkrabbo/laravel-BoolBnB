@@ -131,7 +131,7 @@
             {{-- visibile solo su telefono
                 d-block d-sm-none
                 --}}
-            <div class="toggle_form">
+            <div class="toggle_form px-3">
                 <form action="{{route('send')}}" method="post">
                     @csrf
                     <h2 class="text-center text-uppercase pb-4 pt-3 section_title">Contatta l'host</h2>
