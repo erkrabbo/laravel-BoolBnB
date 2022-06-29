@@ -77,12 +77,12 @@ form.addEventListener('submit', (e) => {
     errorScroll = errorNightPrice.offsetTop - 140
 
   } else if (available_from.value < todayDate) {
-    errorAvailableFrom.innerHTML = 'La disponibilità non può essere precedente alla data odierna'
+    errorAvailableFrom.innerHTML = 'La data di disponibilità è obbligatoria e non può essere precedente alla data odierna'
     errorAvailableFrom.classList.add('balloon')
     errorScroll = errorAvailableFrom.offsetTop - 140
 
   } else if (available_to.value < available_from.value) {
-    errorAvailableTo.innerHTML = 'La data di fine disponibilità non può essere precedente alla data di inizio disponibilità'
+    errorAvailableTo.innerHTML = 'La data di fine disponibilità è obbligatoria e non può essere precedente alla data di inizio disponibilità'
     errorAvailableTo.classList.add('balloon')
     errorScroll = errorAvailableTo.offsetTop - 140
   } 

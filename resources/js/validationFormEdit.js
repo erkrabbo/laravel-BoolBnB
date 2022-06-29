@@ -77,7 +77,7 @@ form.addEventListener('submit', (e) => {
     errorScroll = errorNightPrice.offsetTop - 140
 
   } else if (available_to.value < available_from.value) {
-    errorAvailableTo.innerHTML = 'La data di fine disponibilità non può essere precedente alla data di inizio disponibilità'
+    errorAvailableTo.innerHTML = 'La data di fine disponibilità è obbligatoria e non può essere precedente alla data di inizio disponibilità'
     errorAvailableTo.classList.add('balloon')
     errorScroll = errorAvailableTo.offsetTop - 140
   } 
