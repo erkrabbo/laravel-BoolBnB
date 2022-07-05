@@ -13592,7 +13592,7 @@ var myChart = new chart_js_auto__WEBPACK_IMPORTED_MODULE_0__["default"](ctx, {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\user\Desktop\boolean\progetto-finale\laravel-BoolBnB\resources\js\stats.js */"./resources/js/stats.js");
+module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\php\laravel-BoolBnB\resources\js\stats.js */"./resources/js/stats.js");
 
 
 /***/ })

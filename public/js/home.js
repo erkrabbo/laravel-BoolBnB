@@ -3588,8 +3588,7 @@ var render = function () {
                   _c("div", { staticClass: "text-start" }, [
                     _c("h5", [
                       _vm._v(
-                        _vm._s(Math.round(_vm.house.Night_price / 100)) +
-                          " €/notte"
+                        _vm._s(Math.round(_vm.house.Night_price)) + " €/notte"
                       ),
                     ]),
                     _vm._v(" "),
@@ -17704,7 +17703,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\user\Desktop\boolean\progetto-finale\laravel-BoolBnB\resources\js\home.js */"./resources/js/home.js");
+module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\php\laravel-BoolBnB\resources\js\home.js */"./resources/js/home.js");
 
 
 /***/ })
